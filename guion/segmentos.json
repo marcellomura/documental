@@ -1,0 +1,72 @@
+{
+  "titulo": "13 CEROS: por qué los argentinos no confían en su propia moneda",
+  "canal": "CONTEXTO",
+  "voz": {
+    "proveedor": "ElevenLabs",
+    "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+    "nombre": "Carlos Pro - Argentinian Documentary & Radio",
+    "modelo": "eleven_multilingual_v2"
+  },
+  "segmentos": [
+    {
+      "id": "s01",
+      "nombre": "Hook: los dólares escondidos",
+      "texto": "En algún lugar de tu casa, o de la casa de tus viejos, probablemente haya dólares escondidos. Adentro de un libro. En una lata de galletitas. En el freezer. Debajo del colchón. Y no es un chiste: según el INDEC, los argentinos tienen más de doscientos veinte mil millones de dólares fuera del sistema. Es más de cinco veces lo que tiene el Banco Central en sus reservas. Hace una semana, el Congreso aprobó una ley para intentar que esos dólares salgan a la luz. Pero la verdadera pregunta es otra: ¿por qué un país entero decidió que su propia moneda... no sirve para ahorrar?"
+    },
+    {
+      "id": "s02",
+      "nombre": "Título: contar ceros",
+      "texto": "Para entenderlo, hay que contar ceros. Porque la historia del peso argentino es la historia de trece ceros que desaparecieron. Y cada uno de esos ceros... es una promesa rota."
+    },
+    {
+      "id": "s03",
+      "nombre": "Los 13 ceros",
+      "texto": "Si hoy quisieras convertir un peso a la moneda de tus bisabuelos, el peso moneda nacional, necesitarías diez billones. Un uno, seguido de trece ceros. En mil novecientos setenta, le sacaron dos ceros: nació el peso ley. En el ochenta y tres, cuatro más: el peso argentino. En el ochenta y cinco, tres más: el austral. Y en el noventa y dos, otros cuatro: el peso de hoy. Cuatro monedas nuevas en veintidós años."
+    },
+    {
+      "id": "s04",
+      "nombre": "Qué es la inflación",
+      "texto": "¿Por qué pasa esto? Versión corta: cuando un gobierno gasta más de lo que recauda, y lo cubre imprimiendo billetes, hay más pesos persiguiendo las mismas cosas. Y los precios suben. Eso es inflación. Así, cada argentino aprendió una regla: el peso es para gastar. El dólar... es para ahorrar."
+    },
+    {
+      "id": "s05",
+      "nombre": "1981: El que apuesta al dólar pierde",
+      "texto": "Y en mil novecientos ochenta y uno llegó una lección inolvidable. El ministro de Economía, Lorenzo Sigaut, quiso calmar al mercado con una frase: «El que apuesta al dólar, pierde». Días después, el gobierno devaluó el peso un treinta por ciento. Los que compraron dólares no perdieron. Ganaron. Y los que le creyeron al ministro... aprendieron."
+    },
+    {
+      "id": "s06",
+      "nombre": "1989: Hiperinflación",
+      "texto": "Pero lo peor estaba por venir. En mil novecientos ochenta y nueve llegó la hiperinflación. Solo en julio, los precios subieron casi un doscientos por ciento. En un mes. Imaginate: cobrás el sueldo, y a los pocos días vale la mitad. Ese año, la inflación superó el tres mil por ciento."
+    },
+    {
+      "id": "s07",
+      "nombre": "1991: Convertibilidad",
+      "texto": "Entonces apareció una idea que parecía mágica. En mil novecientos noventa y uno, con Domingo Cavallo en Economía, llegó la Convertibilidad: por ley, un peso valía un dólar. Uno a uno. La inflación se desplomó, y por fin, los argentinos confiaron en los bancos. Depositaron sus ahorros. En dólares. Spoiler: no terminó bien."
+    },
+    {
+      "id": "s08",
+      "nombre": "2001: Corralito",
+      "texto": "Para sostener el uno a uno hacían falta dólares. Y cuando dejaron de entrar, el país se endeudó. Y se endeudó. Y se endeudó más. A fines de dos mil uno, empezó una corrida bancaria. Y el primero de diciembre llegó el corralito: solo podías retirar doscientos cincuenta pesos por semana. Tu plata estaba en el banco... pero ya no era tuya. Diecinueve días después, el país estalló. Saqueos, cacerolazos, represión. Treinta y nueve muertos. De la Rúa renunció y se fue de la Casa Rosada en helicóptero. En menos de dos semanas, hubo cinco presidentes."
+    },
+    {
+      "id": "s09",
+      "nombre": "2002: Pesificación",
+      "texto": "En enero de dos mil dos, Eduardo Duhalde prometió: «El que depositó dólares, recibirá dólares». No pasó. Los depósitos en dólares se pesificaron a uno cuarenta, mientras el dólar en la calle se iba a casi cuatro. Una generación entera de ahorristas vio sus ahorros achicarse por decreto. Y se rompió algo más profundo que la moneda: la confianza en los bancos."
+    },
+    {
+      "id": "s10",
+      "nombre": "La lección: colchón, cepo y el zoológico de dólares",
+      "texto": "Así, cada familia aprendió dos reglas. No confíes en el peso: se desvaloriza. No confíes en el banco: te lo pueden quitar. ¿Entonces? Comprás dólares... y los guardás en casa. En dos mil once, para frenar eso, llegó el cepo. Y con él, el dólar blue: el de la cueva y el arbolito. Para dos mil veintidós, era surrealista: dólar oficial, blue, MEP, contado con liqui, tarjeta, soja... hasta un dólar Catar y un dólar Coldplay. Unas quince cotizaciones para el mismo billete."
+    },
+    {
+      "id": "s11",
+      "nombre": "Hoy",
+      "texto": "¿Y hoy? En dos mil uno, un dólar costaba un peso. Hoy, más de mil quinientos. La inflación bajó: de más de doscientos por ciento en dos mil veintitrés, a treinta y uno coma cinco en dos mil veinticinco. El cepo para ahorristas se levantó. Y ahora, la ley de Inocencia Fiscal dos busca que los dólares del colchón vuelvan al sistema. Pero mirá este dato: en el primer trimestre de dos mil veintiséis, los dólares fuera del sistema no bajaron. Subieron."
+    },
+    {
+      "id": "s12",
+      "nombre": "Cierre + próximo video",
+      "texto": "Porque en la Argentina, el dólar no es solo una moneda. Es un seguro. Es un refugio. Es la memoria de un país que aprendió, a los golpes, que las promesas se rompen. Trece ceros. Cinco monedas. Un corralito. La pregunta no es por qué los argentinos aman el dólar. La pregunta es: ¿qué tendría que pasar para que vuelvan a confiar en el peso? Contanos en los comentarios, y suscribite. Porque en el próximo video: cómo una banda robó un banco en Acassuso, dejó una nota burlona... y se escapó en gomón por las alcantarillas."
+    }
+  ]
+}
