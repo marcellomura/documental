@@ -1,0 +1,68 @@
+{
+  "titulo": "EL ROBO DEL SIGLO: el golpe más rockero de la historia argentina",
+  "canal": "CONTEXTO",
+  "episodio": 2,
+  "voz": {
+    "proveedor": "ElevenLabs",
+    "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+    "nombre": "Carlos Pro - Argentinian Documentary & Radio",
+    "modelo": "eleven_multilingual_v2"
+  },
+  "segmentos": [
+    {
+      "id": "s01",
+      "nombre": "Cold open",
+      "texto": "Viernes trece de enero de dos mil seis. Mediodía. Acassuso, zona norte. Casas enormes, árboles enormes... y un banco. En unas horas, afuera va a haber trescientos policías, francotiradores y cámaras transmitiendo en vivo. Y adentro... no va a quedar nadie. Porque los ladrones se van a ir por el piso. Sin disparar un solo tiro. Esta es la historia del robo del siglo."
+    },
+    {
+      "id": "s02",
+      "nombre": "Track 1: La idea",
+      "texto": "Todo empezó con una pregunta. Y con humo. Fernando Araujo era artista plástico, profesor de karate... y cultivaba marihuana en su departamento de Olivos. Y un día, en pleno viaje, se preguntó: ¿cómo se roba un banco... haciendo el menor daño posible? La respuesta: sin armas de verdad, sin violencia... y con una salida que nadie iba a vigilar. Por abajo."
+    },
+    {
+      "id": "s03",
+      "nombre": "Track 2: La banda",
+      "texto": "Para eso necesitaba una banda. Y armó una de película. Beto de la Torre: ladrón con experiencia. Sebastián García Bolster, el Ingeniero: el de los motores. Mario Vitette Sellanes, un uruguayo con pinta de gerente: el negociador. El Paisa, al volante. Y un par más... que la Justicia nunca atrapó."
+    },
+    {
+      "id": "s04",
+      "nombre": "Track 3: El túnel",
+      "texto": "El secreto estaba abajo de la calle Perú. Por ahí pasa un desagüe pluvial, un conducto enorme para el agua de lluvia. Durante meses, la banda trabajó ahí abajo, a oscuras, cavando un túnel desde el desagüe hasta el subsuelo del banco. Justo abajo de la bóveda. Justo abajo de las cajas de seguridad. Sí: las mismas cajas donde, como vimos en el video anterior, los argentinos guardan lo que no confían en dejar en el banco. Dólares. Joyas. Ahorros de toda una vida."
+    },
+    {
+      "id": "s05",
+      "nombre": "Track 4: El golpe",
+      "texto": "Viernes trece, pasado el mediodía. Entra uno disfrazado de médico, con guardapolvo y peluca. Entra otro de traje gris, impecable. Sacan las armas y toman veintitrés rehenes. Las armas... eran de juguete. En minutos, la cuadra se llena de patrulleros. Llega el Grupo Halcón. Francotiradores en los techos. Trescientos policías. Y ahí aparece la estrella del show: el hombre del traje gris."
+    },
+    {
+      "id": "s06",
+      "nombre": "Track 5: El show del traje gris",
+      "texto": "Mario Vitette agarró el teléfono y empezó a negociar con la policía. Tranquilo. Amable. Sin apuro. Pedía tiempo, liberaba un rehén, pedía más tiempo. Pidió pizzas y gaseosas para todos. Y hasta le cantaron el feliz cumpleaños a una de las rehenes. Afuera, la policía creía que estaba manejando una toma de rehenes. Pero en realidad, estaba viendo un show. Porque mientras Vitette hablaba, abajo, en el subsuelo, el resto de la banda abría cajas de seguridad. Una. Tras otra. Tras otra. Ciento cuarenta y tres."
+    },
+    {
+      "id": "s07",
+      "nombre": "Track 6: La fuga",
+      "texto": "A media tarde, cargaron el botín, bajaron por el agujero y se metieron en el desagüe. Ahí los esperaban dos botes inflables, con un motor fabricado por el Ingeniero. Y así, navegando por abajo de la ciudad, pasaron por debajo de los trescientos policías... y salieron por una alcantarilla, a varias cuadras. Arriba, los esperaba una camioneta con un agujero en el piso, estacionada justo encima. Subieron. Arrancaron. Chau."
+    },
+    {
+      "id": "s08",
+      "nombre": "Track 7: El cartel",
+      "texto": "Afuera, la policía seguía esperando. Pasaron las horas. Silencio. Cerca de las siete de la tarde, el Grupo Halcón entró. Encontró a los rehenes, sanos y salvos. Encontró las armas de juguete. Encontró más de cien cajas vacías. Y en la bóveda, un cartel: «En barrio de ricachones, sin armas ni rencores, es sólo plata y no amores». De los ladrones... ni rastro."
+    },
+    {
+      "id": "s09",
+      "nombre": "Track 8: Los celos",
+      "texto": "¿Cuánto se llevaron? Se calcula que unos diecinueve millones de dólares. El plan era perfecto. Casi. Porque a esta banda no la atrapó la policía. La atraparon... los celos. La pareja de Beto de la Torre, convencida de que él la iba a dejar por otra, fue a la Justicia y contó todo. Nombres. Direcciones. Todo. En pocos meses, cayeron casi todos."
+    },
+    {
+      "id": "s10",
+      "nombre": "Track 9: Bonus track",
+      "texto": "En dos mil diez, la Justicia los condenó a penas de entre nueve y quince años. A Vitette, por este y otros robos, le dieron veintiuno. Hoy están todos libres. Y la historia tuvo un final que solo podía pasar acá: en dos mil veinte se estrenó la película, con Guillermo Francella y Diego Peretti. La vieron más de dos millones de personas. ¿Y quién escribió el guion? El mismísimo Fernando Araujo."
+    },
+    {
+      "id": "s11",
+      "nombre": "Cierre",
+      "texto": "¿Fue el robo perfecto? Sin tiros. Sin heridos. Con un cartel de despedida y una fuga en gomón. Pero del otro lado, hubo gente que perdió los ahorros de toda su vida. Porque en la Argentina, la plata no está segura en el banco... ni abajo del banco. Si te gustó, suscribite, y contanos en los comentarios qué caso querés que contemos. Nos vemos en el próximo video."
+    }
+  ]
+}

@@ -2,7 +2,9 @@
 import json, os, re, difflib, unicodedata
 from faster_whisper import WhisperModel
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-G = json.load(open(os.path.join(ROOT, "guion", "segmentos.json")))
+EP = os.environ.get("EP", "")
+G = json.load(open(os.path.join(ROOT, "guion", os.environ.get("GUION", "segmentos.json"))))
+AUD = os.path.join(ROOT, "audio", EP, "final") if EP else os.path.join(ROOT, "audio", "final")
 model = WhisperModel("small", device="cpu", compute_type="int8")
 
 def norm(w):
@@ -13,7 +15,7 @@ def norm(w):
 out = {}
 for s in G["segmentos"]:
     sid = s["id"]
-    wav = os.path.join(ROOT, "audio", "final", f"{sid}.wav")
+    wav = os.path.join(AUD, f"{sid}.wav")
     segs, _ = model.transcribe(wav, language="es", word_timestamps=True, initial_prompt=s["texto"], beam_size=5)
     rec = [w for seg in segs for w in seg.words]
     script = s["texto"].split()
@@ -37,4 +39,4 @@ for s in G["segmentos"]:
     out[sid] = [{"w": w, "s": round(t[0],3), "e": round(t[1],3)} for w, t in zip(script, times)]
     miss = sum(1 for tag,i1,i2,_,_ in sm.get_opcodes() if tag!="equal" for _ in range(i2-i1))
     print(sid, len(script), "palabras,", miss, "no exactas | rec:", " ".join(w.word for w in rec)[:120])
-json.dump(out, open(os.path.join(ROOT, "audio", "final", "words.json"), "w"), ensure_ascii=False, indent=0)
+json.dump(out, open(os.path.join(AUD, "words.json"), "w"), ensure_ascii=False, indent=0)

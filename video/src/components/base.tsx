@@ -13,6 +13,9 @@ const FONTS: [string, string, FontFaceDescriptors][] = [
   ['JetBrains Mono', 'JetBrainsMono-VF.ttf', {weight: '100 800'}],
   ['Archivo Black', 'ArchivoBlack-Regular.ttf', {}],
   ['Caveat', 'Caveat-VF.ttf', {weight: '400 700'}],
+  ['Special Elite', 'SpecialElite-Regular.ttf', {}],
+  ['Rock Salt', 'RockSalt-Regular.ttf', {}],
+  ['Bungee', 'Bungee-Regular.ttf', {}],
 ];
 if (typeof document !== 'undefined' && !(window as any).__fontsLoading) {
   (window as any).__fontsLoading = true;

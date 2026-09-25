@@ -2,7 +2,7 @@
 import sys, re, time, json, os, urllib.parse, urllib.request, hashlib
 UA = "DocumentalProject/1.0 (https://github.com/marcellomura/documental)"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "video", "public", "img"); CRED = os.path.join(OUT, "creditos.json")
+OUT = os.path.join(ROOT, "video", "public", os.environ.get("IMGDIR", "img")); CRED = os.path.join(OUT, "creditos.json")
 cred = json.load(open(CRED)) if os.path.exists(CRED) else {}
 def get(url, binary=False):
     req = urllib.request.Request(url, headers={"User-Agent": UA})

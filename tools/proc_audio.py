@@ -4,8 +4,10 @@ import subprocess, numpy as np, json, os, sys
 SR = 44100
 TEMPO = float(os.environ.get("TEMPO", "1.10"))
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-A = os.path.join(ROOT, "audio")
+EP = os.environ.get("EP", "")
+A = os.path.join(ROOT, "audio", EP) if EP else os.path.join(ROOT, "audio")
 OUT = os.path.join(A, "final"); os.makedirs(OUT, exist_ok=True)
+NSEG = int(os.environ.get("NSEG", "12"))
 
 def decode(p):
     raw = subprocess.run(["ffmpeg","-v","error","-i",p,"-ac","1","-ar",str(SR),"-f","f32le","-"],
@@ -46,7 +48,7 @@ def compact(x):
     return y
 
 info = {}
-for k in range(1,13):
+for k in range(1, NSEG + 1):
     sid = f"s{k:02d}"
     x = decode(os.path.join(A, f"{sid}_raw.mp3"))
     y = compact(x)

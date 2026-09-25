@@ -4,3 +4,4 @@ audio/final/*.wav
 audio/mix/
 *.f32
 __pycache__/
+audio/ep02/final/*.wav
