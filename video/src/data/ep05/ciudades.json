@@ -1,0 +1,872 @@
+{
+"Buenos Aires": {
+"lat": -34.603,
+"lon": -58.381,
+"jun21": {
+"sunrise": "08:00",
+"noon": "12:55",
+"sunset": "17:50"
+},
+"dec21": {
+"sunrise": "05:37",
+"noon": "12:51",
+"sunset": "20:05"
+},
+"feb12": {
+"sunrise": "06:25",
+"noon": "13:07",
+"sunset": "19:49"
+},
+"nov3": {
+"sunrise": "05:50",
+"noon": "12:37",
+"sunset": "19:24"
+},
+"sep25": {
+"sunrise": "06:38",
+"noon": "12:45",
+"sunset": "18:52"
+}
+},
+"La Plata": {
+"lat": -34.921,
+"lon": -57.955,
+"jun21": {
+"sunrise": "07:59",
+"noon": "12:53",
+"sunset": "17:47"
+},
+"dec21": {
+"sunrise": "05:34",
+"noon": "12:49",
+"sunset": "20:05"
+},
+"feb12": {
+"sunrise": "06:23",
+"noon": "13:06",
+"sunset": "19:48"
+},
+"nov3": {
+"sunrise": "05:47",
+"noon": "12:35",
+"sunset": "19:23"
+},
+"sep25": {
+"sunrise": "06:37",
+"noon": "12:43",
+"sunset": "18:50"
+}
+},
+"Córdoba": {
+"lat": -31.42,
+"lon": -64.188,
+"jun21": {
+"sunrise": "08:15",
+"noon": "13:18",
+"sunset": "18:21"
+},
+"dec21": {
+"sunrise": "06:09",
+"noon": "13:14",
+"sunset": "20:20"
+},
+"feb12": {
+"sunrise": "06:53",
+"noon": "13:30",
+"sunset": "20:08"
+},
+"nov3": {
+"sunrise": "06:18",
+"noon": "13:00",
+"sunset": "19:42"
+},
+"sep25": {
+"sunrise": "07:02",
+"noon": "13:08",
+"sunset": "19:14"
+}
+},
+"Rosario": {
+"lat": -32.947,
+"lon": -60.639,
+"jun21": {
+"sunrise": "08:05",
+"noon": "13:04",
+"sunset": "18:03"
+},
+"dec21": {
+"sunrise": "05:51",
+"noon": "13:00",
+"sunset": "20:10"
+},
+"feb12": {
+"sunrise": "06:36",
+"noon": "13:16",
+"sunset": "19:56"
+},
+"nov3": {
+"sunrise": "06:01",
+"noon": "12:46",
+"sunset": "19:30"
+},
+"sep25": {
+"sunrise": "06:48",
+"noon": "12:54",
+"sunset": "19:00"
+}
+},
+"Mendoza": {
+"lat": -32.889,
+"lon": -68.845,
+"jun21": {
+"sunrise": "08:38",
+"noon": "13:37",
+"sunset": "18:36"
+},
+"dec21": {
+"sunrise": "06:24",
+"noon": "13:33",
+"sunset": "20:43"
+},
+"feb12": {
+"sunrise": "07:09",
+"noon": "13:49",
+"sunset": "20:29"
+},
+"nov3": {
+"sunrise": "06:34",
+"noon": "13:18",
+"sunset": "20:03"
+},
+"sep25": {
+"sunrise": "07:20",
+"noon": "13:27",
+"sunset": "19:33"
+}
+},
+"San Juan": {
+"lat": -31.537,
+"lon": -68.525,
+"jun21": {
+"sunrise": "08:33",
+"noon": "13:35",
+"sunset": "18:38"
+},
+"dec21": {
+"sunrise": "06:26",
+"noon": "13:31",
+"sunset": "20:38"
+},
+"feb12": {
+"sunrise": "07:10",
+"noon": "13:48",
+"sunset": "20:25"
+},
+"nov3": {
+"sunrise": "06:35",
+"noon": "13:17",
+"sunset": "20:00"
+},
+"sep25": {
+"sunrise": "07:19",
+"noon": "13:25",
+"sunset": "19:32"
+}
+},
+"San Luis": {
+"lat": -33.301,
+"lon": -66.338,
+"jun21": {
+"sunrise": "08:29",
+"noon": "13:27",
+"sunset": "18:25"
+},
+"dec21": {
+"sunrise": "06:12",
+"noon": "13:23",
+"sunset": "20:34"
+},
+"feb12": {
+"sunrise": "06:58",
+"noon": "13:39",
+"sunset": "20:19"
+},
+"nov3": {
+"sunrise": "06:23",
+"noon": "13:08",
+"sunset": "19:54"
+},
+"sep25": {
+"sunrise": "07:10",
+"noon": "13:17",
+"sunset": "19:23"
+}
+},
+"Neuquén": {
+"lat": -38.952,
+"lon": -68.059,
+"jun21": {
+"sunrise": "08:51",
+"noon": "13:33",
+"sunset": "18:16"
+},
+"dec21": {
+"sunrise": "06:03",
+"noon": "13:30",
+"sunset": "20:57"
+},
+"feb12": {
+"sunrise": "06:56",
+"noon": "13:46",
+"sunset": "20:35"
+},
+"nov3": {
+"sunrise": "06:20",
+"noon": "13:15",
+"sunset": "20:11"
+},
+"sep25": {
+"sunrise": "07:16",
+"noon": "13:24",
+"sunset": "19:31"
+}
+},
+"El Calafate": {
+"lat": -50.338,
+"lon": -72.265,
+"jun21": {
+"sunrise": "09:50",
+"noon": "13:50",
+"sunset": "17:51"
+},
+"dec21": {
+"sunrise": "05:34",
+"noon": "13:46",
+"sunset": "21:59"
+},
+"feb12": {
+"sunrise": "06:49",
+"noon": "14:03",
+"sunset": "21:15"
+},
+"nov3": {
+"sunrise": "06:11",
+"noon": "13:32",
+"sunset": "20:55"
+},
+"sep25": {
+"sunrise": "07:31",
+"noon": "13:40",
+"sunset": "19:51"
+}
+},
+"Ushuaia": {
+"lat": -54.801,
+"lon": -68.303,
+"jun21": {
+"sunrise": "09:59",
+"noon": "13:34",
+"sunset": "17:10"
+},
+"dec21": {
+"sunrise": "04:51",
+"noon": "13:31",
+"sunset": "22:10"
+},
+"feb12": {
+"sunrise": "06:20",
+"noon": "13:47",
+"sunset": "21:12"
+},
+"nov3": {
+"sunrise": "05:40",
+"noon": "13:16",
+"sunset": "20:54"
+},
+"sep25": {
+"sunrise": "07:14",
+"noon": "13:25",
+"sunset": "19:36"
+}
+},
+"Río Gallegos": {
+"lat": -51.623,
+"lon": -69.217,
+"jun21": {
+"sunrise": "09:44",
+"noon": "13:38",
+"sunset": "17:32"
+},
+"dec21": {
+"sunrise": "05:15",
+"noon": "13:34",
+"sunset": "21:54"
+},
+"feb12": {
+"sunrise": "06:34",
+"noon": "13:51",
+"sunset": "21:06"
+},
+"nov3": {
+"sunrise": "05:55",
+"noon": "13:20",
+"sunset": "20:46"
+},
+"sep25": {
+"sunrise": "07:18",
+"noon": "13:28",
+"sunset": "19:39"
+}
+},
+"Bariloche": {
+"lat": -41.133,
+"lon": -71.31,
+"jun21": {
+"sunrise": "09:11",
+"noon": "13:46",
+"sunset": "18:23"
+},
+"dec21": {
+"sunrise": "06:09",
+"noon": "13:43",
+"sunset": "21:17"
+},
+"feb12": {
+"sunrise": "07:06",
+"noon": "13:59",
+"sunset": "20:52"
+},
+"nov3": {
+"sunrise": "06:29",
+"noon": "13:28",
+"sunset": "20:28"
+},
+"sep25": {
+"sunrise": "07:29",
+"noon": "13:37",
+"sunset": "19:44"
+}
+},
+"Salta": {
+"lat": -24.782,
+"lon": -65.423,
+"jun21": {
+"sunrise": "08:05",
+"noon": "13:23",
+"sunset": "18:41"
+},
+"dec21": {
+"sunrise": "06:29",
+"noon": "13:19",
+"sunset": "20:10"
+},
+"feb12": {
+"sunrise": "07:06",
+"noon": "13:35",
+"sunset": "20:04"
+},
+"nov3": {
+"sunrise": "06:32",
+"noon": "13:05",
+"sunset": "19:37"
+},
+"sep25": {
+"sunrise": "07:08",
+"noon": "13:13",
+"sunset": "19:18"
+}
+},
+"Jujuy": {
+"lat": -24.186,
+"lon": -65.3,
+"jun21": {
+"sunrise": "08:04",
+"noon": "13:22",
+"sunset": "18:42"
+},
+"dec21": {
+"sunrise": "06:30",
+"noon": "13:19",
+"sunset": "20:08"
+},
+"feb12": {
+"sunrise": "07:06",
+"noon": "13:35",
+"sunset": "20:03"
+},
+"nov3": {
+"sunrise": "06:33",
+"noon": "13:04",
+"sunset": "19:36"
+},
+"sep25": {
+"sunrise": "07:07",
+"noon": "13:13",
+"sunset": "19:18"
+}
+},
+"Tucumán": {
+"lat": -26.808,
+"lon": -65.218,
+"jun21": {
+"sunrise": "08:09",
+"noon": "13:22",
+"sunset": "18:36"
+},
+"dec21": {
+"sunrise": "06:24",
+"noon": "13:18",
+"sunset": "20:13"
+},
+"feb12": {
+"sunrise": "07:03",
+"noon": "13:35",
+"sunset": "20:06"
+},
+"nov3": {
+"sunrise": "06:29",
+"noon": "13:04",
+"sunset": "19:39"
+},
+"sep25": {
+"sunrise": "07:07",
+"noon": "13:12",
+"sunset": "19:18"
+}
+},
+"Posadas": {
+"lat": -27.367,
+"lon": -55.896,
+"jun21": {
+"sunrise": "07:33",
+"noon": "12:45",
+"sunset": "17:57"
+},
+"dec21": {
+"sunrise": "05:45",
+"noon": "12:41",
+"sunset": "19:37"
+},
+"feb12": {
+"sunrise": "06:25",
+"noon": "12:57",
+"sunset": "19:29"
+},
+"nov3": {
+"sunrise": "05:51",
+"noon": "12:27",
+"sunset": "19:03"
+},
+"sep25": {
+"sunrise": "06:29",
+"noon": "12:35",
+"sunset": "18:41"
+}
+},
+"Corrientes": {
+"lat": -27.469,
+"lon": -58.83,
+"jun21": {
+"sunrise": "07:45",
+"noon": "12:57",
+"sunset": "18:09"
+},
+"dec21": {
+"sunrise": "05:57",
+"noon": "12:53",
+"sunset": "19:49"
+},
+"feb12": {
+"sunrise": "06:36",
+"noon": "13:09",
+"sunset": "19:41"
+},
+"nov3": {
+"sunrise": "06:02",
+"noon": "12:38",
+"sunset": "19:15"
+},
+"sep25": {
+"sunrise": "06:41",
+"noon": "12:47",
+"sunset": "18:52"
+}
+},
+"Resistencia": {
+"lat": -27.451,
+"lon": -58.987,
+"jun21": {
+"sunrise": "07:45",
+"noon": "12:57",
+"sunset": "18:09"
+},
+"dec21": {
+"sunrise": "05:57",
+"noon": "12:53",
+"sunset": "19:50"
+},
+"feb12": {
+"sunrise": "06:37",
+"noon": "13:10",
+"sunset": "19:42"
+},
+"nov3": {
+"sunrise": "06:03",
+"noon": "12:39",
+"sunset": "19:15"
+},
+"sep25": {
+"sunrise": "06:42",
+"noon": "12:47",
+"sunset": "18:53"
+}
+},
+"Santa Fe": {
+"lat": -31.633,
+"lon": -60.7,
+"jun21": {
+"sunrise": "08:02",
+"noon": "13:04",
+"sunset": "18:06"
+},
+"dec21": {
+"sunrise": "05:54",
+"noon": "13:00",
+"sunset": "20:07"
+},
+"feb12": {
+"sunrise": "06:38",
+"noon": "13:17",
+"sunset": "19:54"
+},
+"nov3": {
+"sunrise": "06:04",
+"noon": "12:46",
+"sunset": "19:28"
+},
+"sep25": {
+"sunrise": "06:48",
+"noon": "12:54",
+"sunset": "19:00"
+}
+},
+"Paraná": {
+"lat": -31.732,
+"lon": -60.524,
+"jun21": {
+"sunrise": "08:01",
+"noon": "13:03",
+"sunset": "18:05"
+},
+"dec21": {
+"sunrise": "05:53",
+"noon": "12:59",
+"sunset": "20:06"
+},
+"feb12": {
+"sunrise": "06:37",
+"noon": "13:16",
+"sunset": "19:54"
+},
+"nov3": {
+"sunrise": "06:03",
+"noon": "12:45",
+"sunset": "19:28"
+},
+"sep25": {
+"sunrise": "06:47",
+"noon": "12:53",
+"sunset": "19:00"
+}
+},
+"Santiago del Estero": {
+"lat": -27.795,
+"lon": -64.262,
+"jun21": {
+"sunrise": "08:07",
+"noon": "13:18",
+"sunset": "18:30"
+},
+"dec21": {
+"sunrise": "06:18",
+"noon": "13:14",
+"sunset": "20:12"
+},
+"feb12": {
+"sunrise": "06:58",
+"noon": "13:31",
+"sunset": "20:03"
+},
+"nov3": {
+"sunrise": "06:24",
+"noon": "13:00",
+"sunset": "19:37"
+},
+"sep25": {
+"sunrise": "07:03",
+"noon": "13:08",
+"sunset": "19:14"
+}
+},
+"Catamarca": {
+"lat": -28.469,
+"lon": -65.785,
+"jun21": {
+"sunrise": "08:15",
+"noon": "13:24",
+"sunset": "18:34"
+},
+"dec21": {
+"sunrise": "06:22",
+"noon": "13:20",
+"sunset": "20:19"
+},
+"feb12": {
+"sunrise": "07:03",
+"noon": "13:37",
+"sunset": "20:10"
+},
+"nov3": {
+"sunrise": "06:29",
+"noon": "13:06",
+"sunset": "19:44"
+},
+"sep25": {
+"sunrise": "07:09",
+"noon": "13:15",
+"sunset": "19:20"
+}
+},
+"La Rioja": {
+"lat": -29.413,
+"lon": -66.856,
+"jun21": {
+"sunrise": "08:21",
+"noon": "13:29",
+"sunset": "18:36"
+},
+"dec21": {
+"sunrise": "06:24",
+"noon": "13:25",
+"sunset": "20:26"
+},
+"feb12": {
+"sunrise": "07:06",
+"noon": "13:41",
+"sunset": "20:16"
+},
+"nov3": {
+"sunrise": "06:32",
+"noon": "13:10",
+"sunset": "19:50"
+},
+"sep25": {
+"sunrise": "07:13",
+"noon": "13:19",
+"sunset": "19:25"
+}
+},
+"Santa Rosa": {
+"lat": -36.62,
+"lon": -64.29,
+"jun21": {
+"sunrise": "08:29",
+"noon": "13:18",
+"sunset": "18:08"
+},
+"dec21": {
+"sunrise": "05:55",
+"noon": "13:14",
+"sunset": "20:35"
+},
+"feb12": {
+"sunrise": "06:45",
+"noon": "13:31",
+"sunset": "20:16"
+},
+"nov3": {
+"sunrise": "06:10",
+"noon": "13:00",
+"sunset": "19:51"
+},
+"sep25": {
+"sunrise": "07:02",
+"noon": "13:09",
+"sunset": "19:16"
+}
+},
+"Rawson": {
+"lat": -43.3,
+"lon": -65.102,
+"jun21": {
+"sunrise": "08:53",
+"noon": "13:22",
+"sunset": "17:51"
+},
+"dec21": {
+"sunrise": "05:36",
+"noon": "13:18",
+"sunset": "21:00"
+},
+"feb12": {
+"sunrise": "06:37",
+"noon": "13:34",
+"sunset": "20:31"
+},
+"nov3": {
+"sunrise": "06:00",
+"noon": "13:03",
+"sunset": "20:08"
+},
+"sep25": {
+"sunrise": "07:04",
+"noon": "13:12",
+"sunset": "19:20"
+}
+},
+"Viedma": {
+"lat": -40.813,
+"lon": -62.996,
+"jun21": {
+"sunrise": "08:36",
+"noon": "13:13",
+"sunset": "17:50"
+},
+"dec21": {
+"sunrise": "05:37",
+"noon": "13:09",
+"sunset": "20:43"
+},
+"feb12": {
+"sunrise": "06:33",
+"noon": "13:26",
+"sunset": "20:18"
+},
+"nov3": {
+"sunrise": "05:57",
+"noon": "12:55",
+"sunset": "19:54"
+},
+"sep25": {
+"sunrise": "06:56",
+"noon": "13:03",
+"sunset": "19:11"
+}
+},
+"Formosa": {
+"lat": -26.185,
+"lon": -58.175,
+"jun21": {
+"sunrise": "07:39",
+"noon": "12:54",
+"sunset": "18:09"
+},
+"dec21": {
+"sunrise": "05:57",
+"noon": "12:50",
+"sunset": "19:44"
+},
+"feb12": {
+"sunrise": "06:35",
+"noon": "13:06",
+"sunset": "19:37"
+},
+"nov3": {
+"sunrise": "06:02",
+"noon": "12:36",
+"sunset": "19:10"
+},
+"sep25": {
+"sunrise": "06:39",
+"noon": "12:44",
+"sunset": "18:49"
+}
+},
+"Bernardo de Irigoyen": {
+"lat": -26.255,
+"lon": -53.646,
+"jun21": {
+"sunrise": "07:21",
+"noon": "12:36",
+"sunset": "17:51"
+},
+"dec21": {
+"sunrise": "05:39",
+"noon": "12:32",
+"sunset": "19:26"
+},
+"feb12": {
+"sunrise": "06:17",
+"noon": "12:48",
+"sunset": "19:19"
+},
+"nov3": {
+"sunrise": "05:43",
+"noon": "12:18",
+"sunset": "18:52"
+},
+"sep25": {
+"sunrise": "06:20",
+"noon": "12:26",
+"sunset": "18:31"
+}
+},
+"Brasilia": {
+"lat": -15.794,
+"lon": -47.882,
+"jun21": {
+"sunrise": "06:37",
+"noon": "12:13",
+"sunset": "17:48"
+},
+"dec21": {
+"sunrise": "05:37",
+"noon": "12:09",
+"sunset": "18:41"
+},
+"feb12": {
+"sunrise": "06:06",
+"noon": "12:25",
+"sunset": "18:44"
+},
+"nov3": {
+"sunrise": "05:34",
+"noon": "11:55",
+"sunset": "18:16"
+},
+"sep25": {
+"sunrise": "05:58",
+"noon": "12:03",
+"sunset": "18:07"
+}
+},
+"Montevideo": {
+"lat": -34.901,
+"lon": -56.164,
+"jun21": {
+"sunrise": "07:52",
+"noon": "12:46",
+"sunset": "17:40"
+},
+"dec21": {
+"sunrise": "05:27",
+"noon": "12:42",
+"sunset": "19:57"
+},
+"feb12": {
+"sunrise": "06:15",
+"noon": "12:58",
+"sunset": "19:41"
+},
+"nov3": {
+"sunrise": "05:40",
+"noon": "12:28",
+"sunset": "19:16"
+},
+"sep25": {
+"sunrise": "06:29",
+"noon": "12:36",
+"sunset": "18:43"
+}
+}
+}

@@ -17,13 +17,20 @@ for s in G["segmentos"]:
     sid = s["id"]
     wav = os.path.join(AUD, f"{sid}.wav")
     script = s["texto"].split()
+    a = [norm(w) for w in script]
+    best = None
     for prompt in (s["texto"], None):
-        # con el guion como prompt whisper a veces se saltea tramos: reintentar sin prompt
+        # con el guion como prompt whisper a veces se saltea tramos: probar sin prompt y quedarse con el mejor
         segs, _ = model.transcribe(wav, language="es", word_timestamps=True, initial_prompt=prompt, beam_size=5)
-        rec = [w for seg in segs for w in seg.words]
-        if len(rec) > 0.8 * len(script): break
-    a = [norm(w) for w in script]; b = [norm(w.word) for w in rec]
-    sm = difflib.SequenceMatcher(a=a, b=b, autojunk=False)
+        rec_try = [w for seg in segs for w in seg.words]
+        sm_try = difflib.SequenceMatcher(a=a, b=[norm(w.word) for w in rec_try], autojunk=False)
+        ops = sm_try.get_opcodes()
+        # palabras del guion sin audio (delete) pesan el doble que las que whisper escribió distinto (p. ej. cifras)
+        miss_try = sum(i2 - i1 for tag, i1, i2, _, _ in ops if tag != "equal") + sum(i2 - i1 for tag, i1, i2, _, _ in ops if tag == "delete")
+        if best is None or miss_try < best[0]: best = (miss_try, rec_try, sm_try)
+        if miss_try <= 1: break
+    _, rec, sm = best
+    b = [norm(w.word) for w in rec]
     times = [None]*len(script)
     for tag, i1, i2, j1, j2 in sm.get_opcodes():
         if tag == "equal":

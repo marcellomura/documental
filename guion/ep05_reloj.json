@@ -1,0 +1,58 @@
+{
+ "titulo": "TU RELOJ ESTÁ MAL",
+ "canal": "CONTEXTO",
+ "episodio": 5,
+ "voz": "Carlos Pro (gBTPbHzRd0ZmV75Z5Zk4)",
+ "segmentos": [
+  {
+   "id": "s01",
+   "nombre": "Gancho",
+   "texto": "Son las siete y media de la mañana en Mendoza. Es invierno. Miles de chicos entran a la escuela... y afuera es de noche cerrada. El sol va a salir recién en una hora. En Ushuaia es peor: amanece a las diez. Y no, no es culpa del invierno. Es culpa de tu reloj. Porque no hay una sola ciudad argentina que esté en la zona horaria que usamos. Tu reloj está mal. Y el de todo el país, también."
+  },
+  {
+   "id": "s02",
+   "nombre": "La hora del sol",
+   "texto": "Pará. ¿Cómo puede estar mal la hora? Durante siglos, la hora la marcaba el sol: era mediodía cuando el sol estaba en lo más alto. Pero eso tenía un problema: cada ciudad tenía su propio mediodía. Cuando en Buenos Aires eran las doce, en Mendoza eran las once y veinte. Y con la llegada de los trenes, eso era un caos."
+  },
+  {
+   "id": "s03",
+   "nombre": "Los husos horarios",
+   "texto": "Por eso, en mil ochocientos noventa y cuatro, la Argentina unificó la hora de todo el país: eligió la del Observatorio de Córdoba. Y en mil novecientos veinte se sumó al sistema mundial. El planeta se divide en veinticuatro franjas, una por cada hora, porque el sol recorre quince grados por hora. Según esa regla, casi toda la Argentina cae en la franja de menos cuatro. La cordillera y el sur, en menos cinco."
+  },
+  {
+   "id": "s04",
+   "nombre": "Una hora adelantados",
+   "texto": "¿Y cuál usamos? Menos tres. La misma hora que Brasilia, que está diez grados más al este. O sea: vivimos una hora adelantados. Y en la cordillera, dos. En Buenos Aires, el sol llega a lo más alto cerca de la una de la tarde. En Mendoza, a la una y media. Y en El Calafate, en febrero... a las dos de la tarde."
+  },
+  {
+   "id": "s05",
+   "nombre": "Cómo llegamos acá",
+   "texto": "¿Cómo llegamos acá? En mil novecientos treinta empezamos a usar el horario de verano: adelantar el reloj una hora para aprovechar la luz. Y en mil novecientos cuarenta y dos, cuando llegó el otoño, no lo atrasamos. Hubo idas y vueltas, hasta que en mil novecientos setenta un decreto lo hizo oficial: menos tres, todo el año, para ahorrar energía."
+  },
+  {
+   "id": "s06",
+   "nombre": "El caos",
+   "texto": "Y desde ahí, la hora se volvió un caos. En el setenta y cuatro, en plena crisis del petróleo, adelantamos otra hora más. En dos mil ocho, media Argentina cambió la hora y la otra mitad no: si viajabas de Córdoba a Mendoza, tenías que atrasar el reloj. Y en dos mil nueve, San Luis se cansó y se puso su propia hora. Durante meses, en San Luis era una hora menos que en el resto del país."
+  },
+  {
+   "id": "s07",
+   "nombre": "Jet lag social",
+   "texto": "¿Y qué importa? Importa, porque tu cuerpo no lee el reloj: lee la luz. Tenés un reloj biológico que se pone en hora con el sol. Si la hora oficial va adelantada, vivís con un jet lag permanente, sin haberte subido nunca a un avión. Los científicos lo llaman jet lag social. Y un estudio de investigadores del CONICET con más de setecientos alumnos argentinos encontró que los que van a la mañana y son más nocturnos rinden peor, sobre todo en matemática."
+  },
+  {
+   "id": "s08",
+   "nombre": "Los fans de la tarde",
+   "texto": "Pero ojo, la hora adelantada también tiene fans. Más luz a la tarde significa más tiempo para salir, para comprar, para el turismo. En verano, en Ushuaia el sol se pone a las diez de la noche. Y hay quien dice que por eso cenamos tan tarde. Igual que en España, que desde mil novecientos cuarenta vive con la hora de Alemania."
+  },
+  {
+   "id": "s09",
+   "nombre": "El Congreso",
+   "texto": "En agosto de dos mil veinticinco, Diputados aprobó volver a menos cuatro de abril a agosto y seguir en menos tres el resto del año. Los relojes se tenían que atrasar el primero de abril de dos mil veintiséis. No pasó: el Senado todavía no lo votó. Y hasta científicos que están a favor, como Diego Golombek, advierten que cambiar la hora dos veces por año también tiene su costo."
+  },
+  {
+   "id": "s10",
+   "nombre": "Cierre",
+   "texto": "Así que la próxima vez que te cueste levantarte un lunes de invierno, no es solo fiaca: es geografía. Vivimos una hora adelantados, y en la cordillera, dos. La pregunta es cuál preferís: ¿luz a la mañana o luz a la tarde? Dejalo en los comentarios. Si te sirvió, suscribite y compartilo con el que siempre llega tarde. Nos vemos en el próximo video."
+  }
+ ]
+}
