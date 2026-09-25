@@ -71,10 +71,16 @@
   "autor": "|permission=",
   "fuente": "https://commons.wikimedia.org/wiki/File:Niñas_pequeñas_luciendo_guardapolvo_y_moño_blanco_-_(M.A.B.H_Escuela_de_la_Barranca).jpg"
  },
- "diputados.jpg": {
-  "archivo": "Aborto - Voto Diputados Argentina (votación).jpg",
-  "licencia": "ver fuente",
-  "autor": "DTV, Canal de TV de la Cámara de Diputados de la Nación Argentina",
-  "fuente": "https://commons.wikimedia.org/wiki/File:Aborto_-_Voto_Diputados_Argentina_(votación).jpg"
+ "congreso.jpg": {
+  "archivo": "Congreso de la Nación Argentina - 2021.jpg",
+  "licencia": "CC BY-SA 4.0",
+  "autor": "{{Creator",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Congreso_de_la_Nación_Argentina_-_2021.jpg"
+ },
+ "congreso_atardecer.jpg": {
+  "archivo": "Atardecer en el Congreso de la Nación Argentina.jpg",
+  "licencia": "CC BY-SA 3.0",
+  "autor": "Miguel César",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Atardecer_en_el_Congreso_de_la_Nación_Argentina.jpg"
  }
 }
