@@ -34,7 +34,7 @@ for arg in sys.argv[1:]:
     lic = lic_of(raw)
     md5 = hashlib.md5(fname.encode()).hexdigest()
     base = f"https://upload.wikimedia.org/wikipedia/commons/{md5[0]}/{md5[:2]}/{urllib.parse.quote(fname)}"
-    thumb = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{md5[0]}/{md5[:2]}/{urllib.parse.quote(fname)}/1280px-{urllib.parse.quote(fname)}"
+    thumb = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{md5[0]}/{md5[:2]}/{urllib.parse.quote(fname)}/{os.environ.get('THUMBW','1280')}px-{urllib.parse.quote(fname)}"
     if fname.lower().endswith((".tif",".tiff")): thumb += ".jpg"
     data = None
     for u in (thumb, base):

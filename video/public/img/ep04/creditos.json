@@ -1,0 +1,44 @@
+{
+ "pescadores.jpg": {
+  "archivo": "Pescadores artesanales.jpg",
+  "licencia": "CC BY-SA 4.0",
+  "autor": "KimDivulga",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Pescadores_artesanales.jpg"
+ },
+ "saulo.jpg": {
+  "archivo": "2025 Celeste Saulo Secretary-General of the World Meteorological Organization (WMO) (cropped).jpg",
+  "licencia": "© Unión Europea, 2025 (EC Audiovisual Service, reutilización autorizada con crédito)",
+  "autor": "Xavier Lejeune / European Union, 2025 / EC - Audiovisual Service",
+  "fuente": "https://commons.wikimedia.org/wiki/File:2025_Celeste_Saulo_Secretary-General_of_the_World_Meteorological_Organization_(WMO)_(cropped).jpg"
+ },
+ "saulo2.jpg": {
+  "archivo": "Celeste Saulo during the 5th United Nations Ocean Forum (54362982928).jpg",
+  "licencia": "CC BY-SA 2.0",
+  "autor": "UN Trade and Development (UNCTAD)",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Celeste_Saulo_during_the_5th_United_Nations_Ocean_Forum_(54362982928).jpg"
+ },
+ "aedes.jpg": {
+  "archivo": "Aedes aegypti CDC-Gathany.jpg",
+  "licencia": "Dominio público",
+  "autor": "James Gathany",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Aedes_aegypti_CDC-Gathany.jpg"
+ },
+ "sequia_nasa.jpg": {
+  "archivo": "Severe drought affecting Argentina.jpg",
+  "licencia": "Copernicus Sentinel-2 (2022), atribución",
+  "autor": "European Union, Copernicus Sentinel-2 imagery",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Severe_drought_affecting_Argentina.jpg"
+ },
+ "andes_mendoza.jpg": {
+  "archivo": "Cordillera de los Andes nevada, Provincia de Mendoza, Argentina..jpg",
+  "licencia": "CC BY-SA 3.0",
+  "autor": "Itsmemarttin",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Cordillera_de_los_Andes_nevada,_Provincia_de_Mendoza,_Argentina..jpg"
+ },
+ "incendios_aus.png": {
+  "archivo": "2015-16 Australian Bushfire season MODIS overview.png",
+  "licencia": "Dominio público",
+  "autor": "NASA's Earth Science Data and Information System (ESDIS)",
+  "fuente": "https://commons.wikimedia.org/wiki/File:2015-16_Australian_Bushfire_season_MODIS_overview.png"
+ }
+}

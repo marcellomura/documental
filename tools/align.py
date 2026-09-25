@@ -16,9 +16,12 @@ out = {}
 for s in G["segmentos"]:
     sid = s["id"]
     wav = os.path.join(AUD, f"{sid}.wav")
-    segs, _ = model.transcribe(wav, language="es", word_timestamps=True, initial_prompt=s["texto"], beam_size=5)
-    rec = [w for seg in segs for w in seg.words]
     script = s["texto"].split()
+    for prompt in (s["texto"], None):
+        # con el guion como prompt whisper a veces se saltea tramos: reintentar sin prompt
+        segs, _ = model.transcribe(wav, language="es", word_timestamps=True, initial_prompt=prompt, beam_size=5)
+        rec = [w for seg in segs for w in seg.words]
+        if len(rec) > 0.8 * len(script): break
     a = [norm(w) for w in script]; b = [norm(w.word) for w in rec]
     sm = difflib.SequenceMatcher(a=a, b=b, autojunk=False)
     times = [None]*len(script)
