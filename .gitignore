@@ -6,3 +6,7 @@ audio/mix/
 __pycache__/
 audio/ep02/final/*.wav
 audio/ep03/final/*.wav
+
+# ep04: datos crudos (NOAA, Natural Earth) y wavs finales
+data_ep04/
+audio/ep04/final/*.wav

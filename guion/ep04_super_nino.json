@@ -1,0 +1,63 @@
+{
+ "titulo": "Súper Niño: el fenómeno que puede inundar media Argentina",
+ "canal": "CONTEXTO",
+ "episodio": 4,
+ "voz": {
+  "proveedor": "ElevenLabs",
+  "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+  "nombre": "Carlos Pro - Argentinian Documentary & Radio",
+  "modelo": "eleven_multilingual_v2"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "nombre": "Cold open",
+   "texto": "Frente a las costas de Perú, el mar está cuatro coma seis grados más caliente de lo normal. En el medio del Pacífico, tres grados más. En más de cuarenta años de mediciones satelitales, ningún Niño había llegado tan caliente a esta altura del año. Y lo que pasa en ese océano, a miles de kilómetros, va a decidir cuánto llueve en tu ciudad este verano. Esto es el Súper Niño. Y ya está acá."
+  },
+  {
+   "id": "s02",
+   "nombre": "El nombre",
+   "texto": "El nombre se lo pusieron pescadores de Perú. Cada tantos años, cerca de Navidad, llegaba agua caliente a la costa y los peces desaparecían. Le decían «la corriente del Niño», por el Niño Jesús. Hoy sabemos que no es una corriente: es un cambio de humor de todo el océano Pacífico."
+  },
+  {
+   "id": "s03",
+   "nombre": "Un año normal",
+   "texto": "En un año normal, los vientos alisios soplan de este a oeste, como un ventilador gigante. Empujan el agua caliente de la superficie hacia Indonesia y Australia, donde se amontona: allá el mar está hasta medio metro más alto. Y frente a Sudamérica, sube agua fría desde el fondo. Agua fría, nutrientes, peces. Ese es el equilibrio."
+  },
+  {
+   "id": "s04",
+   "nombre": "El Niño",
+   "texto": "Pero cada tantos años, los alisios se debilitan. El ventilador se apaga. Y toda esa pileta de agua caliente vuelve hacia el este, hacia Perú y Ecuador. Como el agua caliente evapora más, las lluvias se mudan. En Perú llueve en el desierto. En Australia e Indonesia llegan las sequías y los incendios. Y las lluvias se vienen para nuestro lado del mapa."
+  },
+  {
+   "id": "s05",
+   "nombre": "Súper",
+   "texto": "Los científicos hablan de un Niño fuerte cuando el Pacífico central se calienta más de un grado y medio. De súper, cuando pasa los dos. En los últimos setenta y cinco años hubo tres: mil novecientos ochenta y dos, noventa y siete y dos mil quince. Este año, a mediados de septiembre, ya iba por tres grados, y todavía no llegó a su pico. Según la Organización Meteorológica Mundial, que hoy dirige una argentina, podría ser más potente que todo lo observado."
+  },
+  {
+   "id": "s06",
+   "nombre": "La última vez",
+   "texto": "¿Y qué nos pasó la última vez? En mil novecientos noventa y ocho, el Litoral se inundó: ciento veinte mil evacuados, diecisiete muertos y cuatro millones de hectáreas bajo el agua en Santa Fe. En dos mil quince, el río Uruguay tapó un cuarto de Concordia. Veinte mil personas tuvieron que dejar sus casas."
+  },
+  {
+   "id": "s07",
+   "nombre": "El mapa",
+   "texto": "Para este verano, los pronósticos pintan el mapa así. Lluvias por encima de lo normal en gran parte del país, sobre todo en Misiones, Corrientes, Chaco, Formosa, Santa Fe y Entre Ríos. El Paraná y el Uruguay, bajo vigilancia. En cambio, el noroeste y el extremo sur podrían tener menos lluvia de lo habitual."
+  },
+  {
+   "id": "s08",
+   "nombre": "No todo es malo",
+   "texto": "No todo es malo. Después de la sequía histórica de dos mil veintitrés, el agua puede ser una gran noticia para el campo. Y en Cuyo, más nieve en la cordillera podría aliviar una sequía de más de una década. Pero más lluvia y más calor también traen otra cosa: mosquitos. Y con ellos, el riesgo de dengue."
+  },
+  {
+   "id": "s09",
+   "nombre": "El planeta",
+   "texto": "Y hay algo más grande. El Niño le suma calor a un planeta que ya viene recalentado. La temperatura promedio de la superficie del mar ya marcó un récord: veintiún grados y un décimo. Con un Súper Niño encima, los científicos esperan nuevos récords de calor."
+  },
+  {
+   "id": "s10",
+   "nombre": "Cierre",
+   "texto": "Lo que pasa en un pedazo de océano del tamaño de un continente se va a sentir en tu techo, en la cosecha y en tu factura de luz. El Súper Niño ya está acá. La pregunta es si esta vez vamos a estar preparados. Si te sirvió, suscribite y compartilo con alguien del Litoral. Nos vemos en el próximo video."
+  }
+ ]
+}
