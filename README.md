@@ -61,3 +61,28 @@ EP=ep02 OUT=el_robo_del_siglo_subtitulos_es.srt python3 tools/srt.py
 cd video && npx remotion render RoboDelSiglo out/ep02_muted.mp4 --muted --crf=16 && cd ..
 IN=video/out/ep02_muted.mp4 AUD=audio/mix/mezcla_ep02.wav OUT=entrega/el_robo_del_siglo_1080p.mp4 TITLE="EL ROBO DEL SIGLO" VBR=2000k tools/final.sh
 ```
+
+---
+
+# Episodio 3 · "ARGENTINA Y EL FMI: ¿POR QUÉ SIEMPRE VOLVEMOS?"
+
+Vuelve al estilo de **13 CEROS** (papel, collage, resaltador, gráficos) con fotos y videos reales de archivo. Arranca con el absurdo del día (pagarle al FMI con plata del FMI), explica reservas, deuda y refinanciación con la historia del préstamo de 2018, y cierra con la parte que da bronca. Dura 4:56, en 1080p30.
+
+| Archivo (`entrega/`) | Qué es |
+|---|---|
+| `argentina_y_el_fmi_1080p.mp4` | Video final (H.264 + AAC, −14 LUFS) |
+| `argentina_y_el_fmi_subtitulos_es.srt` | Subtítulos en español, con cifras |
+| `argentina_y_el_fmi_descripcion_youtube.md` | Títulos, descripción, capítulos, fuentes, créditos y configuración de subida |
+| `argentina_y_el_fmi_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura para A/B, la miniatura vertical y los textos para TikTok |
+
+- Guion: `guion/ep03_fmi.json` · Escenas: `video/src/ep03/` (composición `Fmi`)
+- Música original (3 temas) y efectos: ElevenLabs. Fotos y videos: Wikimedia Commons (`video/public/img/ep03/creditos.json`).
+
+```bash
+EP=ep03 NSEG=10 TEMPO=1.10 python3 tools/proc_audio.py
+EP=ep03 GUION=ep03_fmi.json python3 tools/align.py
+python3 tools/timeline_ep03.py && python3 tools/mix_ep03.py       # -> audio/mix/mezcla_ep03.wav
+EP=ep03 OUT=argentina_y_el_fmi_subtitulos_es.srt python3 tools/srt.py
+cd video && npx remotion render Fmi out/ep03_muted.mp4 --muted --crf=16 && cd ..
+IN=video/out/ep03_muted.mp4 AUD=audio/mix/mezcla_ep03.wav OUT=entrega/argentina_y_el_fmi_1080p.mp4 TITLE="ARGENTINA Y EL FMI" VBR=2200k tools/final.sh
+```

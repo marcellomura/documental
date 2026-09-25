@@ -163,7 +163,7 @@ export const Taximeter: React.FC<{w?: number; value: string; label?: string}> = 
       <span>{label}</span>
       <span style={{background: C.red, color: '#fff', padding: '0 12px', borderRadius: 6}}>OCUPADO</span>
     </div>
-    <div style={{marginTop: 18, background: '#0A120A', borderRadius: 12, padding: '14px 24px', fontFamily: F.mono, fontWeight: 800, fontSize: w * 0.085, color: '#7CFF6B', textShadow: '0 0 18px rgba(124,255,107,0.6)', textAlign: 'right', fontVariantNumeric: 'tabular-nums'}}>{value}</div>
+    <div style={{marginTop: 18, background: '#0A120A', borderRadius: 12, padding: '14px 24px', fontFamily: F.mono, fontWeight: 800, fontSize: w * 0.06, color: '#7CFF6B', textShadow: '0 0 18px rgba(124,255,107,0.6)', textAlign: 'right', fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap'}}>{value}</div>
   </div>
 );
 
@@ -198,12 +198,13 @@ export const Exam: React.FC<{w?: number; t: number; t0: number; items: {text: st
 );
 
 /* ---------- Diagrama circular (el círculo vicioso) ---------- */
-export const Cycle: React.FC<{t: number; items: {text: string; t0: number; color?: string}[]; r?: number; spin?: number; hi?: number; size?: number}> = ({t, items, r = 360, spin = 0, hi = -1, size = 1000}) => {
+export const Cycle: React.FC<{t: number; items: {text: string; t0: number; color?: string}[]; r?: number; spin?: number; hi?: number; size?: number; closeAt?: number; guide?: number}> = ({t, items, r = 360, spin = 0, hi = -1, size = 1000, closeAt = -99, guide = 0}) => {
   const n = items.length;
   const cx = size / 2, cy = size / 2;
   return (
     <div style={{position: 'relative', width: size, height: size}}>
       <svg width={size} height={size} style={{position: 'absolute', inset: 0, overflow: 'visible', transform: `rotate(${spin}deg)`}}>
+        {guide > 0 ? <circle cx={cx} cy={cy} r={r} fill="none" stroke={S} strokeOpacity={0.25 * guide} strokeWidth="6" strokeDasharray="18 16" /> : null}
         <defs>
           <marker id="arrC" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill={S} /></marker>
         </defs>
@@ -211,8 +212,7 @@ export const Cycle: React.FC<{t: number; items: {text: string; t0: number; color
           const a0 = (i / n) * Math.PI * 2 - Math.PI / 2 + 0.32;
           const a1 = ((i + 1) / n) * Math.PI * 2 - Math.PI / 2 - 0.32;
           const next = items[(i + 1) % n];
-          const k = clamp((t - next.t0 + 0.4) / 0.5);
-          if (i === n - 1 && t < next.t0) return null;
+          const k = i === n - 1 ? clamp((t - closeAt) / 0.5) : clamp((t - next.t0 + 0.4) / 0.5);
           const am = a0 + (a1 - a0) * k;
           return k > 0 ? <path key={i} d={`M${cx + Math.cos(a0) * r} ${cy + Math.sin(a0) * r} A ${r} ${r} 0 0 1 ${cx + Math.cos(am) * r} ${cy + Math.sin(am) * r}`} fill="none" stroke={S} strokeWidth="9" markerEnd="url(#arrC)" /> : null;
         })}
@@ -223,12 +223,30 @@ export const Cycle: React.FC<{t: number; items: {text: string; t0: number; color
         const on = t > it.t0 - 0.1;
         const isHi = hi === i;
         return (
-          <div key={i} style={{position: 'absolute', left: x - 170, top: y - 60, width: 340, minHeight: 120, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', background: isHi ? C.yellow : it.color ?? '#fff', border: `6px solid ${S}`, borderRadius: 18, boxShadow: '8px 8px 0 rgba(0,0,0,0.85)', fontFamily: F.head, fontSize: 40, lineHeight: 1.05, color: S, padding: '10px 16px', opacity: on ? 1 : 0, transform: `scale(${pop(t, it.t0 - 0.1) * (isHi ? 1.08 : 1)})`}}>
+          <div key={i} style={{position: 'absolute', left: x - 185, top: y - 66, width: 370, minHeight: 132, display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', background: isHi ? C.yellow : it.color ?? '#fff', border: `6px solid ${S}`, borderRadius: 18, boxShadow: '8px 8px 0 rgba(0,0,0,0.85)', fontFamily: F.head, fontSize: 46, lineHeight: 1.05, color: S, padding: '10px 16px', opacity: on ? 1 : 0, transform: `scale(${pop(t, it.t0 - 0.1) * (isHi ? 1.08 : 1)})`}}>
             {it.text}
           </div>
         );
       })}
     </div>
+  );
+};
+
+/* ---------- Medalla de oro "a la deuda" ---------- */
+export const Medal: React.FC<{size?: number; t: number; t0: number; label?: string}> = ({size = 560, t, t0, label = 'DEUDOR'}) => {
+  const k = pop(t, t0, 1.1);
+  const swing = Math.sin((t - t0) * 3) * 4 * Math.exp(-Math.max(0, t - t0) * 0.8);
+  return (
+    <svg width={size} height={size * 1.25} viewBox="0 0 560 700" style={{overflow: 'visible', transform: `rotate(${swing}deg) scale(${0.6 + 0.4 * k})`, transformOrigin: '50% 0%', opacity: t > t0 - 0.05 ? 1 : 0}}>
+      <path d="M150 0 L250 300 L310 300 L210 0 Z" fill={C.celeste} stroke={S} strokeWidth="5" />
+      <path d="M190 0 L270 300 L290 300 L210 0 Z" fill="#fff" />
+      <path d="M410 0 L310 300 L250 300 L350 0 Z" fill={C.celeste} stroke={S} strokeWidth="5" />
+      <path d="M370 0 L290 300 L270 300 L350 0 Z" fill="#fff" />
+      <circle cx="280" cy="470" r="200" fill="#F2C230" stroke={S} strokeWidth="8" />
+      <circle cx="280" cy="470" r="160" fill="none" stroke="#B8860B" strokeWidth="6" strokeDasharray="4 10" />
+      <text x="280" y="505" textAnchor="middle" fontFamily="Anton" fontSize="190" fill={S}>1</text>
+      <text x="280" y="580" textAnchor="middle" fontFamily="Inter" fontWeight="900" fontSize="34" letterSpacing="6" fill={S}>{label}</text>
+    </svg>
   );
 };
 
@@ -253,7 +271,7 @@ export const GlobePin: React.FC<{size?: number; t: number; t0: number}> = ({size
 };
 
 /* ---------- Sello repetido que se apila ("la última vez") ---------- */
-export const StampPile: React.FC<{t: number; t0: number; t1: number; n: number; text: string}> = ({t, t0, t1, n, text}) => (
+export const StampPile: React.FC<{t: number; t0: number; t1: number; n: number; text: string; dark?: boolean}> = ({t, t0, t1, n, text, dark}) => (
   <>
     {Array.from({length: n}).map((_, i) => {
       const ti = t0 + ((t1 - t0) * Math.pow(i / Math.max(1, n - 1), 1.6));
@@ -261,7 +279,7 @@ export const StampPile: React.FC<{t: number; t0: number; t1: number; n: number; 
       const k = clamp((t - ti) / 0.12);
       const x = 140 + rnd(i * 3 + 1) * 1500, y = 150 + rnd(i * 7 + 2) * 760;
       return (
-        <div key={i} style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) rotate(${(rnd(i + 9) - 0.5) * 40}deg) scale(${2.1 - 1.1 * easeOut(k)})`, opacity: clamp(k * 3) * 0.92, border: `7px solid ${C.red}`, color: C.red, fontFamily: F.head, fontSize: 56, padding: '4px 20px', borderRadius: 8, whiteSpace: 'nowrap', filter: 'url(#rough)', mixBlendMode: 'multiply'}}>
+        <div key={i} style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) rotate(${(rnd(i + 9) - 0.5) * 40}deg) scale(${2.1 - 1.1 * easeOut(k)})`, opacity: clamp(k * 3) * (dark ? 0.8 : 0.92), border: `7px solid ${dark ? '#FF5A4E' : C.red}`, color: dark ? '#FF5A4E' : C.red, fontFamily: F.head, fontSize: 56, padding: '4px 20px', borderRadius: 8, whiteSpace: 'nowrap', filter: 'url(#rough)', mixBlendMode: dark ? 'normal' : 'multiply'}}>
           {text}
         </div>
       );

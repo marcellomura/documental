@@ -30,9 +30,9 @@ export const S06: React.FC<P> = ({t}) => {
         <Paper>
           <ChapterTag t={t} t0={1.4} label="Capítulo 2 · 2018" />
           <div style={{position: 'absolute', left: 110, top: 190, opacity: prog(t, tDolar - 0.3, 0.3)}}>
-            <H size={70}>El dólar <Mark t={t} t0={cue(s, 'dispara')} color={C.red}><span style={{color: '#fff'}}>se dispara</span></Mark></H>
+            <H size={80}>El dólar <span style={{color: C.red}}>se dispara</span></H>
             <div style={{marginTop: 40}}>
-              <LineChart pts={DOLAR_2018.map((y, i) => ({x: i, y}))} t={t} t0={tDolar} t1={tDolar + 2.6} w={900} h={440} yMax={45} yTicks={[20, 40]} yFmt={(v) => `$${v}`} endLabel="$41" />
+              <LineChart pts={DOLAR_2018.map((y, i) => ({x: i, y}))} t={t} t0={tDolar} t1={tDolar + 2.6} w={1000} h={500} yMax={45} yTicks={[20, 40]} yFmt={(v) => `$${v}`} endLabel="$41" />
             </div>
             <div style={{fontFamily: F.body, fontWeight: 700, fontSize: 22, color: C.gray, marginTop: 70}}>Pesos por dólar, enero–septiembre 2018 (aprox.) · BCRA</div>
           </div>
@@ -51,18 +51,18 @@ export const S06: React.FC<P> = ({t}) => {
         <Paper>
           <Photo src="ep03/macri_lagarde_onu.jpg" t={t} t0={tFondo - 0.2} x={560} y={430} w={860} h={560} rot={-2} tape credit="Macri y Lagarde, 2018 · CC BY 2.5 AR" />
           <LowerThird t={t} t0={tLagarde} t1={tLlegan} name="Christine Lagarde" role="Directora del FMI (2011–2019)" x={140} y={790} />
-          <div style={{position: 'absolute', left: 1080, top: 150, width: 760}}>
-            <H size={70} style={{opacity: prog(t, tMas - 0.3, 0.3)}}>El préstamo más grande de la historia del FMI</H>
-            <div style={{fontFamily: F.head, fontSize: 150, lineHeight: 1.02, color: C.red, marginTop: 20, opacity: t > tCinc - 0.2 ? 1 : 0}}>
+          <div style={{position: 'absolute', left: 1080, top: 130, width: 780}}>
+            <H size={64} style={{opacity: prog(t, tMas - 0.3, 0.3)}}>El préstamo más grande de la historia del FMI</H>
+            <div style={{fontFamily: F.head, fontSize: 130, lineHeight: 1.02, color: C.red, marginTop: 16, whiteSpace: 'nowrap', opacity: t > tCinc - 0.2 ? 1 : 0}}>
               <Counter t={t} t0={tCinc - 0.2} t1={tCinc + 1.2} to={57100} prefix="US$ " suffix=" M" />
             </div>
           </div>
           {t > tLlegan - 0.2 ? (
-            <div style={{position: 'absolute', left: 1120, top: 560}}>
+            <div style={{position: 'absolute', left: 1140, top: 540}}>
               <BarsV data={[{label: 'APROBADO', value: 57.1, color: C.gray, valueLabel: 'US$ 57.100 M'}, {label: 'LLEGÓ', value: 44.9, color: C.red, valueLabel: '~US$ 44.900 M'}]} t={t} t0={tLlegan - 0.2} w={620} h={300} max={60} valueSize={34} labelSize={28} />
             </div>
           ) : null}
-          <Stamp t={t} t0={tMas + 0.4} text="RÉCORD" x={1500} y={120} size={90} rot={8} />
+          <Stamp t={t} t0={tMas + 0.4} text="RÉCORD" x={860} y={660} size={100} rot={-10} blend={false} />
         </Paper>
       </Beat>
 
@@ -139,7 +139,8 @@ export const S07: React.FC<P> = ({t}) => {
           <Photo src="ep03/alberto.jpg" t={t} t0={tRef + 0.3} x={520} y={520} w={480} h={640} rot={-3} tape credit="Alberto Fernández · Casa Rosada · CC BY 2.5 AR" focus="50% 25%" />
           <LowerThird t={t} t0={tAlberto} t1={tSol} name="Alberto Fernández" role="Presidente (2019–2023)" x={140} y={860} />
           <div style={{position: 'absolute', left: 1000, top: 300, width: 820}}>
-            <H size={96} style={{opacity: prog(t, tAlberto, 0.3)}}>El préstamo de 2018…</H>
+            <H size={96} style={{opacity: prog(t, tRef + 0.5, 0.3)}}>El préstamo de 2018…</H>
+            <div style={{fontFamily: F.hand, fontSize: 48, color: C.red, marginTop: 16, opacity: prog(t, tAlberto, 0.3)}}>…le tocó a otro gobierno</div>
           </div>
           <Stamp t={t} t0={tNo + 0.1} text="NO SE PUEDE PAGAR" x={1400} y={620} size={80} rot={-7} />
         </Paper>
@@ -181,7 +182,7 @@ export const S07: React.FC<P> = ({t}) => {
           <div style={{position: 'absolute', left: 1180, top: 230, width: 680}}>
             <div style={{fontFamily: F.head, fontSize: 110, color: C.ink, opacity: prog(t, tY, 0.3)}}>2025</div>
             <H size={70} style={{opacity: prog(t, tOtro - 0.2, 0.3)}}>Otro acuerdo más:</H>
-            <div style={{fontFamily: F.head, fontSize: 150, lineHeight: 1.02, color: C.red, opacity: t > tVeinte - 0.2 ? 1 : 0}}>
+            <div style={{fontFamily: F.head, fontSize: 124, lineHeight: 1.02, color: C.red, whiteSpace: 'nowrap', opacity: t > tVeinte - 0.2 ? 1 : 0}}>
               <Counter t={t} t0={tVeinte - 0.2} t1={tVeinte + 0.9} to={20000} prefix="US$ " suffix=" M" />
             </div>
           </div>
@@ -271,7 +272,7 @@ export const S08: React.FC<P> = ({t}) => {
             <H size={96}>Si a la Argentina le va mal…</H>
             <div style={{fontFamily: F.head, fontSize: 110, color: C.red, opacity: prog(t, tTamb - 0.6, 0.3)}}>…AL FONDO TAMBIÉN</div>
           </div>
-          {t > tMal ? <div style={{position: 'absolute', left: 900, top: 330, fontFamily: F.hand, fontSize: 50, color: C.red, opacity: prog(t, tMal, 0.3)}}>atados</div> : null}
+          {t > tMal ? <div style={{position: 'absolute', left: 890, top: 680, fontFamily: F.hand, fontSize: 56, color: C.red, opacity: prog(t, tMal, 0.3)}}>atados</div> : null}
         </Paper>
       </Beat>
       <ChapterCard t={t} t0={-0.95} t1={1.25} year="HOY" title="La revisión" num="CAPÍTULO 4" color={C.yellow} bg={C.red} />
@@ -431,7 +432,9 @@ export const S10: React.FC<P & {total: number}> = ({t, total}) => {
           <div style={{position: 'absolute', left: 0, right: 0, top: 380, textAlign: 'center', zIndex: 5}}>
             <div style={{display: 'inline-block', background: C.ink, padding: '20px 50px', transform: 'rotate(-2deg)'}}>
               <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 44, color: 'rgba(255,255,255,0.75)'}}>“Esta es la última vez”… ya van</div>
-              <div style={{fontFamily: F.head, fontSize: 200, lineHeight: 1, color: C.yellow, opacity: t > tTreinta - 0.2 ? 1 : 0, transform: `scale(${pop(t, tTreinta - 0.2)})`}}>CASI 30</div>
+              <div style={{fontFamily: F.head, fontSize: 200, lineHeight: 1, color: C.yellow, transform: `scale(${t > tTreinta - 0.2 ? pop(t, tTreinta - 0.2) : 1})`}}>
+                {t > tTreinta - 0.2 ? 'CASI 30' : Math.max(1, Math.round(28 * Math.pow(clamp((t - tAcord + 0.3) / (tTreinta - tAcord + 0.1)), 1 / 1.6)))}
+              </div>
             </div>
           </div>
         </Paper>
@@ -460,7 +463,7 @@ export const S10: React.FC<P & {total: number}> = ({t, total}) => {
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 26, color: C.yellow, letterSpacing: 5, marginBottom: 12}}>MIRÁ TAMBIÉN</div>
             {[{a: '13 CEROS', b: 'por qué no confiamos en el peso'}, {a: 'EL ROBO DEL SIGLO', b: 'el golpe al Banco Río'}].map((e, i) => (
               <div key={i} style={{width: 660, height: 330, marginBottom: 40, background: '#1d1c1a', border: `6px solid ${C.white}`, boxShadow: `12px 12px 0 ${i ? C.red : C.yellow}`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-                <div style={{fontFamily: F.head, fontSize: 96, color: C.white, lineHeight: 1}}>{e.a}</div>
+                <div style={{fontFamily: F.head, fontSize: 84, color: C.white, lineHeight: 1, whiteSpace: 'nowrap'}}>{e.a}</div>
                 <div style={{fontFamily: F.body, fontWeight: 600, fontSize: 26, color: 'rgba(255,255,255,0.7)', marginTop: 10}}>{e.b}</div>
               </div>
             ))}

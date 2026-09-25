@@ -5,7 +5,7 @@ import {cue} from './lib';
 import {clamp, easeInOut, easeOut, pop, prog, rnd, shake} from '../lib/anim';
 import {Beat, ChapterCard, ChapterTag, Counter, Dark, H, LowerThird, Mark, Paper, Photo, Source, Stamp} from '../components/base';
 import {Bank, Calendar, DollarBill, House, Mattress} from '../components/art';
-import {Clip, Cycle, GlobePin, MoneyFlow, Mousetrap, Phone, StampPile, SyncWords, Wallet} from './art3';
+import {Clip, Cycle, Medal, MoneyFlow, Mousetrap, Phone, StampPile, SyncWords, Wallet} from './art3';
 
 type P = {t: number};
 
@@ -32,10 +32,10 @@ export const S01: React.FC<P> = ({t}) => {
       {/* 1. El pago */}
       <Beat t={t} t0={-0.4} t1={tEsa - 0.05} kind="fade">
         <Paper>
-          <div style={{position: 'absolute', left: 110, top: 110, transform: `scale(${pop(t, 0.05)}) rotate(-4deg)`}}>
-            <Calendar size={330} day="25" month="SEP" year="2026" />
+          <div style={{position: 'absolute', left: 110, top: 190, transform: `scale(${0.5 + 0.5 * pop(t, -0.45)}) rotate(-4deg)`}}>
+            <Calendar size={380} day="25" month="SEP" year="2026" />
           </div>
-          <div style={{position: 'absolute', left: 500, top: 150, opacity: prog(t, tPago - 0.3, 0.3)}}>
+          <div style={{position: 'absolute', left: 560, top: 250, opacity: prog(t, tPago - 0.3, 0.3)}}>
             <H size={78}>La Argentina le pagó al FMI</H>
             <div style={{fontFamily: F.head, fontSize: 190, lineHeight: 1, color: C.ink, marginTop: 10, opacity: prog(t, tOch - 0.2, 0.3)}}>
               <Mark t={t} t0={tOch} color={C.yellow}>
@@ -44,9 +44,9 @@ export const S01: React.FC<P> = ({t}) => {
             </div>
             <div style={{fontFamily: F.body, fontWeight: 700, fontSize: 34, color: C.ink2, marginTop: 6, opacity: prog(t, tOch + 0.6, 0.3)}}>ochocientos millones de dólares</div>
           </div>
-          <Photo src="ep03/fmi_sede.jpg" t={t} t0={tFondo - 0.3} x={1520} y={690} w={520} h={500} rot={3} tape credit="Sede del FMI, Washington · APK · CC BY 4.0" />
-          <MoneyFlow t={t} t0={tPago} from={[640, 800]} to={[1450, 640]} n={8} />
-          <Stamp t={t} t0={tInt + 0.1} text="PAGADO" x={880} y={820} size={110} rot={-8} />
+          <Photo src="ep03/fmi_sede.jpg" t={t} t0={tFondo - 0.3} x={1580} y={790} w={500} h={440} rot={3} tape credit="Sede del FMI, Washington · APK · CC BY 4.0" />
+          <MoneyFlow t={t} t0={tPago} from={[500, 860]} to={[1480, 800]} n={9} />
+          <Stamp t={t} t0={tInt + 0.1} text="PAGADO" x={900} y={760} size={110} rot={-8} />
         </Paper>
       </Beat>
 
@@ -68,7 +68,7 @@ export const S01: React.FC<P> = ({t}) => {
           <div style={{position: 'absolute', left: 950, top: 280, width: 860}}>
             <H size={96} style={{opacity: prog(t, tRev - 0.2, 0.3)}}>El FMI revisa las cuentas…</H>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 52, color: C.ink2, marginTop: 40, opacity: prog(t, tPresta - 0.6, 0.3)}}>¿y si nos presta…</div>
-            <div style={{fontFamily: F.head, fontSize: 170, lineHeight: 1, color: C.green, marginTop: 10, opacity: t > tCasi - 0.1 ? 1 : 0, transform: `scale(${pop(t, tCasi - 0.1)})`, transformOrigin: 'left'}}>+US$ 1.000 M?</div>
+            <div style={{fontFamily: F.head, fontSize: 140, lineHeight: 1, color: C.green, marginTop: 10, whiteSpace: 'nowrap', opacity: t > tCasi - 0.1 ? 1 : 0, transform: `scale(${pop(t, tCasi - 0.1)})`, transformOrigin: 'left'}}>+US$ 1.000 M?</div>
             <div style={{fontFamily: F.hand, fontSize: 40, color: C.red, marginTop: 10, opacity: prog(t, tCasi + 0.6, 0.3)}}>(casi mil millones más)</div>
           </div>
         </Paper>
@@ -86,8 +86,8 @@ export const S01: React.FC<P> = ({t}) => {
           ))}
           <svg width="1920" height="1080" style={{position: 'absolute', inset: 0}}>
             <defs><marker id="ah1" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill={C.red} /></marker><marker id="ah2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill={C.green} /></marker></defs>
-            <path d="M620 560 Q960 400 1300 560" fill="none" stroke={C.red} strokeWidth="12" markerEnd="url(#ah1)" strokeDasharray="900" strokeDashoffset={900 * (1 - prog(t, tPara, 0.6))} />
-            <path d="M1300 770 Q960 930 620 770" fill="none" stroke={C.green} strokeWidth="12" markerEnd="url(#ah2)" strokeDasharray="900" strokeDashoffset={900 * (1 - prog(t, cue(s, 'pedimos'), 0.6))} />
+            {t > tPara ? <path d="M620 560 Q960 400 1300 560" fill="none" stroke={C.red} strokeWidth="12" markerEnd={prog(t, tPara, 0.6) > 0.95 ? 'url(#ah1)' : undefined} strokeDasharray="900" strokeDashoffset={900 * (1 - prog(t, tPara, 0.6))} /> : null}
+            {t > cue(s, 'pedimos') ? <path d="M1300 770 Q960 930 620 770" fill="none" stroke={C.green} strokeWidth="12" markerEnd={prog(t, cue(s, 'pedimos'), 0.6) > 0.95 ? 'url(#ah2)' : undefined} strokeDasharray="900" strokeDashoffset={900 * (1 - prog(t, cue(s, 'pedimos'), 0.6))} /> : null}
           </svg>
           <div style={{position: 'absolute', left: 810, top: 420, fontFamily: F.head, fontSize: 54, color: C.red, opacity: prog(t, tPara + 0.3, 0.3)}}>US$ 800 M</div>
           <div style={{position: 'absolute', left: 790, top: 860, fontFamily: F.head, fontSize: 54, color: C.green, opacity: prog(t, cue(s, 'pedimos') + 0.3, 0.3)}}>~US$ 1.000 M</div>
@@ -100,7 +100,7 @@ export const S01: React.FC<P> = ({t}) => {
       <Beat t={t} t0={tY - 0.05} t1={tPor - 0.05} kind="fade">
         <Paper>
           {Array.from({length: nDocs}).map((_, i) => {
-            const ti = tY + 0.2 + (i / nDocs) * (tTreinta - tY);
+            const ti = tY - 0.05 + (i / nDocs) * (tTreinta - tY);
             const col = i % 8, row = Math.floor(i / 8);
             return (
               <div key={i} style={{position: 'absolute', left: 120 + col * 215, top: 120 + row * 225, width: 180, height: 200, background: '#FFFDF6', border: `4px solid ${C.ink}`, boxShadow: '6px 6px 0 rgba(0,0,0,0.25)', opacity: t > ti ? 1 : 0, transform: `rotate(${(rnd(i) - 0.5) * 10}deg) scale(${pop(t, ti, 1.3)})`, padding: 12}}>
@@ -159,7 +159,7 @@ export const S02: React.FC<P> = ({t}) => {
         <Paper>
           {t < tUn - 0.05 ? (
             <AbsoluteFill>
-              <EpCard t={t} t0={tVideo - 0.1} x={140} y={250} title="13 CEROS" sub="CONTEXTO · EPISODIO 1" />
+              <EpCard t={t} t0={-0.25} x={140} y={250} title="13 CEROS" sub="CONTEXTO · EPISODIO 1" />
               <div style={{position: 'absolute', left: 200, top: 640, fontFamily: F.hand, fontSize: 44, color: C.red, transform: 'rotate(-3deg)', opacity: prog(t, tVideo + 0.3, 0.3)}}>▶ el video anterior</div>
               <div style={{position: 'absolute', left: 900, top: 300}}>
                 <div style={{fontFamily: F.head, fontSize: 170, lineHeight: 1, color: C.green, opacity: t > tDosc - 0.2 ? 1 : 0}}>
@@ -193,10 +193,10 @@ export const S02: React.FC<P> = ({t}) => {
 
       <Beat t={t} t0={tY - 0.05} t1={tLos - 0.05} kind="fade">
         <Paper>
-          <div style={{position: 'absolute', left: 110, top: 220}}><GlobePin size={620} t={t} t0={tMayor - 0.2} /></div>
-          <div style={{position: 'absolute', left: 850, top: 230, width: 960}}>
+          <div style={{position: 'absolute', left: 170, top: 70}}><Medal size={520} t={t} t0={tMayor - 0.2} label="DEUDOR" /></div>
+          <div style={{position: 'absolute', left: 820, top: 200, width: 1040}}>
             <H size={84} style={{opacity: prog(t, tY, 0.3)}}>Y sin embargo…</H>
-            <H size={110} style={{marginTop: 30, opacity: prog(t, tEstado - 0.2, 0.3)}}>el Estado argentino es el</H>
+            <H size={96} style={{marginTop: 30, opacity: prog(t, tEstado - 0.2, 0.3)}}>el Estado argentino es el</H>
             <div style={{fontFamily: F.head, fontSize: 150, lineHeight: 1.02, color: C.ink, opacity: prog(t, tMayor - 0.2, 0.3)}}>
               <Mark t={t} t0={tMayor} color={C.red}><span style={{color: '#fff'}}>MAYOR DEUDOR</span></Mark>
             </div>
@@ -211,7 +211,7 @@ export const S02: React.FC<P> = ({t}) => {
         <AbsoluteFill>
           <div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: '50%', background: C.paper}}>
             <div style={{position: 'absolute', left: 0, right: 0, top: 110, textAlign: 'center'}}><H size={80}>Los argentinos</H></div>
-            <div style={{position: 'absolute', left: 960 / 2 - 190, top: 300, transform: `scale(${pop(t, tLos)})`}}><Mattress size={380} bills={4} /></div>
+            <div style={{position: 'absolute', left: 960 / 2 - 240, top: 240, transform: `scale(${pop(t, tLos)})`}}><Mattress size={480} bills={4} /></div>
             <div style={{position: 'absolute', left: 0, right: 0, top: 740, textAlign: 'center', opacity: prog(t, tAhorran - 0.1, 0.3)}}>
               <div style={{fontFamily: F.head, fontSize: 96, color: C.green}}>AHORRAN EN DÓLARES</div>
             </div>
@@ -219,8 +219,8 @@ export const S02: React.FC<P> = ({t}) => {
           <div style={{position: 'absolute', right: 0, top: 0, bottom: 0, width: '50%', background: C.ink, opacity: prog(t, tEl - 0.3, 0.3)}}>
             <div style={{position: 'absolute', left: 0, right: 0, top: 110, textAlign: 'center'}}><H size={80} color={C.white}>El Estado</H></div>
             <div style={{position: 'absolute', left: 960 / 2 - 170, top: 300, transform: `scale(${pop(t, tEl)})`}}><Bank size={340} label="ESTADO" fill={C.paper} /></div>
-            <div style={{position: 'absolute', left: 960 / 2 + 100, top: 330, fontFamily: F.head, fontSize: 90, color: C.yellow, transform: `rotate(12deg) scale(${pop(t, tPide)})`, opacity: t > tPide ? 1 : 0}}>¿ME PRESTÁS?</div>
-            <div style={{position: 'absolute', left: 0, right: 0, top: 740, textAlign: 'center', opacity: prog(t, tPide - 0.1, 0.3)}}>
+            <div style={{position: 'absolute', left: 960 / 2 - 160, top: 620, fontFamily: F.head, fontSize: 80, color: C.yellow, transform: `rotate(-6deg) scale(${pop(t, tPide)})`, opacity: t > tPide ? 1 : 0}}>“¿ME PRESTÁS?”</div>
+            <div style={{position: 'absolute', left: 0, right: 0, top: 800, textAlign: 'center', opacity: prog(t, tPide - 0.1, 0.3)}}>
               <div style={{fontFamily: F.head, fontSize: 96, color: C.red}}>LOS PIDE PRESTADOS</div>
             </div>
           </div>
@@ -252,8 +252,9 @@ export const S03: React.FC<P> = ({t}) => {
           <div style={{position: 'absolute', left: 1040, top: 330, transform: `scale(${pop(t, tBill)})`, opacity: t > tBill ? 1 : 0}}>
             <Wallet size={760} open={prog(t, tRes, 0.7)} bills={6} />
           </div>
-          <div style={{position: 'absolute', left: 1080, top: 900, fontFamily: F.head, fontSize: 70, color: C.ink, opacity: prog(t, tRes, 0.3)}}>
-            = LAS RESERVAS <span style={{fontFamily: F.hand, fontSize: 44, color: C.red, opacity: prog(t, tDol, 0.3)}}>(los dólares del país)</span>
+          <div style={{position: 'absolute', left: 1060, top: 880, fontFamily: F.head, fontSize: 70, color: C.ink, opacity: prog(t, tRes, 0.3)}}>
+            = LAS RESERVAS
+            <div style={{fontFamily: F.hand, fontSize: 44, color: C.red, opacity: prog(t, tDol, 0.3)}}>(los dólares del país)</div>
           </div>
         </Paper>
       </Beat>
@@ -261,7 +262,7 @@ export const S03: React.FC<P> = ({t}) => {
       <Beat t={t} t0={tPero - 0.05} t1={tBrutas - 0.15} kind="fade">
         <Paper>
           <div style={{position: 'absolute', left: 0, right: 0, top: 170, textAlign: 'center'}}>
-            <H size={120}>Pero hay una <Mark t={t} t0={tTrampa} color={C.red}><span style={{color: '#fff'}}>trampa</span></Mark></H>
+            <H size={120}>Pero hay una <span style={{color: C.red}}>trampa</span></H>
           </div>
           <div style={{position: 'absolute', left: 960 - 330, top: 480, transform: `translate(${shake(t, tTrampa + 0.25, 14, 0.4).x}px, ${shake(t, tTrampa + 0.25, 14, 0.4).y}px)`}}>
             <Mousetrap size={660} snap={prog(t, tTrampa + 0.2, 0.12)} />
@@ -360,7 +361,14 @@ export const S04: React.FC<P> = ({t}) => {
   ];
   return (
     <AbsoluteFill>
-      <Beat t={t} t0={-0.3} t1={tNueve - 0.1} kind="fade">
+      <Beat t={t} t0={-0.3} t1={tPrest - 0.25} kind="fade">
+        <Paper>
+          <AbsoluteFill style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <SyncWords t={t} seg={s} from="¿Por" to="Fondo?" style={{fontFamily: F.head, fontSize: 140, lineHeight: 1.05, color: C.ink, textAlign: 'center', textTransform: 'uppercase', width: 1500}} hi={{fondo: C.red}} />
+          </AbsoluteFill>
+        </Paper>
+      </Beat>
+      <Beat t={t} t0={tPrest - 0.25} t1={tNueve - 0.1} kind="fade">
         <Paper>
           <div style={{position: 'absolute', left: 0, right: 0, top: 110, textAlign: 'center', opacity: prog(t, tPrest - 0.2, 0.3)}}>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 36, color: C.ink2, letterSpacing: 4}}>EL FMI ES EL</div>
@@ -384,7 +392,7 @@ export const S04: React.FC<P> = ({t}) => {
 
       <Beat t={t} t0={tNueve - 0.1} t1={tCirc - 0.1} kind="fade">
         <Dark>
-          <StampPile t={t} t0={tNueve} t1={tNueve + 1.3} n={9} text="DEFAULT" />
+          <StampPile t={t} t0={tNueve} t1={tNueve + 1.3} n={9} text="DEFAULT" dark />
           <AbsoluteFill style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
             <div style={{fontFamily: F.head, fontSize: 330, lineHeight: 1, color: C.white, textShadow: '0 10px 0 #000'}}>
               <Counter t={t} t0={tNueve - 0.1} t1={tNueve + 0.6} to={9} /> <span style={{fontSize: 200}}>DEFAULTS</span>
@@ -396,12 +404,17 @@ export const S04: React.FC<P> = ({t}) => {
 
       <Beat t={t} t0={tCirc - 0.1} kind="fade">
         <Paper>
-          <div style={{position: 'absolute', left: 70, top: 60, opacity: prog(t, tCirc - 0.1, 0.3)}}>
+          {t < items[0].t0 - 0.2 ? (
+            <AbsoluteFill style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              <H size={110}>El círculo es <Mark t={t} t0={cue(s, 'siempre el mismo:')}>siempre el mismo</Mark></H>
+            </AbsoluteFill>
+          ) : null}
+          <div style={{position: 'absolute', left: 70, top: 60, opacity: prog(t, items[0].t0 - 0.2, 0.3)}}>
             <H size={70}>El círculo</H>
             <div style={{fontFamily: F.hand, fontSize: 40, color: C.red}}>siempre el mismo</div>
           </div>
           <div style={{position: 'absolute', left: 960 - 500, top: 40}}>
-            <Cycle t={t} items={items} r={370} spin={spin} hi={t > tDesc2 ? 0 : hiIdx} size={1000} />
+            <Cycle t={t} items={items} r={380} spin={spin} hi={t > tDesc2 ? 0 : hiIdx} size={1000} closeAt={tY - 0.3} guide={prog(t, tCirc, 0.6)} />
           </div>
           <Clip src="ep03/vid/tarifazo.mp4" from={2} t={t} t0={tPide} t1={99} x={960} y={540} w={470} h={290} rot={-2} credit="Protesta, 2019 · Banfield · CC BY-SA 2.5 AR" />
         </Paper>
@@ -455,7 +468,7 @@ export const S05: React.FC<P> = ({t}) => {
           {Array.from({length: 18}).map((_, i) => {
             const ti = tDesde + 0.1 + i * 0.09;
             return (
-              <div key={i} style={{position: 'absolute', left: 160 + i * 88, top: 430 - (i % 2) * 60, border: `5px solid ${C.red}`, color: C.red, fontFamily: F.head, fontSize: 30, padding: '0 8px', transform: `rotate(${(rnd(i) - 0.5) * 24}deg) scale(${pop(t, ti, 1.4)})`, opacity: t > ti ? 1 : 0, background: 'rgba(255,255,255,0.6)'}}>
+              <div key={i} style={{position: 'absolute', left: 150 + i * 90, top: 420 - (i % 2) * 90, border: `6px solid ${C.red}`, color: C.red, fontFamily: F.head, fontSize: 44, padding: '0 10px', transform: `rotate(${(rnd(i) - 0.5) * 24}deg) scale(${pop(t, ti, 1.4)})`, opacity: t > ti ? 1 : 0, background: 'rgba(255,255,255,0.6)'}}>
                 FMI
               </div>
             );
@@ -474,7 +487,7 @@ export const S05: React.FC<P> = ({t}) => {
           {t < tDuro - 0.05 ? (
             <div style={{position: 'absolute', left: 930, top: 220, width: 900}}>
               <H size={70} style={{opacity: prog(t, tNestor, 0.3)}}>Le paga todo al FMI:</H>
-              <div style={{fontFamily: F.head, fontSize: 160, lineHeight: 1.02, color: C.green, opacity: t > tCasi - 0.2 ? 1 : 0}}>
+              <div style={{fontFamily: F.head, fontSize: 124, lineHeight: 1.02, color: C.green, whiteSpace: 'nowrap', opacity: t > tCasi - 0.2 ? 1 : 0}}>
                 casi <Counter t={t} t0={tCasi - 0.2} t1={tCasi + 1} to={10000} prefix="US$ " suffix=" M" />
               </div>
               <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 48, color: C.ink2, opacity: prog(t, tSola - 0.3, 0.3)}}>en un solo pago</div>

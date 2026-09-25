@@ -8,21 +8,45 @@ W = json.load(open(os.path.join(DATA, "words.json")))
 def ts(x):
     ms = int(round(x * 1000)); h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
     return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+# cifras en vez de números deletreados (el guion está escrito para la voz)
+NUM_EP = {
+    "ep02": [("ciento cuarenta y tres", "143"), ("dos mil seis", "2006"), ("dos mil diez", "2010"), ("dos mil veinte", "2020"),
+             ("trescientos", "300"), ("veintitrés", "23"), ("diecinueve millones", "19 millones"), ("dos millones", "2 millones"),
+             ("nueve y quince años", "9 y 15 años"), ("veintiuno", "21"), ("Viernes trece", "Viernes 13"), ("siete de la tarde", "7 de la tarde"),
+             ("de cien cajas", "de 100 cajas")],
+    "ep03": [("veinticinco de septiembre de dos mil veintiséis", "25 de septiembre de 2026"), ("ochocientos millones", "800 millones"),
+             ("casi mil millones", "casi 1.000 millones"), ("doscientos veinte mil millones", "220.000 millones"),
+             ("siete mil millones", "7.000 millones"), ("nueve defaults", "9 defaults"), ("mil novecientos cincuenta y ocho", "1958"),
+             ("setenta y cinco millones", "75 millones"), ("diez días", "10 días"), ("dos mil seis", "2006"),
+             ("diez mil millones", "10.000 millones"), ("doce años", "12 años"), ("dos mil dieciocho", "2018"),
+             ("cincuenta y siete mil millones", "57.000 millones"), ("cuarenta y cinco mil", "45.000"), ("dos mil veintidós", "2022"),
+             ("dos mil veinticinco", "2025"), ("veinte mil millones", "20.000 millones"), ("dos mil treinta", "2030"),
+             ("trece mil millones", "13.000 millones"), ("trescientos dólares", "300 dólares"), ("casi treinta", "casi 30")],
+}
+NUM = NUM_EP.get(os.environ.get("EP", ""), [])
+def merge_numbers(ws):
+    """une los números deletreados en una sola 'palabra' con cifras (conserva tiempos y puntuación final)"""
+    out, i = [], 0
+    key = lambda w: re.sub(r"[^\w]", "", w.lower())
+    while i < len(ws):
+        for a, b in NUM:
+            toks = a.lower().split(); n = len(toks)
+            if i + n <= len(ws) and all(key(ws[i + k]["w"]) == toks[k] for k in range(n)):
+                trail = re.search(r"[.,:;!?…»]*$", ws[i + n - 1]["w"]).group(0)
+                out.append({"w": b + trail, "s": ws[i]["s"], "e": ws[i + n - 1]["e"]}); i += n; break
+        else:
+            out.append(ws[i]); i += 1
+    return out
 cues = []
 for seg in sorted(W):
     base = TL["starts"][seg]; cur = []
-    for w in W[seg]:
+    for w in merge_numbers(W[seg]):
         cur.append(w)
         txt = " ".join(x["w"] for x in cur)
         end_sentence = w["w"][-1] in ".?!:»" or w["w"].endswith("...")
         comma = w["w"].endswith(",")
-        if (end_sentence and len(txt) >= 14) or (comma and len(txt) > 55) or len(txt) > 78 or w is W[seg][-1]:
+        if (end_sentence and len(txt) >= 14) or (comma and len(txt) > 55) or len(txt) > 78 or w["e"] == W[seg][-1]["e"]:
             cues.append((base + cur[0]["s"], base + cur[-1]["e"] + 0.15, txt)); cur = []
-# cifras en vez de números deletreados (el guion está escrito para la voz)
-NUM = [("ciento cuarenta y tres", "143"), ("dos mil seis", "2006"), ("dos mil diez", "2010"), ("dos mil veinte", "2020"),
-       ("trescientos", "300"), ("veintitrés", "23"), ("diecinueve millones", "19 millones"), ("dos millones", "2 millones"),
-       ("nueve y quince años", "9 y 15 años"), ("veintiuno", "21"), ("Viernes trece", "Viernes 13"), ("siete de la tarde", "7 de la tarde"),
-       ("de cien cajas", "de 100 cajas")] if os.environ.get("EP") else []
 def numerals(t):
     for a, b in NUM: t = re.sub(r"\b" + a + r"\b", b, t, flags=re.I)
     return t
