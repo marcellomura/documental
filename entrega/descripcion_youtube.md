@@ -60,7 +60,7 @@ En CONTEXTO explicamos la Argentina sin vueltas.
 
 Detalle completo en `video/public/img/creditos.json`.
 
-Voz: Carlos Pro (ElevenLabs) · Música y efectos: ElevenLabs Music / Sound Effects · Animación: Remotion.
+Narración con voz generada por IA (ElevenLabs, voz "Carlos Pro") · Música y efectos: ElevenLabs Music / Sound Effects · Animación: Remotion.
 
 ## Etiquetas
 
