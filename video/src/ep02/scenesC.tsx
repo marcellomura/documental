@@ -247,16 +247,16 @@ export const S09: React.FC<P> = ({t}) => {
             const tk = tCay + i * 0.14;
             const hide = !caught ? prog(t, tCasiT + 0.2, 0.6) : 0;
             return (
-              <div key={i} style={{position: 'absolute', left: x, top: 290, width: SLOT - 12}}>
+              <div key={i} style={{position: 'absolute', left: x, top: 360, width: SLOT - 12}}>
                 <div style={{display: 'flex', justifyContent: 'center', opacity: 1 - hide, transform: `translateY(${hide * 40}px)`}}>
                   <Bust role={c.role} size={250} />
                 </div>
                 <div style={{marginTop: -14, display: 'flex', justifyContent: 'center', opacity: 1 - hide}}>
                   <Placard name={c.name} role={c.job} num={`N° ${String(i + 1).padStart(2, '0')}`} w={240} />
                 </div>
-                {caught ? <Stamp t={t} t0={tk} text="DETENIDO" x={(SLOT - 12) / 2} y={330} size={44} rot={-14 + rnd(i) * 10} blend={false} /> : null}
+                {caught ? <Stamp t={t} t0={tk} text="DETENIDO" x={(SLOT - 12) / 2} y={205} size={40} rot={-14 + rnd(i) * 10} blend={false} /> : null}
                 {!caught && t > tCasiT + 0.3 ? (
-                  <div style={{position: 'absolute', left: 0, right: 0, top: 160, textAlign: 'center', fontFamily: F2.scrawl, fontSize: 40, color: R.red, transform: `rotate(-6deg) scale(${pop(t, tCasiT + 0.3)})`}}>¿?</div>
+                  <div style={{position: 'absolute', left: 0, right: 0, top: 110, textAlign: 'center', fontFamily: F2.scrawl, fontSize: 100, color: R.red, transform: `rotate(-6deg) scale(${pop(t, tCasiT + 0.3)})`}}>¿?</div>
                 ) : null}
               </div>
             );

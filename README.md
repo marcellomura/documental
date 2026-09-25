@@ -36,3 +36,28 @@ ffmpeg -i out/documental_video.mp4 -i ../audio/mix/mezcla.wav -c:v libx264 -pres
 ```
 
 Para ver y editar el video en vivo: `cd video && npx remotion studio`.
+
+---
+
+# Episodio 2 · "EL ROBO DEL SIGLO"
+
+El robo al Banco Río de Acassuso (13/01/2006), contado como un disco de rock: cada capítulo es un **track** que entra con una tarjeta de vinilo, la música cambia en cada tema y la estética es de fanzine, con letras recortadas de nota de rescate, fotocopia y trama de puntos. Dura 5:33, en 1080p30.
+
+| Archivo (`entrega/`) | Qué es |
+|---|---|
+| `el_robo_del_siglo_1080p.mp4` | Video final (H.264 + AAC, −14 LUFS) |
+| `el_robo_del_siglo_subtitulos_es.srt` | Subtítulos en español |
+| `el_robo_del_siglo_descripcion_youtube.md` | Títulos, descripción, capítulos, fuentes, créditos y configuración de subida |
+| `el_robo_del_siglo_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura para A/B, más la miniatura vertical |
+
+- Guion: `guion/ep02_robo_del_siglo.json` · Escenas: `video/src/ep02/` (composición `RoboDelSiglo`)
+- Música: Kevin MacLeod (incompetech.com), CC BY 4.0, y ElevenLabs Music. Efectos: ElevenLabs.
+
+```bash
+EP=ep02 NSEG=11 TEMPO=1.10 python3 tools/proc_audio.py
+EP=ep02 GUION=ep02_robo_del_siglo.json python3 tools/align.py
+python3 tools/timeline_ep02.py && python3 tools/mix_ep02.py      # -> audio/mix/mezcla_ep02.wav
+EP=ep02 OUT=el_robo_del_siglo_subtitulos_es.srt python3 tools/srt.py
+cd video && npx remotion render RoboDelSiglo out/ep02_muted.mp4 --muted --crf=16 && cd ..
+IN=video/out/ep02_muted.mp4 AUD=audio/mix/mezcla_ep02.wav OUT=entrega/el_robo_del_siglo_1080p.mp4 TITLE="EL ROBO DEL SIGLO" VBR=2000k tools/final.sh
+```
