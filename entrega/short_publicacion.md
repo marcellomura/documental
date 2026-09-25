@@ -17,7 +17,7 @@
 4. **Video relacionado:** en Studio, en los detalles del Short, está el campo **"Video relacionado"**. Elegí el documental "13 CEROS". Así aparece un botón en el Short que lleva directo al video largo; es lo que más tráfico manda.
 5. **Público:** "No, no es contenido creado para niños" · **Categoría:** Educación · **Idioma:** Español (Latinoamérica).
 6. **Subtítulos:** no hace falta subir un `.srt`, porque ya vienen incrustados.
-7. **Comentario fijado:** *"El documental completo, acá 👉 [link al video largo]"*.
+7. **Comentario fijado:** *"El documental completo ya está en el canal 👆 Tocá el video relacionado, arriba del título. ¿Vos guardás dólares?"* En los Shorts los links de la descripción y de los comentarios no se pueden tocar; por eso lo importante es el campo **"Video relacionado"**.
 
 ## Cuándo publicarlo
 Entre 1 y 3 días después del documental, o el mismo día un par de horas más tarde. Después podés sacar más Shorts con otros momentos del video (los 15 tipos de dólar, 1981, el corralito).
