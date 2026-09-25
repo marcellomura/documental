@@ -14,7 +14,7 @@ def get(url, binary=False):
             if e.code == 404: raise
             err = e; time.sleep(6*(i+1))
     raise err
-LIC = [(r"cc-zero|CC0", "CC0"), (r"PD-|public domain|PD-AR", "Dominio público"),
+LIC = [(r"CC-AR-Presidency", "CC BY 2.5 AR (Casa Rosada)"), (r"CC-AR-ArgentinaGobAr", "CC BY 4.0 (argentina.gob.ar)"), (r"cc-zero|CC0", "CC0"), (r"PD-|public domain|PD-AR", "Dominio público"),
        (r"cc-by-sa-4\.0","CC BY-SA 4.0"),(r"cc-by-sa-3\.0","CC BY-SA 3.0"),(r"cc-by-sa-2\.5","CC BY-SA 2.5"),(r"cc-by-sa-2\.0","CC BY-SA 2.0"),
        (r"cc-by-4\.0","CC BY 4.0"),(r"cc-by-3\.0","CC BY 3.0"),(r"cc-by-2\.5","CC BY 2.5"),(r"cc-by-2\.0","CC BY 2.0"),(r"GFDL","GFDL")]
 def lic_of(raw):

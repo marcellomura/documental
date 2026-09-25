@@ -1,0 +1,63 @@
+{
+ "titulo": "Argentina y el FMI: ¿por qué siempre volvemos?",
+ "canal": "CONTEXTO",
+ "episodio": 3,
+ "voz": {
+  "proveedor": "ElevenLabs",
+  "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+  "nombre": "Carlos Pro - Argentinian Documentary & Radio",
+  "modelo": "eleven_multilingual_v2"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "nombre": "Cold open",
+   "texto": "El veinticinco de septiembre de dos mil veintiséis, la Argentina le pagó ochocientos millones de dólares al Fondo Monetario Internacional. Esa misma semana, el Fondo revisaba las cuentas del país para decidir si nos presta... casi mil millones más. Sí, escuchaste bien. Para pagarle al Fondo, le pedimos plata al Fondo. Y no es la primera vez. Van casi treinta. ¿Por qué siempre volvemos?"
+  },
+  {
+   "id": "s02",
+   "nombre": "La contradicción",
+   "texto": "En el video anterior vimos que los argentinos tienen más de doscientos veinte mil millones de dólares fuera del sistema. Un país lleno de dólares escondidos. Y sin embargo, el Estado argentino es el mayor deudor del Fondo en todo el planeta. Los argentinos ahorran en dólares. El Estado... los pide prestados."
+  },
+  {
+   "id": "s03",
+   "nombre": "La billetera",
+   "texto": "Para entenderlo, hay que abrir la billetera del Banco Central: las reservas, los dólares del país. Pero hay una trampa. Las reservas brutas son todo lo que hay en la billetera. Las netas, lo que queda si restás lo prestado. Y según la cuenta del propio Fondo, las netas de la Argentina están bajo cero: unos siete mil millones negativos. La billetera está llena... de plata ajena."
+  },
+  {
+   "id": "s04",
+   "nombre": "El círculo",
+   "texto": "¿Por qué siempre terminamos en el Fondo? Porque es el prestamista de última instancia: el que te atiende el teléfono cuando nadie más lo hace. Y a un país con nueve defaults, casi nadie se lo atiende. El círculo es siempre el mismo: desconfiamos del peso, compramos dólares, el Banco Central se queda sin dólares... y llamamos al Fondo. El Fondo presta, pero pide ajuste. El ajuste trae crisis. Y la crisis nos hace desconfiar más del peso."
+  },
+  {
+   "id": "s05",
+   "nombre": "Chau, Fondo",
+   "texto": "Todo arrancó en mil novecientos cincuenta y ocho: Frondizi firmó el primer acuerdo, por setenta y cinco millones de dólares. Hoy, con eso no alcanza ni para diez días de intereses. Desde entonces, un acuerdo cada dos años y pico. Hasta que en dos mil seis, Néstor Kirchner pagó casi diez mil millones de dólares de una sola vez... y le dijo chau al Fondo. El chau duró doce años."
+  },
+  {
+   "id": "s06",
+   "nombre": "El préstamo récord",
+   "texto": "Dos mil dieciocho. El dólar se dispara y el gobierno de Mauricio Macri golpea la puerta. El Fondo de Christine Lagarde aprueba el préstamo más grande de toda su historia: cincuenta y siete mil millones de dólares. Llegan casi cuarenta y cinco mil. ¿Y qué pasó con esa plata? Entró... y se fue. El propio Fondo lo reconoció después: el programa no cumplió sus objetivos, y hubo fuga de capitales. La plata se fue. La deuda se quedó."
+  },
+  {
+   "id": "s07",
+   "nombre": "Refinanciar",
+   "texto": "Y acá aparece la palabra mágica: refinanciar. En dos mil veintidós, el gobierno de Alberto Fernández no podía pagar. ¿La solución? Un acuerdo nuevo con el Fondo... para pagarle al Fondo. Es como pagar la tarjeta de crédito con otra tarjeta de crédito. Y en dos mil veinticinco, con Javier Milei, otro más: veinte mil millones. Tres gobiernos. Tres discursos. El mismo Fondo."
+  },
+  {
+   "id": "s08",
+   "nombre": "La revisión",
+   "texto": "En esta revisión, el Fondo controla si la Argentina cumplió lo que prometió. Como una maestra que corrige la tarea. Spoiler: la meta de reservas nunca se cumplió sin un perdón. ¿Y por qué el Fondo es tan comprensivo? Hay una pista: la Argentina le debe más de cincuenta y siete mil millones de dólares. Es su mayor deudor. Si a la Argentina le va mal... al Fondo también."
+  },
+  {
+   "id": "s09",
+   "nombre": "La bronca",
+   "texto": "Ahora, la parte que da bronca. En septiembre, la Justicia archivó la causa por el préstamo de dos mil dieciocho: dijo que fue una decisión política y que no hubo delito. O sea: nadie es responsable. Pero la deuda sigue ahí. Solo en intereses, de acá a dos mil treinta, la Argentina le va a pagar al Fondo más de trece mil millones de dólares. Casi trescientos dólares por cada argentino. Incluso el bebé que nace hoy ya debe su parte. Por una plata que nunca vio."
+  },
+  {
+   "id": "s10",
+   "nombre": "Cierre",
+   "texto": "Las decisiones las tomaron unos pocos. La cuenta la pagamos todos. ¿Por qué siempre volvemos al Fondo? Porque nunca arreglamos lo que nos lleva ahí. Y la próxima vez que un gobierno te diga que esta es la última vez... acordate: ya van casi treinta últimas veces. Si te dio bronca, compartilo. Suscribite y contanos: ¿alguna vez vamos a salir del Fondo? Nos vemos en el próximo video."
+  }
+ ]
+}
