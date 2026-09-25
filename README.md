@@ -128,3 +128,30 @@ cd video && npx remotion render ShortNinoYT out/short4_yt_muted.mp4 --muted --cr
 IN=video/out/short4_yt_muted.mp4 AUD=audio/mix/mezcla_short4_yt.wav OUT=entrega/super_nino_short_youtube.mp4 TITLE="SÚPER NIÑO (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
 IN=video/out/short4_tt_muted.mp4 AUD=audio/mix/mezcla_short4_tt.wav OUT=entrega/super_nino_short_tiktok.mp4 TITLE="SÚPER NIÑO (TikTok)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
 ```
+
+# Episodio 5 · "TU RELOJ ESTÁ MAL"
+
+Por qué la Argentina vive una hora adelantada (dos en la cordillera): la hora del sol, 1894 y el Observatorio de Córdoba, la hora de Brasilia, 1930-1970, el caos de 1974, 2008 y San Luis 2009, el jet lag social, los fans de la hora adelantada y el proyecto de 2025 que el Senado nunca votó. Dura 4:40.
+
+| Archivo (`entrega/`) | Qué es |
+|---|---|
+| `tu_reloj_esta_mal_1080p.mp4` | Video final en 1080p (H.264 + AAC, −14 LUFS), sacado del render 4K. Va en git normal porque el 4K no entra en el cupo de Git LFS. |
+| `tu_reloj_esta_mal_subtitulos_es.srt` | Subtítulos en español, con cifras |
+| `tu_reloj_esta_mal_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
+| `tu_reloj_esta_mal_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura para A/B, la miniatura vertical y los textos para TikTok |
+
+- Guion: `guion/ep05_reloj.json` · Escenas: `video/src/ep05/` (composición `Reloj`)
+  - `globe5.tsx`: globo con día y noche reales. Mezcla NASA Blue Marble y Black Marble según la posición del Sol para cada fecha y hora.
+  - `art5.tsx`: piezas 3D. Incluye el reloj de paletas, el reloj analógico en capas, la trayectoria del Sol, el mapa de la Argentina que se levanta según las horas de adelanto y la transición de aguja de reloj.
+  - `scenes5a.tsx` y `scenes5b.tsx`: las 10 escenas y la pantalla final.
+- Datos del Sol: `video/src/data/ep05/ciudades.json`, calculado con astral (fórmulas de la NOAA).
+- Música: tres temas originales de ElevenLabs (`video/public/ep05/music/`). Efectos de ElevenLabs: despertador, tren, campanada y gallo. El tic-tac, las hojas de calendario y el avión se sintetizan en `tools/sfx_synth.py`.
+
+```bash
+EP=ep05 NSEG=10 TEMPO=1.10 python3 tools/proc_audio.py
+EP=ep05 GUION=ep05_reloj.json python3 tools/align.py
+python3 tools/timeline_ep05.py && python3 tools/mix_ep05.py       # -> audio/mix/mezcla_ep05.wav
+EP=ep05 OUT=tu_reloj_esta_mal_subtitulos_es.srt python3 tools/srt.py
+cd video && npx remotion render Reloj out/ep05_4k_muted.mp4 --muted --scale=2 --props='{"dpr":2}' --crf=15 && cd ..
+IN=video/out/ep05_4k_muted.mp4 AUD=audio/mix/mezcla_ep05.wav OUT=entrega/tu_reloj_esta_mal_1080p.mp4 TITLE="TU RELOJ ESTÁ MAL" VBR=2600k VF=scale=1920:1080:flags=lanczos tools/final.sh
+```
