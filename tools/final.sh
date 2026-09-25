@@ -22,7 +22,9 @@ if [ -n "${PATCH:-}" ]; then
   VMAP="[v]"
   AIDX=2
 fi
-X264=(-c:v libx264 -preset slow -b:v "$VBR" -maxrate 5M -bufsize 10M -pix_fmt yuv420p -x264-params "aq-mode=3:aq-strength=0.9")
+# 4K: VBR=13M MAXRATE=24M BUFSIZE=36M · 1080p desde el render 4K: VF=scale=1920:1080:flags=lanczos
+X264=(-c:v libx264 -preset slow -b:v "$VBR" -maxrate "${MAXRATE:-5M}" -bufsize "${BUFSIZE:-10M}" -pix_fmt yuv420p -x264-params "aq-mode=3:aq-strength=0.9")
+if [ -n "${VF:-}" ]; then X264+=(-vf "$VF"); fi
 ffmpeg -v error -y "${INPUTS[@]}" "${FILTER[@]}" -map "$VMAP" "${X264[@]}" -pass 1 -passlogfile "$TMP/x" -an -f mp4 /dev/null
 ffmpeg -v error -y "${INPUTS[@]}" -i "$AUD" "${FILTER[@]}" -map "$VMAP" -map "$AIDX:a:0" "${X264[@]}" -pass 2 -passlogfile "$TMP/x" \
   -c:a aac -b:a 192k -ar 48000 -movflags +faststart -shortest \

@@ -86,3 +86,37 @@ EP=ep03 OUT=argentina_y_el_fmi_subtitulos_es.srt python3 tools/srt.py
 cd video && npx remotion render Fmi out/ep03_muted.mp4 --muted --crf=16 && cd ..
 IN=video/out/ep03_muted.mp4 AUD=audio/mix/mezcla_ep03.wav OUT=entrega/argentina_y_el_fmi_1080p.mp4 TITLE="ARGENTINA Y EL FMI" VBR=2200k tools/final.sh
 ```
+
+---
+
+# Episodio 4 · "SÚPER NIÑO"
+
+Qué es El Niño, por qué el de 2026 es "súper" y qué le puede pasar a la Argentina. Dura 4:20 y es el primero en **4K** (3840×2160, 30 fps). Todos los mapas y gráficos usan datos reales: NOAA OISST, NOAA CPC, NOAA NCEI, Natural Earth y NASA Blue Marble.
+
+| Archivo (`entrega/`) | Qué es |
+|---|---|
+| `super_nino_4k.mp4` | Video final en 4K (H.264 + AAC, −14 LUFS). Es el que se sube a YouTube. Está en Git LFS. |
+| `super_nino_1080p.mp4` | La misma versión en 1080p, liviana |
+| `super_nino_subtitulos_es.srt` | Subtítulos en español, con cifras |
+| `super_nino_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
+| `super_nino_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura para A/B, la miniatura vertical y los textos para TikTok |
+
+- Guion: `guion/ep04_super_nino.json` · Escenas: `video/src/ep04/` (composición `SuperNino`)
+  - `globe.tsx`: globo 3D en canvas. Proyecta píxel a píxel la textura real de NASA con la anomalía de NOAA encima.
+  - `flatmap.tsx`: mapa del Pacífico con el mapa de calor satelital.
+  - `section.tsx`: corte del océano (año normal → El Niño).
+  - `charts.tsx`: gráficos con datos de NOAA.
+  - `argmap.tsx`: provincias y ríos.
+- Datos crudos: `tools/prep_ep04_data.py` los descarga en `data_ep04/`, que no se versiona. Las texturas del globo están en `video/public/ep04/globe/`.
+- Música: un tema original nuevo (ElevenLabs) y el tema de tensión del episodio 3. Los efectos de lluvia, viento, trueno y fuego se sintetizan en `tools/mix_ep04.py`.
+- Logo nuevo en `video/public/brand/` (fondo oscuro, transparente y recorte del cuadrado).
+
+```bash
+EP=ep04 NSEG=10 TEMPO=1.10 python3 tools/proc_audio.py
+EP=ep04 GUION=ep04_super_nino.json python3 tools/align.py
+python3 tools/timeline_ep04.py && python3 tools/mix_ep04.py       # -> audio/mix/mezcla_ep04.wav
+EP=ep04 OUT=super_nino_subtitulos_es.srt python3 tools/srt.py
+cd video && npx remotion render SuperNino out/ep04_4k_muted.mp4 --muted --scale=2 --props='{"dpr":2}' --crf=15 && cd ..
+IN=video/out/ep04_4k_muted.mp4 AUD=audio/mix/mezcla_ep04.wav OUT=entrega/super_nino_4k.mp4 TITLE="SÚPER NIÑO" VBR=13M MAXRATE=24M BUFSIZE=36M tools/final.sh
+IN=video/out/ep04_4k_muted.mp4 AUD=audio/mix/mezcla_ep04.wav OUT=entrega/super_nino_1080p.mp4 TITLE="SÚPER NIÑO" VBR=2600k VF=scale=1920:1080:flags=lanczos tools/final.sh
+```

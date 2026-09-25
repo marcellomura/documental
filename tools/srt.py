@@ -22,6 +22,12 @@ NUM_EP = {
              ("cincuenta y siete mil millones", "57.000 millones"), ("cuarenta y cinco mil", "45.000"), ("dos mil veintidós", "2022"),
              ("dos mil veinticinco", "2025"), ("veinte mil millones", "20.000 millones"), ("dos mil treinta", "2030"),
              ("trece mil millones", "13.000 millones"), ("trescientos dólares", "300 dólares"), ("casi treinta", "casi 30")],
+    "ep04": [("cuatro coma seis grados", "4,6 grados"), ("tres grados", "3 grados"), ("cuarenta años", "40 años"),
+             ("medio metro", "medio metro"), ("un grado y medio", "1,5 grados"), ("setenta y cinco años", "75 años"),
+             ("mil novecientos ochenta y dos", "1982"), ("noventa y siete", "97"), ("dos mil quince", "2015"),
+             ("mil novecientos noventa y ocho", "1998"), ("ciento veinte mil", "120.000"), ("diecisiete", "17"),
+             ("cuatro millones", "4 millones"), ("Veinte mil", "20.000"), ("dos mil veintitrés", "2023"),
+             ("veintiún grados y un décimo", "21,1 grados")],
 }
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):
