@@ -45,7 +45,7 @@ export const FlatMap: React.FC<{
   if (reveal) {
     const [rx, ry] = P(reveal.lon, reveal.lat);
     const rr = reveal.r * k;
-    mask = `radial-gradient(circle ${Math.max(1, rr)}px at ${rx - ix}px ${ry - iy}px, black 70%, transparent 100%)`;
+    mask = `radial-gradient(circle ${Math.max(1, rr)}px at ${rx}px ${ry}px, black 70%, transparent 100%)`;
   }
   return (
     <div style={{position: 'absolute', inset: 0, overflow: 'hidden', background: N.bg1}}>

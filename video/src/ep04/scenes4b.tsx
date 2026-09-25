@@ -24,7 +24,7 @@ export const S05: React.FC<P> = ({t}) => {
   const linesO = Math.min(prog(t, tEste - 0.3, 0.5), 1 - prog(t, tSegun - 0.4, 0.5));
   const wmo = prog(t, tSegun - 0.3, 0.6);
   const quote = 'Podría ser más potente que todo lo observado';
-  const qn = Math.round(quote.length * ramp(t, tPodria - 0.1, tObs + 0.4, (x) => x));
+  const qn = Math.round(quote.length * ramp(t, tPodria - 0.1, tObs - 0.1, (x) => x));
   return (
     <AbsoluteFill style={{background: N.bg0}}>
       {oniO > 0 ? (
@@ -53,7 +53,10 @@ export const S05: React.FC<P> = ({t}) => {
             <Headline t={t} t0={tEste} size={66} text="Este año va adelantado" hl={['adelantado']} hlColor={N.hot} />
           </div>
           <SeasonLines t={t} t0={tEste - 0.2} tNow={tTresG + 0.2} tPeak={tTodavia} />
-          <div style={{position: 'absolute', left: 1330, top: 890, opacity: prog(t, tTodavia, 0.5), fontFamily: F.head, fontSize: 46, color: N.yellow}}>TODAVÍA NO LLEGÓ A SU PICO</div>
+          <div style={{position: 'absolute', left: 1300, top: 170, width: 540, opacity: prog(t, tTodavia, 0.5), transform: `translateY(${(1 - prog(t, tTodavia, 0.5)) * 20}px)`}}>
+            <div style={{fontFamily: F.head, fontSize: 50, color: N.yellow, lineHeight: 1.05}}>Y TODAVÍA NO LLEGÓ A SU PICO</div>
+            <div style={{fontFamily: F.body, fontWeight: 600, fontSize: 24, color: N.mute, marginTop: 8}}>Los otros súper Niños tocaron techo entre noviembre y enero (puntos)</div>
+          </div>
           <Src t={t} t0={tEste} text="NOAA CPC · anomalía semanal Niño 3.4, 1982–2026 (base 1991-2020)" />
         </AbsoluteFill>
       ) : null}
@@ -63,6 +66,9 @@ export const S05: React.FC<P> = ({t}) => {
           <Frame src="img/ep04/saulo.jpg" t={t} t0={tSegun - 0.2} x={1420} y={520} w={640} h={820} focus="50% 28%" zoom={[1.02, 1.1]} enter="clip" credit="Celeste Saulo · Xavier Lejeune / © Unión Europea, 2025" />
           <Kicker t={t} t0={tSegun - 0.1} text="Organización Meteorológica Mundial (OMM)" />
           <div style={{position: 'absolute', left: 110, top: 190, width: 900}}>
+            <div style={{fontFamily: F.head, fontSize: 60, lineHeight: 1.05, color: N.mute, marginBottom: 34, opacity: prog(t, tOrg - 0.2, 0.4)}}>
+              LA DIRIGE UNA ARGENTINA:
+            </div>
             <div style={{opacity: prog(t, tDirige - 0.2, 0.5), transform: `translateY(${(1 - prog(t, tDirige - 0.2, 0.5)) * 20}px)`}}>
               <div style={{fontFamily: F.head, fontSize: 96, color: N.text, lineHeight: 1}}>CELESTE SAULO</div>
               <div style={{display: 'flex', alignItems: 'center', gap: 16, marginTop: 14}}>
@@ -73,7 +79,7 @@ export const S05: React.FC<P> = ({t}) => {
             <div style={{marginTop: 70, fontFamily: F.quote, fontStyle: 'italic', fontWeight: 600, fontSize: 70, lineHeight: 1.12, color: N.text, minHeight: 250}}>
               {qn > 0 ? '«' : ''}
               {quote.slice(0, qn)}
-              {qn >= quote.length ? '»' : <span style={{opacity: Math.floor(t * 3) % 2 ? 1 : 0, color: N.yellow}}>|</span>}
+              {qn >= quote.length ? '»' : t > tPodria - 0.2 ? <span style={{opacity: Math.floor(t * 3) % 2 ? 1 : 0, color: N.yellow}}>|</span> : null}
             </div>
             <div style={{marginTop: 30, fontFamily: F.body, fontWeight: 700, fontSize: 26, color: N.mute, opacity: prog(t, tObs, 0.5)}}>desde que empezó el monitoreo moderno</div>
           </div>
@@ -95,7 +101,8 @@ const FloodDefs: React.FC<{t: number}> = ({t}) => (
   </defs>
 );
 
-export const S06: React.FC<P> = ({t}) => {
+export const S06: React.FC<P & {dur: number}> = ({t, dur}) => {
+  const fo = 1 - prog(t, dur - 0.5, 0.45);
   const s = 's06';
   const tAnio = cue(s, 'mil novecientos'), tLit = cue(s, 'Litoral'), tInund = cue(s, 'inundó:'), tCiento = cue(s, 'ciento'), tDiec = cue(s, 'diecisiete');
   const tCuatro = cue(s, 'cuatro millones'), tBajo = cue(s, 'bajo el agua'), tSF = cue(s, 'Santa Fe.'), t15 = cue(s, 'dos mil quince,'), tUru = cue(s, 'Uruguay');
@@ -153,7 +160,7 @@ export const S06: React.FC<P> = ({t}) => {
         <Headline t={t} t0={-0.2} size={96} text="¿Y qué nos pasó la última vez?" style={{textShadow: '0 6px 30px rgba(0,0,0,0.6)'}} />
       </div>
       {/* 1998 */}
-      <div style={{position: 'absolute', left: 1020, top: 110, width: 820}}>
+      <div style={{position: 'absolute', left: 1020, top: 110, width: 820, opacity: 1 - prog(t, t15 - 0.45, 0.3)}}>
         <div style={{fontFamily: F.head, fontSize: 210, lineHeight: 0.9, color: N.yellow, opacity: prog(t, tAnio - 0.1, 0.2) * (1 - zCon), transform: `scale(${1.3 - 0.3 * pop(t, tAnio - 0.1)})`, transformOrigin: 'left top'}}>1998</div>
         <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 6, color: N.text, marginBottom: 40, opacity: prog(t, tLit, 0.4) * (1 - zCon)}}>EL LITORAL BAJO EL AGUA</div>
         {stat(tCiento, <Num t={t} t0={tCiento - 0.2} t1={tCiento + 0.8} to={120000} />, 'EVACUADOS')}
@@ -163,7 +170,7 @@ export const S06: React.FC<P> = ({t}) => {
       </div>
       {/* 2015 · Concordia */}
       {zCon > 0 ? (
-        <>
+        <div style={{position: 'absolute', inset: 0, opacity: fo}}>
           <div style={{position: 'absolute', left: 1060, top: 110, opacity: prog(t, t15 - 0.1, 0.3)}}>
             <div style={{fontFamily: F.head, fontSize: 210, lineHeight: 0.9, color: N.yellow, transform: `scale(${1.3 - 0.3 * pop(t, t15 - 0.1)})`, transformOrigin: 'left top'}}>2015</div>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 6, color: N.text}}>CRECE EL RÍO URUGUAY</div>
@@ -186,7 +193,7 @@ export const S06: React.FC<P> = ({t}) => {
             </svg>
             <div style={{fontFamily: F.mono, fontSize: 17, color: N.mute}}>cada figura = 1.000 personas</div>
           </div>
-        </>
+        </div>
       ) : null}
       <Src t={t} t0={tAnio} text={zCon > 0 ? 'Fuentes: Infobae, La Nación (2015-16)' : 'Fuentes: CEPAL; SINAE; registros de la inundación de 1998'} />
       <Vignette k={0.4} />
@@ -248,7 +255,7 @@ export const S07: React.FC<P> = ({t}) => {
   return (
     <AbsoluteFill style={{background: N.bg0}}>
       <Ocean glow="rgba(63,134,201,0.16)" />
-      <ArgMap cam={cam} fills={fills} labels={labels} rivers={Math.max(zo > 0.99 ? 0 : 1, prog(t, tPar - 0.2, 1.0))} riverColor={t > tPar - 0.2 ? '#7FE0FF' : '#5CC8FF'} t={t}>
+      <ArgMap cam={cam} fills={fills} labels={labels} rivers={1} riverColor={t > tPar - 0.2 ? '#7FE0FF' : '#5CC8FF'} t={t}>
         {(proj) => {
           const [x0, y0] = proj([-62.5, -24])!;
           const [x1, y1] = proj([-53.5, -33.5])!;
@@ -297,8 +304,8 @@ export const S07: React.FC<P> = ({t}) => {
           <div style={{fontFamily: F.mono, fontSize: 15, color: 'rgba(210,225,238,0.6)', marginTop: 8}}>Río Paraguay, Asunción y Formosa · NASA EO-1 ALI</div>
         </div>
       ) : null}
-      <Tag t={t} t0={tNoa} x={proj0(cam, [-65.5, -24.5])[0]} y={proj0(cam, [-65.5, -24.5])[1]} dx={-160} dy={-60} size={46} title="Noroeste" value="MENOS LLUVIA" color={N.dry} />
-      <Tag t={t} t0={tSur} x={proj0(cam, [-68.5, -54.2])[0]} y={proj0(cam, [-68.5, -54.2])[1]} dx={-200} dy={-30} size={46} title="Extremo sur" value="MENOS LLUVIA" color={N.dry} />
+      <Tag t={t} t0={tNoa} x={proj0(cam, [-65.5, -24.5])[0]} y={proj0(cam, [-65.5, -24.5])[1]} dx={380} dy={-150} size={46} title="Noroeste" value="MENOS LLUVIA" color={N.dry} />
+      <Tag t={t} t0={tSur} x={proj0(cam, [-68.3, -54.2])[0]} y={proj0(cam, [-68.3, -54.2])[1]} dx={260} dy={-110} size={46} title="Extremo sur" value="MENOS LLUVIA" color={N.dry} />
       <Src t={t} t0={0.5} text="Fuentes: SMN, CRC-SAS, ECMWF (pronósticos trimestrales, sept. 2026). Mapa ilustrativo." />
       <Vignette k={0.35} />
     </AbsoluteFill>
@@ -332,7 +339,7 @@ export const S08: React.FC<P> = ({t}) => {
           <div style={{position: 'absolute', left: 110, top: 150}}>
             <Headline t={t} t0={-0.1} size={96} text="No todo es malo" />
           </div>
-          <div style={{position: 'absolute', left: 110, top: 330, width: 640}}>
+          <div style={{position: 'absolute', left: 110, top: 330, width: 820}}>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 28, letterSpacing: 4, color: N.mute, opacity: prog(t, tSeq - 0.2, 0.4)}}>DESPUÉS DE LA SEQUÍA HISTÓRICA DE</div>
             <div style={{fontFamily: F.head, fontSize: 150, lineHeight: 1, color: N.dry, opacity: prog(t, t23 - 0.2, 0.3), transform: `scale(${0.8 + 0.2 * pop(t, t23 - 0.2)})`, transformOrigin: 'left'}}>2022-23</div>
             <div style={{marginTop: 40, opacity: prog(t, tAgua - 0.2, 0.4), display: 'flex', alignItems: 'center', gap: 20}}>
@@ -347,7 +354,7 @@ export const S08: React.FC<P> = ({t}) => {
               </div>
             </div>
           </div>
-          <Frame src="img/ep04/sequia_nasa.jpg" t={t} t0={tSeq - 0.4} x={1380} y={500} w={760} h={760} focus="50% 50%" zoom={[1, 1.06]} enter="clip" credit="Pampa húmeda: sept. 2018 vs. sept. 2022 · Copernicus Sentinel-2">
+          <Frame src="img/ep04/sequia_nasa.jpg" t={t} t0={0.25} x={1380} y={500} w={760} h={760} focus="50% 50%" zoom={[1, 1.06]} enter="clip" credit="Pampa húmeda: sept. 2018 vs. sept. 2022 · Copernicus Sentinel-2">
             <div style={{position: 'absolute', left: 16, top: 16, background: 'rgba(4,10,17,0.8)', color: '#fff', fontFamily: F.body, fontWeight: 800, fontSize: 20, padding: '4px 12px', letterSpacing: 2}}>2018</div>
             <div style={{position: 'absolute', left: 16, top: 396, background: N.dry, color: '#fff', fontFamily: F.body, fontWeight: 800, fontSize: 20, padding: '4px 12px', letterSpacing: 2}}>2022 · SEQUÍA</div>
           </Frame>
@@ -436,6 +443,7 @@ export const S09: React.FC<P> = ({t}) => {
       <Stripes t={t} t0={-0.3} tLine={tRecal - 0.6} h={stripeH} y={stripeY} />
       <AbsoluteFill style={{opacity: 1 - shrink, pointerEvents: 'none'}}>
         <div style={{position: 'absolute', left: 110, top: 110}}>
+          <div style={{position: 'absolute', left: -30, top: -24, width: 1000, height: 250, background: 'radial-gradient(ellipse at 30% 50%, rgba(4,10,17,0.55), rgba(4,10,17,0) 70%)'}} />
           <Kicker t={t} t0={-0.1} x={0} y={0} text="Temperatura de los océanos · 1850–2026" color="#fff" />
           <div style={{marginTop: 70}}>
             <Headline t={t} t0={tSuma - 0.2} size={100} text="Un planeta recalentado" style={{textShadow: '0 4px 30px rgba(0,0,0,0.6)'}} />
@@ -504,7 +512,7 @@ export const S10: React.FC<P & {total: number}> = ({t, total}) => {
       <Tag t={t} t0={tCont - 0.3} t1={tSentir - 0.1} x={960} y={420} dx={260} dy={-190} size={64} title="Un pedazo de océano" value="DEL TAMAÑO DE UN CONTINENTE" dot={false} />
       {/* tres tarjetas */}
       {cards > 0 ? (
-        <AbsoluteFill style={{opacity: cards, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 60}}>
+        <AbsoluteFill style={{opacity: cards, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 60}}>
           {[
             ['TU TECHO', tTecho, <HouseIcon key="h" t={t} />],
             ['LA COSECHA', tCosecha, <WheatIcon key="w" />],
@@ -524,7 +532,7 @@ export const S10: React.FC<P & {total: number}> = ({t, total}) => {
             <HeatText text="Ya está acá" size={230} t={t} />
           </div>
           <div style={{opacity: prog(t, tPreg - 0.2, 0.4), position: 'absolute', textAlign: 'center'}}>
-            <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 34, letterSpacing: 10, color: N.mute}}>LA PREGUNTA ES</div>
+            <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 34, letterSpacing: 10, color: N.text, marginBottom: 30, textShadow: '0 2px 16px rgba(0,0,0,0.9)'}}>LA PREGUNTA ES</div>
             <Headline t={t} t0={tPreg + 0.2} size={120} text="¿Esta vez vamos a estar preparados?" hl={['preparados?']} style={{maxWidth: 1500, textAlign: 'center'}} />
           </div>
         </AbsoluteFill>
@@ -540,7 +548,7 @@ const EndCard: React.FC<{t: number; t0: number; tSusc: number; tComp: number; tN
   const move = ramp(t, tNos - 1.6, tNos - 0.6);
   const size = 380 - 110 * move;
   const lx = 960 - size / 2 - 560 * move;
-  const ly = 330 - 30 * move;
+  const ly = 330 - 130 * move;
   const bg = prog(t, tNos - 1.6, 0.8);
   const fadeOut = prog(t, total - 0.6, 0.6);
   return (
@@ -550,17 +558,17 @@ const EndCard: React.FC<{t: number; t0: number; tSusc: number; tComp: number; tN
       <div style={{position: 'absolute', left: lx, top: ly}}>
         <LogoMark size={size} t={t} t0={t0} />
       </div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 760, textAlign: 'center', opacity: prog(t, t0 + 0.5, 0.5) * (1 - move)}}>
-        <div style={{fontFamily: F.head, fontSize: 110, color: '#fff', letterSpacing: 6}}>CONTEXTO</div>
+      <div style={{position: 'absolute', left: -560 * move, right: 560 * move, top: 760 - 270 * move, textAlign: 'center', opacity: prog(t, t0 + 0.5, 0.5)}}>
+        <div style={{fontFamily: F.head, fontSize: 110 - 30 * move, color: '#fff', letterSpacing: 6}}>CONTEXTO</div>
       </div>
       {/* botón suscribirse */}
-      <div style={{position: 'absolute', left: 960 - 190 - 560 * move, top: 890 - 250 * move, opacity: prog(t, tSusc - 0.2, 0.3), transform: `scale(${pop(t, tSusc - 0.2)})`}}>
+      <div style={{position: 'absolute', left: 960 - 190 - 560 * move, top: 890 - 240 * move, opacity: prog(t, tSusc - 0.2, 0.3), transform: `scale(${pop(t, tSusc - 0.2)})`}}>
         <div style={{width: 380, height: 84, background: N.red, borderRadius: 42, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: F.body, fontWeight: 800, fontSize: 34, letterSpacing: 3, color: '#fff', boxShadow: '0 10px 30px rgba(226,59,46,0.45)'}}>
           SUSCRIBITE
         </div>
       </div>
       {/* compartir */}
-      <div style={{position: 'absolute', left: 960 - 330 - 560 * move, top: 1000 - 250 * move, width: 660, textAlign: 'center', opacity: prog(t, tComp - 0.2, 0.3) * (1 - move * 0.2), fontFamily: F.body, fontWeight: 700, fontSize: 28, color: N.mute}}>
+      <div style={{position: 'absolute', left: 960 - 330 - 560 * move, top: 1000 - 240 * move, width: 660, textAlign: 'center', opacity: prog(t, tComp - 0.2, 0.3) * (1 - move * 0.2), fontFamily: F.body, fontWeight: 700, fontSize: 28, color: N.mute}}>
         Compartilo con alguien del Litoral
       </div>
       {/* pantalla final: espacios para los videos sugeridos */}
@@ -570,7 +578,7 @@ const EndCard: React.FC<{t: number; t0: number; tSusc: number; tComp: number; tN
           <div key={i} style={{width: 760, height: 330, marginBottom: 40, borderRadius: 10, border: '3px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.04)', transform: `translateX(${(1 - prog(t, tNos - 0.5 + i * 0.15, 0.6)) * 80}px)`}} />
         ))}
       </div>
-      <div style={{position: 'absolute', left: 150, top: 830, width: 700, textAlign: 'center', opacity: prog(t, tNos, 0.5), fontFamily: F.head, fontSize: 60, color: '#fff'}}>NOS VEMOS EN EL PRÓXIMO</div>
+      <div style={{position: 'absolute', left: 50, top: 850, width: 700, textAlign: 'center', opacity: prog(t, tNos, 0.5), fontFamily: F.head, fontSize: 56, color: '#fff'}}>NOS VEMOS EN EL PRÓXIMO VIDEO</div>
       <AbsoluteFill style={{background: '#000', opacity: fadeOut}} />
     </AbsoluteFill>
   );

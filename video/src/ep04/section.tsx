@@ -125,18 +125,20 @@ export const Section: React.FC<{t: number; k: number; wind: number; c: SectionCu
         stroke="rgba(200,225,245,0.35)"
         strokeWidth={2}
       />
-      <text x={150} y={430} textAnchor="middle" fill={N.text} fontFamily="Inter" fontWeight={800} fontSize={22} letterSpacing={3}>
+      <text x={150} y={640} textAnchor="middle" fill={N.text} fontFamily="Inter" fontWeight={800} fontSize={24} letterSpacing={3}>
         INDONESIA
       </text>
-      <text x={150} y={400} textAnchor="middle" fill={N.mute} fontFamily="Inter" fontWeight={800} fontSize={18} letterSpacing={3}>
-        AUSTRALIA ·
+      <text x={150} y={672} textAnchor="middle" fill={N.mute} fontFamily="Inter" fontWeight={800} fontSize={19} letterSpacing={3}>
+        Y AUSTRALIA
       </text>
-      <text x={1790} y={300} textAnchor="middle" fill={N.text} fontFamily="Inter" fontWeight={800} fontSize={22} letterSpacing={3}>
+      <text x={1775} y={640} textAnchor="middle" fill={N.text} fontFamily="Inter" fontWeight={800} fontSize={24} letterSpacing={3}>
         SUDAMÉRICA
       </text>
-      <text x={1790} y={272} textAnchor="middle" fill={N.mute} fontFamily="Inter" fontWeight={800} fontSize={18} letterSpacing={3}>
+      <text x={1775} y={672} textAnchor="middle" fill={N.mute} fontFamily="Inter" fontWeight={800} fontSize={19} letterSpacing={3}>
         PERÚ · ECUADOR
       </text>
+      <text x={X0 + 20} y={1045} fill={N.mute} fontFamily="Inter" fontWeight={800} fontSize={18} letterSpacing={4}>← OESTE</text>
+      <text x={X1 - 20} y={1045} textAnchor="end" fill={N.mute} fontFamily="Inter" fontWeight={800} fontSize={18} letterSpacing={4}>ESTE →</text>
       {/* medio metro más alto */}
       {c.high !== undefined ? <SeaHigh t={t} t0={c.high} k={k} /> : null}
       {/* profundidad */}
@@ -178,16 +180,16 @@ const Trades: React.FC<{t: number; a: number}> = ({t, a}) => {
 const WalkerLoop: React.FC<{t: number; k: number; a: number; rainX: number}> = ({t, k, a, rainX}) => {
   if (a <= 0.01) return null;
   const xr = rainX, xd = 1480 - k * 200;
-  const d = `M ${xd} 440 C ${xd} 300 ${xd - 60} 190 ${(xr + xd) / 2} 190 C ${xr + 60} 190 ${xr} 300 ${xr} 430`;
+  const d = `M ${xd} 440 C ${xd} 320 ${xd - 60} 240 ${(xr + xd) / 2} 240 C ${xr + 60} 240 ${xr} 320 ${xr} 430`;
   return (
     <g opacity={a}>
       <path d={d} fill="none" stroke="rgba(180,215,240,0.35)" strokeWidth={3} strokeDasharray="4 12" strokeDashoffset={t * 30} />
       <g transform={`translate(${xr},0)`}>
-        <Cloud x={0} y={250} s={1.6} color="#C9D8E6" o={0.95} />
-        <Cloud x={-50} y={280} s={1.2} color="#AFC2D4" o={0.9} />
-        <Cloud x={60} y={285} s={1.1} color="#B8CADB" o={0.9} />
+        <Cloud x={0} y={300} s={1.6} color="#C9D8E6" o={0.95} />
+        <Cloud x={-50} y={330} s={1.2} color="#AFC2D4" o={0.9} />
+        <Cloud x={60} y={335} s={1.1} color="#B8CADB" o={0.9} />
       </g>
-      <Rain t={t} x={xr - 90} y={300} w={180} h={230} n={26} color="#9ED0FF" />
+      <Rain t={t} x={xr - 90} y={350} w={180} h={185} n={24} color="#9ED0FF" />
     </g>
   );
 };
@@ -206,7 +208,7 @@ const Upwelling: React.FC<{t: number; a: number}> = ({t, a}) => {
           </g>
         );
       })}
-      <text x={1310} y={990} fill="#9ED9FF" fontFamily="Inter" fontWeight={800} fontSize={22} letterSpacing={3}>
+      <text x={1600} y={935} textAnchor="end" fill="#9ED9FF" fontFamily="Inter" fontWeight={800} fontSize={22} letterSpacing={3}>
         SUBE AGUA FRÍA
       </text>
     </g>

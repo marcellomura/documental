@@ -9,6 +9,8 @@ import {RoboDelSiglo} from './ep02/RoboDelSiglo';
 import tl2 from './data/ep02/timeline.json';
 import {Fmi} from './ep03/Fmi';
 import tl3 from './data/ep03/timeline.json';
+import {SuperNino} from './ep04/SuperNino';
+import tl4 from './data/ep04/timeline.json';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -23,6 +25,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Short" component={Short} durationInFrames={Math.ceil(short.total * short.fps)} fps={short.fps} width={1080} height={1920} />
     <Composition id="RoboDelSiglo" component={RoboDelSiglo} durationInFrames={Math.ceil(tl2.total * tl2.fps)} fps={tl2.fps} width={1920} height={1080} />
     <Composition id="Fmi" component={Fmi} durationInFrames={Math.ceil(tl3.total * tl3.fps)} fps={tl3.fps} width={1920} height={1080} />
+    <Composition id="SuperNino" component={SuperNino} durationInFrames={Math.ceil(tl4.total * tl4.fps)} fps={tl4.fps} width={1920} height={1080} defaultProps={{dpr: 1}} />
     <Still id="Miniatura" component={Miniatura} width={1280} height={720} />
   </>
 );

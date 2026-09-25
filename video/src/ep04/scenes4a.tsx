@@ -50,11 +50,11 @@ export const S01: React.FC<P> = ({t}) => {
   const gRot = ramp(t, tLoQue - 0.3, tMiles + 0.8);
   const zoomEnd = ramp(t, tEsto, tSuper + 0.1, easeIn);
   const view = {
-    lon: -150 + 80 * gRot + 18 * zoomEnd,
-    lat: -2 - 16 * gRot + 18 * zoomEnd,
-    r: 430 + 60 * gRot + 2200 * zoomEnd,
+    lon: -150 + 80 * gRot - 45 * zoomEnd,
+    lat: -2 - 16 * gRot + 16 * zoomEnd,
+    r: 430 + 60 * gRot + 900 * zoomEnd,
     cx: 960 + 180 * (1 - gIn) + 240 * gRot * (1 - zoomEnd),
-    cy: 560,
+    cy: 560 + 60 * zoomEnd,
   };
   const ttl = t >= tSuper - 0.05;
   const sh = shake(t, tTan, 10, 0.5);
@@ -109,7 +109,7 @@ export const S01: React.FC<P> = ({t}) => {
 
       {/* C · del océano a tu ciudad */}
       {t > tLoQue - 0.4 ? (
-        <AbsoluteFill style={{opacity: gIn}}>
+        <AbsoluteFill style={{opacity: gIn, filter: zoomEnd > 0 ? `blur(${zoomEnd * 5}px) brightness(${1 - 0.35 * zoomEnd})` : undefined}}>
           <Ocean glow="rgba(30,90,150,0.35)" />
           <Stars t={t} />
           <Globe view={view} tex="sst2026">
@@ -123,7 +123,7 @@ export const S01: React.FC<P> = ({t}) => {
               return (
                 <g opacity={1 - zoomEnd}>
                   <path d={path({type: 'Polygon', coordinates: [[[-170, -5], [-120, -5], [-120, 5], [-170, 5], [-170, -5]]]} as any) ?? ''} fill="rgba(255,204,51,0.12)" stroke={N.yellow} strokeWidth={3} opacity={prog(t, tLoQue, 0.6)} />
-                  {aP > 0 ? <path d={arcPath(path, from, ba, aP)} fill="none" stroke={N.yellow} strokeWidth={4} strokeDasharray="2 10" strokeLinecap="round" /> : null}
+                  {aP > 0 ? <path d={arcPath(path, from, ba, aP)} fill="none" stroke={N.yellow} strokeWidth={6} strokeDasharray="2 12" strokeLinecap="round" /> : null}
                   {cityOn ? (
                     <g transform={`translate(${pB![0]},${pB![1]})`}>
                       <circle r={14 + pulse * 40} fill="none" stroke={N.rain} strokeWidth={3} opacity={1 - pulse} />
@@ -174,8 +174,8 @@ const TitleCard: React.FC<{t: number; t0: number; tYa: number; end: number}> = (
     <AbsoluteFill style={{opacity: 1 - out * 0}}>
       <AbsoluteFill style={{background: 'rgba(4,10,17,0.55)', opacity: a}} />
       <AbsoluteFill style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', transform: `scale(${z})`}}>
-        <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 14, color: N.text, opacity: prog(t, t0 + 0.2, 0.5), marginBottom: 8}}>EL FENÓMENO QUE VIENE</div>
-        <div style={{clipPath: `inset(0 ${(1 - easeOut(clamp((t - t0) / 0.55))) * 100}% 0 0)`}}>
+        <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 14, color: N.text, opacity: prog(t, t0 + 0.2, 0.5), marginBottom: 58}}>EL FENÓMENO QUE VIENE</div>
+        <div style={{clipPath: `inset(-40% ${(1 - easeOut(clamp((t - t0) / 0.55))) * 100}% -20% 0)`}}>
           <HeatText text="Súper Niño" size={260} t={t} />
         </div>
         <div style={{display: 'flex', alignItems: 'center', gap: 18, marginTop: 26, opacity: live ? prog(t, tYa - 0.1, 0.3) : 0}}>
@@ -304,7 +304,8 @@ const fanAngle = (t: number, tOff?: number) => {
   return tOff * v + v * (d - (d * d) / (2 * 2.2));
 };
 
-export const S03: React.FC<P> = ({t}) => {
+export const S03: React.FC<P & {dur: number}> = ({t, dur}) => {
+  const fo = 1 - prog(t, dur - 0.55, 0.45);
   const s = 's03';
   const tAlis = cue(s, 'vientos'), tVent = cue(s, 'ventilador'), tEmp = cue(s, 'Empujan'), tIndo = cue(s, 'Indonesia');
   const tAlla = cue(s, 'allá'), tFrente = cue(s, 'frente'), tSube = cue(s, 'sube'), tAgua = cue(s, 'Agua fría,', 1), tNut = cue(s, 'nutrientes,'), tPeces = cue(s, 'peces.');
@@ -331,7 +332,7 @@ export const S03: React.FC<P> = ({t}) => {
       <Caption t={t} t0={tEmp} t1={tAlla - 0.2} text="Empujan el agua caliente hacia Asia" />
       <Caption t={t} t0={tAlla} t1={tFrente - 0.2} text="Allá el mar está más alto" />
       <Caption t={t} t0={tFrente} t1={tEq - 0.3} text="Frente a Sudamérica sube agua fría" />
-      <div style={{position: 'absolute', left: 1180, top: 700, display: 'flex', gap: 14}}>
+      <div style={{position: 'absolute', left: 1130, top: 400, display: 'flex', gap: 14, opacity: fo}}>
         {[
           ['AGUA FRÍA', tAgua, N.cold],
           ['NUTRIENTES', tNut, N.teal],
@@ -342,8 +343,8 @@ export const S03: React.FC<P> = ({t}) => {
           </div>
         ))}
       </div>
-      <div style={{position: 'absolute', left: 0, right: 0, top: 150, textAlign: 'center', opacity: prog(t, tEq - 0.3, 0.4)}}>
-        <HeatText text="Ese es el equilibrio" size={88} t={t} style={{filter: 'hue-rotate(180deg) saturate(0.8)'}} />
+      <div style={{position: 'absolute', left: 0, right: 0, top: 918, textAlign: 'center', opacity: fo}}>
+        <Headline t={t} t0={tEq - 0.3} size={96} text="Ese es el equilibrio" hl={['equilibrio']} hlColor={N.teal} style={{textShadow: '0 6px 30px rgba(0,0,0,0.7)'}} />
       </div>
     </AbsoluteFill>
   );
@@ -384,7 +385,7 @@ export const S04: React.FC<P> = ({t}) => {
       {sw < 1 ? (
         <AbsoluteFill style={{opacity: 1 - sw, transform: `scale(${1 + sw * 0.5})`, filter: sw > 0 ? `blur(${sw * 10}px)` : undefined}}>
           <Ocean glow="rgba(40,110,170,0.22)" />
-          <Section t={t} k={k} wind={wind} rk={rk} c={{wind: -5, warm: -5, up: -5, chips: [-5, -5, -5], evap: tEvap - 0.3}} />
+          <Section t={t} k={k} wind={wind} rk={rk} c={{wind: -5, warm: -5, up: -5, high: -5, chips: [-5, -5, -5], evap: tEvap - 0.3}} />
           <Kicker t={t} t0={-5} text="Corte del Pacífico ecuatorial" />
           <div style={{position: 'absolute', left: 110, top: 138, height: 90, overflow: 'hidden'}}>
             <div style={{display: 'inline-block', background: N.cold, color: N.bg0, fontFamily: F.head, fontSize: 64, padding: '4px 22px', transform: `translateY(${-prog(t, tDeb - 0.4, 0.5) * 100}%)`}}>AÑO NORMAL</div>
@@ -415,7 +416,7 @@ export const S04: React.FC<P> = ({t}) => {
       ) : null}
       {sw > 0 ? (
         <AbsoluteFill style={{opacity: sw, transform: `scale(${1.25 - 0.25 * sw})`}}>
-          <FlatMap cam={cam} sstO={0.55} highlight={{AUS: `rgba(208,138,69,${0.85 * dryP})`, IDN: `rgba(208,138,69,${0.85 * dryP})`, PNG: `rgba(208,138,69,${0.6 * dryP})`}}>
+          <FlatMap cam={cam} sstO={0.4} highlight={{AUS: `rgba(208,138,69,${0.85 * dryP})`, IDN: `rgba(208,138,69,${0.85 * dryP})`, PNG: `rgba(208,138,69,${0.6 * dryP})`}}>
             {(Pp, path, kk) => (
               <g>
                 {/* Perú: lluvia en el desierto */}
@@ -424,15 +425,15 @@ export const S04: React.FC<P> = ({t}) => {
                   const a = prog(t, tEnPeru, 0.5);
                   return (
                     <g opacity={a}>
-                      <Cloud x={x} y={y - 60} s={0.02 * kk} color="#E3EEF7" />
-                      <Rain t={t} x={x - 0.9 * kk} y={y - 40} w={1.8 * kk} h={1.6 * kk} n={14} />
+                      <Cloud x={x} y={y - 4.5 * kk} s={0.055 * kk} color="#E3EEF7" />
+                      <Rain t={t} x={x - 2.4 * kk} y={y - 3 * kk} w={4.8 * kk} h={4 * kk} n={18} />
                     </g>
                   );
                 })()}
                 {/* Australia e Indonesia: sequía e incendios */}
                 {[[-240, -25], [-228, -20], [-215, -30], [-247, -31], [-222, -14], [-247, -3], [-258, 0]].map(([lo, la], i) => {
                   const [x, y] = Pp(lo, la);
-                  return <Flame key={i} x={x} y={y} s={0.028 * kk} t={t + i} o={prog(t, tInc - 0.4 + i * 0.08, 0.4)} />;
+                  return <Flame key={i} x={x} y={y} s={0.075 * kk} t={t + i} o={prog(t, tInc - 0.4 + i * 0.08, 0.4)} />;
                 })}
                 {/* nuestro lado del mapa */}
                 {(() => {
@@ -440,7 +441,13 @@ export const S04: React.FC<P> = ({t}) => {
                   const a = prog(t, tNuestro - 0.3, 0.5);
                   return (
                     <g opacity={a}>
-                      <ellipse cx={x} cy={y} rx={4.8 * kk} ry={5.5 * kk} fill={N.rain} opacity={0.25} />
+                      <defs>
+                        <radialGradient id="rain-glow">
+                          <stop offset="0" stopColor={N.rain} stopOpacity={0.5} />
+                          <stop offset="1" stopColor={N.rain} stopOpacity={0} />
+                        </radialGradient>
+                      </defs>
+                      <circle cx={x} cy={y} r={7 * kk} fill="url(#rain-glow)" />
                       <Cloud x={x + 0.4 * kk} y={y - 5 * kk} s={0.028 * kk} color="#E3EEF7" />
                       <Rain t={t} x={x - 2.4 * kk} y={y - 3.6 * kk} w={5 * kk} h={4.2 * kk} n={34} />
                     </g>

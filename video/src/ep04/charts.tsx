@@ -221,8 +221,8 @@ export const SeasonLines: React.FC<{t: number; t0: number; tNow: number; tPeak: 
           </text>
         ))}
         <line x1={X(now)} x2={X(now)} y1={Y(3.4)} y2={base + 140} stroke={N.yellow} strokeWidth={2} strokeDasharray="6 6" />
-        <text x={X(now)} y={Y(3.4) - 12} textAnchor="middle" fill={N.yellow} fontFamily="Inter" fontWeight={800} fontSize={20} letterSpacing={3}>
-          16 SEP
+        <text x={X(now)} y={base + 212} textAnchor="middle" fill={N.yellow} fontFamily="Inter" fontWeight={800} fontSize={20} letterSpacing={3}>
+          ▲ HOY · 16 SEP
         </text>
       </g>
       <g clipPath="url(#sl-cut)">
@@ -245,10 +245,7 @@ export const SeasonLines: React.FC<{t: number; t0: number; tNow: number; tPeak: 
               </text>
             )}
             <g opacity={show}>
-              <circle cx={X(pk[0])} cy={Y(pk[1])} r={7} fill={cols[y]} />
-              <text x={X(pk[0])} y={Y(pk[1]) - 16} textAnchor="middle" fill={cols[y]} fontFamily="Inter" fontWeight={800} fontSize={18}>
-                PICO {y}
-              </text>
+              <circle cx={X(pk[0])} cy={Y(pk[1])} r={8} fill={cols[y]} stroke={N.bg0} strokeWidth={3} />
             </g>
           </g>
         );

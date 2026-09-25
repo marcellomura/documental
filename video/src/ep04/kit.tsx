@@ -74,8 +74,8 @@ export const Headline: React.FC<{t: number; t0: number; text: string; size?: num
     {text.split(' ').map((w, i) => {
       const p = prog(t, t0 + i * stagger, 0.55);
       return (
-        <span key={i} style={{display: 'inline-block', overflow: 'hidden', verticalAlign: 'top', marginRight: size * 0.22, paddingBottom: size * 0.06}}>
-          <span style={{display: 'inline-block', transform: `translateY(${(1 - p) * 105}%)`, color: hl.includes(w) ? hlColor : undefined}}>{w}</span>
+        <span key={i} style={{display: 'inline-block', overflow: 'hidden', verticalAlign: 'top', marginRight: size * 0.22, paddingBottom: size * 0.06, paddingTop: size * 0.2, marginTop: -size * 0.2}}>
+          <span style={{display: 'inline-block', transform: `translateY(${(1 - p) * 135}%)`, color: hl.includes(w) ? hlColor : undefined}}>{w}</span>
         </span>
       );
     })}
@@ -305,6 +305,7 @@ export const HeatText: React.FC<{text: string; size: number; t: number; style?: 
       <div
         style={{
           fontFamily: F.head, fontSize: size, lineHeight: 1, textTransform: 'uppercase', letterSpacing: 2, whiteSpace: 'nowrap',
+          padding: `${size * 0.2}px ${size * 0.05}px ${size * 0.06}px`, margin: `${-size * 0.2}px ${-size * 0.05}px ${-size * 0.06}px`,
           backgroundImage: `url(${src}), linear-gradient(90deg, ${N.amber}, ${N.hot} 55%, ${N.magenta})`,
           backgroundSize: `${size * 16}px ${size * 5.36}px, 100% 100%`,
           backgroundPosition: `${-size * 8.2 - t * drift}px ${-size * 2.35}px, 0 0`,
@@ -323,8 +324,8 @@ export const Iris: React.FC<{t: number; at: number; x?: number; y?: number; dur?
   const k = (t - (at - dur / 2)) / dur;
   if (k <= 0 || k >= 1) return null;
   // cierra (0→0.5) y abre (0.5→1)
-  const R = 2300;
-  const r = k < 0.5 ? R * (1 - easeIn(k * 2)) : R * easeOut((k - 0.5) * 2);
+  const R = Math.max(Math.hypot(x, y), Math.hypot(1920 - x, y), Math.hypot(x, 1080 - y), Math.hypot(1920 - x, 1080 - y)) + 20;
+  const r = k < 0.5 ? R * (1 - easeInOut(k * 2)) : R * easeInOut((k - 0.5) * 2);
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
       <svg width={1920} height={1080}>
