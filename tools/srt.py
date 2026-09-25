@@ -54,12 +54,15 @@ def merge_numbers(ws):
 cues = []
 for seg in sorted(W):
     base = TL["starts"][seg]; cur = []
-    for w in merge_numbers(W[seg]):
+    mw = merge_numbers(W[seg])
+    for j, w in enumerate(mw):
         cur.append(w)
         txt = " ".join(x["w"] for x in cur)
         end_sentence = w["w"][-1] in ".?!:»" or w["w"].endswith("...")
-        comma = w["w"].endswith(",")
-        if (end_sentence and len(txt) >= 14) or (comma and len(txt) > 55) or len(txt) > 78 or w["e"] == W[seg][-1]["e"]:
+        nxt = mw[j + 1]["w"] if j + 1 < len(mw) else ""
+        # no cortar en la coma si lo que sigue es una palabra suelta que cierra la oración ("..., dos.")
+        comma = w["w"].endswith(",") and not (len(nxt) <= 6 and nxt[-1:] in ".?!")
+        if (end_sentence and len(txt) >= 10) or (comma and len(txt) > 45) or len(txt) > 78 or w["e"] == W[seg][-1]["e"]:
             cues.append((base + cur[0]["s"], base + cur[-1]["e"] + 0.15, txt)); cur = []
 def numerals(t):
     for a, b in NUM: t = re.sub(r"\b" + a + r"\b", b, t, flags=re.I)

@@ -104,7 +104,7 @@ Son las 7:30 y es de noche: no es el invierno, es tu reloj ⏰
 
 **Texto de la publicación:**
 ```
-¿Por qué en invierno vamos a la escuela de noche? 🌑 La Argentina usa la hora de Brasilia y ninguna ciudad del país está en esa franja horaria: vivimos una hora adelantados, y en la cordillera, dos 🤯 La historia, el jet lag social y el proyecto que nunca votó el Senado 👀
+¿Por qué en invierno vamos a la escuela de noche? ☾ La Argentina usa la hora de Brasilia y ninguna ciudad del país está en esa franja horaria: vivimos una hora adelantados, y en la cordillera, dos ‼️ La historia, el jet lag social y el proyecto que nunca votó el Senado ⏳
 
 #hora #husohorario #argentina #aprendeentiktok #datos
 
@@ -113,7 +113,7 @@ Voz IA y música: ElevenLabs
 
 **Comentario para fijar:**
 ```
-¿Qué preferís: luz a la mañana o luz a la tarde? 🌅🌇 Votá en los comentarios 👇
+¿Qué preferís: luz a la mañana o luz a la tarde? ☀️☾ Votá en los comentarios ⬇️
 ```
 
 Portada: elegí el cuadro del título, en **0:24** ("TU RELOJ ESTÁ MAL" con los relojes girando).

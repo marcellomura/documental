@@ -3,324 +3,339 @@
 Son las 7:30 de la mañana en Mendoza.
 
 2
-00:00:03,630 --> 00:00:06,680
-Es invierno. Miles de chicos
-entran a la escuela...
+00:00:03,630 --> 00:00:04,660
+Es invierno.
 
 3
+00:00:04,930 --> 00:00:06,680
+Miles de chicos entran a la escuela...
+
+4
 00:00:07,150 --> 00:00:08,820
 y afuera es de noche cerrada.
 
-4
+5
 00:00:09,070 --> 00:00:11,300
 El sol va a salir recién en una hora.
 
-5
+6
 00:00:11,530 --> 00:00:13,320
 En Ushuaia es peor:
 
-6
+7
 00:00:13,430 --> 00:00:14,460
 amanece a las 10.
 
-7
+8
 00:00:14,810 --> 00:00:17,140
 Y no, no es culpa del invierno.
 
-8
+9
 00:00:17,430 --> 00:00:18,860
 Es culpa de tu reloj.
 
-9
+10
 00:00:19,030 --> 00:00:23,380
 Porque no hay una sola ciudad argentina
 que esté en la zona horaria que usamos.
 
-10
+11
 00:00:23,630 --> 00:00:24,740
 Tu reloj está mal.
 
-11
+12
 00:00:25,010 --> 00:00:27,280
 Y el de todo el país, también.
 
-12
+13
 00:00:30,764 --> 00:00:33,534
 Pará. ¿Cómo puede estar mal la hora?
 
-13
+14
 00:00:33,684 --> 00:00:36,734
 Durante siglos, la hora la marcaba el sol:
 
-14
+15
 00:00:36,884 --> 00:00:39,774
 era mediodía cuando el sol
 estaba en lo más alto.
 
-15
+16
 00:00:39,964 --> 00:00:41,514
 Pero eso tenía un problema:
 
-16
+17
 00:00:41,644 --> 00:00:44,354
 cada ciudad tenía su propio mediodía.
 
-17
+18
 00:00:44,504 --> 00:00:49,694
 Cuando en Buenos Aires eran las
 12, en Mendoza eran las 11:20.
 
-18
+19
 00:00:49,884 --> 00:00:53,574
 Y con la llegada de los
 trenes, eso era un caos.
 
-19
+20
 00:00:54,272 --> 00:01:00,782
 Por eso, en 1894, la Argentina
 unificó la hora de todo el país:
 
-20
+21
 00:01:00,972 --> 00:01:03,582
 eligió la del Observatorio de Córdoba.
 
-21
+22
 00:01:03,812 --> 00:01:07,782
 Y en 1920 se sumó al sistema mundial.
 
-22
-00:01:08,072 --> 00:01:15,072
-El planeta se divide en 24 franjas, una por
-cada hora, porque el sol recorre 15 grados
-
 23
-00:01:15,092 --> 00:01:20,692
-por hora. Según esa regla, casi toda
-la Argentina cae en la franja de −4.
+00:01:08,072 --> 00:01:12,562
+El planeta se divide en 24
+franjas, una por cada hora,
 
 24
+00:01:12,652 --> 00:01:15,802
+porque el sol recorre 15 grados por hora.
+
+25
+00:01:15,992 --> 00:01:20,692
+Según esa regla, casi toda la Argentina
+cae en la franja de −4.
+
+26
 00:01:20,712 --> 00:01:24,322
 La cordillera y el sur, en −5.
 
-25
+27
 00:01:25,364 --> 00:01:26,754
 ¿Y cuál usamos?
 
-26
+28
 00:01:27,204 --> 00:01:31,994
 −3. La misma hora que Brasilia,
 que está 10 grados más al este.
 
-27
+29
 00:01:32,044 --> 00:01:34,614
 O sea: vivimos una hora adelantados.
 
-28
+30
 00:01:34,644 --> 00:01:36,034
 Y en la cordillera, dos.
 
-29
+31
 00:01:36,264 --> 00:01:40,114
 En Buenos Aires, el sol llega a lo más
 alto cerca de la una de la tarde.
 
-30
+32
 00:01:40,164 --> 00:01:42,074
 En Mendoza, a la una y media.
 
-31
+33
 00:01:42,324 --> 00:01:45,024
 Y en El Calafate, en febrero...
 
-32
+34
 00:01:45,044 --> 00:01:46,414
 a las dos de la tarde.
 
-33
+35
 00:01:47,722 --> 00:01:48,892
 ¿Cómo llegamos acá?
 
-34
+36
 00:01:49,202 --> 00:01:53,482
 En 1930 empezamos a usar
 el horario de verano:
 
-35
+37
 00:01:53,502 --> 00:01:56,612
 adelantar el reloj una hora
 para aprovechar la luz.
 
-36
+38
 00:01:56,882 --> 00:02:02,232
 Y en 1942, cuando llegó el
 otoño, no lo atrasamos.
 
-37
+39
 00:02:02,402 --> 00:02:08,832
 Hubo idas y vueltas, hasta que en
 1970 un decreto lo hizo oficial:
 
-38
+40
 00:02:09,142 --> 00:02:12,412
 −3, todo el año, para ahorrar energía.
 
-39
+41
 00:02:13,474 --> 00:02:16,324
 Y desde ahí, la hora se volvió un caos.
 
-40
+42
 00:02:16,374 --> 00:02:21,464
 En el 74, en plena crisis del petróleo,
 adelantamos otra hora más.
 
-41
+43
 00:02:21,614 --> 00:02:25,844
 En 2008, media Argentina cambió
 la hora y la otra mitad no:
 
-42
+44
 00:02:25,994 --> 00:02:29,784
 si viajabas de Córdoba a Mendoza,
 tenías que atrasar el reloj.
 
-43
+45
 00:02:29,874 --> 00:02:35,664
 Y en 2009, San Luis se cansó
 y se puso su propia hora.
 
-44
+46
 00:02:35,974 --> 00:02:41,524
 Durante meses, en San Luis era una
 hora menos que en el resto del país.
 
-45
+47
 00:02:42,804 --> 00:02:43,774
 ¿Y qué importa?
 
-46
+48
 00:02:44,284 --> 00:02:46,754
 Importa, porque tu cuerpo no lee el reloj:
 
-47
-00:02:46,784 --> 00:02:51,314
-lee la luz. Tenés un reloj biológico
-que se pone en hora con el sol.
+49
+00:02:46,784 --> 00:02:47,634
+lee la luz.
 
-48
+50
+00:02:47,844 --> 00:02:51,314
+Tenés un reloj biológico que
+se pone en hora con el sol.
+
+51
 00:02:51,584 --> 00:02:56,534
 Si la hora oficial va adelantada,
 vivís con un jet lag permanente,
 
-49
+52
 00:02:56,604 --> 00:02:58,714
 sin haberte subido nunca a un avión.
 
-50
+53
 00:02:58,904 --> 00:03:01,934
 Los científicos lo llaman jet lag social.
 
-51
+54
 00:03:02,244 --> 00:03:09,004
 Y un estudio de investigadores del CONICET
 con más de 700 alumnos argentinos encontró
 
-52
+55
 00:03:09,024 --> 00:03:13,634
 que los que van a la mañana y
 son más nocturnos rinden peor,
 
-53
+56
 00:03:13,684 --> 00:03:15,654
 sobre todo en matemática.
 
-54
+57
 00:03:16,761 --> 00:03:20,491
 Pero ojo, la hora adelantada
 también tiene fans.
 
-55
-00:03:20,881 --> 00:03:25,451
-Más luz a la tarde significa más
-tiempo para salir, para comprar,
+58
+00:03:20,881 --> 00:03:24,291
+Más luz a la tarde significa
+más tiempo para salir,
 
-56
-00:03:25,581 --> 00:03:26,791
-para el turismo.
+59
+00:03:24,601 --> 00:03:26,791
+para comprar, para el turismo.
 
-57
+60
 00:03:27,001 --> 00:03:31,191
 En verano, en Ushuaia el sol
 se pone a las 10 de la noche.
 
-58
+61
 00:03:31,481 --> 00:03:34,191
 Y hay quien dice que por
 eso cenamos tan tarde.
 
-59
+62
 00:03:34,261 --> 00:03:40,591
 Igual que en España, que desde 1940
 vive con la hora de Alemania.
 
-60
+63
 00:03:41,664 --> 00:03:49,184
 En agosto de 2025, Diputados aprobó volver
 a −4 de abril a agosto y seguir en −3
 
-61
+64
 00:03:49,204 --> 00:03:50,854
 el resto del año.
 
-62
+65
 00:03:51,204 --> 00:03:55,454
 Los relojes se tenían que atrasar
 el 1.º de abril de 2026.
 
-63
+66
 00:03:55,724 --> 00:03:58,934
 No pasó: el Senado todavía no lo votó.
 
-64
+67
 00:03:59,224 --> 00:04:03,034
 Y hasta científicos que están
 a favor, como Diego Golombek,
 
-65
+68
 00:04:03,344 --> 00:04:08,054
 advierten que cambiar la hora dos veces
 por año también tiene su costo.
 
-66
+69
 00:04:09,145 --> 00:04:12,705
 Así que la próxima vez que te cueste
 levantarte un lunes de invierno,
 
-67
+70
 00:04:12,725 --> 00:04:14,195
 no es solo fiaca:
 
-68
-00:04:14,465 --> 00:04:19,265
-es geografía. Vivimos una hora
-adelantados, y en la cordillera,
+71
+00:04:14,465 --> 00:04:15,875
+es geografía.
 
-69
-00:04:19,285 --> 00:04:22,195
-dos. La pregunta es cuál preferís:
+72
+00:04:15,985 --> 00:04:19,895
+Vivimos una hora adelantados,
+y en la cordillera, dos.
 
-70
+73
+00:04:20,265 --> 00:04:22,195
+La pregunta es cuál preferís:
+
+74
 00:04:22,345 --> 00:04:24,495
 ¿luz a la mañana o luz a la tarde?
 
-71
+75
 00:04:24,825 --> 00:04:26,215
 Dejalo en los comentarios.
 
-72
+76
 00:04:26,705 --> 00:04:31,335
 Si te sirvió, suscribite y compartilo
 con el que siempre llega tarde.
 
-73
+77
 00:04:31,545 --> 00:04:33,235
 Nos vemos en el próximo video.
