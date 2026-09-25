@@ -16,7 +16,7 @@ const hm = (h: number, m: number) => h * 60 + m;
 const ARG = prov as any;
 
 /** contorno de las provincias sobre el globo */
-const ArgOnGlobe: React.FC<{path: any; o?: number; fill?: string}> = ({path, o = 1, fill = 'rgba(255,255,255,0.06)'}) => (
+export const ArgOnGlobe: React.FC<{path: any; o?: number; fill?: string}> = ({path, o = 1, fill = 'rgba(255,255,255,0.06)'}) => (
   <g opacity={o}>
     {ARG.features.map((f: any, i: number) => (
       <path key={i} d={path(f) ?? ''} fill={fill} stroke="rgba(255,255,255,0.85)" strokeWidth={1.2} />
@@ -24,7 +24,7 @@ const ArgOnGlobe: React.FC<{path: any; o?: number; fill?: string}> = ({path, o =
   </g>
 );
 
-const Pin: React.FC<{proj: any; lon: number; lat: number; t: number; t0: number; label?: string; color?: string; dx?: number; view?: View5}> = ({proj, lon, lat, t, t0, label, color = SUN, dx = 26, view}) => {
+export const Pin: React.FC<{proj: any; lon: number; lat: number; t: number; t0: number; label?: string; color?: string; dx?: number; view?: View5}> = ({proj, lon, lat, t, t0, label, color = SUN, dx = 26, view}) => {
   if (t < t0) return null;
   if (view && !visible5(view, lon, lat)) return null;
   const p = proj([lon, lat]);
@@ -49,8 +49,8 @@ const Pin: React.FC<{proj: any; lon: number; lat: number; t: number; t0: number;
 export const S01: React.FC<P & {dur: number}> = ({t, dur}) => {
   const s = 's01';
   const tSiete = cue(s, 'siete'), tInv = cue(s, 'invierno.'), tMiles = cue(s, 'Miles'), tAfuera = cue(s, 'afuera'), tSol = cue(s, 'El sol'), tHora = cue(s, 'hora.');
-  const tUsh = cue(s, 'En Ushuaia'), tDiez = cue(s, 'diez.'), tYno = cue(s, 'Y no,'), tCulpa = cue(s, 'Es culpa'), tReloj = cue(s, 'reloj.'), tPorque = cue(s, 'Porque');
-  const tZona = cue(s, 'zona'), tTu = cue(s, 'Tu reloj'), tTodo = cue(s, 'Y el de');
+  const tUsh = cue(s, 'En Ushuaia'), tDiez = cue(s, 'diez.'), tYno = cue(s, 'Y no,'), tCulpa = cue(s, 'Es culpa', 1), tReloj = cue(s, 'reloj.'), tPorque = cue(s, 'Porque');
+  const tZona = cue(s, 'zona'), tTu = cue(s, 'Tu reloj está'), tTodo = cue(s, 'Y el de');
   // tiempo "de reloj" en Argentina (minutos desde medianoche) que manda el sol del globo
   let clock = hm(7, 30);
   if (t > tSol - 0.2 && t < tUsh - 0.4) clock = hm(7, 30) + (hm(8, 38) - hm(7, 30)) * ramp(t, tSol, tHora + 0.3);
@@ -138,7 +138,7 @@ export const S01: React.FC<P & {dur: number}> = ({t, dur}) => {
       {sceneF ? (
         <AbsoluteFill style={{opacity: prog(t, tPorque - 0.3, 0.4)}}>
           <Ocean glow="rgba(30,90,150,0.3)" />
-          <Globe5 view={vF} sun={subsolar(JUN21, 15)} >
+          <Globe5 view={vF} sun={subsolar(JUN21, 15)} dayOnly>
             {(proj, path) => {
               const a = prog(t, tPorque, 0.6);
               return (
@@ -224,7 +224,7 @@ const MiniClock: React.FC<{x: number; y: number; minutes: number; r?: number; la
 export const S02: React.FC<P> = ({t}) => {
   const s = 's02';
   const tComo = cue(s, '¿Cómo'), tDurante = cue(s, 'Durante'), tMedio = cue(s, 'mediodía', 0), tAlto = cue(s, 'alto.'), tPero = cue(s, 'Pero');
-  const tCada = cue(s, 'cada'), tCuando = cue(s, 'Cuando'), tMza = cue(s, 'Mendoza'), tOnce = cue(s, 'once'), tTrenes = cue(s, 'trenes,'), tCaos = cue(s, 'caos.');
+  const tCada = cue(s, 'cada'), tCuando = cue(s, 'Cuando en'), tMza = cue(s, 'Mendoza'), tOnce = cue(s, 'once'), tTrenes = cue(s, 'trenes,'), tCaos = cue(s, 'caos.');
   const sun = t > tDurante - 0.4 && t < tPero - 0.2;
   const map = t >= tPero - 0.2 && t < tCuando - 0.2;
   const duo = t >= tCuando - 0.2 && t < cue(s, 'Y con') - 0.3;
@@ -255,7 +255,7 @@ export const S02: React.FC<P> = ({t}) => {
       {map ? (
         <AbsoluteFill style={{opacity: prog(t, tPero - 0.2, 0.4)}}>
           <Ocean glow="rgba(255,181,71,0.12)" />
-          <ArgMap cam={{box: [560, 40, 1360, 1040]}} t={t}>
+          <ArgMap cam={{box: [600, 40, 1360, 985]}} t={t}>
             {(proj) => (
               <>
                 {LMT.map(([n, lo, la, d], i) => {
@@ -312,7 +312,7 @@ export const S02: React.FC<P> = ({t}) => {
 export const S03: React.FC<P> = ({t}) => {
   const s = 's03';
   const tMil = cue(s, 'mil ochocientos'), tUnif = cue(s, 'unificó'), tElig = cue(s, 'eligió'), tObs = cue(s, 'Observatorio'), t1920 = cue(s, 'mil novecientos');
-  const tPlan = cue(s, 'El planeta'), tVeinti = cue(s, 'veinticuatro'), tQuince = cue(s, 'quince'), tSegun = cue(s, 'Según'), tCuatro = cue(s, 'cuatro.'), tCord = cue(s, 'cordillera'), tCinco = cue(s, 'cinco.');
+  const tPlan = cue(s, 'El planeta'), tVeinti = cue(s, 'veinticuatro'), tQuince = cue(s, 'quince'), tSegun = cue(s, 'Según'), tCuatro = cue(s, 'menos cuatro'), tCord = cue(s, 'cordillera'), tCinco = cue(s, 'cinco.');
   const a1894 = t < t1920 - 0.3;
   const zones = t >= t1920 - 0.3;
   const spin = ramp(t, t1920, tSegun);
@@ -448,24 +448,24 @@ export const S04: React.FC<P> = ({t}) => {
         <AbsoluteFill>
           <Ocean glow="rgba(255,181,71,0.14)" grid={0.2} />
           <Map3D
-            t={t} tilt={tilt} rotZ={-8 * ramp(t, tBA - 0.4, tDos + 1)} cx={1120} cy={500} scale={1.02}
+            t={t} tilt={tilt} rotZ={-8 * ramp(t, tBA - 0.4, tDos + 1)} cx={1200} cy={560} scale={1.12}
             bars={[
-              {lon: -58.38, lat: -34.6, h: 55 * 4, label: '12:55', sub: 'BUENOS AIRES', t0: tBA},
-              {lon: -68.85, lat: -32.89, h: 97 * 4, label: '13:37', sub: 'MENDOZA', t0: tMza},
-              {lon: -72.27, lat: -50.34, h: 123 * 4, label: '14:03', sub: 'EL CALAFATE · FEB', t0: tCal, color: DAWN},
-              {lon: -64.19, lat: -31.42, h: 78 * 4, label: '', t0: tMza + 0.4, color: '#E6A340'},
-              {lon: -65.42, lat: -24.78, h: 83 * 4, label: '', t0: tMza + 0.5, color: '#E6A340'},
-              {lon: -55.9, lat: -27.37, h: 45 * 4, label: '', t0: tBA + 0.4, color: '#E6A340'},
-              {lon: -68.3, lat: -54.8, h: 94 * 4, label: '', t0: tCal + 0.3, color: '#E6A340'},
+              {lon: -58.38, lat: -34.6, h: 55 * 2.7, label: '12:55', sub: 'BUENOS AIRES', t0: tBA},
+              {lon: -68.85, lat: -32.89, h: 97 * 2.7, label: '13:37', sub: 'MENDOZA', t0: tMza},
+              {lon: -72.27, lat: -50.34, h: 123 * 2.7, label: '14:03', sub: 'EL CALAFATE · FEB', t0: tCal, color: DAWN},
+              {lon: -64.19, lat: -31.42, h: 78 * 2.7, label: '', t0: tMza + 0.4, color: '#E6A340'},
+              {lon: -65.42, lat: -24.78, h: 83 * 2.7, label: '', t0: tMza + 0.5, color: '#E6A340'},
+              {lon: -55.9, lat: -27.37, h: 45 * 2.7, label: '', t0: tBA + 0.4, color: '#E6A340'},
+              {lon: -68.3, lat: -54.8, h: 94 * 2.7, label: '', t0: tCal + 0.3, color: '#E6A340'},
             ]}
           />
-          <div style={{position: 'absolute', left: 110, top: 150, width: 560}}>
+          <div style={{position: 'absolute', left: 110, top: 150, width: 620}}>
             <Kicker t={t} t0={tBA - 0.2} x={0} y={0} text="Mediodía solar · cuando el sol está más alto" color={SUN} />
             <div style={{marginTop: 70}}>
               <Headline t={t} t0={tBA} size={90} text="El mediodía llega tarde" hl={['tarde']} hlColor={SUN} />
             </div>
             <div style={{marginTop: 30, fontFamily: F.body, fontWeight: 700, fontSize: 28, color: N.mute, opacity: prog(t, tMza, 0.4)}}>Cada barra: minutos después de las 12 del reloj</div>
-            <div style={{marginTop: 30, fontFamily: F.head, fontSize: 64, color: DAWN, opacity: prog(t, tFeb, 0.4)}}>EN FEBRERO, A LAS 14:03</div>
+            <div style={{marginTop: 30, fontFamily: F.head, fontSize: 58, color: DAWN, whiteSpace: 'nowrap', opacity: prog(t, tFeb, 0.4)}}>EN FEBRERO, A LAS 14:03</div>
           </div>
           <Src t={t} t0={tBA} text="Cálculo astronómico (NOAA / astral): 21 de junio; El Calafate, 12 de febrero" />
         </AbsoluteFill>
@@ -487,7 +487,7 @@ export const Timeline: React.FC<{t: number; at: number; o?: number}> = ({t, at, 
       {Y.map((y) => (
         <g key={y} opacity={at >= y ? 1 : 0.45}>
           <circle cx={X(y)} cy={1010} r={at >= y ? 9 : 6} fill={at >= y ? SUN : '#8EA4B8'} />
-          <text x={X(y)} y={1050} textAnchor="middle" fill={at >= y ? '#fff' : '#8EA4B8'} fontFamily="JetBrains Mono" fontSize={20}>
+          <text x={X(y)} y={y === 1974 || y === 2009 ? 988 : 1050} textAnchor="middle" fill={at >= y ? '#fff' : '#8EA4B8'} fontFamily="JetBrains Mono" fontSize={20}>
             {y}
           </text>
         </g>
@@ -504,7 +504,7 @@ export const S05: React.FC<P> = ({t}) => {
   const t1970 = cue(s, 'mil novecientos', 2), tDecreto = cue(s, 'decreto'), tMenos = cue(s, 'menos'), tEnergia = cue(s, 'energía.');
   const stage = t < t1942 - 0.4 ? 0 : t < tHubo - 0.3 ? 1 : 2;
   const year = stage === 0 ? 1930 : stage === 1 ? 1942 : t < t1970 - 0.3 ? 1956 : 1970;
-  const rew = 1 - prog(t, 0.2, 1.0);
+  const rew = 1 - prog(t, t1930 - 0.9, 0.6);
   return (
     <AbsoluteFill style={{background: N.bg0}}>
       <Ocean glow="rgba(201,162,74,0.14)" />

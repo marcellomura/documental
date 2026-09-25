@@ -1,6 +1,6 @@
 /* Piezas visuales del episodio 5 (Tu reloj está mal): relojes 3D, trayectoria del Sol, mapa 3D, ilustraciones. */
 import React from 'react';
-import {geoMercator} from 'd3-geo';
+import {geoCentroid, geoMercator} from 'd3-geo';
 import prov from '../data/ep04/arg_provincias.json';
 import {F} from '../theme';
 import {clamp, easeInOut, easeOut, pop, prog} from '../lib/anim';
@@ -244,10 +244,12 @@ export const SunPath3D: React.FC<{t: number; k: number; show: number; cx?: numbe
    Mapa de la Argentina en 3D con barras (minutos que el mediodía llega tarde)
    ===================================================================== */
 const PROV = (prov as any).features as any[];
+const CENT = PROV.map((f) => geoCentroid(f));
 export const Map3D: React.FC<{
   t: number; tilt: number; rotZ?: number; cx?: number; cy?: number; scale?: number; bars?: {lon: number; lat: number; h: number; label: string; sub?: string; color?: string; t0: number}[];
-  fills?: Record<string, string>; opacity?: number;
-}> = ({t, tilt, rotZ = 0, cx = 960, cy = 560, scale = 1, bars = [], fills = {}, opacity = 1}) => {
+  fills?: Record<string, string>; opacity?: number; lift?: Record<string, number>; sides?: Record<string, string>;
+  children?: (P3: (lon: number, lat: number, z: number) => [number, number]) => React.ReactNode;
+}> = ({t, tilt, rotZ = 0, cx = 960, cy = 560, scale = 1, bars = [], fills = {}, opacity = 1, lift = {}, sides = {}, children}) => {
   const base = geoMercator().center([-64, -40]).scale(1350 * scale).translate([0, 0]);
   const th = tilt * (Math.PI / 180), rz = rotZ * (Math.PI / 180), dist = 2600;
   const P3 = (lon: number, lat: number, z: number): [number, number] => {
@@ -277,13 +279,25 @@ export const Map3D: React.FC<{
           ))}
         </g>
       ))}
-      {PROV.map((f, j) => (
-        <path key={j} d={polyPaths(f.geometry, 0)} fill={fills[f.properties.n] ?? '#1D3148'} stroke="rgba(210,230,245,0.55)" strokeWidth={1.1} />
-      ))}
+      {/* provincias (de atrás hacia adelante); las que tienen `lift` se levantan como bloques */}
+      {PROV.map((f, j) => ({f, j, y: P3(CENT[j][0], CENT[j][1], 0)[1]}))
+        .sort((a, b) => a.y - b.y)
+        .map(({f, j}) => {
+          const n = f.properties.n, h = lift[n] ?? 0;
+          const steps = h > 0.5 ? Math.max(2, Math.ceil(h / 5)) : 0;
+          return (
+            <g key={j}>
+              {Array.from({length: steps}).map((_, k) => (
+                <path key={k} d={polyPaths(f.geometry, (h * k) / steps)} fill={sides[n] ?? '#0E2236'} stroke="rgba(0,0,0,0.25)" strokeWidth={0.6} />
+              ))}
+              <path d={polyPaths(f.geometry, h)} fill={fills[n] ?? '#1D3148'} stroke="rgba(210,230,245,0.55)" strokeWidth={1.1} />
+            </g>
+          );
+        })}
       {[...bars].sort((a, b) => P3(a.lon, a.lat, 0)[1] - P3(b.lon, b.lat, 0)[1]).map((b, i) => {
         const g = easeOut(clamp((t - b.t0) / 0.8));
         if (g <= 0) return null;
-        const h = b.h * g, w = 0.28;
+        const h = b.h * g, w = 0.75;
         const c = b.color ?? SUN;
         const pts = (z: number) => [
           P3(b.lon - w, b.lat - w * 0.7, z), P3(b.lon + w, b.lat - w * 0.7, z), P3(b.lon + w, b.lat + w * 0.7, z), P3(b.lon - w, b.lat + w * 0.7, z),
@@ -309,6 +323,7 @@ export const Map3D: React.FC<{
           </g>
         );
       })}
+      {children ? children(P3) : null}
     </svg>
   );
 };
@@ -414,3 +429,47 @@ export const Icon: React.FC<{name: 'glass' | 'bag' | 'camera' | 'plate' | 'barre
 );
 
 export {easeInOut, pop, prog, clamp};
+
+/* =====================================================================
+   Transición de reloj: tres capas barren la pantalla como una aguja (y vuelven a destapar)
+   ===================================================================== */
+export const ClockWipe: React.FC<{t: number; at: number; colors?: [string, string, string]; dur?: number; ccw?: boolean}> = ({
+  t, at, colors = [SUN, N.deep, N.bg1], dur = 1.1, ccw = false,
+}) => {
+  const k = (t - (at - dur / 2)) / dur;
+  if (k <= 0 || k >= 1) return null;
+  const cx = 960, cy = 540, R = 1180, sg = ccw ? -1 : 1, rad = Math.PI / 180;
+  const pt = (a: number, r = R) => `${(cx + sg * r * Math.sin(a * rad)).toFixed(1)} ${(cy - r * Math.cos(a * rad)).toFixed(1)}`;
+  const wedge = (a0: number, a1: number) => {
+    if (a1 - a0 < 0.2) return '';
+    const pts = [`M ${cx} ${cy}`];
+    for (let a = a0; a < a1; a += 3) pts.push(`L ${pt(a)}`);
+    pts.push(`L ${pt(a1)} Z`);
+    return pts.join(' ');
+  };
+  const L = [0, 1, 2].map((i) => ({
+    a1: 360 * easeInOut(clamp((k - i * 0.05) / 0.38)),
+    a0: 360 * easeInOut(clamp((k - 0.5 - (2 - i) * 0.05) / 0.38)),
+  }));
+  const hand = k < 0.5 ? L[0].a1 : L[0].a0;
+  const face = Math.sin(k * Math.PI);
+  return (
+    <svg width={1920} height={1080} style={{position: 'absolute', inset: 0, pointerEvents: 'none'}}>
+      {L.map((l, i) => (
+        <path key={i} d={wedge(l.a0, l.a1)} fill={colors[i]} />
+      ))}
+      <g opacity={face * 0.55}>
+        {Array.from({length: 12}).map((_, i) => (
+          <line key={i} x1={cx + Math.sin(i * 30 * rad) * 330} y1={cy - Math.cos(i * 30 * rad) * 330} x2={cx + Math.sin(i * 30 * rad) * (i % 3 ? 360 : 390)} y2={cy - Math.cos(i * 30 * rad) * (i % 3 ? 360 : 390)} stroke="#fff" strokeWidth={i % 3 ? 5 : 10} strokeLinecap="round" />
+        ))}
+      </g>
+      {hand > 0.5 && hand < 359.5 ? (
+        <g>
+          <line x1={cx} y1={cy} x2={cx + sg * R * Math.sin(hand * rad)} y2={cy - R * Math.cos(hand * rad)} stroke="#fff" strokeWidth={9} strokeLinecap="round" />
+          <circle cx={cx} cy={cy} r={22} fill="#fff" />
+          <circle cx={cx} cy={cy} r={9} fill={N.red} />
+        </g>
+      ) : null}
+    </svg>
+  );
+};
