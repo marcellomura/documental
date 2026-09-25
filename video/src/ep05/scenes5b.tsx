@@ -105,6 +105,7 @@ export const S06: React.FC<P> = ({t}) => {
         <AbsoluteFill>
           <Ocean glow="rgba(226,59,46,0.14)" />
           <ClockTunnel t={t} />
+          <AbsoluteFill style={{background: 'radial-gradient(ellipse 40% 30% at 50% 47%, rgba(4,10,17,0.92) 0%, rgba(4,10,17,0.6) 55%, rgba(4,10,17,0) 100%)'}} />
           <Vignette k={0.7} />
           <div style={{position: 'absolute', left: 0, right: 0, top: 360, textAlign: 'center', transform: `translate(${shake(t, tCaos, 14, 0.5).x}px, ${shake(t, tCaos, 14, 0.5).y}px)`}}>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 40, letterSpacing: 12, color: N.text, opacity: prog(t, 0.9, 0.4)}}>Y LA HORA SE VOLVIÓ</div>
@@ -144,7 +145,6 @@ export const S06: React.FC<P> = ({t}) => {
                           })
                           .join(' ');
                         const [bx, by] = P3(busPos[0], busPos[1], busZ + 6);
-                        const [ex, ey] = P3(BX[0] - 1.2, BX[1] - 1.6, lift['Córdoba'] + 95);
                         return (
                           <g opacity={prog(t, tViaj - 0.3, 0.3)}>
                             <path d={d} fill="none" stroke="#fff" strokeWidth={4} strokeDasharray="12 10" strokeDashoffset={-t * 40} opacity={0.9} />
@@ -153,7 +153,7 @@ export const S06: React.FC<P> = ({t}) => {
                               <Icon name="bus" size={90} color="#fff" />
                             </g>
                             {t > tAtr - 0.1 ? (
-                              <g transform={`translate(${ex},${ey}) scale(${pop(t, tAtr - 0.1)})`}>
+                              <g transform={`translate(${bx - 130},${by - 30}) scale(${pop(t, tAtr - 0.1)})`}>
                                 <SvgLabel x={0} y={0} text="−1 H" color={N.red} size={64} />
                               </g>
                             ) : null}

@@ -107,8 +107,8 @@ export const Globe5: React.FC<{
           B += (Nd[i00 + 2] * w00 + Nd[i10 + 2] * w10 + Nd[i01 + 2] * w01 + Nd[i11 + 2] * w11) * k;
         }
         // brillo naranja del amanecer/atardecer sobre el terminador
-        const tw2 = Math.max(0, 1 - Math.abs(cz + 0.015) / 0.07) * (dayOnly ? 0 : 1);
-        R += 80 * tw2; G += 34 * tw2; B += 6 * tw2;
+        const tw2 = Math.max(0, 1 - Math.abs(cz + 0.015) / 0.06) * (dayOnly ? 0 : 1);
+        R += 55 * tw2; G += 22 * tw2; B += 4 * tw2;
         const rim = Math.pow(1 - z, 2.6) * atmo;
         const o = (py * pw + px) * 4;
         out[o] = Math.min(255, R + rim * 60);

@@ -448,15 +448,13 @@ export const S04: React.FC<P> = ({t}) => {
         <AbsoluteFill>
           <Ocean glow="rgba(255,181,71,0.14)" grid={0.2} />
           <Map3D
-            t={t} tilt={tilt} rotZ={-8 * ramp(t, tBA - 0.4, tDos + 1)} cx={1200} cy={560} scale={1.12}
+            t={t} tilt={tilt} rotZ={-8 * ramp(t, tBA - 0.4, tDos + 1)} cx={1200} cy={600} scale={1.12}
             bars={[
-              {lon: -58.38, lat: -34.6, h: 55 * 2.7, label: '12:55', sub: 'BUENOS AIRES', t0: tBA},
-              {lon: -68.85, lat: -32.89, h: 97 * 2.7, label: '13:37', sub: 'MENDOZA', t0: tMza},
-              {lon: -72.27, lat: -50.34, h: 123 * 2.7, label: '14:03', sub: 'EL CALAFATE · FEB', t0: tCal, color: DAWN},
-              {lon: -64.19, lat: -31.42, h: 78 * 2.7, label: '', t0: tMza + 0.4, color: '#E6A340'},
-              {lon: -65.42, lat: -24.78, h: 83 * 2.7, label: '', t0: tMza + 0.5, color: '#E6A340'},
-              {lon: -55.9, lat: -27.37, h: 45 * 2.7, label: '', t0: tBA + 0.4, color: '#E6A340'},
-              {lon: -68.3, lat: -54.8, h: 94 * 2.7, label: '', t0: tCal + 0.3, color: '#E6A340'},
+              {lon: -58.38, lat: -34.6, h: 55 * 2.3, label: '12:55', sub: 'BUENOS AIRES', t0: tBA},
+              {lon: -68.85, lat: -32.89, h: 97 * 2.3, label: '13:37', sub: 'MENDOZA', t0: tMza},
+              {lon: -72.27, lat: -50.34, h: 123 * 2.3, label: '14:03', sub: 'EL CALAFATE · FEB', t0: tCal, color: DAWN},
+              {lon: -55.9, lat: -27.37, h: 45 * 2.3, label: '', t0: tBA + 0.4, color: '#E6A340'},
+              {lon: -68.3, lat: -54.8, h: 94 * 2.3, label: '', t0: tCal + 0.3, color: '#E6A340'},
             ]}
           />
           <div style={{position: 'absolute', left: 110, top: 150, width: 620}}>

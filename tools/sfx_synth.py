@@ -44,3 +44,27 @@ def powerdown(sec=1.4):
     t = np.arange(int(sec * SR)) / SR; f = 220 * np.exp(-t * 1.6)
     y = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 1.2) * 0.6 + shaped_noise(sec, 100, 800) * 0.1 * np.exp(-t * 2)
     return stereo(y.astype(np.float32))
+
+# ---------- episodio 5 (Tu reloj está mal) ----------
+def _tick(freq, dur=0.03, noise=0.35):
+    t = np.arange(int(dur * SR)) / SR
+    y = np.sin(2 * np.pi * freq * t) * np.exp(-t / 0.006) + rng.standard_normal(len(t)) * noise * np.exp(-t / 0.002)
+    return (y * 0.8).astype(np.float32)
+def ticks(sec, rate=1.0, accel=1.0, hi=3200, lo=2400):
+    """tic-tac de reloj: `rate` golpes por segundo; `accel` > 1 acelera hacia el final"""
+    n = int(sec * SR); y = np.zeros(n, np.float32); tt, k = 0.0, 0
+    while tt < sec:
+        a = _tick(hi if k % 2 == 0 else lo); i = int(tt * SR); m = min(len(a), n - i)
+        if m > 0: y[i:i + m] += a[:m]
+        r = rate * (1 + (accel - 1) * tt / sec); tt += 1 / r; k += 1
+    return stereo(y, 0.3)
+def flick(sec=0.09):
+    """hoja de calendario que pasa"""
+    y = shaped_noise(sec, 1200, 7000, -0.2); t = np.arange(len(y)) / SR
+    return stereo((y * np.exp(-t / 0.025) * 0.8).astype(np.float32), 0.5)
+def flyby(sec=3.0):
+    """avión que cruza de izquierda a derecha"""
+    n = int(sec * SR); y = shaped_noise(sec, 120, 2600, -0.9); t = np.arange(n) / SR
+    env = np.exp(-((t - sec * 0.55) / (sec * 0.22)) ** 2)
+    p = np.clip(t / sec, 0, 1); l, r = np.cos(p * np.pi / 2), np.sin(p * np.pi / 2)
+    return np.stack([y * env * l, y * env * r], 1).astype(np.float32)
