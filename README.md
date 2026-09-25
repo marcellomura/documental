@@ -100,6 +100,9 @@ Qué es El Niño, por qué el de 2026 es "súper" y qué le puede pasar a la Arg
 | `super_nino_subtitulos_es.srt` | Subtítulos en español, con cifras |
 | `super_nino_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
 | `super_nino_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura para A/B, la miniatura vertical y los textos para TikTok |
+| `super_nino_short_youtube.mp4` | Short vertical para YouTube (0:59, 1080×1920, subtítulos incrustados) |
+| `super_nino_short_tiktok.mp4` | Short vertical para TikTok (1:06) |
+| `super_nino_shorts_publicacion.md` | Calendario (jueves 8/10), títulos, textos, portadas y configuración de los dos shorts |
 
 - Guion: `guion/ep04_super_nino.json` · Escenas: `video/src/ep04/` (composición `SuperNino`)
   - `globe.tsx`: globo 3D en canvas. Proyecta píxel a píxel la textura real de NASA con la anomalía de NOAA encima.
@@ -119,4 +122,9 @@ EP=ep04 OUT=super_nino_subtitulos_es.srt python3 tools/srt.py
 cd video && npx remotion render SuperNino out/ep04_4k_muted.mp4 --muted --scale=2 --props='{"dpr":2}' --crf=15 && cd ..
 IN=video/out/ep04_4k_muted.mp4 AUD=audio/mix/mezcla_ep04.wav OUT=entrega/super_nino_4k.mp4 TITLE="SÚPER NIÑO" VBR=13M MAXRATE=24M BUFSIZE=36M tools/final.sh
 IN=video/out/ep04_4k_muted.mp4 AUD=audio/mix/mezcla_ep04.wav OUT=entrega/super_nino_1080p.mp4 TITLE="SÚPER NIÑO" VBR=2600k VF=scale=1920:1080:flags=lanczos tools/final.sh
+# shorts (tools/shorts_ep04.py recorta la narración y mezcla; composiciones ShortNinoYT y ShortNinoTT)
+python3 tools/shorts_ep04.py
+cd video && npx remotion render ShortNinoYT out/short4_yt_muted.mp4 --muted --crf=15 && npx remotion render ShortNinoTT out/short4_tt_muted.mp4 --muted --crf=15 && cd ..
+IN=video/out/short4_yt_muted.mp4 AUD=audio/mix/mezcla_short4_yt.wav OUT=entrega/super_nino_short_youtube.mp4 TITLE="SÚPER NIÑO (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
+IN=video/out/short4_tt_muted.mp4 AUD=audio/mix/mezcla_short4_tt.wav OUT=entrega/super_nino_short_tiktok.mp4 TITLE="SÚPER NIÑO (TikTok)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
 ```

@@ -27,12 +27,12 @@ export const argProj = (cam: ArgCam): GeoProjection => {
 
 export const ArgMap: React.FC<{
   cam: ArgCam; fills?: Record<string, {c: string; o: number}>; base?: string; rivers?: number; riverColor?: string; neighbors?: number;
-  labels?: Record<string, number>; t?: number; stroke?: string; children?: (proj: GeoProjection, path: GeoPath) => React.ReactNode;
-}> = ({cam, fills = {}, base = '#1C2A3A', rivers = 0, riverColor = '#5CC8FF', neighbors = 1, labels = {}, t = 0, stroke = 'rgba(210,230,245,0.55)', children}) => {
+  labels?: Record<string, number>; t?: number; stroke?: string; children?: (proj: GeoProjection, path: GeoPath) => React.ReactNode; W?: number; H?: number; labelSize?: number;
+}> = ({cam, fills = {}, base = '#1C2A3A', rivers = 0, riverColor = '#5CC8FF', neighbors = 1, labels = {}, t = 0, stroke = 'rgba(210,230,245,0.55)', children, W = 1920, H = 1080, labelSize = 21}) => {
   const proj = argProj(cam);
   const path = geoPath(proj);
   return (
-    <svg width={1920} height={1080} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
+    <svg width={W} height={H} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
       <defs>
         <filter id="rv-glow" x="-10%" y="-10%" width="120%" height="120%">
           <feGaussianBlur stdDeviation="5" result="b" />
@@ -72,7 +72,7 @@ export const ArgMap: React.FC<{
         const [x, y] = path.centroid(f);
         const off = LABEL_OFF[n] ?? [0, 0];
         return (
-          <text key={'l' + i} x={x + off[0]} y={y + off[1]} textAnchor="middle" fill="#fff" fontFamily="Inter" fontWeight={800} fontSize={21} letterSpacing={1.5} opacity={o} style={{paintOrder: 'stroke'}} stroke="rgba(4,10,17,0.85)" strokeWidth={5}>
+          <text key={'l' + i} x={x + off[0]} y={y + off[1]} textAnchor="middle" fill="#fff" fontFamily="Inter" fontWeight={800} fontSize={labelSize} letterSpacing={1.5} opacity={o} style={{paintOrder: 'stroke'}} stroke="rgba(4,10,17,0.85)" strokeWidth={5}>
             {n.toUpperCase()}
           </text>
         );

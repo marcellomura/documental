@@ -13,11 +13,11 @@ export const lerpCam = (a: Cam, b: Cam, k: number): Cam => {
   return {lon: a.lon + (b.lon - a.lon) * k, lat: a.lat + (b.lat - a.lat) * k, deg: Math.exp(ld)};
 };
 
-const W = 1920, H = 1080;
+const W0 = 1920, H0 = 1080;
 /** lon en dominio 0..360 (Pacífico centrado) */
 export const L360 = (lon: number) => ((lon % 360) + 360) % 360;
 
-export const flatProj = (cam: Cam): {k: number; P: (lon: number, lat: number) => [number, number]; proj: GeoProjection} => {
+export const flatProj = (cam: Cam, W = W0, H = H0): {k: number; P: (lon: number, lat: number) => [number, number]; proj: GeoProjection} => {
   const k = W / cam.deg;
   const proj = geoEquirectangular()
     .rotate([-180, 0])
@@ -33,9 +33,9 @@ const SA50 = {type: 'FeatureCollection', features: (c50 as any).features.filter(
 export const FlatMap: React.FC<{
   cam: Cam; sst?: '2026' | '1997' | '2015' | null; sstO?: number; land?: '110' | '50sa'; landO?: number; grid?: number;
   reveal?: {lon: number; lat: number; r: number}; children?: (P: (lon: number, lat: number) => [number, number], path: GeoPath, k: number) => React.ReactNode;
-  sst2?: '2026' | '1997' | '2015'; mix?: number; highlight?: Record<string, string>; coast?: number;
-}> = ({cam, sst = '2026', sstO = 1, land = '110', landO = 1, grid = 0.5, reveal, children, sst2, mix = 0, highlight, coast = 1}) => {
-  const {k, P, proj} = flatProj(cam);
+  sst2?: '2026' | '1997' | '2015'; mix?: number; highlight?: Record<string, string>; coast?: number; W?: number; H?: number;
+}> = ({cam, sst = '2026', sstO = 1, land = '110', landO = 1, grid = 0.5, reveal, children, sst2, mix = 0, highlight, coast = 1, W = W0, H = H0}) => {
+  const {k, P, proj} = flatProj(cam, W, H);
   const path = geoPath(proj);
   const feats = land === '110' ? (c110 as any).features : (SA50 as any).features;
   const grat = useMemo(() => geoGraticule10(), []);
