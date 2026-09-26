@@ -155,3 +155,27 @@ EP=ep05 OUT=tu_reloj_esta_mal_subtitulos_es.srt python3 tools/srt.py
 cd video && npx remotion render Reloj out/ep05_4k_muted.mp4 --muted --scale=2 --props='{"dpr":2}' --crf=15 && cd ..
 IN=video/out/ep05_4k_muted.mp4 AUD=audio/mix/mezcla_ep05.wav OUT=entrega/tu_reloj_esta_mal_1080p.mp4 TITLE="TU RELOJ ESTÁ MAL" VBR=2600k VF=scale=1920:1080:flags=lanczos tools/final.sh
 ```
+
+---
+
+# Short · "¿4 MILLONES SE VAN DEL CONURBANO?"
+
+Short de actualidad (2:43, 1080×1920) sobre la proyección de Federico Sturzenegger: 4 millones de personas se mudarían del AMBA al interior en 30 años. Arranca con 4 segundos de su entrevista en Bloomberg Línea, la narración los congela ("Pará, pará, pará") y chequea el número con mapas y datos del censo. Sirve igual para YouTube Shorts y TikTok.
+
+| Archivo (`entrega/`) | Qué es |
+|---|---|
+| `cuatro_millones_short.mp4` | Short vertical (H.264 + AAC, −14 LUFS, subtítulos incrustados) |
+| `cuatro_millones_short_publicacion.md` | Cuándo publicarlo, títulos, textos, portada, fuentes y tabla de datos |
+
+- Guion: `guion/s4m_cuatro_millones.json` · Escenas: `video/src/s4m/` (composición `CuatroMillones`)
+  - `kit.tsx`: íconos (personitas, cigüeñas de petróleo, piqueta, fábrica, escuela y hospital), flechas con gente que viaja por el mapa, barras y subtítulos. Usa el mapa de provincias y la paleta del episodio 4.
+- Clip: `raw/s4m/clip_bloomberg.mp4` es la grabación original; `video/public/s4m/clip.mp4` es el recorte de los segundos 7,9 a 12,6 (el audio sale del original en la mezcla). `freeze.jpg` y `retrato.jpg` son cuadros del clip.
+- Música: un tema original de ElevenLabs Music (`video/public/s4m/music/m1_exodo.mp3`). Efectos: los de los episodios anteriores más un tren para el siglo XX.
+
+```bash
+EP=s4m NSEG=7 TEMPO=1.10 python3 tools/proc_audio.py
+EP=s4m GUION=s4m_cuatro_millones.json python3 tools/align.py
+python3 tools/timeline_s4m.py && python3 tools/mix_s4m.py         # -> audio/mix/mezcla_s4m.wav
+cd video && npx remotion render CuatroMillones out/s4m_muted.mp4 --muted --crf=15 && cd ..
+IN=video/out/s4m_muted.mp4 AUD=audio/mix/mezcla_s4m.wav OUT=entrega/cuatro_millones_short.mp4 TITLE="¿4 MILLONES SE VAN DEL CONURBANO?" VBR=4M MAXRATE=8M BUFSIZE=16M tools/final.sh
+```

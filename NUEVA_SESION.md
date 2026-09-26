@@ -9,6 +9,7 @@ ESTADO DE LOS EPISODIOS (los archivos están en entrega/)
 - Ep1 "13 CEROS", Ep2 "El robo del siglo" y Ep3 "Argentina y el FMI": terminados.
 - Ep4 "Súper Niño": terminado. Tiene super_nino_4k.mp4 (en Git LFS), los shorts de YouTube y TikTok, subtítulos, descripción, miniaturas y la guía de los shorts. super_nino_1080p.mp4 nunca se generó, aunque el README y super_nino_shorts_publicacion.md lo nombran. Se hace con tools/final.sh a partir del render 4K; el comando está en el README.
 - Ep5 "Tu reloj está mal" (4:40): terminado. La composición de Remotion es "Reloj" (video/src/ep05). La entrega es tu_reloj_esta_mal_1080p.mp4 más subtítulos, descripción y miniaturas A/B. Si el 1080p no está en el repo, regeneralo con la sección "Episodio 5" del README (render 4K de alrededor de 1 h y después final.sh).
+- Short "¿4 millones se van del conurbano?" (Sturzenegger): terminado. Es cuatro_millones_short.mp4 (2:43, sirve para YouTube y TikTok) y la guía cuatro_millones_short_publicacion.md. La composición es "CuatroMillones" (video/src/s4m). Es de actualidad: se publica apenas esté, fuera del calendario de los jueves.
 - Calendario: jueves 1/10 El robo del siglo; jueves 8/10 Súper Niño (video y shorts); jueves 15/10 Tu reloj está mal (propuesto).
 - Git LFS: están usados 861 MB de 1 GB, así que no subas más archivos grandes a LFS. Los de menos de 100 MB van en git normal.
 
@@ -28,6 +29,7 @@ Falta subir estos textos de entrega/ (subilos con la misma base de nombre y exte
 - Ep3: argentina_y_el_fmi_descripcion_youtube.md, argentina_y_el_fmi_ab_miniaturas.md, argentina_y_el_fmi_subtitulos_es.srt
 - Ep4: super_nino_descripcion_youtube.md, super_nino_ab_miniaturas.md, super_nino_shorts_publicacion.md, super_nino_subtitulos_es.srt
 - Guías del canal: kit_canal_youtube.md, kit_tiktok.md, subida_youtube_paso_a_paso.md
+- Short 4 millones (carpeta nueva "Shorts" dentro de CONTEXTO): cuatro_millones_short_publicacion.md
 
 Cómo subir los textos con el conector (ya probado):
 - Usá create_file con textContent, contentMimeType "text/plain; charset=UTF-8" y disableConversionToGoogleType: true. Así los emojis llegan intactos; lo verifiqué byte a byte.
@@ -42,7 +44,7 @@ Videos y la miniatura PNG: el conector solo acepta el contenido dentro de la lla
 Si esas variables no existen, guiame paso a paso para crearlas.
 
 Los archivos que van a Drive por esa vía son:
-- Videos: 13_ceros_documental_1080p.mp4, 13_ceros_documental_1080p_MAXCALIDAD.mp4 (LFS), 13_ceros_short_vertical.mp4, el_robo_del_siglo_1080p.mp4, argentina_y_el_fmi_1080p.mp4, super_nino_4k.mp4 (LFS), super_nino_short_youtube.mp4, super_nino_short_tiktok.mp4 y tu_reloj_esta_mal_1080p.mp4.
+- Videos: 13_ceros_documental_1080p.mp4, 13_ceros_documental_1080p_MAXCALIDAD.mp4 (LFS), 13_ceros_short_vertical.mp4, el_robo_del_siglo_1080p.mp4, argentina_y_el_fmi_1080p.mp4, super_nino_4k.mp4 (LFS), super_nino_short_youtube.mp4, super_nino_short_tiktok.mp4, tu_reloj_esta_mal_1080p.mp4 y cuatro_millones_short.mp4.
 - Imagen: 13_ceros_miniatura.png.
 - Para los que están en LFS, corré `git lfs pull` antes.
 - Si la credencial funciona, también podés renderizar el Ep5 en 4K (comando en el README) y subir ese 4K directo a Drive, sin pasar por git.
