@@ -22,6 +22,7 @@ En "Mi unidad" ya existe esta estructura:
   - Ep4 · Súper Niño (id 1dS_i5tPSGNcSlNer8WK2MLmGOvIS0chE): vacía
   - Ep5 · Tu reloj está mal (id 1pHe9G-0pln8FFn3qYIH5uLeHT03jJryD): tiene la descripción y las miniaturas A/B como Google Docs y tu_reloj_esta_mal_subtitulos_es.srt
   - Guías del canal (id 1Ele9pSzRYheWkSRMwU0LLiaZ090F-cBf): vacía
+  - Short · ¿4 millones se van del conurbano? (id 1qktMxewK6CgYcYiLUDKi8OrBUb1Z8aEy): completa (video, guía de publicación, guion, portada y vista previa), subida con rclone y verificada por MD5
 
 Falta subir estos textos de entrega/ (subilos con la misma base de nombre y extensión .txt; los .srt quedan como .srt):
 - Ep1: ab_testing_miniaturas_titulos.md, short_publicacion.md, 13_ceros_subtitulos_es.srt
@@ -29,7 +30,6 @@ Falta subir estos textos de entrega/ (subilos con la misma base de nombre y exte
 - Ep3: argentina_y_el_fmi_descripcion_youtube.md, argentina_y_el_fmi_ab_miniaturas.md, argentina_y_el_fmi_subtitulos_es.srt
 - Ep4: super_nino_descripcion_youtube.md, super_nino_ab_miniaturas.md, super_nino_shorts_publicacion.md, super_nino_subtitulos_es.srt
 - Guías del canal: kit_canal_youtube.md, kit_tiktok.md, subida_youtube_paso_a_paso.md
-- Short 4 millones (carpeta nueva "Shorts" dentro de CONTEXTO): cuatro_millones_short_publicacion.md
 
 Cómo subir los textos con el conector (ya probado):
 - Usá create_file con textContent, contentMimeType "text/plain; charset=UTF-8" y disableConversionToGoogleType: true. Así los emojis llegan intactos; lo verifiqué byte a byte.
@@ -41,10 +41,10 @@ Videos y la miniatura PNG: el conector solo acepta el contenido dentro de la lla
 2. Guardo el resultado como variables de entorno del entorno de Claude Code: RCLONE_CONFIG_GDRIVE_TYPE=drive y RCLONE_CONFIG_GDRIVE_TOKEN=<el JSON que devuelve>.
 3. Abro una sesión nueva.
 4. Vos instalás rclone y copiás cada archivo a su carpeta con `rclone copy` (por ruta CONTEXTO/... o con --drive-root-folder-id).
-Si esas variables no existen, guiame paso a paso para crearlas.
+Si esas variables no existen, guiame paso a paso para crearlas. (Estado al 26/9: las variables ya existen y rclone funciona. Se instala con el zip de downloads.rclone.org. Ojo: usa el client_id compartido de rclone, que Google va a dar de baja durante 2026; si deja de andar, hay que crear un client_id propio.)
 
 Los archivos que van a Drive por esa vía son:
-- Videos: 13_ceros_documental_1080p.mp4, 13_ceros_documental_1080p_MAXCALIDAD.mp4 (LFS), 13_ceros_short_vertical.mp4, el_robo_del_siglo_1080p.mp4, argentina_y_el_fmi_1080p.mp4, super_nino_4k.mp4 (LFS), super_nino_short_youtube.mp4, super_nino_short_tiktok.mp4, tu_reloj_esta_mal_1080p.mp4 y cuatro_millones_short.mp4.
+- Videos: 13_ceros_documental_1080p.mp4, 13_ceros_documental_1080p_MAXCALIDAD.mp4 (LFS), 13_ceros_short_vertical.mp4, el_robo_del_siglo_1080p.mp4, argentina_y_el_fmi_1080p.mp4, super_nino_4k.mp4 (LFS), super_nino_short_youtube.mp4, super_nino_short_tiktok.mp4 y tu_reloj_esta_mal_1080p.mp4 (cuatro_millones_short.mp4 ya está subido).
 - Imagen: 13_ceros_miniatura.png.
 - Para los que están en LFS, corré `git lfs pull` antes.
 - Si la credencial funciona, también podés renderizar el Ep5 en 4K (comando en el README) y subir ese 4K directo a Drive, sin pasar por git.
