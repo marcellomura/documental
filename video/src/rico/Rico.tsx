@@ -88,6 +88,7 @@ const MARKS = [
   {t: 0, label: 'La frase'},
   {t: at('s02'), label: 'La fuente'},
   {t: at('s03'), label: 'El número uno'},
+  {t: at('s04'), label: 'La letra chica'},
   {t: gapStart('s05'), label: '1 · La máquina'},
   {t: gapStart('s08'), label: '2 · La caída'},
   {t: at('s09'), label: 'Por qué'},

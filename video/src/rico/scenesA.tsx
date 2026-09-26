@@ -284,6 +284,48 @@ export const S02b: React.FC<{T: number}> = ({T}) => {
 };
 
 /* ================= S03 · NÚMERO UNO ================= */
+/* planilla que se llena sola: la actualización 2018 del proyecto */
+const SHEET_ISO = ['ARG', 'AUS', 'NZL', 'GBR', 'USA', 'BEL', 'CAN', 'FRA'];
+const SheetFill: React.FC<{T: number; t0: number; tOut: number; tBoom: number}> = ({T, t0, tOut, tBoom}) => {
+  const out = clamp((T - tOut) / 0.35);
+  const years = ['1870', '1880', '1890', '1895', '1896', '1900'];
+  const cellW = 170, cellH = 62;
+  const boom = T > tBoom ? clamp((T - tBoom) / 0.25) : 0;
+  return (
+    <AbsoluteFill style={{opacity: 1 - out, transform: `scale(${1 + out * 0.08})`}}>
+      <At x={290} y={250}>
+        <div style={{transform: `perspective(1600px) rotateX(${14 - 14 * easeOut(clamp((T - t0) / 1.2))}deg)`, transformOrigin: 'top center'}}>
+          <div style={{display: 'flex', fontFamily: FONT.mono, fontSize: 24, color: R.mute}}>
+            <div style={{width: 200}} />
+            {years.map((y) => <div key={y} style={{width: cellW, textAlign: 'right', paddingRight: 18}}>{y}</div>)}
+          </div>
+          {SHEET_ISO.map((iso, r) => (
+            <div key={iso} style={{display: 'flex', height: cellH, alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.09)'}}>
+              <div style={{width: 200, display: 'flex', gap: 14, alignItems: 'center', fontFamily: FONT.body, fontWeight: 800, fontSize: 24, color: R.cream}}><Flag iso={iso} w={40} />{iso}</div>
+              {years.map((y, k) => {
+                const ta = t0 + 0.25 + (r * years.length + k) * 0.075;
+                const on = T > ta;
+                const hot = iso === 'ARG' && y === '1896' && boom > 0;
+                const argv = V18.years['1896'].top.find((x) => x.iso === 'ARG')!.v;
+                return (
+                  <div key={y} style={{width: cellW, height: cellH - 16, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 18}}>
+                    {hot ? (
+                      <div style={{fontFamily: FONT.mono, fontSize: 30, fontWeight: 700, color: R.night, background: R.goldHi, borderRadius: 6, padding: '4px 10px', transform: `scale(${1 + 0.3 * Math.sin(boom * Math.PI)})`, boxShadow: '0 0 30px rgba(255,214,120,0.7)'}}>{Math.round(argv).toLocaleString('es-AR')}</div>
+                    ) : (
+                      <div style={{width: on ? 110 : 0, height: 14, borderRadius: 7, background: T - ta < 0.2 ? R.gold : 'rgba(245,236,215,0.22)', transition: 'none'}} />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </At>
+      {boom > 0 ? <At x={1330} y={820}><B t={T} t0={tBoom} kind="pop"><Pill bg={R.red} fg={R.cream} size={34}>EL DATO QUE EXPLOTÓ</Pill></B></At> : null}
+    </AbsoluteFill>
+  );
+};
+
 export const S03a: React.FC<{T: number}> = ({T}) => {
   const t0 = at('s03');
   const tYear = c('s03', 'En mil ochocientos');
@@ -308,6 +350,7 @@ export const S03a: React.FC<{T: number}> = ({T}) => {
             </div>
           </B>
         </At>
+        {T < tYear + 0.4 ? <SheetFill T={T} t0={t0 + 0.3} tOut={tYear} tBoom={c('s03', 'explotó.')} /> : null}
         <At x={1480} y={100}>
           <B t={T} t0={tYear} kind="pop"><GoldText t={T} size={150}>{T < c('s03', 'y mil') ? '1895' : '1896'}</GoldText></B>
         </At>
@@ -465,7 +508,7 @@ export const S04b: React.FC<{T: number}> = ({T}) => {
             <B t={T} t0={tMito} kind="up"><Meter t={T} value={T < c('s04', 'Tampoco.') ? -0.8 + Math.sin(T * 6) * 0.1 : -0.8 + 0.95 * easeOut(clamp((T - c('s04', 'Tampoco.')) / 0.8))} size={560} label="EN EL MEDIO" /></B>
             {T > tLoc - 0.6 ? (
               <div style={{textAlign: 'center'}}>
-                <B t={T} t0={tLoc - 0.6} kind="pop"><GoldText t={T} size={300}>6.º</GoldText></B>
+                <B t={T} t0={tLoc - 0.6} kind="pop"><GoldText t={T} size={300}>6<span style={{fontFamily: FONT.serif, fontWeight: 900, fontSize: '0.42em', verticalAlign: '0.95em', textDecoration: 'underline', textDecorationThickness: '0.06em'}}>o</span></GoldText></B>
                 <B t={T} t0={tLoc} kind="up"><div style={{fontFamily: FONT.head, fontSize: 64, color: R.cream, letterSpacing: 2}}>EN EL MUNDO ES UNA LOCURA</div></B>
               </div>
             ) : null}

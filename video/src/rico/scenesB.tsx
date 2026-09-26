@@ -159,7 +159,7 @@ export const S08c: React.FC<{T: number}> = ({T}) => {
   return (
     <Night t={T} grid={0.4} glow="rgba(228,72,59,0.2)">
       <At x={250} y={160}>
-        <RankFall t={T} t0={t0 + 0.2} step={0.62} w={1450} h={700}
+        <RankFall t={T} t0={t0 + 0.2} step={0.46} w={1450} h={700}
           stops={[{year: 1896, rank: 6, n: 41}, {year: 1913, rank: 10, n: 75}, {year: 1950, rank: 19, n: 146}, {year: 1975, rank: 28, n: 153}, {year: 2000, rank: 45, n: 169}, {year: 2022, rank: 67, n: 169}]} />
       </At>
       <At x={110} y={70}><B t={T} t0={t0} kind="left"><Kicker t={T} t0={t0}>Puesto mundial en PBI per cápita</Kicker></B></At>
