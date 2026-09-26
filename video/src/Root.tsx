@@ -20,6 +20,8 @@ import {Pobreza} from './reels/Pobreza';
 import tlRpb from './data/rpb/timeline.json';
 import {Ocde} from './reels/Ocde';
 import tlOcd from './data/ocd/timeline.json';
+import {Rico} from './rico/Rico';
+import tlRico from './data/rico/timeline.json';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -41,6 +43,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="DolarBarato" component={DolarBarato} durationInFrames={Math.ceil(tlSdb.total * tlSdb.fps)} fps={tlSdb.fps} width={1080} height={1920} />
     <Composition id="Pobreza" component={Pobreza} durationInFrames={Math.ceil(tlRpb.total * tlRpb.fps)} fps={tlRpb.fps} width={1080} height={1920} />
     <Composition id="Ocde" component={Ocde} durationInFrames={Math.ceil(tlOcd.total * tlOcd.fps)} fps={tlOcd.fps} width={1080} height={1920} />
+    <Composition id="Rico" component={Rico} durationInFrames={Math.ceil(tlRico.total * tlRico.fps)} fps={tlRico.fps} width={1920} height={1080} />
     <Still id="Miniatura" component={Miniatura} width={1280} height={720} />
   </>
 );

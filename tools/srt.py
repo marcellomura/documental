@@ -4,6 +4,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # EP=ep02 OUT=el_robo_del_siglo_subtitulos_es.srt python3 tools/srt.py  (sin EP: episodio 1)
 DATA = os.path.join(ROOT, "video/src/data", os.environ.get("EP", ""))
 TL = json.load(open(os.path.join(DATA, "timeline.json")))
+if "starts" not in TL: TL["starts"] = {k: v["at"] for k, v in TL["segs"].items()}
 W = json.load(open(os.path.join(DATA, "words.json")))
 def ts(x):
     ms = int(round(x * 1000)); h, ms = divmod(ms, 3600000); m, ms = divmod(ms, 60000); s, ms = divmod(ms, 1000)
@@ -74,8 +75,60 @@ for seg in sorted(W):
         comma = w["w"].endswith(",") and not (len(nxt) <= 6 and nxt[-1:] in ".?!")
         if (end_sentence and len(txt) >= 10) or (comma and len(txt) > 45) or len(txt) > 78 or w["e"] == W[seg][-1]["e"]:
             cues.append((base + cur[0]["s"], base + cur[-1]["e"] + 0.15, txt)); cur = []
+U = {"cero": 0, "un": 1, "uno": 1, "una": 1, "dos": 2, "tres": 3, "cuatro": 4, "cinco": 5, "seis": 6, "siete": 7, "ocho": 8, "nueve": 9, "diez": 10,
+     "once": 11, "doce": 12, "trece": 13, "catorce": 14, "quince": 15, "dieciséis": 16, "diecisiete": 17, "dieciocho": 18, "diecinueve": 19,
+     "veinte": 20, "veintiuno": 21, "veintiún": 21, "veintiuna": 21, "veintidós": 22, "veintitrés": 23, "veinticuatro": 24, "veinticinco": 25,
+     "veintiséis": 26, "veintisiete": 27, "veintiocho": 28, "veintinueve": 29, "treinta": 30, "cuarenta": 40, "cincuenta": 50,
+     "sesenta": 60, "setenta": 70, "ochenta": 80, "noventa": 90, "cien": 100, "ciento": 100, "doscientos": 200, "doscientas": 200,
+     "trescientos": 300, "trescientas": 300, "cuatrocientos": 400, "cuatrocientas": 400, "quinientos": 500, "quinientas": 500,
+     "seiscientos": 600, "seiscientas": 600, "setecientos": 700, "setecientas": 700, "ochocientos": 800, "ochocientas": 800,
+     "novecientos": 900, "novecientas": 900}
+def spell_to_digits(t):
+    """cifras genéricas: 'mil novecientos trece' -> 1913, 'treinta y tres mil' -> 33.000, 'treinta por ciento' -> 30 %"""
+    toks = re.findall(r"\S+|\s+", t); out = []; i = 0
+    def bare(x): return re.sub(r"[^\wáéíóúñü]", "", x.lower())
+    words = [x for x in toks]
+    while i < len(words):
+        w = words[i]
+        if w.isspace() or (bare(w) not in U and bare(w) != "mil"):
+            out.append(w); i += 1; continue
+        # juntar la secuencia numérica
+        j = i; seq = []; lastj = i
+        while j < len(words):
+            b = bare(words[j])
+            if words[j].isspace(): j += 1; continue
+            if b in U or b in ("mil", "millón", "millones") or (b == "y" and seq and j + 2 < len(words) and bare(words[j + 2]) in U):
+                seq.append(b); lastj = j
+                if re.search(r"[^\wáéíóúñü]$", words[j]): break
+                j += 1
+            else: break
+        total = cur = 0; has_mil = False
+        for b in seq:
+            if b == "y": continue
+            if b == "mil": cur = (cur or 1) * 1000; total += cur; cur = 0; has_mil = True
+            elif b in ("millón", "millones"): total = (total + cur) * 1000000; cur = 0
+            else: cur += U[b]
+        n = total + cur
+        trail = re.search(r"[^\wáéíóúñü]*$", words[lastj]).group(0)
+        lead = re.match(r"^[^\wáéíóúñü]*", words[i]).group(0)
+        nxt = "".join(words[lastj + 1: lastj + 5]).lower()
+        pct = nxt.startswith(" por ciento")
+        if (n < 11 or seq == ["mil"]) and not pct and len([b for b in seq if b != "y"]) == 1:
+            out.append(w); i += 1; continue
+        if n >= 1_000_000 and n % 1_000_000 == 0: s_ = f"{n // 1_000_000} millones" if n > 1_000_000 else "1 millón"
+        elif has_mil and 1800 <= n <= 2100 and seq[0] == "mil" or (has_mil and 1800 <= n <= 2100 and len(seq) > 2 and seq[0] in ("dos",)): s_ = str(n)
+        else: s_ = f"{n:,}".replace(",", ".")
+        if pct:
+            out.append(lead + s_ + " %"); i = lastj + 1
+            m = re.match(r"(\s+por\s+ciento)", "".join(words[i:i + 4]), re.I)
+            k = i; acc = ""
+            while k < len(words) and len(acc) < len(m.group(1)): acc += words[k]; k += 1
+            i = k; out.append(re.search(r"[^\wáéíóúñü]*$", words[k - 1]).group(0)); continue
+        out.append(lead + s_ + trail); i = lastj + 1
+    return "".join(out)
 def numerals(t):
     for a, b in NUM: t = re.sub(r"\b" + a + r"\b", b, t, flags=re.I)
+    if os.environ.get("EP") == "rico": t = spell_to_digits(re.sub(r"siglo veinte", "siglo XX", re.sub(r"siglo diecinueve", "siglo XIX", t)))
     return t
 cues = [(a, b, numerals(t)) for a, b, t in cues]
 out = []

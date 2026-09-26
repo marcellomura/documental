@@ -1,0 +1,79 @@
+{
+ "source": "Maddison Project Database 2018, cgdppc (USD 2011, comparaci\u00f3n entre pa\u00edses)",
+ "years": {
+  "1895": {
+   "n": 36,
+   "top": [
+    {
+     "iso": "ARG",
+     "v": 5786
+    },
+    {
+     "iso": "USA",
+     "v": 5569
+    },
+    {
+     "iso": "BEL",
+     "v": 5385
+    },
+    {
+     "iso": "AUS",
+     "v": 5094
+    },
+    {
+     "iso": "GBR",
+     "v": 5068
+    },
+    {
+     "iso": "NZL",
+     "v": 5034
+    },
+    {
+     "iso": "CHE",
+     "v": 4426
+    },
+    {
+     "iso": "NLD",
+     "v": 4158
+    }
+   ]
+  },
+  "1896": {
+   "n": 36,
+   "top": [
+    {
+     "iso": "ARG",
+     "v": 6143
+    },
+    {
+     "iso": "NZL",
+     "v": 5513
+    },
+    {
+     "iso": "BEL",
+     "v": 5489
+    },
+    {
+     "iso": "AUS",
+     "v": 5406
+    },
+    {
+     "iso": "USA",
+     "v": 5356
+    },
+    {
+     "iso": "GBR",
+     "v": 5244
+    },
+    {
+     "iso": "CHE",
+     "v": 4631
+    },
+    {
+     "iso": "NLD",
+     "v": 4309
+    }
+   ]
+  }
+ }
+}

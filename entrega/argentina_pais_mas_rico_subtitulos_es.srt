@@ -1,0 +1,634 @@
+1
+00:00:00,500 --> 00:00:04,610
+“En 35 años nos convertimos en
+la primera potencia mundial.”
+
+2
+00:00:04,700 --> 00:00:08,910
+Lo dijo Javier Milei en Davos, frente a los
+empresarios más poderosos del planeta.
+
+3
+00:00:09,040 --> 00:00:10,010
+Y no es el único.
+
+4
+00:00:10,180 --> 00:00:12,830
+Lo repite tu tío en el asado,
+lo dice el taxista,
+
+5
+00:00:13,000 --> 00:00:14,590
+lo leíste mil veces en redes:
+
+6
+00:00:14,880 --> 00:00:17,830
+“hace 100 años éramos el
+país más rico del mundo”.
+
+7
+00:00:18,060 --> 00:00:19,430
+Es casi un dogma nacional.
+
+8
+00:00:19,660 --> 00:00:21,910
+Pero hay una pregunta
+que casi nadie se hace.
+
+9
+00:00:22,060 --> 00:00:22,550
+¿Es verdad?
+
+10
+00:00:22,840 --> 00:00:24,030
+Fuimos a buscar los números.
+
+11
+00:00:24,320 --> 00:00:26,900
+Y lo que encontramos es más
+raro que un sí o un no:
+
+12
+00:00:26,920 --> 00:00:31,610
+la misma base de datos que dice que fuimos
+los primeros… también dice que no.
+
+13
+00:00:35,377 --> 00:00:38,567
+Para medir qué tan rico es un país,
+los economistas usan un número:
+
+14
+00:00:38,737 --> 00:00:41,007
+el PBI per cápita.
+
+15
+00:00:41,177 --> 00:00:43,267
+Es todo lo que produce
+una economía en un año,
+
+16
+00:00:43,377 --> 00:00:45,307
+dividido por la cantidad de habitantes.
+
+17
+00:00:45,597 --> 00:00:47,107
+Hoy es fácil calcularlo.
+
+18
+00:00:47,217 --> 00:00:50,817
+Pero en 1890 no había
+estadísticas modernas,
+
+19
+00:00:50,837 --> 00:00:52,957
+así que alguien tuvo que reconstruirlo.
+
+20
+00:00:52,977 --> 00:00:57,837
+Ese alguien fue Angus Maddison, un economista
+británico que dedicó su vida a estimar
+
+21
+00:00:57,857 --> 00:01:01,847
+cuánto producía cada país, año
+por año, siglo por siglo.
+
+22
+00:01:01,997 --> 00:01:05,387
+Cuando murió, su trabajo lo siguió
+la Universidad de Groningen,
+
+23
+00:01:05,417 --> 00:01:06,107
+en Holanda.
+
+24
+00:01:06,297 --> 00:01:08,757
+Y hoy es la fuente que usan todos:
+
+25
+00:01:08,777 --> 00:01:12,167
+historiadores, periodistas… y presidentes.
+
+26
+00:01:12,640 --> 00:01:16,030
+En 2018, el proyecto publicó
+una actualización.
+
+27
+00:01:16,260 --> 00:01:18,230
+Y ahí apareció el dato que explotó.
+
+28
+00:01:18,340 --> 00:01:21,690
+En 1895 y 1896,
+
+29
+00:01:21,820 --> 00:01:25,770
+la Argentina tenía el PBI per
+cápita más alto del mundo.
+
+30
+00:01:25,860 --> 00:01:26,850
+Más que Estados Unidos.
+
+31
+00:01:27,120 --> 00:01:30,110
+Más que Gran Bretaña, el imperio
+más grande de la historia.
+
+32
+00:01:30,440 --> 00:01:31,190
+Número uno.
+
+33
+00:01:31,520 --> 00:01:36,580
+El dato recorrió diarios, discursos y redes,
+y le dio sello científico a una frase
+
+34
+00:01:36,600 --> 00:01:39,060
+que los argentinos repetían hacía décadas.
+
+35
+00:01:39,080 --> 00:01:42,990
+Pero dos años después pasó
+algo que casi nadie contó.
+
+36
+00:01:43,571 --> 00:01:47,221
+En 2020, después de las críticas de
+varios historiadores económicos,
+
+37
+00:01:47,431 --> 00:01:49,601
+el proyecto corrigió sus estimaciones.
+
+38
+00:01:49,811 --> 00:01:51,341
+Y el ranking se reacomodó.
+
+39
+00:01:51,491 --> 00:01:54,531
+La Argentina bajó del primer
+puesto… al sexto.
+
+40
+00:01:54,551 --> 00:01:56,921
+En la versión más nueva, la de 2023,
+
+41
+00:01:56,991 --> 00:01:57,721
+sigue igual:
+
+42
+00:01:57,831 --> 00:02:00,561
+adelante quedaron Gran
+Bretaña, Estados Unidos,
+
+43
+00:02:00,851 --> 00:02:02,861
+Nueva Zelanda, Suiza y Australia.
+
+44
+00:02:03,151 --> 00:02:04,261
+Y hay otro detalle.
+
+45
+00:02:04,371 --> 00:02:08,221
+Para 1896 hay datos de apenas 41 países.
+
+46
+00:02:08,491 --> 00:02:10,661
+Hoy la base tiene más de 160.
+
+47
+00:02:10,791 --> 00:02:13,371
+Buena parte de África, de
+Asia y de Medio Oriente,
+
+48
+00:02:13,391 --> 00:02:15,441
+directamente, no aparece.
+
+49
+00:02:15,651 --> 00:02:17,531
+O sea, “el más rico del mundo”
+
+50
+00:02:17,551 --> 00:02:21,571
+en realidad quería decir “uno de los más
+ricos entre los que se podían medir”.
+
+51
+00:02:21,591 --> 00:02:23,281
+Entonces, ¿es un mito?
+
+52
+00:02:23,371 --> 00:02:26,201
+Tampoco. Porque sexto en
+el mundo es una locura.
+
+53
+00:02:26,311 --> 00:02:29,881
+Y para entender cómo llegamos ahí,
+hay que subirse a un barco.
+
+54
+00:02:33,218 --> 00:02:35,388
+Buenos Aires, 1900.
+
+55
+00:02:35,438 --> 00:02:39,818
+Al puerto llegan barcos todos los días, llenos
+de italianos y españoles que escapan
+
+56
+00:02:39,838 --> 00:02:40,548
+del hambre.
+
+57
+00:02:40,598 --> 00:02:45,698
+Para 1914, casi uno de cada tres
+habitantes del país había nacido
+
+58
+00:02:45,718 --> 00:02:49,668
+afuera. Los capitales ingleses tienden
+vías como si no hubiera mañana:
+
+59
+00:02:49,818 --> 00:02:53,148
+para esa época ya hay más
+de 33.000 kilómetros.
+
+60
+00:02:53,418 --> 00:02:56,328
+Las líneas salen como un
+abanico desde los puertos,
+
+61
+00:02:56,498 --> 00:02:59,968
+y por ellas bajan el trigo,
+el maíz y la carne.
+
+62
+00:03:00,078 --> 00:03:03,968
+Con los barcos frigoríficos, la carne
+argentina llega fresca a Londres.
+
+63
+00:03:04,058 --> 00:03:05,608
+Somos el granero del mundo.
+
+64
+00:03:05,798 --> 00:03:11,388
+En 1913, Buenos Aires inaugura el
+primer subte de América Latina,
+
+65
+00:03:11,558 --> 00:03:13,068
+seis años antes que Madrid.
+
+66
+00:03:13,338 --> 00:03:15,388
+Y en París se hace famosa una frase:
+
+67
+00:03:15,618 --> 00:03:17,788
+“rico como un argentino”.
+
+68
+00:03:18,167 --> 00:03:21,977
+Pero ojo, porque esa frase hablaba de la
+élite que gastaba fortunas en Europa,
+
+69
+00:03:22,167 --> 00:03:23,457
+no del argentino promedio.
+
+70
+00:03:23,567 --> 00:03:28,097
+El PBI per cápita es un promedio,
+y los promedios esconden cosas.
+
+71
+00:03:28,427 --> 00:03:30,857
+Mientras las grandes familias
+levantaban palacios,
+
+72
+00:03:30,967 --> 00:03:34,297
+en los conventillos vivían familias
+enteras en una sola pieza.
+
+73
+00:03:34,347 --> 00:03:38,847
+En 1907, miles de inquilinos dejaron
+de pagar el alquiler en la
+
+74
+00:03:38,867 --> 00:03:40,207
+huelga de las escobas.
+
+75
+00:03:40,227 --> 00:03:43,537
+Uno de cada tres adultos
+no sabía leer ni escribir.
+
+76
+00:03:43,727 --> 00:03:48,787
+Y en 1910, mientras se festejaba el
+Centenario con desfiles y fuegos
+
+77
+00:03:48,807 --> 00:03:52,117
+artificiales, el país estaba
+bajo estado de sitio.
+
+78
+00:03:52,826 --> 00:03:56,476
+Entonces, éramos un país
+rico, desigual, pero rico.
+
+79
+00:03:56,646 --> 00:04:00,616
+En 1913 estábamos entre los
+diez primeros del mundo,
+
+80
+00:04:00,766 --> 00:04:04,296
+por delante de Alemania,
+Francia, Italia y España.
+
+81
+00:04:04,566 --> 00:04:06,156
+Y acá viene la pregunta de verdad.
+
+82
+00:04:06,486 --> 00:04:08,336
+No es si éramos ricos.
+
+83
+00:04:08,586 --> 00:04:09,976
+Es: ¿qué nos pasó?
+
+84
+00:04:13,401 --> 00:04:17,551
+Para verlo, comparemos con dos países que
+en esa época eran casi gemelos nuestros:
+
+85
+00:04:17,741 --> 00:04:19,061
+Australia y Canadá.
+
+86
+00:04:19,081 --> 00:04:22,421
+Los tres eran enormes, con
+poca gente, tierra fértil,
+
+87
+00:04:22,441 --> 00:04:24,111
+inmigrantes y capital inglés.
+
+88
+00:04:24,321 --> 00:04:28,841
+En 1896, un argentino promedio
+producía casi lo mismo
+
+89
+00:04:28,861 --> 00:04:32,051
+que un australiano, y bastante
+más que un canadiense.
+
+90
+00:04:32,101 --> 00:04:32,811
+Ahora mirá.
+
+91
+00:04:33,101 --> 00:04:34,691
+1930:
+
+92
+00:04:34,841 --> 00:04:38,971
+la Gran Depresión golpea a todos, y en la
+Argentina llega el primer golpe militar.
+
+93
+00:04:39,201 --> 00:04:40,601
+1950:
+
+94
+00:04:40,621 --> 00:04:42,751
+ya estamos en dos tercios de Australia.
+
+95
+00:04:43,041 --> 00:04:45,071
+1975:
+
+96
+00:04:45,221 --> 00:04:46,691
+la brecha se acelera.
+
+97
+00:04:46,861 --> 00:04:47,771
+2001:
+
+98
+00:04:47,941 --> 00:04:48,971
+el fondo del pozo.
+
+99
+00:04:49,061 --> 00:04:52,851
+Hoy, un argentino promedio produce
+apenas un tercio que un australiano.
+
+100
+00:04:52,961 --> 00:04:56,511
+Y en el ranking mundial pasamos
+del puesto seis… al 67.
+
+101
+00:04:57,276 --> 00:05:00,696
+¿Por qué? Esta es la parte donde cada
+uno tiene su culpable favorito.
+
+102
+00:05:00,716 --> 00:05:04,566
+Pero si leés a los historiadores económicos,
+aparecen patrones que se repiten.
+
+103
+00:05:04,736 --> 00:05:08,166
+Uno: el modelo dependía de venderle
+materias primas a Europa,
+
+104
+00:05:08,356 --> 00:05:11,046
+y cuando el mundo cerró sus
+mercados después del 30,
+
+105
+00:05:11,196 --> 00:05:12,486
+el motor se frenó.
+
+106
+00:05:12,536 --> 00:05:14,066
+Dos: la inestabilidad.
+
+107
+00:05:14,156 --> 00:05:18,536
+Entre 1930 y 1976 hubo seis golpes
+
+108
+00:05:18,556 --> 00:05:19,226
+de Estado.
+
+109
+00:05:19,416 --> 00:05:23,326
+Las reglas cambiaban cada pocos años,
+y así nadie invierte a largo plazo.
+
+110
+00:05:23,456 --> 00:05:27,236
+Tres: la inflación, que desde
+los años 40 se volvió crónica,
+
+111
+00:05:27,256 --> 00:05:30,466
+con picos como el Rodrigazo
+y la hiperinflación del 89,
+
+112
+00:05:30,556 --> 00:05:33,006
+de más de 3.000 % en un año.
+
+113
+00:05:33,056 --> 00:05:34,966
+Y cuatro: las crisis en serie.
+
+114
+00:05:35,196 --> 00:05:38,506
+Nueve defaults de la deuda,
+y según el Banco Mundial,
+
+115
+00:05:38,696 --> 00:05:43,196
+desde 1950 la Argentina estuvo
+en recesión uno de cada tres
+
+116
+00:05:43,216 --> 00:05:46,446
+años. Ningún factor solo lo explica.
+
+117
+00:05:46,656 --> 00:05:48,146
+Es la acumulación.
+
+118
+00:05:49,062 --> 00:05:52,092
+Hay una frase que se le atribuye
+al premio Nobel Simon Kuznets.
+
+119
+00:05:52,202 --> 00:05:53,952
+Existen cuatro tipos de países:
+
+120
+00:05:54,222 --> 00:05:57,712
+los desarrollados, los subdesarrollados,
+Japón… y Argentina.
+
+121
+00:05:57,982 --> 00:06:00,172
+Japón, porque era pobre y se hizo rico.
+
+122
+00:06:00,302 --> 00:06:03,192
+Argentina, porque era
+rica y dejó de serlo.
+
+123
+00:06:03,282 --> 00:06:05,272
+Nadie encontró nunca dónde lo dijo.
+
+124
+00:06:05,482 --> 00:06:07,672
+Pero se repite porque describe algo real.
+
+125
+00:06:10,790 --> 00:06:13,420
+Entonces, ¿fuimos el país
+más rico del mundo?
+
+126
+00:06:13,490 --> 00:06:16,340
+Según una versión de los
+datos, sí, por dos años.
+
+127
+00:06:16,530 --> 00:06:17,980
+Según las más nuevas, no:
+
+128
+00:06:18,130 --> 00:06:19,360
+fuimos sextos.
+
+129
+00:06:19,410 --> 00:06:23,610
+Lo indiscutible es que a principios del
+siglo XX la Argentina estaba entre los
+
+130
+00:06:23,630 --> 00:06:25,840
+diez países con mayor ingreso por persona.
+
+131
+00:06:25,930 --> 00:06:29,320
+Y que casi ningún otro país
+de ese grupo cayó tanto.
+
+132
+00:06:29,470 --> 00:06:31,840
+El mito no está en haber sido ricos.
+
+133
+00:06:32,030 --> 00:06:35,320
+Está en creer que aquella
+riqueza era de todos.
+
+134
+00:06:35,878 --> 00:06:37,468
+Y hay un dato que da esperanza.
+
+135
+00:06:37,618 --> 00:06:42,538
+En 1975, un coreano promedio
+producía un tercio que un
+
+136
+00:06:42,558 --> 00:06:43,248
+argentino.
+
+137
+00:06:43,318 --> 00:06:44,488
+Hoy produce más del doble.
+
+138
+00:06:44,618 --> 00:06:45,968
+La historia no es destino:
+
+139
+00:06:46,038 --> 00:06:48,528
+se puede subir… y también se puede bajar.
+
+140
+00:06:48,638 --> 00:06:52,068
+Si este video te voló la cabeza,
+suscribite a CONTEXTO,
+
+141
+00:06:52,198 --> 00:06:56,248
+y dejanos en los comentarios qué otro mito
+argentino querés que investiguemos.
