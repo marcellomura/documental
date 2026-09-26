@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, getInputProps, useCurrentFrame} from 'remotion';
 import short from '../data/short.json';
 import words from '../data/words.json';
 import {C, F} from '../theme';
@@ -67,6 +67,9 @@ const Captions: React.FC<{T: number}> = ({T}) => {
     </div>
   );
 };
+
+/** versión para Instagram (props {"ig": true}): en los Reels no hay link abajo, va en la bio */
+const IG = Boolean((getInputProps() as {ig?: boolean}).ig);
 
 export const Short: React.FC = () => {
   const T = useCurrentFrame() / short.fps;
@@ -257,7 +260,7 @@ export const Short: React.FC = () => {
             <div style={{display: 'inline-block', marginTop: 60, background: C.yellow, color: C.ink, border: `6px solid ${C.white}`, fontFamily: F.head, fontSize: 64, padding: '14px 36px', borderRadius: 14, transform: `scale(${pop(T, E + 1.2) * (1 + Math.sin((T - E) * 6) * 0.03)})`, opacity: T > E + 1.2 ? 1 : 0}}>
               ▶ DOCUMENTAL COMPLETO
             </div>
-            <div style={{fontFamily: F.hand, fontSize: 56, color: C.white, marginTop: 30, opacity: prog(T, E + 1.6, 0.4)}}>en el canal · link abajo ↓</div>
+            <div style={{fontFamily: F.hand, fontSize: 56, color: C.white, marginTop: 30, opacity: prog(T, E + 1.6, 0.4)}}>{IG ? 'en YouTube · link en la bio ↑' : 'en el canal · link abajo ↓'}</div>
           </div>
         </AbsoluteFill>
       ) : null}
