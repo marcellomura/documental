@@ -15,3 +15,6 @@ audio/ep04/final/*.wav
 raw/s4m/*.jpg
 raw/s4m/*.png
 raw/s4m/*.wav
+
+# short del dólar barato: wavs procesados (se regeneran con proc_audio.py)
+audio/sdb/final/*.wav
