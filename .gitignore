@@ -10,3 +10,8 @@ audio/ep03/final/*.wav
 # ep04: datos crudos (NOAA, Natural Earth) y wavs finales
 data_ep04/
 audio/ep04/final/*.wav
+
+# material de trabajo del short s4m (cuadros y wav intermedios)
+raw/s4m/*.jpg
+raw/s4m/*.png
+raw/s4m/*.wav

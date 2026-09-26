@@ -1,0 +1,39 @@
+{
+ "titulo": "¿4 MILLONES SE VAN DEL CONURBANO?",
+ "canal": "CONTEXTO",
+ "episodio": "short s4m",
+ "voz": {
+  "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+  "modelo": "eleven_multilingual_v2"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "texto": "Pará, pará, pará. ¿Cuatro millones? ¿Cuatro millones de personas se van a ir del conurbano? Eso es más gente que toda la provincia de Córdoba. ¿De dónde sale ese número? ¿Y puede pasar de verdad?"
+  },
+  {
+   "id": "s02",
+   "texto": "Lo dijo Federico Sturzenegger, el ministro de Desregulación, en una entrevista con Bloomberg Línea. Y esta semana lo repitió en Córdoba: en los próximos treinta años, cuatro millones de personas se mudarían del AMBA al interior. Dos millones a Neuquén y Río Negro, por Vaca Muerta. Uno a San Juan y Catamarca, y otro a Salta y Jujuy, por la minería."
+  },
+  {
+   "id": "s03",
+   "texto": "La lógica es que la gente va a ir a donde esté el trabajo. Según el Gobierno, en diez años la energía y la minería podrían exportar noventa mil millones de dólares por año. Sería lo contrario de lo que pasó en el siglo veinte, cuando miles y miles de familias dejaron el interior para trabajar en las fábricas del conurbano."
+  },
+  {
+   "id": "s04",
+   "texto": "Pongamos el número en perspectiva. Cuatro millones en treinta años son unas trescientas sesenta y cinco personas por día. Todos los días. Neuquén y Río Negro juntas tienen hoy casi un millón y medio de habitantes: con dos millones más, su población se multiplicaría por más de dos."
+  },
+  {
+   "id": "s05",
+   "texto": "¿Y qué dicen los datos? Por ahora, el éxodo no se ve. Entre el censo de dos mil diez y el de dos mil veintidós, el AMBA no perdió gente: sumó más de un millón de habitantes. Lo que sí se ve es que el interior crece más rápido. Neuquén creció un veintinueve por ciento, y San Luis, un veinticinco. La Ciudad, un ocho, y el conurbano, menos de un diez."
+  },
+  {
+   "id": "s06",
+   "texto": "Hoy Neuquén recibe entre treinta y treinta y cinco mil personas por año. Para cumplir la proyección, Neuquén y Río Negro necesitarían el doble, todos los años. Y no alcanza con el trabajo: en Añelo, el corazón de Vaca Muerta, el intendente llegó a pedirles a las familias que dejaran de mudarse, porque las escuelas y los hospitales no daban abasto."
+  },
+  {
+   "id": "s07",
+   "texto": "Entonces, es una proyección a treinta años, no un hecho. La tendencia existe, pero hoy es mucho más lenta. Y vos, si tuvieras trabajo en Neuquén, en San Juan o en Salta, ¿te mudarías? Contame en los comentarios, y seguí a CONTEXTO para entender la Argentina sin vueltas."
+  }
+ ]
+}
