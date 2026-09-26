@@ -18,3 +18,7 @@ raw/s4m/*.wav
 
 # short del dólar barato: wavs procesados (se regeneran con proc_audio.py)
 audio/sdb/final/*.wav
+
+# reels v2 (pobreza, OCDE): wavs procesados
+audio/rpb/final/*.wav
+audio/ocd/final/*.wav

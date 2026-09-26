@@ -1,0 +1,14 @@
+{
+ "titulo": "BAJA LA INFLACIÓN… ¿Y SUBE LA POBREZA?",
+ "canal": "CONTEXTO",
+ "episodio": "reel rpb",
+ "voz": {"voice_id": "gBTPbHzRd0ZmV75Z5Zk4", "modelo": "eleven_multilingual_v2", "tempo": 1.24},
+ "segmentos": [
+  {"id": "s01", "texto": "La inflación baja… y la pobreza sube. ¿Cómo puede ser? En agosto, los precios subieron uno coma siete por ciento, uno de los datos más bajos desde que asumió Milei. Pero esta semana, el INDEC dijo que la pobreza subió al treinta y dos por ciento. Quince millones de personas. ¿No era que si baja la inflación, baja la pobreza?"},
+  {"id": "s02", "texto": "Primera trampa: que la inflación baje no quiere decir que los precios bajen. Quiere decir que suben más despacio. En diciembre de dos mil veintitrés, los precios subieron un veinticinco por ciento en un solo mes. Ahora suben menos de dos. El auto frenó… pero sigue yendo para adelante."},
+  {"id": "s03", "texto": "Segunda: cómo se mide la pobreza. El INDEC arma una canasta con lo mínimo para vivir: comida, ropa, transporte, salud. Y se fija si lo que entra en tu casa alcanza para pagarla. Si no alcanza, sos pobre. Lo que importa no es la inflación: es la carrera entre tu ingreso y esa canasta."},
+  {"id": "s04", "texto": "Y en esa carrera, este semestre ganó la canasta. Según el INDEC, los ingresos subieron un once por ciento. La canasta, casi un veinte. Y la comida, más de un veintiuno. Un hogar pobre promedio necesita un millón cuatrocientos mil pesos por mes. Le entran novecientos veinte mil. Le falta más de un tercio."},
+  {"id": "s05", "texto": "Ahora, ojo con la comparación. Contra el semestre anterior, la pobreza saltó más de cuatro puntos. Contra el mismo semestre del año pasado, menos de uno. El Gobierno recuerda que a fines de dos mil veintitrés era de casi el cuarenta y dos por ciento. Los críticos responden que los ingresos no alcanzan a los precios, y que entre los chicos la pobreza llega al cuarenta y cuatro por ciento."},
+  {"id": "s06", "texto": "Entonces: la inflación te dice qué tan rápido suben los precios. La pobreza te dice si tu plata llega. Que la inflación baje ayuda, pero no alcanza si los ingresos corren más lento que la canasta. ¿Vos sentís que tu sueldo le gana a los precios? Contame en los comentarios. Y seguí a CONTEXTO para entender la Argentina en dos minutos."}
+ ]
+}

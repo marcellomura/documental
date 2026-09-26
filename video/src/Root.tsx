@@ -16,6 +16,10 @@ import {Reloj} from './ep05/Reloj';
 import tl5 from './data/ep05/timeline.json';
 import {DolarBarato} from './sdb/DolarBarato';
 import tlSdb from './data/sdb/timeline.json';
+import {Pobreza} from './reels/Pobreza';
+import tlRpb from './data/rpb/timeline.json';
+import {Ocde} from './reels/Ocde';
+import tlOcd from './data/ocd/timeline.json';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -35,6 +39,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ShortNinoYT" component={ShortNino} durationInFrames={Math.ceil(SHORT_TOTAL('yt') * 30)} fps={30} width={1080} height={1920} defaultProps={{kind: 'yt' as const}} />
     <Composition id="ShortNinoTT" component={ShortNino} durationInFrames={Math.ceil(SHORT_TOTAL('tt') * 30)} fps={30} width={1080} height={1920} defaultProps={{kind: 'tt' as const}} />
     <Composition id="DolarBarato" component={DolarBarato} durationInFrames={Math.ceil(tlSdb.total * tlSdb.fps)} fps={tlSdb.fps} width={1080} height={1920} />
+    <Composition id="Pobreza" component={Pobreza} durationInFrames={Math.ceil(tlRpb.total * tlRpb.fps)} fps={tlRpb.fps} width={1080} height={1920} />
+    <Composition id="Ocde" component={Ocde} durationInFrames={Math.ceil(tlOcd.total * tlOcd.fps)} fps={tlOcd.fps} width={1080} height={1920} />
     <Still id="Miniatura" component={Miniatura} width={1280} height={720} />
   </>
 );
