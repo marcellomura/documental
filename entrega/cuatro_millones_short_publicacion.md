@@ -8,7 +8,7 @@ Es un tema de actualidad: Sturzenegger lo repitió esta semana en Córdoba y sal
 
 | Día | Hora (Argentina) | Qué |
 |---|---|---|
-| **Sábado 26/9** (o domingo 27/9) | **20:00** | YouTube Shorts y TikTok, al mismo tiempo |
+| **Sábado 26/9** | **12:30** | YouTube Shorts y TikTok, al mismo tiempo (se deja programado la noche anterior) |
 | Jueves 1/10 | 19:00 | EL ROBO DEL SIGLO (sin cambios) |
 
 No manda a ningún video largo: cierra con "SEGUINOS / para entender la Argentina sin vueltas", así que funciona solo.
