@@ -165,7 +165,7 @@ export const S07: React.FC<P> = ({t}) => {
           $<Count t={t} t0={t185} dur={1.2} to={18500} from={9000} />
         </div>
       </div>
-      <SrcLine t={t} t0={1} text="Reparto: FADA (abril 2026) aplicado a un precio promedio de $18.500 por kilo (IPCVA, AMBA)" x={1010} y={1030} />
+      <SrcLine t={t} t0={1} text="Reparto: FADA (abril 2026) aplicado a un precio promedio de $18.500 por kilo (IPCVA, AMBA)" x={96} y={1030} />
       <Vig k={0.4} />
     </AbsoluteFill>
   );

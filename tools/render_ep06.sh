@@ -14,6 +14,6 @@ for i in "${!B[@]}"; do
   npx remotion render Carne "$f.tmp.mp4" --muted --gl=swangle --scale=1.3333333333333333 --frames=$a-$b --crf=15 --concurrency=4 --log=error
   mv "$f.tmp.mp4" "$f"
 done
-ls out/ep06/c*.mp4 | sed 's/^out\/ep06\//file /' > out/ep06/lista.txt
+ls out/ep06/c[0-9][0-9].mp4 | sed 's/^out\/ep06\//file /' > out/ep06/lista.txt
 ffmpeg -v error -y -f concat -safe 0 -i out/ep06/lista.txt -c copy out/ep06_1440_muted.mp4
 echo "LISTO out/ep06_1440_muted.mp4"
