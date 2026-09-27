@@ -9,7 +9,8 @@ ESTADO DE LOS EPISODIOS (los archivos están en entrega/)
 - Ep1 "13 CEROS", Ep2 "El robo del siglo" y Ep3 "Argentina y el FMI": terminados.
 - Ep4 "Súper Niño": terminado. Tiene super_nino_4k.mp4 (en Git LFS), los shorts de YouTube y TikTok, subtítulos, descripción, miniaturas y la guía de los shorts. super_nino_1080p.mp4 nunca se generó, aunque el README y super_nino_shorts_publicacion.md lo nombran. Se hace con tools/final.sh a partir del render 4K; el comando está en el README.
 - Ep5 "Tu reloj está mal" (4:40): terminado. La composición de Remotion es "Reloj" (video/src/ep05). La entrega es tu_reloj_esta_mal_1080p.mp4 más subtítulos, descripción y miniaturas A/B. Si el 1080p no está en el repo, regeneralo con la sección "Episodio 5" del README (render 4K de alrededor de 1 h y después final.sh).
-- Calendario: jueves 1/10 El robo del siglo; jueves 8/10 Súper Niño (video y shorts); jueves 15/10 Tu reloj está mal (propuesto).
+- Ep8 "La paradoja de la carne" (5:51, en el repo es ep06, composición "Carne" en video/src/ep06): terminado. Primer episodio con 3D real (three.js, render con --gl=swangle). El master de 1440p está en Drive (CONTEXTO/Ep8 · La paradoja de la carne) junto con el short, la descripción, las miniaturas y los subtítulos. Ver la sección del README.
+- Calendario: jueves 1/10 El robo del siglo; jueves 8/10 Súper Niño (video y shorts); jueves 15/10 Tu reloj está mal (propuesto); La paradoja de la carne, un jueves libre después del Ep7 de Messi (por ejemplo, el 22/10).
 - Git LFS: están usados 861 MB de 1 GB, así que no subas más archivos grandes a LFS. Los de menos de 100 MB van en git normal.
 
 GOOGLE DRIVE (el conector ya está conectado)
@@ -34,7 +35,7 @@ Cómo subir los textos con el conector (ya probado):
 - NO los conviertas a Google Docs: la conversión rompe los emojis de 4 bytes (👉 💬 📚 🇦🇷…) y el markdown junta los renglones, así que los capítulos quedan todos en una línea.
 - Después de cada subida, compará el fileSize que devuelve Drive con el tamaño del archivo local en bytes (wc -c).
 
-Videos y la miniatura PNG: el conector solo acepta el contenido dentro de la llamada, así que no sirve para archivos de cientos de MB. Desde el contenedor sí se llega a www.googleapis.com, pero para subirlos directo hace falta una credencial guardada en la configuración del entorno, nunca pegada en el chat. La propuesta es rclone:
+Videos y la miniatura PNG: el conector solo acepta el contenido dentro de la llamada, así que no sirve para archivos de cientos de MB. ACTUALIZACIÓN: este entorno ya tiene RCLONE_CONFIG_GDRIVE_TYPE y RCLONE_CONFIG_GDRIVE_TOKEN; instalá rclone (curl -sSL https://downloads.rclone.org/rclone-current-linux-amd64.zip) y subí con `rclone copy archivo "gdrive:CONTEXTO/<carpeta>"`. Desde el contenedor sí se llega a www.googleapis.com, pero para subirlos directo hace falta una credencial guardada en la configuración del entorno, nunca pegada en el chat. La propuesta es rclone:
 1. Yo corro en mi compu `rclone authorize "drive"` e inicio sesión con Google.
 2. Guardo el resultado como variables de entorno del entorno de Claude Code: RCLONE_CONFIG_GDRIVE_TYPE=drive y RCLONE_CONFIG_GDRIVE_TOKEN=<el JSON que devuelve>.
 3. Abro una sesión nueva.
