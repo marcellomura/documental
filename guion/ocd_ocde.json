@@ -1,0 +1,14 @@
+{
+ "titulo": "¿POR QUÉ MILEI QUIERE ENTRAR AL CLUB DE LOS PAÍSES RICOS?",
+ "canal": "CONTEXTO",
+ "episodio": "reel ocd",
+ "voz": {"voice_id": "gBTPbHzRd0ZmV75Z5Zk4", "modelo": "eleven_multilingual_v2", "tempo": 1.24},
+ "segmentos": [
+  {"id": "s01", "texto": "Esta semana, Milei viaja a París. Con catorce gobernadores, varios ministros y cuatrocientos empresarios. ¿El destino? Un castillo. Ahí adentro funciona un club al que la Argentina quiere entrar hace años: el club de los países ricos. ¿Qué es, y para qué sirve?"},
+  {"id": "s02", "texto": "Se llama OCDE: la Organización para la Cooperación y el Desarrollo Económicos. Nació en mil novecientos sesenta y uno, y hoy tiene treinta y ocho países que juntos hacen casi la mitad de la economía del mundo. Estados Unidos, Alemania, Japón… Y de América Latina, solo cuatro: México, Chile, Colombia y Costa Rica. Sí: es la misma que toma las pruebas PISA."},
+  {"id": "s03", "texto": "Pero ojo: la OCDE no presta plata, como el FMI. Lo que hace es poner reglas. Cómo se cobran los impuestos, cómo se combate la corrupción, cómo se trata a los inversores, cómo se hacen las estadísticas. Entrar es como recibir un sello de calidad: este país juega con las mismas reglas que los desarrollados."},
+  {"id": "s04", "texto": "¿Y cómo se entra? Despacio. La Argentina fue invitada en enero de dos mil veintidós. Su hoja de ruta se aprobó en marzo de dos mil veinticuatro. En noviembre de dos mil veinticinco entregó más de doscientas cuarenta autoevaluaciones. Ahora la revisan veinticinco comités. Y al final, los treinta y ocho países tienen que votar que sí. Todos. Colombia tardó siete años. Costa Rica, cerca de una década."},
+  {"id": "s05", "texto": "¿Y sirve? Los que están a favor dicen que el sello baja el riesgo y atrae inversiones. Por eso el Gobierno usa París como vidriera para la minería, la energía y la tecnología. Los que dudan recuerdan que entrar no te hace rico: México está adentro desde mil novecientos noventa y cuatro, y todavía no es un país desarrollado. Y que las reformas que piden llevan años y no siempre son populares."},
+  {"id": "s06", "texto": "En resumen: la OCDE no te da plata. Te da reglas y reputación. Milei va a París a mostrar que la Argentina quiere jugar en esa liga, pero entrar, si pasa, va a llevar años. ¿Vos qué pensás: club de ricos, o club de reglas? Contame en los comentarios. Y seguí a CONTEXTO para entender la Argentina en dos minutos."}
+ ]
+}

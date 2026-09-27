@@ -15,3 +15,16 @@ audio/ep04/final/*.wav
 raw/s4m/*.jpg
 raw/s4m/*.png
 raw/s4m/*.wav
+
+# short del dólar barato: wavs procesados (se regeneran con proc_audio.py)
+audio/sdb/final/*.wav
+
+# reels v2 (pobreza, OCDE): wavs procesados
+audio/rpb/final/*.wav
+audio/ocd/final/*.wav
+entrega/inflacion_baja_pobreza_sube_reel.mp4
+entrega/milei_ocde_club_paises_ricos_reel.mp4
+
+# documental 4K "el país más rico": wavs procesados y máster (el mp4 va solo a Drive)
+audio/rico/final/*.wav
+entrega/argentina_pais_mas_rico_4k.mp4

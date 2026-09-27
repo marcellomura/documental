@@ -1,0 +1,36 @@
+{
+ "titulo": "EL DÓLAR ESTÁ BARATO… ¿Y ESO ES MALO?",
+ "canal": "CONTEXTO",
+ "episodio": "short sdb",
+ "voz": {
+  "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+  "modelo": "eleven_multilingual_v2",
+  "tempo": 1.24
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "texto": "El dólar está barato. Y eso… ¿es malo? En lo que va de dos mil veintiséis, el dólar mayorista subió apenas un cuatro por ciento. La inflación, cerca de un veintitrés. Y todos repiten dos palabras: atraso cambiario. ¿Qué significa?"
+  },
+  {
+   "id": "s02",
+   "texto": "Hagamos una cuenta. Algo que en enero costaba cien mil pesos, hoy cuesta ciento veintitrés mil. Pero el dólar casi no se movió. Entonces, medido en dólares, eso mismo pasó de sesenta y ocho a ochenta y un dólares. La Argentina se volvió más cara en dólares. Eso es el atraso cambiario: los precios corren, y el dólar camina."
+  },
+  {
+   "id": "s03",
+   "texto": "¿Quién gana? El que viaja afuera, el que compra importado, y el que compra dólares para ahorrar. ¿Quién pierde? El que le vende al mundo o compite con lo importado: el campo, la industria, el turismo. Cobran en dólares que rinden menos, y sus costos en pesos siguen subiendo."
+  },
+  {
+   "id": "s04",
+   "texto": "¿Y esto ya pasó? Sí. Con el uno a uno de los noventa, y en dos mil diecisiete. Las dos veces, el dólar barato terminó en un salto brusco. En dos mil dos, el dólar se triplicó. En dos mil dieciocho, se duplicó."
+  },
+  {
+   "id": "s05",
+   "texto": "Pero hay otra mirada. El Gobierno y algunos economistas dicen que esta vez es distinto: que con Vaca Muerta y la minería van a entrar tantos dólares que el peso puede quedar fuerte por mucho tiempo. Otros advierten que, ajustado por inflación, el dólar está muy por debajo de lo que valía en dos mil dieciocho o dos mil diecinueve."
+  },
+  {
+   "id": "s06",
+   "texto": "Entonces, un dólar barato no es bueno ni malo por sí solo. La pregunta es si se sostiene con dólares que entran de verdad, o si se va acumulando presión. ¿Vos qué pensás: regalo o bomba? Contame en los comentarios. Y si querés entender por qué el dólar nos obsesiona tanto, mirá Trece ceros en CONTEXTO."
+  }
+ ]
+}
