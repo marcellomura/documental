@@ -36,6 +36,15 @@ NUM_EP = {
              ("setenta y cuatro", "74"), ("dos mil ocho", "2008"), ("dos mil nueve", "2009"), ("setecientos", "700"),
              ("las diez", "las 10"), ("dos mil veinticinco", "2025"), ("dos mil veintiséis", "2026"),
              ("primero de abril", "1.º de abril")],
+    "ep06": [("Cincuenta y un millones", "51 millones"), ("cuarenta y seis millones", "46 millones"), ("tres kilos y medio", "3,5 kilos"),
+             ("mil novecientos cincuenta y seis", "1956"), ("cien kilos", "100 kilos"), ("cuarenta y seis", "46"), ("veinte años", "20 años"),
+             ("cincuenta por ciento", "50 %"), ("menos de treinta", "menos de 30"), ("nueve meses", "9 meses"), ("seis o siete", "6 o 7"),
+             ("ciento ochenta kilos", "180 kilos"), ("treinta y cinco", "35"), ("cuatrocientos kilos", "400 kilos"), ("dieciséis", "16"),
+             ("veinte de cada cien", "20 de cada 100"), ("cada cien", "cada 100"), ("cien pesos", "100 pesos"), ("dos kilos", "2 kilos"),
+             ("cuatro mil seiscientos", "4.600"), ("nueve mil", "9.000"), ("veintiocho", "28"), ("veintiuno", "21"), ("veintiún", "21"),
+             ("dieciocho mil quinientos", "18.500"), ("Seis mil quinientos", "6.500"), ("Tres mil setecientos", "3.700"), ("Tres mil", "3.000"),
+             ("doscientos", "200"), ("cinco mil", "5.000"), ("tres de cada diez", "3 de cada 10"), ("treinta por ciento", "30 %"),
+             ("dos mil veintitrés", "2023"), ("trece por ciento", "13 %"), ("siete semanas", "7 semanas"), ("dos o tres años", "2 o 3 años")],
 }
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):

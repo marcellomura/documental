@@ -141,7 +141,7 @@ export const S01: React.FC<P & {dur: number}> = ({t, dur}) => {
         <AbsoluteFill style={{opacity: fadeIO(t, tAsado - 0.1, tBal + 0.3, 0.3)}}>
           <FullPhoto src="ep06/asado3.jpg" t={t} t0={tAsado - 0.1} t1={c('parrilla,') + 0.2} zoom={[1.05, 1.16]} dim={0.3} credit="Aleposta, GFDL" />
           <FullPhoto src="ep06/asado2.jpg" t={t} t0={c('parrilla,') - 0.2} t1={c('del', 1) + 0.2} zoom={[1.12, 1.02]} focus="40% 40%" dim={0.25} credit="Maxd2, CC BY-SA 4.0" />
-          <FullPhoto src="ep06/asado1.jpg" t={t} t0={c('del', 1) - 0.2} t1={tBal + 0.4} zoom={[1.03, 1.14]} dim={0.3} credit="Wikimedia Commons, CC BY-SA 2.0" />
+          <FullPhoto src="ep06/asado1.jpg" t={t} t0={c('del', 1) - 0.2} t1={tBal + 0.4} zoom={[1.03, 1.14]} dim={0.3} credit="felixion, CC BY-SA 2.0" />
           <Sparks t={t} o={0.9} />
           <Big t={t} t0={tAsado + 0.1} text="EL PAÍS DEL ASADO" size={150} y={840} hl={{ASADO: K.yellow}} />
         </AbsoluteFill>
@@ -201,7 +201,7 @@ export const S01: React.FC<P & {dur: number}> = ({t, dur}) => {
       {/* H · título */}
       {t >= tTitle - 0.05 ? (
         <AbsoluteFill>
-          <FullPhoto src="ep06/niebla.jpg" t={t} t0={tTitle - 0.05} zoom={[1.02, 1.1]} dim={0.55} fade={0.01} credit="Panoramio, CC BY 3.0" />
+          <FullPhoto src="ep06/niebla.jpg" t={t} t0={tTitle - 0.05} zoom={[1.02, 1.1]} dim={0.55} fade={0.01} credit="Oscar Fava, CC BY 3.0" />
           <Sparks t={t} n={30} o={0.6} />
           <div style={{position: 'absolute', left: 0, right: 0, top: 330, textAlign: 'center', fontFamily: F.body, fontWeight: 800, fontSize: 26, letterSpacing: 10, color: K.cream, opacity: prog(t, tTitle + 0.2, 0.5)}}>
             CONTEXTO · EPISODIO 6
@@ -442,14 +442,14 @@ export const S03: React.FC<P> = ({t}) => {
       ) : null}
       {between(t, tNace, tCasi + 0.3) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tNace, tCasi + 0.3, 0.3)}}>
-          <FullPhoto src="ep06/vacaternero.jpg" t={t} t0={tNace} t1={tCasi + 0.3} zoom={[1.02, 1.15]} focus="45% 60%" dim={t > tTarda ? 0.35 + 0.6 * prog(t, tTarda, 0.5) : 0.35} fade={0.01} credit="Panoramio, CC BY 3.0" />
+          <FullPhoto src="ep06/vacaternero.jpg" t={t} t0={tNace} t1={tCasi + 0.3} zoom={[1.02, 1.15]} focus="45% 60%" dim={t > tTarda ? 0.35 + 0.6 * prog(t, tTarda, 0.5) : 0.35} fade={0.01} credit="Gervacio Rosales, CC BY 3.0" />
           <Big t={t} t0={tNace + 0.1} t1={tTarda + 0.1} text="NACE UN TERNERO" size={140} y={860} />
           {t > tTarda - 0.1 ? months(260, 420) : null}
         </AbsoluteFill>
       ) : null}
       {between(t, tCasi, tEse + 0.3) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tCasi, tEse + 0.3, 0.3)}}>
-          <FullPhoto src="ep06/cordoba.jpg" t={t} t0={tCasi} t1={tEse + 0.3} dim={1.0} zoom={[1.05, 1.12]} focus="50% 70%" fade={0.01} credit="Wikimedia Commons, CC BY 3.0" />
+          <FullPhoto src="ep06/cordoba.jpg" t={t} t0={tCasi} t1={tEse + 0.3} dim={1.0} zoom={[1.05, 1.12]} focus="50% 70%" fade={0.01} credit="Kevin Degirmenci, CC BY 3.0" />
           <div style={{position: 'absolute', left: 1040, top: 190, transform: `scale(${0.9 + 0.1 * pop(t, tCasi, 0.8)})`, opacity: prog(t, tCasi, 0.3)}}>
             <Dial kg={kg} max={500} size={660} label="KG · TERNERO" />
           </div>
@@ -675,7 +675,7 @@ export const S05: React.FC<P> = ({t}) => {
       ) : null}
       {between(t, tSu, tCuarto + 0.3) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tSu, tCuarto + 0.3, 0.3)}}>
-          <FullPhoto src="ep06/terminales.jpg" t={t} t0={tSu} t1={tCuarto + 0.3} dim={1.0} zoom={[1.04, 1.14]} fade={0.01} credit="Terminales Río de la Plata · Wikimedia Commons, CC BY-SA 2.0" />
+          <FullPhoto src="ep06/terminales.jpg" t={t} t0={tSu} t1={tCuarto + 0.3} dim={1.0} zoom={[1.04, 1.14]} fade={0.01} credit="Terminales Río de la Plata · Dennis G. Jarvis, CC BY-SA 2.0" />
           <Big t={t} t0={tSu + 0.05} text="SU NEGOCIO ESTÁ EN OTRO LADO" size={84} y={200} />
           <Chip t={t} t0={c('cuero,')} text="EL CUERO" x={480} y={560} color={K.frig} size={56} />
           <Chip t={t} t0={c('subproductos')} text="LOS SUBPRODUCTOS" x={960} y={560} color={K.frig} size={56} />

@@ -30,21 +30,22 @@ export const camPath = (t: number, keys: [number, Cam][], dur = 1.4): Cam => {
 
 const _cam = new THREE.PerspectiveCamera(35, W / H, 0.1, 400);
 /** proyecta un punto 3D a píxeles de la composición (1920×1080) */
-export const project = (cam: Cam, p: V3): [number, number] => {
+export const project = (cam: Cam, p: V3, w = W, h = H): [number, number] => {
   _cam.fov = cam.fov ?? 35;
+  _cam.aspect = w / h;
   _cam.position.set(...cam.pos);
   _cam.lookAt(...cam.look);
   _cam.updateProjectionMatrix();
   _cam.updateMatrixWorld();
   const v = new THREE.Vector3(...p).project(_cam);
-  return [((v.x + 1) / 2) * W, ((1 - v.y) / 2) * H];
+  return [((v.x + 1) / 2) * w, ((1 - v.y) / 2) * h];
 };
 
-const Rig: React.FC<{cam: Cam}> = ({cam}) => {
+const Rig: React.FC<{cam: Cam; aspect: number}> = ({cam, aspect}) => {
   const {camera} = useThree();
   const c = camera as THREE.PerspectiveCamera;
   c.fov = cam.fov ?? 35;
-  c.aspect = W / H;
+  c.aspect = aspect;
   c.near = 0.1;
   c.far = 400;
   c.position.set(...cam.pos);
@@ -56,16 +57,16 @@ const Rig: React.FC<{cam: Cam}> = ({cam}) => {
 
 /** escenario: lienzo transparente con luz cálida principal (con sombra), relleno y contraluz */
 export const Stage: React.FC<{
-  cam: Cam; children: React.ReactNode; key0?: V3; shadow?: number; keyI?: number; fill?: number; rimColor?: string; exposure?: number; target?: V3; style?: React.CSSProperties;
-}> = ({cam, children, key0 = [7, 14, 9], shadow = 14, keyI = 2.3, fill = 0.55, rimColor = '#FF8A4C', exposure = 1.05, target = [0, 0, 0], style}) => (
+  cam: Cam; children: React.ReactNode; key0?: V3; shadow?: number; keyI?: number; fill?: number; rimColor?: string; exposure?: number; target?: V3; style?: React.CSSProperties; w?: number; h?: number;
+}> = ({cam, children, key0 = [7, 14, 9], shadow = 14, keyI = 2.3, fill = 0.55, rimColor = '#FF8A4C', exposure = 1.05, target = [0, 0, 0], style, w = W, h = H}) => (
   <ThreeCanvas
-    width={W}
-    height={H}
+    width={w}
+    height={h}
     shadows
     gl={{antialias: true, alpha: true, toneMappingExposure: exposure, preserveDrawingBuffer: true}}
     style={{position: 'absolute', left: 0, top: 0, ...style}}
   >
-    <Rig cam={cam} />
+    <Rig cam={cam} aspect={w / h} />
     <hemisphereLight args={['#FFE9CF', '#20160F', fill]} />
     <directionalLight
       position={[key0[0] + target[0], key0[1] + target[1], key0[2] + target[2]]}

@@ -584,7 +584,7 @@ export const S10: React.FC<P & {total: number}> = ({t, total}) => {
       ) : null}
       {between(t, tVacas, tProx + 0.3) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tVacas, tProx + 0.3, 0.4)}}>
-          <FullPhoto src="ep06/niebla.jpg" t={t} t0={tVacas} t1={tProx + 0.3} zoom={[1.0, 1.08]} dim={0.6} fade={0.01} credit="Panoramio, CC BY 3.0" />
+          <FullPhoto src="ep06/niebla.jpg" t={t} t0={tVacas} t1={tProx + 0.3} zoom={[1.0, 1.08]} dim={0.6} fade={0.01} credit="Oscar Fava, CC BY 3.0" />
           <Big t={t} t0={tVacas + 0.1} text="LAS VACAS SIGUEN ESTANDO." size={110} y={420} />
           <Big t={t} t0={c('Lo que cambió')} text="LO QUE CAMBIÓ ES | QUIÉN PUEDE PAGARLAS." size={96} y={680} hl={{PAGARLAS: K.yellow}} />
         </AbsoluteFill>
