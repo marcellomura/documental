@@ -22,10 +22,32 @@ const cue = (seg: string, phrase: string, n = 0) => (seg === 'x01' ? WS.x01.find
 const between = (t: number, a: number, b: number) => t >= a && t < b;
 const fadeIO = (t: number, a: number, b: number, d = 0.3) => Math.min(prog(t, a, d), 1 - prog(t, b - d, d, easeIn));
 
-/* ---------- subtítulos palabra por palabra ---------- */
+/* ---------- subtítulos palabra por palabra (con cifras en vez de números deletreados) ---------- */
+const NUMS: [string, string][] = [
+  ['cincuenta y un millones', '51 millones'], ['cuarenta y seis millones', '46 millones'], ['tres kilos y medio', '3,5 kilos'],
+  ['dieciocho mil quinientos', '18.500'], ['seis mil quinientos', '6.500'], ['tres mil setecientos', '3.700'], ['tres mil', '3.000'],
+  ['doscientos', '200'], ['cinco mil', '5.000'], ['veintiuno', '21'],
+];
+const key = (w: string) => w.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+const mergeNums = (ws: {w: string; s: number; e: number}[]) => {
+  const out: typeof ws = [];
+  for (let i = 0; i < ws.length; ) {
+    const hit = NUMS.find(([a]) => {
+      const toks = a.split(' ');
+      return i + toks.length <= ws.length && toks.every((tk, k) => key(ws[i + k].w) === key(tk));
+    });
+    if (hit) {
+      const n = hit[0].split(' ').length;
+      const trail = (ws[i + n - 1].w.match(/[.,:;!?]*$/) || [''])[0];
+      out.push({w: hit[1] + trail, s: ws[i].s, e: ws[i + n - 1].e});
+      i += n;
+    } else out.push(ws[i++]);
+  }
+  return out;
+};
 const CHUNKS = (() => {
   const list: {w: string; s: number; e: number}[] = [];
-  for (const p of TL.parts) for (const w of WS[p.seg]) if (w.s >= p.from - 0.01 && w.e <= p.to + 0.05) list.push({w: w.w, s: p.at + w.s - p.from, e: p.at + w.e - p.from});
+  for (const p of TL.parts) for (const w of mergeNums(WS[p.seg])) if (w.s >= p.from - 0.01 && w.e <= p.to + 0.05) list.push({w: w.w, s: p.at + w.s - p.from, e: p.at + w.e - p.from});
   const out: {words: typeof list; s: number; e: number}[] = [];
   let cur: typeof list = [];
   list.forEach((w, i) => {
