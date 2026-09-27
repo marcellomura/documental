@@ -14,6 +14,8 @@ import tl4 from './data/ep04/timeline.json';
 import {ShortNino, SHORT_TOTAL} from './ep04/shorts';
 import {Reloj} from './ep05/Reloj';
 import tl5 from './data/ep05/timeline.json';
+import {Carne} from './ep06/Carne';
+import tl6 from './data/ep06/timeline.json';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -32,6 +34,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Reloj" component={Reloj} durationInFrames={Math.ceil(tl5.total * tl5.fps)} fps={tl5.fps} width={1920} height={1080} defaultProps={{dpr: 1}} />
     <Composition id="ShortNinoYT" component={ShortNino} durationInFrames={Math.ceil(SHORT_TOTAL('yt') * 30)} fps={30} width={1080} height={1920} defaultProps={{kind: 'yt' as const}} />
     <Composition id="ShortNinoTT" component={ShortNino} durationInFrames={Math.ceil(SHORT_TOTAL('tt') * 30)} fps={30} width={1080} height={1920} defaultProps={{kind: 'tt' as const}} />
+    <Composition id="Carne" component={Carne} durationInFrames={Math.ceil(tl6.total * tl6.fps)} fps={tl6.fps} width={1920} height={1080} defaultProps={{dpr: 1}} />
     <Still id="Miniatura" component={Miniatura} width={1280} height={720} />
   </>
 );
