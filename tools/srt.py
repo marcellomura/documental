@@ -59,6 +59,7 @@ NUM_EP = {
              ("las diez", "las 10"), ("dos mil veinticinco", "2025"), ("dos mil veintiséis", "2026"),
              ("primero de abril", "1.º de abril")],
 }
+NUM_EP["msv"] = [("Noventa mil pesos", "$90.000"), ("seiscientos ochenta y ocho mil", "$688.000"), ("tres millones", "3 millones"), ("Seis de octubre", "6 de octubre"), ("Cuatro entradas", "4 entradas"), ("dos horas", "2 horas"), ("Ochenta y cinco mil", "85.000"), ("mil novecientos ochenta y seis", "1986"), ("ochenta y dos por ciento", "82 %"), ("cuatro de cada diez", "4 de cada 10"), ("deportick punto net", "deportick.net"), ("dos millones de dólares", "2 millones de dólares")]
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):
     """une los números deletreados en una sola 'palabra' con cifras (conserva tiempos y puntuación final)"""

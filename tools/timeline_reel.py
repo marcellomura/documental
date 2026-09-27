@@ -3,7 +3,7 @@ EP=rpb python3 tools/timeline_reel.py  -> video/src/data/<EP>/timeline.json y wo
 import json, os, shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EP = os.environ["EP"]
-GAP, START, END = float(os.environ.get("GAP", "0.3")), 0.35, 4.2
+GAP, START, END = float(os.environ.get("GAP", "0.3")), 0.35, float(os.environ.get("END", "4.2"))
 AUD = os.path.join(ROOT, "audio", EP, "final")
 dur = json.load(open(os.path.join(AUD, "durations.json")))
 out = os.path.join(ROOT, "video/src/data", EP); os.makedirs(out, exist_ok=True)

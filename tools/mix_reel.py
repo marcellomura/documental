@@ -79,6 +79,36 @@ if EP == "rpb":
     fx("pop", c("s05", "Los críticos") + 0.4, 0.45); fx("riser", c("s05", "entre los chicos") - 0.5, 0.3); fx("boom", c("s05", "cuarenta y cuatro"), 0.5)
     fx("pop", c("s06", "la inflación te dice"), 0.4); fx("pop", c("s06", "La pobreza te dice"), 0.4); fx("pop", c("s06", "ayuda,"), 0.45); fx("glitch", c("s06", "pero no alcanza"), 0.3)
     for k in range(3): fx("pop", c("s06", "Contame") + k * 0.35, 0.35)
+elif EP == "msv":
+    place("../msi/music/m1_tension", 0, at("s03") + 0.3, fin=0.05, fout=0.5)
+    place("../msi/music/m2_explica", at("s03") - 0.1, at("s05") + 0.3, fin=0.2, fout=0.5)
+    place("../msi/music/m1_tension", at("s05") - 0.1, at("s06") + 0.3, fin=0.2, fout=0.5, offset=60)
+    place("../msi/music/m3_final", at("s06") - 0.1, TOTAL, fin=0.4, fout=2.0)
+    scenes = [c("s01", "Un día después,"), c("s01", "Y las mejores,"), c("s01", "¿Quién se queda"), at("s02") - 0.1, c("s02", "el último partido"), c("s02", "Cuatro entradas"),
+              at("s03") - 0.1, c("s03", "para todo"), c("s03", "Cuando algo"), c("s03", "Y esa diferencia"), at("s04") - 0.1, c("s04", "En un experimento"),
+              at("s05") - 0.1, c("s05", "Encima,"), c("s05", "Y en la Ciudad,"), at("s06") - 0.1]
+    fx("boom", 0.3, 0.55); fx("cashregister", 0.35, 0.3)
+    fx("riser", c("s01", "seiscientos") - 1.2, 0.3); fx("boom", c("s01", "seiscientos"), 0.5); fx("cashregister", c("s01", "seiscientos") + 0.1, 0.25)
+    fx("riser", c("s01", "tres millones.") - 1.0, 0.3); fx("boom", c("s01", "tres millones."), 0.65); fx("billetes", c("s01", "tres millones.") + 0.15, 0.4)
+    fx("pop", c("s01", "esa plata?"), 0.45)
+    fx("boom", c("s02", "Monumental:") - 0.05, 0.5); fx("pop", c("s02", "el último partido") + 0.3, 0.4)
+    for k in range(4): fx("pop", c("s02", "Cuatro entradas") + k * 0.12, 0.3)
+    fx("typewriter", c("s02", "y en menos") - 0.3, 0.18); fx("boom", c("s02", "ninguna."), 0.6); fx("glitch", c("s02", "ninguna.") + 0.05, 0.25)
+    for k in range(10): fx("pop", at("s03") + 0.05 + k * 0.1, 0.13)
+    fx("boom", at("s03") + 1.05, 0.45); fx("pop", c("s03", "para todo") + 0.2, 0.4)
+    fx("pop", c("s03", "barato"), 0.4); fx("cashregister", c("s03", "caro."), 0.35)
+    fx("pop", c("s03", "la AFA,"), 0.4); fx("pop", c("s03", "ni Messi:"), 0.4); fx("boom", c("s03", "el revendedor."), 0.55); fx("cashregister", c("s03", "el revendedor.") + 0.1, 0.25)
+    fx("pop", at("s04") + 0.2, 0.4); fx("boom", c("s04", "horrible.") - 0.05, 0.55)
+    fx("typewriter", c("s04", "En un experimento") + 0.3, 0.2); fx("riser", c("s04", "ochenta y dos") - 1.0, 0.25); fx("boom", c("s04", "ochenta y dos") - 0.05, 0.5)
+    fx("pop", c("s04", "palas"), 0.4); fx("boom", c("s04", "injusto.") - 0.05, 0.55); fx("glitch", c("s04", "injusto."), 0.2)
+    fx("pop", c("s05", "gana"), 0.4)
+    for k in range(4): fx("glitch" if k == 3 else "pop", c("s05", "cuatro de cada diez") + 0.25 * k, 0.28)
+    fx("boom", c("s05", "son bots."), 0.5)
+    fx("boom", c("s05", "trucha,") - 0.05, 0.55); fx("typewriter", c("s05", "deportick") - 0.1, 0.25)
+    fx("riser", c("s05", "contravención.") - 1.0, 0.25); fx("boom", c("s05", "contravención.") - 0.05, 0.55)
+    fx("pop", c("s06", "Oasis,"), 0.4); fx("pop", c("s06", "la final del Mundial"), 0.4); fx("cashregister", c("s06", "dos millones"), 0.3); fx("pop", c("s06", "y cómo no caer"), 0.4)
+    fx("whoosh", c("s06", "está todo") - 0.25, 0.4); fx("riser", c("s06", "está todo") - 1.4, 0.35); fx("boom", c("s06", "está todo"), 0.7)
+    fx("pop", c("s06", "Tocá"), 0.5); fx("pop", c("s06", "buscá"), 0.35); fx("pop", c("s06", "Y vos,"), 0.45)
 else:
     place("m3_cierre", 0, at("s03") + 0.6, fin=0.05, offset=30)
     place("m2_tension", at("s03") - 0.4, at("s06") + 0.6, offset=0)
@@ -115,7 +145,8 @@ else:
     fx("pop", c("s06", "club de ricos,"), 0.4); fx("pop", c("s06", "club de reglas?"), 0.4)
 
 for t in scenes: fx("whoosh", t - 0.25, 0.32)
-fx("riser", E - 1.8, 0.4); fx("boom", E, 0.8); fx("pop", E + 1.0, 0.5)
+if EP == "msv": fx("pop", E, 0.4)
+else: fx("riser", E - 1.8, 0.4); fx("boom", E, 0.8); fx("pop", E + 1.0, 0.5)
 
 def follower(x, att=0.015, rel=0.35):
     hop = SR // 100; n = len(x) // hop

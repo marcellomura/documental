@@ -1,0 +1,14 @@
+{
+ "titulo": "¿Por qué ver a Messi cuesta $3 MILLONES? (short vertical)",
+ "canal": "CONTEXTO",
+ "episodio": "short msv",
+ "voz": {"voice_id": "gBTPbHzRd0ZmV75Z5Zk4", "modelo": "eleven_multilingual_v2", "tempo": 1.28},
+ "segmentos": [
+  {"id": "s01", "texto": "Noventa mil pesos. Eso costaba la entrada más barata para ver a Messi por última vez con la Selección. Un día después, esa misma entrada se publicaba a seiscientos ochenta y ocho mil. Y las mejores, a más de tres millones. ¿Quién se queda con esa plata?"},
+  {"id": "s02", "texto": "Seis de octubre, Monumental: el último partido de Messi con la Selección. Cuatro entradas como máximo por cuenta, y en menos de dos horas no quedaba ninguna."},
+  {"id": "s03", "texto": "Ochenta y cinco mil lugares para todo un país. Cuando algo es así de escaso y el precio queda muy por debajo de lo que la gente pagaría, aparece el que compra barato para vender caro. Y esa diferencia no la cobra la AFA, ni Messi: la cobra el revendedor."},
+  {"id": "s04", "texto": "¿Y por qué no la cobraron más cara? Porque queda horrible. En un experimento de mil novecientos ochenta y seis, el ochenta y dos por ciento dijo que subir el precio de las palas para la nieve después de una nevada era injusto."},
+  {"id": "s05", "texto": "Y si la entrada es barata y escasa, gana el más rápido, que casi nunca es una persona: cuatro de cada diez visitas a los sitios de entradas son bots. Encima, el día de la venta apareció una página trucha, deportick punto net. Y en la Ciudad, revender para ganar plata es una contravención."},
+  {"id": "s06", "texto": "Qué pasó con Oasis, la final del Mundial con entradas a más de dos millones de dólares, y cómo no caer en una estafa: está todo en el video completo. Tocá el link o buscá CONTEXTO en YouTube. Y vos, ¿cuánto pagarías por estar?"}
+ ]
+}
