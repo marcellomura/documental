@@ -15,3 +15,8 @@ audio/ep04/final/*.wav
 raw/s4m/*.jpg
 raw/s4m/*.png
 raw/s4m/*.wav
+
+# spot MDF: descargas del sitio oficial y material intermedio (se regeneran)
+campana/web/
+campana/raw/
+video/public/campana/vid/

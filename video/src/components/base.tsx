@@ -16,6 +16,8 @@ const FONTS: [string, string, FontFaceDescriptors][] = [
   ['Special Elite', 'SpecialElite-Regular.ttf', {}],
   ['Rock Salt', 'RockSalt-Regular.ttf', {}],
   ['Bungee', 'Bungee-Regular.ttf', {}],
+  ['Roboto Condensed', 'RobotoCondensed-VF.ttf', {weight: '100 900'}],
+  ['Roboto Condensed', 'RobotoCondensed-Italic-VF.ttf', {weight: '100 900', style: 'italic'}],
 ];
 if (typeof document !== 'undefined' && !(window as any).__fontsLoading) {
   (window as any).__fontsLoading = true;
