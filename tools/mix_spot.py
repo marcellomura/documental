@@ -1,5 +1,5 @@
 """Mezcla del spot del MDF: jingle + golpe grave en "El futuro, no." + campanita del logo.
-Salida: audio/mix/mezcla_spot.wav (48 kHz estéreo, -14 LUFS, pico real -1 dBTP)."""
+Salida: audio/mix/mezcla_spot.wav (48 kHz estéreo, -14 LUFS, pico real -2 dBTP)."""
 import os, subprocess, numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,12 +51,12 @@ mix[-fo:] *= np.linspace(1, 0, fo)[:, None]
 tmp = os.path.join(OUT, "spot_pre.f32")
 mix.astype(np.float32).tofile(tmp)
 dst = os.path.join(OUT, "mezcla_spot.wav")
-# dos pasadas de loudnorm para -14 LUFS / -1 dBTP
-first = subprocess.run(["ffmpeg", "-hide_banner", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", tmp, "-af", "loudnorm=I=-14:TP=-1:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True).stderr
+# dos pasadas de loudnorm para -14 LUFS / -2 dBTP (margen para el AAC)
+first = subprocess.run(["ffmpeg", "-hide_banner", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", tmp, "-af", "loudnorm=I=-14:TP=-2:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True).stderr
 import json, re
 m = json.loads(re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", first, re.S).group(0))
-af = (f"loudnorm=I=-14:TP=-1:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:"
-      f"measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+af = (f"loudnorm=I=-14:TP=-2:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:"
+      f"measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,alimiter=limit=0.76:attack=2:release=60:level=false")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", tmp, "-af", af, "-ar", str(SR), "-c:a", "pcm_s24le", dst], check=True)
 os.remove(tmp)
 chk = subprocess.run(["ffmpeg", "-hide_banner", "-i", dst, "-af", "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True).stderr

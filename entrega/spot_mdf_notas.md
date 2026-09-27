@@ -73,8 +73,8 @@ Música generada con ElevenLabs Music v2 a partir de esta letra. Se hicieron dos
 python3 tools/mix_spot.py                                   # -> audio/mix/mezcla_spot.wav
 cd video && npx remotion render SpotMDF out/spot_mdf_muted.mp4 --muted --crf=16
 npx remotion render SpotMDFVertical out/spot_mdf_vertical_muted.mp4 --muted --crf=16 && cd ..
-IN=video/out/spot_mdf_muted.mp4 AUD=audio/mix/mezcla_spot.wav OUT=entrega/spot_mdf_1080p.mp4 TITLE="Derecho al futuro - Axel 2027" VBR=6M MAXRATE=10M BUFSIZE=16M tools/final.sh
-IN=video/out/spot_mdf_vertical_muted.mp4 AUD=audio/mix/mezcla_spot.wav OUT=entrega/spot_mdf_vertical.mp4 TITLE="Derecho al futuro - Axel 2027" VBR=6M MAXRATE=10M BUFSIZE=16M tools/final.sh
+IN=video/out/spot_mdf_muted.mp4 AUD=audio/mix/mezcla_spot.wav OUT=entrega/spot_mdf_1080p.mp4 TITLE="Derecho al futuro - Axel 2027" VBR=5M MAXRATE=9M BUFSIZE=14M tools/final.sh
+IN=video/out/spot_mdf_vertical_muted.mp4 AUD=audio/mix/mezcla_spot.wav OUT=entrega/spot_mdf_vertical.mp4 TITLE="Derecho al futuro - Axel 2027" VBR=5M MAXRATE=9M BUFSIZE=14M tools/final.sh
 ```
 
 El código está en `video/src/campana/`: `Spot.tsx` tiene la línea de tiempo y `kit.tsx` las piezas (isotipo, líneas de marca, placas, sellos, barridos y letra). La letra sincronizada está en `video/src/data/campana/lyrics.json`.
