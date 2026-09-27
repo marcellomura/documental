@@ -161,8 +161,8 @@ export const S07: React.FC<P> = ({t}) => {
       <Waterfall t={t} tl={tl} tTotal={tTotal} tHead={t185} />
       <div style={{position: 'absolute', left: 1010, top: 90, opacity: prog(t, tKilo, 0.4)}}>
         <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 24, letterSpacing: 5, color: K.mute}}>1 KG DE CARNE EN EL MOSTRADOR</div>
-        <div style={{fontFamily: F.head, fontSize: 120, color: K.yellow, lineHeight: 1}}>
-          $<Count t={t} t0={t185} dur={1.2} to={18500} />
+        <div style={{fontFamily: F.head, fontSize: 120, color: K.yellow, lineHeight: 1, opacity: prog(t, t185 - 0.15, 0.25)}}>
+          $<Count t={t} t0={t185} dur={1.2} to={18500} from={9000} />
         </div>
       </div>
       <SrcLine t={t} t0={1} text="Reparto: FADA (abril 2026) aplicado a un precio promedio de $18.500 por kilo (IPCVA, AMBA)" x={1010} y={1030} />

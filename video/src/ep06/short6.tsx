@@ -173,8 +173,8 @@ const TicketPart: React.FC<{s: number; t0: number}> = ({s}) => {
       <Ember glow="rgba(200,90,40,0.24)" y={40} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 120, textAlign: 'center', opacity: prog(s, s0, 0.4)}}>
         <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 5, color: K.mute}}>1 KG DE CARNE EN EL MOSTRADOR</div>
-        <div style={{fontFamily: F.head, fontSize: 150, color: K.yellow, lineHeight: 1}}>
-          $<Count t={s} t0={c('dieciocho')} dur={1.2} to={18500} />
+        <div style={{fontFamily: F.head, fontSize: 150, color: K.yellow, lineHeight: 1, opacity: prog(s, c('dieciocho') - 0.15, 0.25)}}>
+          $<Count t={s} t0={c('dieciocho')} dur={1.2} to={18500} from={9000} />
         </div>
       </div>
       <Ticket t={s} t0={s0 + 0.1} lines={lines} total={{t0: c('impuestos.') + 0.7, value: 18500}} x={540} y={360} w={900} circle={{t0: c('impuestos.') - 0.1, line: 4}} />
