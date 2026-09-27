@@ -28,3 +28,7 @@ entrega/milei_ocde_club_paises_ricos_reel.mp4
 # documental 4K "el país más rico": wavs procesados y máster (el mp4 va solo a Drive)
 audio/rico/final/*.wav
 entrega/argentina_pais_mas_rico_4k.mp4
+
+# video "¿Por qué ver a Messi cuesta $3 millones?": wavs procesados y másters (los mp4 van solo a Drive)
+audio/msi/final/*.wav
+entrega/por_que_ver_a_messi_cuesta_3_millones_*.mp4
