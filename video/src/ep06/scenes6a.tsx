@@ -204,7 +204,7 @@ export const S01: React.FC<P & {dur: number}> = ({t, dur}) => {
           <FullPhoto src="ep06/niebla.jpg" t={t} t0={tTitle - 0.05} zoom={[1.02, 1.1]} dim={0.55} fade={0.01} credit="Oscar Fava, CC BY 3.0" />
           <Sparks t={t} n={30} o={0.6} />
           <div style={{position: 'absolute', left: 0, right: 0, top: 330, textAlign: 'center', fontFamily: F.body, fontWeight: 800, fontSize: 26, letterSpacing: 10, color: K.cream, opacity: prog(t, tTitle + 0.2, 0.5)}}>
-            CONTEXTO · EPISODIO 6
+            UN DOCUMENTAL DE CONTEXTO
           </div>
           <Big t={t} t0={tTitle + 0.1} text="LA PARADOJA | DE LA CARNE" size={200} y={560} stagger={0.12} hl={{PARADOJA: K.red}} lh={0.95} />
         </AbsoluteFill>
