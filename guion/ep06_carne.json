@@ -1,0 +1,57 @@
+{
+ "titulo": "LA PARADOJA DE LA CARNE",
+ "canal": "CONTEXTO",
+ "episodio": 6,
+ "voz": {
+  "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+  "modelo": "eleven_multilingual_v2"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "texto": "Hay más vacas que personas. Cincuenta y un millones de vacas, y cuarenta y seis millones de argentinos. Somos el país del asado, de la parrilla, del domingo con amigos alrededor del fuego. Y sin embargo, hoy, con lo que sale un kilo de asado te llevás tres kilos y medio de pollo. Y los argentinos ya comemos más pollo que carne de vaca. ¿Cómo puede ser? ¿Quién se queda con la plata? Vamos a seguir un kilo de carne desde el campo hasta tu mesa. Y lo que vas a ver no te va a gustar."
+  },
+  {
+   "id": "s02",
+   "texto": "Para entender la bronca, hay que ver de dónde venimos. En mil novecientos cincuenta y seis, cada argentino comía más de cien kilos de carne de vaca por año. Hoy come cuarenta y seis. Menos de la mitad. Es el nivel más bajo en veinte años. En el último año, la carne subió más de un cincuenta por ciento. El pollo, menos de treinta."
+  },
+  {
+   "id": "s03",
+   "texto": "Así que hagamos el viaje. Todo empieza en un campo de cría, muchas veces en tierras donde no se puede sembrar. Ahí nace un ternero. Tarda nueve meses en nacer, y otros seis o siete en dejar de tomar la leche de su madre. Casi un año de trabajo para tener un animal de unos ciento ochenta kilos. Ese es el primer eslabón: el criador. Y es el que más se lleva de todo el viaje. De cada cien pesos que pagás por un kilo de carne, treinta y cinco son para él."
+  },
+  {
+   "id": "s04",
+   "texto": "Después viene el engorde. El ternero pasa a un campo de invernada o a un feedlot, donde come pasto, maíz y balanceado hasta pasar los cuatrocientos kilos. Otro año, a veces más. Ese es el segundo eslabón: el invernador. Se lleva dieciséis pesos de cada cien. Y acá aparece la primera trampa: para tener un kilo de carne en la carnicería, hacen falta dos kilos de vaca viva. El resto es hueso, grasa, cuero y vísceras. Hoy, en el Mercado de Cañuelas, el kilo de novillo vivo se paga unos cuatro mil seiscientos pesos. Así que antes de salir del campo, tu kilo de carne ya cuesta más de nueve mil."
+  },
+  {
+   "id": "s05",
+   "texto": "Tercer eslabón: el frigorífico. Faena, enfría, corta la media res y la manda en camión. Y acá viene la sorpresa. El frigorífico, al que muchos le echan la culpa, se queda con un peso de cada cien. Uno. Su negocio está en otro lado: el cuero, los subproductos y, sobre todo, la exportación. Cuarto eslabón: la carnicería. Desposta la media res, paga el alquiler, la luz de las cámaras, los sueldos, y lo que no se vende. Se lleva veinte de cada cien."
+  },
+  {
+   "id": "s06",
+   "texto": "Pero falta un socio. Uno que no cría, no engorda, no faena y no corta, pero cobra en cada paso: el Estado. IVA, Ganancias, Ingresos Brutos, tasas municipales. En total, veintiocho pesos de cada cien. Más de un cuarto del precio de la carne son impuestos. Y es más de lo que gana toda la cadena junta: las ganancias de todos los eslabones suman veintiuno."
+  },
+  {
+   "id": "s07",
+   "texto": "Sumemos el viaje completo. Un kilo de carne que en el mostrador cuesta unos dieciocho mil quinientos pesos. Seis mil quinientos, para el criador. Tres mil, para el engorde. Menos de doscientos, para el frigorífico. Tres mil setecientos, para la carnicería. Y más de cinco mil, para los impuestos."
+  },
+  {
+   "id": "s08",
+   "texto": "Pero entonces, ¿por qué la vaca vale tanto? Porque la vaca argentina ya no se vende solo en la Argentina. Casi tres de cada diez kilos que se producen se exportan, sobre todo a China, y ahora también a Estados Unidos. Y el mundo tiene hambre de carne: Estados Unidos, Brasil y Australia tuvieron problemas para producir, y el precio al que se exporta nuestra carne subió casi un treinta por ciento en un año. Cuando la misma vaca vale más afuera, adentro también se paga en dólares. Y encima hay menos vacas: la sequía de dos mil veintitrés dejó menos terneros, y en agosto la faena cayó casi un trece por ciento."
+  },
+  {
+   "id": "s09",
+   "texto": "¿Y el pollo? El pollo juega otro partido. Un pollo está listo en unas siete semanas. Una vaca, en dos o tres años. Con menos de dos kilos de alimento se produce un kilo de pollo vivo. Por eso hoy, con lo que sale un kilo de asado, te llevás tres kilos y medio de pollo. Y por eso el país de las vacas ya come más pollo que vaca."
+  },
+  {
+   "id": "s10",
+   "texto": "Entonces, ¿quién se queda con la plata? La mitad del precio es la vaca, que hoy se paga en dólares. Un quinto es la carnicería. El frigorífico, uno. Las ganancias de toda la cadena juntas suman veintiún pesos de cada cien. Los impuestos, veintiocho. Y mientras tanto, un país con más vacas que personas come menos de la mitad de carne que sus abuelos. Las vacas siguen estando. Lo que cambió es quién puede pagarlas. La próxima vez que prendas el fuego, acordate: de cada cien pesos, veintiocho no son carne. Son impuestos. Contanos en los comentarios cuánto pagaste el kilo de asado esta semana. Si te sirvió, suscribite y compartilo con el que siempre pone la plata para el asado. Nos vemos en el próximo video."
+  }
+ ],
+ "extra_short": [
+  {
+   "id": "x01",
+   "texto": "La respuesta completa, con quién se queda cada peso de tu kilo de carne, está en el video del canal. Tocá el enlace de acá abajo."
+  }
+ ]
+}
