@@ -23,6 +23,7 @@ import tlOcd from './data/ocd/timeline.json';
 import {Rico} from './rico/Rico';
 import tlRico from './data/rico/timeline.json';
 import {Msi} from './msi/Msi';
+import {MsiMiniA, MsiMiniB} from './msi/Miniatura';
 import tlMsi from './data/msi/timeline.json';
 
 export const RemotionRoot: React.FC = () => (
@@ -47,6 +48,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Ocde" component={Ocde} durationInFrames={Math.ceil(tlOcd.total * tlOcd.fps)} fps={tlOcd.fps} width={1080} height={1920} />
     <Composition id="Rico" component={Rico} durationInFrames={Math.ceil(tlRico.total * tlRico.fps)} fps={tlRico.fps} width={1920} height={1080} />
     <Composition id="Msi" component={Msi} durationInFrames={Math.ceil(tlMsi.total * tlMsi.fps)} fps={tlMsi.fps} width={1920} height={1080} />
+    <Still id="MsiMiniA" component={MsiMiniA} width={1920} height={1080} />
+    <Still id="MsiMiniB" component={MsiMiniB} width={1920} height={1080} />
     <Still id="Miniatura" component={Miniatura} width={1280} height={720} />
   </>
 );

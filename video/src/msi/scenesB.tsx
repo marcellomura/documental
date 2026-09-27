@@ -303,7 +303,7 @@ export const S07b: React.FC<SceneP> = ({T, t0}) => {
       <At x={1460} y={760} center>
         {T > t3 + 0.3 ? <B t={T} t0={t3 + 0.3} kind="pop"><div style={{...big(130, M.red), textShadow: '0 10px 40px rgba(255,59,78,0.45)'}}>×2,4</div></B> : null}
       </At>
-      <Src t={T} t0={tC} text="Al Jazeera y BBC (septiembre de 2024): la entrada «estándar» pasó de £148,50 a £355" />
+      <Src t={T} t0={tC} text="Al Jazeera (03/09/2024): entradas de £148,50 pasaron a £355 con el precio dinámico" />
     </Cam>
   );
 };
@@ -347,7 +347,12 @@ export const S07d: React.FC<SceneP> = ({T, t0}) => {
     <Cam t={T} punches={[tA, tN, tC]} push={[tL, tN + 0.5, 1, 1.06]}>
       <Photo src="esp305.jpg" t={T} t0={t0} span={10} zoom={[1.04, 1.2]} focus="70% 35%" dim={0.3} credit={CR.bb} />
       <AbsoluteFill style={{background: 'linear-gradient(90deg, rgba(5,10,23,0.9) 0%, rgba(5,10,23,0.15) 65%)'}} />
-      <AbsoluteFill style={{background: `rgba(5,10,23,${0.72 * dark})`, backdropFilter: dark > 0 ? `blur(${10 * dark}px)` : undefined}} />
+      {dark > 0 ? (
+        <AbsoluteFill style={{opacity: dark}}>
+          <Photo src="esp305_blur.jpg" t={T} t0={t0} span={10} zoom={[1.04, 1.2]} focus="70% 35%" dim={0.3} />
+          <AbsoluteFill style={{background: 'rgba(5,10,23,0.62)'}} />
+        </AbsoluteFill>
+      ) : null}
       <div style={{opacity: 1 - dark}}>
         <At x={130} y={190}>
           <Kicker t={T} t0={t0 + 0.05} size={28} color={M.gold}>Final del Mundial 2026</Kicker>

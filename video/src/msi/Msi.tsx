@@ -2,7 +2,7 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import cortes from '../data/msi/cortes.json';
-import {M, FPS, Transition, TrKind, ChapterBar, Bug, GrainHD, clamp} from './kit';
+import {M, FPS, Transition, TrKind, ChapterBar, Bug, clamp} from './kit';
 import {TL, c, at, gapStart} from './lib';
 import {
   SceneP, S01a, S01b, S01d, S01e, Title, Chapter, S02a, S02b, S02c, S02d, S03a, S03b, S03c, S03d, S03e, S04a, S04h, S04b, S04c, S04d, S05a, S05b, S05c, S05d, S05e, S05f,
@@ -71,7 +71,6 @@ export const Msi: React.FC = () => {
       <Bug o={hide ? 0 : clamp(Math.min((T - 3) / 0.6, (c('s11', 'Contexto:') - 0.2 - T) / 0.4))} />
       {SHOTS.slice(1).map((s, i) => <Transition key={'s' + i} t={T} at={s.from} kind={s.tr!} />)}
       {INNER.map((s, i) => <Transition key={'i' + i} t={T} at={s.t} kind={s.kind} />)}
-      <GrainHD opacity={0.06} />
     </AbsoluteFill>
   );
 };

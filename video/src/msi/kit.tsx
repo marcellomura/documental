@@ -68,7 +68,7 @@ const Beam: React.FC<{x: number; y: number; ang: number; len?: number; w?: numbe
     style={{
       position: 'absolute', left: x - w / 2, top: y, width: w, height: len, transformOrigin: '50% 0%', transform: `rotate(${ang}deg)`,
       background: `linear-gradient(180deg, rgba(${color},${o}) 0%, rgba(${color},${o * 0.35}) 45%, rgba(${color},0) 100%)`,
-      clipPath: 'polygon(46% 0, 54% 0, 100% 100%, 0 100%)', mixBlendMode: 'screen',
+      clipPath: 'polygon(46% 0, 54% 0, 100% 100%, 0 100%)',
     }}
   />
 );
@@ -127,7 +127,7 @@ export const Motes: React.FC<{t: number; n?: number; color?: string; o?: number}
       const y = (((rnd(i * 7.7) * H - t * sp) % H) + H) % H;
       const s = 2 + rnd(i * 1.7) * 5;
       const tw = 0.35 + 0.65 * Math.abs(Math.sin(t * (0.6 + rnd(i) * 1.4) + i));
-      return <div key={i} style={{position: 'absolute', left: x, top: y, width: s, height: s, borderRadius: '50%', background: color, opacity: o * tw, boxShadow: `0 0 ${s * 3}px ${color}`}} />;
+      return <div key={i} style={{position: 'absolute', left: x - s * 2, top: y - s * 2, width: s * 5, height: s * 5, borderRadius: '50%', background: `radial-gradient(circle, ${color} 0%, ${color} 18%, rgba(255,255,255,0) 60%)`, opacity: o * tw}} />;
     })}
   </AbsoluteFill>
 );
@@ -148,8 +148,8 @@ export const Sheet: React.FC<{t: number; children?: React.ReactNode; tint?: stri
 );
 
 type Grade = 'none' | 'cold' | 'warm' | 'duo' | 'red' | 'mono';
-const gradeFilter = (g: Grade) =>
-  g === 'duo' ? 'grayscale(1) contrast(1.2) brightness(0.95)' : g === 'mono' ? 'grayscale(1) contrast(1.15)' : g === 'cold' ? 'saturate(0.85) contrast(1.08)' : g === 'warm' ? 'saturate(1.08) contrast(1.06)' : g === 'red' ? 'grayscale(0.7) contrast(1.15)' : 'contrast(1.05) saturate(1.05)';
+const gradeFilter = (g: Grade): string | undefined =>
+  g === 'duo' ? 'grayscale(1) contrast(1.2) brightness(0.95)' : g === 'mono' ? 'grayscale(1) contrast(1.15)' : g === 'cold' ? 'saturate(0.85) contrast(1.08)' : g === 'warm' ? 'saturate(1.08) contrast(1.06)' : g === 'red' ? 'grayscale(0.7) contrast(1.15)' : undefined;
 const gradeOverlay = (g: Grade) =>
   g === 'duo' ? 'rgba(47,121,194,0.55)' : g === 'cold' ? 'rgba(20,60,140,0.22)' : g === 'warm' ? 'rgba(255,170,60,0.10)' : g === 'red' ? 'rgba(200,20,40,0.35)' : null;
 
@@ -230,7 +230,7 @@ export const B: React.FC<{t: number; t0: number; t1?: number; kind?: BK; childre
   if (kind === 'pop') tr = `scale(${0.4 + 0.6 * pop(t, t0) - out * 0.2})`;
   if (kind === 'zoom') tr = `scale(${1.5 - 0.5 * a + out * 0.3})`;
   if (kind === 'flip') tr = `perspective(1200px) rotateX(${(1 - a) * -80}deg)`;
-  if (kind === 'blur') { tr = `scale(${1.12 - 0.12 * a})`; filter = `blur(${(1 - a) * 12}px)`; }
+  if (kind === 'blur') { tr = `scale(${1.12 - 0.12 * a})`; filter = a < 0.99 ? `blur(${(1 - a) * 12}px)` : undefined; }
   return <div style={{opacity: o, transform: tr, filter, ...style}}>{children}</div>;
 };
 
@@ -252,7 +252,7 @@ export const Words: React.FC<{t: number; t0: number; text: string; step?: number
         const isHi = hi.some((h) => norm(h) === norm(w));
         const tr = kind === 'slam' ? `scale(${1.6 - 0.6 * k})` : kind === 'blur' ? `translateY(${(1 - k) * 20}px)` : `translateY(${(1 - k) * 0.5}em)`;
         return (
-          <span key={i} style={{display: 'inline-block', opacity: clamp(k * 1.8), transform: tr, filter: kind === 'blur' ? `blur(${(1 - k) * 10}px)` : undefined, color: isHi ? hiColor : undefined}}>
+          <span key={i} style={{display: 'inline-block', opacity: clamp(k * 1.8), transform: tr, filter: kind === 'blur' && k < 0.99 ? `blur(${(1 - k) * 10}px)` : undefined, color: isHi ? hiColor : undefined}}>
             {w}
           </span>
         );
@@ -296,16 +296,19 @@ export const Gold: React.FC<{children: React.ReactNode; size: number; t: number;
   const sh = ((t * 45) % 300) - 100;
   const [a, b, c] = red ? ['#B3122A', '#FF9AA4', M.red] : ['#D08A12', M.goldHi, M.gold];
   const edge = red ? '#4A0510' : '#5E3D06';
+  const base: React.CSSProperties = {fontFamily: font, fontSize: size, lineHeight: 0.95, whiteSpace: 'nowrap'};
   return (
-    <div
-      style={{
-        fontFamily: font, fontSize: size, lineHeight: 0.95, whiteSpace: 'nowrap',
-        backgroundImage: `linear-gradient(100deg, rgba(255,255,255,0) ${sh - 22}%, rgba(255,255,255,0.8) ${sh}%, rgba(255,255,255,0) ${sh + 22}%), linear-gradient(180deg, ${b} 0%, ${c} 52%, ${a} 100%)`,
-        WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent',
-        filter: `drop-shadow(0 ${Math.max(2, size * 0.025)}px 0 ${edge}) drop-shadow(0 10px 28px rgba(0,0,0,0.55)) drop-shadow(0 0 30px ${red ? 'rgba(255,59,78,0.35)' : 'rgba(255,200,61,0.3)'})`, ...style,
-      }}
-    >
-      {children}
+    <div style={{position: 'relative', ...style}}>
+      <div aria-hidden style={{...base, position: 'absolute', left: 0, top: Math.max(2, size * 0.025), color: edge, textShadow: `0 10px 28px rgba(0,0,0,0.55), 0 0 30px ${red ? 'rgba(255,59,78,0.35)' : 'rgba(255,200,61,0.3)'}`}}>{children}</div>
+      <div
+        style={{
+          ...base, position: 'relative',
+          backgroundImage: `linear-gradient(100deg, rgba(255,255,255,0) ${sh - 22}%, rgba(255,255,255,0.8) ${sh}%, rgba(255,255,255,0) ${sh + 22}%), linear-gradient(180deg, ${b} 0%, ${c} 52%, ${a} 100%)`,
+          WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent',
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };
@@ -371,9 +374,9 @@ export const Ticket: React.FC<{
         style={{
           width: w, height: h, position: 'relative', transformStyle: 'preserve-3d',
           transform: `translateY(${(1 - clamp(a)) * 140}px) rotate(${rot}deg) rotateY(${ry}deg) rotateX(${rx}deg) scale(${0.8 + 0.2 * clamp(a)})`,
-          filter: 'drop-shadow(0 40px 60px rgba(0,0,0,0.5)) drop-shadow(0 10px 18px rgba(0,0,0,0.3))',
         }}
       >
+        <div style={{position: 'absolute', inset: 0, borderRadius: 22 * sc, boxShadow: '0 40px 60px rgba(0,0,0,0.5), 0 10px 18px rgba(0,0,0,0.3)'}} />
         {/* cuerpo con muescas en el perforado */}
         <div
           style={{
@@ -387,7 +390,7 @@ export const Ticket: React.FC<{
           <div style={{position: 'absolute', left: 68 * sc, top: 72 * sc, fontFamily: FONT.head, fontSize: 70 * sc, whiteSpace: 'nowrap', color: fg, lineHeight: 1, letterSpacing: 1}}>ARGENTINA <span style={{color: M.celeste}}>vs</span> BENÍN</div>
           <div style={{position: 'absolute', left: 70 * sc, top: 166 * sc, fontFamily: FONT.mono, fontWeight: 700, fontSize: 19.5 * sc, whiteSpace: 'nowrap', color: sub, letterSpacing: 1}}>MAR 06.10.2026 · 20:00 · ESTADIO MONUMENTAL</div>
           <div style={{position: 'absolute', left: 70 * sc, bottom: 30 * sc, display: 'flex', gap: 3 * sc, alignItems: 'flex-end'}}>
-            {barcode(46, seed).map((b, i) => <div key={i} style={{width: b * 2.2 * sc, height: (i % 9 === 0 ? 62 : 54) * sc, background: fg, opacity: 0.85}} />)}
+            {barcode(40, seed).map((b, i) => <div key={i} style={{width: b * 2.2 * sc, height: (i % 9 === 0 ? 62 : 54) * sc, background: fg, opacity: 0.85}} />)}
           </div>
           <div style={{position: 'absolute', left: 480 * sc, bottom: 34 * sc, fontFamily: FONT.mono, fontSize: 17 * sc, color: sub}}>N.º {String(100000 + Math.floor(rnd(seed) * 899999))}</div>
           {/* talón */}
@@ -401,7 +404,7 @@ export const Ticket: React.FC<{
             {strike > 0 ? <div style={{position: 'absolute', left: -6 * sc, top: 30 * sc, height: 7 * sc, width: `${strike * 104}%`, background: M.red, transform: 'rotate(-8deg)', borderRadius: 4}} /> : null}
           </div>
           {/* brillo */}
-          <div style={{position: 'absolute', top: -h, left: (shine - 0.6) * w * 1.2, width: 140 * sc, height: h * 3, transform: 'rotate(24deg)', background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%)', mixBlendMode: 'overlay'}} />
+          <div style={{position: 'absolute', top: -h, left: (shine - 0.6) * w * 1.2, width: 140 * sc, height: h * 3, transform: 'rotate(24deg)', background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)'}} />
         </div>
         {resale && resaleAt !== undefined && t >= resaleAt ? (
           <div style={{position: 'absolute', right: -60 * sc, top: -90 * sc, transform: `rotate(10deg) scale(${0.3 + 0.7 * clamp(pop(t, resaleAt, 1.4))})`, transformOrigin: 'center'}}>

@@ -359,13 +359,13 @@ export const S03c: React.FC<SceneP> = ({T, t0}) => {
       <Cam t={T} punches={[tN]}>
         <At x={960} y={250} center><Kicker t={T} t0={t0 + 0.05} size={28} color={M.gold}>En menos de dos horas</Kicker></At>
         <At x={960} y={500} center>
-          <Clock T={T} from={18 * 60} to={19 * 60 + 52} t0={t0 + 0.1} t1={tN - 0.1} size={300} color={T > tN ? M.red : M.white} />
+          <Clock T={T} from={18 * 60} to={19 * 60 + 30} t0={t0 + 0.1} t1={tN - 0.1} size={300} color={T > tN ? M.red : M.white} />
         </At>
         <At x={960} y={800} center>
           <Stamp t={T} t0={tN - 0.02} text="AGOTADO" size={170} rot={-7} />
         </At>
       </Cam>
-      <Src t={T} t0={t0 + 0.2} text="La Nación y OneFootball (24/09/2026)" />
+      <Src t={T} t0={t0 + 0.2} text="OneFootball: «entradas agotadas en 90 minutos» · La Nación (24/09/2026)" />
     </Night>
   );
 };
@@ -387,7 +387,7 @@ export const S03d: React.FC<SceneP> = ({T, t0}) => {
           <Glass w={880} style={{padding: '28px 36px'}}>
             <div style={{...body(38)}}>Una parte <span style={{color: M.red}}>ni siquiera salió a la venta</span></div>
             <div style={{display: 'flex', gap: 16, marginTop: 20, opacity: prog(T, tS - 0.1, 0.4)}}>
-              <Pill bg={M.white}>SPONSORS</Pill><Pill bg={M.white}>INVITADOS</Pill><Pill bg={M.white}>SOCIOS</Pill>
+              <Pill bg={M.white}>SPONSORS</Pill><Pill bg={M.white}>INVITADOS</Pill>
             </div>
           </Glass>
         </B>
