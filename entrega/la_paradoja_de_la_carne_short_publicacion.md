@@ -8,7 +8,7 @@ Cómo está armado: el gancho del video (más vacas que personas, 1 kg de asado 
 
 El short **tiene** que enlazar al video largo, si no el cierre no tiene sentido:
 
-1. Publicá primero el video largo (jueves 22/10 a las 19:00).
+1. Publicá primero el video largo (por ejemplo, el jueves 22/10 a las 19:00).
 2. Subí el short desde la app de YouTube o desde YouTube Studio.
 3. En **Video relacionado**, elegí **"¿Quién se queda con la plata de tu asado?"** (o el título que hayas usado). Ese enlace aparece abajo del short, justo donde apunta la flecha.
 4. Fijá además este comentario en el short:
@@ -19,7 +19,7 @@ El video completo, con quién se queda cada peso de tu kilo de carne 👉 tocá 
 
 ## Cuándo publicarlo
 
-**Sábado 24 de octubre de 2026 a las 13:00**, antes del almuerzo del fin de semana: es el momento en que más se habla del asado y del precio de la carne. Si el video largo arranca bien el jueves, el short le suma un segundo empujón.
+**El sábado siguiente al video, a las 13:00** (con el video del 22/10, el sábado 24), antes del almuerzo del fin de semana: es el momento en que más se habla del asado y del precio de la carne. Si el video largo arranca bien el jueves, el short le suma un segundo empujón.
 
 ## Título del short
 

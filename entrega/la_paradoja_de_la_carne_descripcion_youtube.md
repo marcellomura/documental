@@ -1,4 +1,4 @@
-# LA PARADOJA DE LA CARNE: descripción para YouTube (Episodio 6)
+# LA PARADOJA DE LA CARNE: descripción para YouTube (Episodio 8)
 
 ## Títulos sugeridos (elegí uno)
 
@@ -94,4 +94,4 @@ Todo lo demás es igual que en `subida_youtube_paso_a_paso.md`: no es contenido 
 
 ### Cuándo publicarlo
 
-Con el calendario actual (Tu reloj está mal el jueves 15/10), este va el **jueves 22 de octubre de 2026 a las 19:00**. El short sale después, cuando el video ya es público, porque tiene que enlazarlo (ver `la_paradoja_de_la_carne_short_publicacion.md`). Si antes sale un dato nuevo de precios o de consumo (el IPCVA y CICCRA publican todos los meses), conviene actualizar el comentario fijado con el número nuevo.
+Un **jueves a las 19:00**, en la primera semana libre del calendario después del Ep7 (Messi sale antes del martes 6/10). Por ejemplo, el **jueves 22 de octubre de 2026**. El short sale después, cuando el video ya es público, porque tiene que enlazarlo (ver `la_paradoja_de_la_carne_short_publicacion.md`). Si antes sale un dato nuevo de precios o de consumo (el IPCVA y CICCRA publican todos los meses), conviene actualizar el comentario fijado con el número nuevo.

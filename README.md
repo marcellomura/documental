@@ -155,3 +155,42 @@ EP=ep05 OUT=tu_reloj_esta_mal_subtitulos_es.srt python3 tools/srt.py
 cd video && npx remotion render Reloj out/ep05_4k_muted.mp4 --muted --scale=2 --props='{"dpr":2}' --crf=15 && cd ..
 IN=video/out/ep05_4k_muted.mp4 AUD=audio/mix/mezcla_ep05.wav OUT=entrega/tu_reloj_esta_mal_1080p.mp4 TITLE="TU RELOJ ESTÁ MAL" VBR=2600k VF=scale=1920:1080:flags=lanczos tools/final.sh
 ```
+
+---
+
+# Episodio 8 · "LA PARADOJA DE LA CARNE"
+
+En el repo figura como `ep06` (carpetas y archivos), pero en el canal es el **Episodio 8**: el Ep6 (¿Argentina fue el país más rico del mundo?) y el Ep7 (Messi) se hicieron en otras sesiones.
+
+Por qué la carne es tan cara en un país con más vacas que personas y por qué ya comemos más pollo que carne vacuna. Sigue un kilo de carne del campo a la mesa, eslabón por eslabón (cría, engorde, frigorífico, carnicería e impuestos), con el reparto de FADA (abril de 2026). Dura 5:51 y es el primero con **3D real** (three.js).
+
+| Archivo | Qué es |
+|---|---|
+| `la_paradoja_de_la_carne_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git (pesa demasiado): está en Drive, en `CONTEXTO/Ep8 · La paradoja de la carne` |
+| `entrega/la_paradoja_de_la_carne_short.mp4` | Short vertical para YouTube (1:10, 1080×1920, subtítulos incrustados) que manda al video largo |
+| `entrega/la_paradoja_de_la_carne_subtitulos_es.srt` | Subtítulos en español, con cifras |
+| `entrega/la_paradoja_de_la_carne_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
+| `entrega/la_paradoja_de_la_carne_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B, más la vertical |
+| `entrega/la_paradoja_de_la_carne_short_publicacion.md` | Cómo publicar el short y enlazarlo al video |
+
+- Guion: `guion/ep06_carne.json` (el s08 se corrigió con el precio de exportación verificado: +27,5 % interanual) · Escenas: `video/src/ep06/` (composición `Carne`)
+  - `three6.tsx`: 3D real con three.js y `@remotion/three`. El bloque de 100 cubos (cada uno, $1), las torres de bandejas de carne, la balanza, el diorama del viaje (molino, feedlot, frigorífico, carnicería, parrilla y peajes del Estado) y el globo con las rutas de exportación.
+  - `kit6.tsx`: el ticket térmico, la escalera de precios, el corte de cuchilla como transición, el archivo a pantalla completa y los pictogramas.
+  - `scenes6a.tsx` y `scenes6b.tsx`: las 10 escenas y la pantalla final. `short6.tsx`: el short vertical.
+- Archivo real: fotos de Wikimedia Commons (`video/public/ep06/creditos.json`) y videos (`video/public/ep06/vid/creditos.json`): feedlot con dron, "A Mark of Wholesome Meat" (USDA, 1964), pastizales y granja avícola.
+- Música: dos temas originales de ElevenLabs (cadena y bronca). Efectos de ElevenLabs: cuchilla, chisporroteo, mugido e impresora de tickets. El fuego se sintetiza en `tools/sfx_synth.py`.
+- El 3D se renderiza con WebGL por software (`--gl=swangle`), así que el render completo tarda bastante más que los episodios anteriores.
+
+```bash
+EP=ep06 NSEG=10 TEMPO=1.10 python3 tools/proc_audio.py
+EP=ep06 GUION=ep06_carne.json python3 tools/align.py
+python3 tools/timeline_ep06.py && python3 tools/mix_ep06.py        # -> audio/mix/mezcla_ep06.wav
+EP=ep06 OUT=la_paradoja_de_la_carne_subtitulos_es.srt python3 tools/srt.py
+tools/render_ep06.sh                                               # -> video/out/ep06_1440_muted.mp4 (por tramos)
+IN=video/out/ep06_1440_muted.mp4 AUD=audio/mix/mezcla_ep06.wav OUT=video/out/la_paradoja_de_la_carne_1440p.mp4 TITLE="LA PARADOJA DE LA CARNE" VBR=16M MAXRATE=24M BUFSIZE=36M tools/final.sh
+rclone copy video/out/la_paradoja_de_la_carne_1440p.mp4 "gdrive:CONTEXTO/Ep8 · La paradoja de la carne"
+# short (tools/short_ep06.py recorta la narración, alinea el cierre y mezcla; composición ShortCarne en src/index6s.tsx)
+python3 tools/short_ep06.py
+cd video && npx remotion render src/index6s.tsx ShortCarne out/short6_muted.mp4 --muted --gl=swangle --crf=15 && cd ..
+IN=video/out/short6_muted.mp4 AUD=audio/mix/mezcla_short6.wav OUT=entrega/la_paradoja_de_la_carne_short.mp4 TITLE="LA PARADOJA DE LA CARNE (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
+```
