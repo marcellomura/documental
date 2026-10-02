@@ -1,0 +1,70 @@
+{
+ "titulo": "EL CUADRO DEL NAZI",
+ "subtitulo": "UN SECRETO DE 80 AÑOS EN MAR DEL PLATA",
+ "episodio": 10,
+ "nota_voz": "El texto usa grafía fonética para que la voz pronuncie bien los nombres; DISPLAY da la ortografía real para subtítulos.",
+ "display": {
+  "Gáutstiker": "Goudstikker",
+  "Frídrij": "Friedrich",
+  "Kádguin": "Kadgien",
+  "Áijman": "Eichmann",
+  "Yósef": "Josef",
+  "Ménguele": "Mengele",
+  "Érij": "Erich",
+  "Príbke": "Priebke",
+  "Yácomo": "Giacomo",
+  "Cherúti": "Ceruti",
+  "Mosad": "Mossad",
+  "Áushvitz": "Auschwitz",
+  "ese ese": "SS",
+  "Yak": "Jacques"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "texto": "Agosto de dos mil veinticinco. Un periodista holandés toca el timbre de un chalet en Mar del Plata. Nadie le abre, aunque adentro alguien se mueve. En el jardín hay un cartel: se vende. Esa noche, en el hotel, busca el aviso en internet y pasa las fotos con su pareja. Hasta que llegan al living, a un sillón de terciopelo verde, y su pareja lo frena: ¿ese no es el cuadro? Arriba del sillón colgaba un retrato que los nazis robaron en mil novecientos cuarenta, y que el mundo no veía hace ochenta años. ¿Cómo llegó hasta un living de Mar del Plata? Para entenderlo, hay que volver a Ámsterdam, en mayo de mil novecientos cuarenta."
+  },
+  {
+   "id": "s02",
+   "texto": "Yak Gáutstiker era el galerista más importante de Holanda. Era judío, y su galería tenía más de mil cien cuadros de maestros holandeses e italianos. El diez de mayo de mil novecientos cuarenta, Alemania invade Holanda. Cuatro días después, Gáutstiker logra subir con su mujer y su hijo, un bebé, a uno de los últimos barcos que escapan hacia Inglaterra. La segunda noche, en la oscuridad de la cubierta, no ve una escotilla abierta, cae a la bodega y muere. Tenía cuarenta y dos años. En el bolsillo del saco llevaba un cuadernito negro: la lista, cuadro por cuadro, de todo lo que había dejado atrás."
+  },
+  {
+   "id": "s03",
+   "texto": "Con Gáutstiker muerto, apareció el comprador más temido de Europa: Hermann Göring, el número dos de Hitler, obsesionado con tener una de las mayores colecciones de arte del continente. En julio de mil novecientos cuarenta, sus intermediarios se quedaron con toda la galería por dos millones de florines, una fracción de lo que valía. En la Holanda ocupada, nadie podía decirle que no. Así funcionaba el saqueo nazi: con papeles, firmas y amenazas. Les robaron a los judíos de Europa unas seiscientas mil obras de arte. Cien mil todavía no aparecieron."
+  },
+  {
+   "id": "s04",
+   "texto": "Uno de los hombres de confianza de Göring era un abogado de las ese ese: Frídrij Kádguin. Su trabajo era convertir el saqueo en plata: oro, diamantes y divisas de los países ocupados. Los aliados lo apodaron la Serpiente. En mil novecientos cuarenta y cuatro, el retrato de la dama pasó a sus manos. Y cuando Alemania se derrumbó, hizo lo mismo que muchos jerarcas nazis: escapó. Primero a Suiza, después a Brasil, y finalmente a la Argentina. Con diamantes, joyas, y dos cuadros robados."
+  },
+  {
+   "id": "s05",
+   "texto": "No fue el único. Después de la guerra, miles de nazis escaparon por las llamadas rutas de las ratas: cruzaban los Alpes, se escondían en conventos, conseguían pasaportes de la Cruz Roja con nombres falsos, y se embarcaban en Génova. Del otro lado del océano los esperaba la Argentina de Perón, que buscaba técnicos y militares alemanes, y no hacía demasiadas preguntas. Una comisión oficial contó unos ciento ochenta criminales de guerra refugiados acá. Otras estimaciones hablan de miles."
+  },
+  {
+   "id": "s06",
+   "texto": "Llegaron algunos de los peores. Adolf Áijman, uno de los organizadores del Holocausto, entró en mil novecientos cincuenta como Ricardo Klement, y trabajó en la fábrica de Mercedes Benz. Yósef Ménguele, el médico de Áushvitz, vivió diez años en el Gran Buenos Aires. Érij Príbke, décadas en Bariloche. A Áijman lo atrapó un comando del Mosad en mil novecientos sesenta, en una calle de San Fernando. Pero la mayoría nunca fue juzgada. Y lo que trajeron, nunca se devolvió."
+  },
+  {
+   "id": "s07",
+   "texto": "Kádguin murió en mil novecientos setenta y ocho. Sus dos hijas heredaron casas en Mar del Plata, y lo que había adentro. Unos periodistas de un diario holandés lo investigaron durante casi diez años, hasta llegar a la casa de una de ellas. Cuando vieron el aviso, compararon el cuadro con las fotos de archivo de la colección Gáutstiker. Era el mismo. Lo publicaron el veinticinco de agosto. Dos días después, la policía allanó el chalet. Y el cuadro ya no estaba. En la misma pared, ahora colgaba un tapiz de caballos."
+  },
+  {
+   "id": "s08",
+   "texto": "La noticia dio la vuelta al mundo. La hija de Kádguin y su marido quedaron con arresto domiciliario, y el tres de septiembre su abogado entregó el cuadro. Era auténtico: un retrato del italiano Yácomo Cherúti, de hace casi trescientos años, valuado en doscientos cincuenta mil euros. Y el cuatro de septiembre de dos mil veintiséis, la Justicia federal de Mar del Plata cerró el caso: la pareja renunció al cuadro para no ir a juicio, y el retrato vuelve a la nuera de Gáutstiker, que hoy tiene más de ochenta años. Es la primera vez que la Justicia argentina devuelve una obra robada por los nazis."
+  },
+  {
+   "id": "s09",
+   "texto": "Pero la historia no terminó. Los investigadores creen que Kádguin trajo un segundo cuadro de Gáutstiker: una naturaleza muerta con flores, que alguna vez apareció en una foto de la familia. Hasta hoy, nadie lo entregó. Y del cuaderno negro faltan cientos de obras más. En el mundo, cien mil obras robadas por los nazis esperan que alguien las reconozca. En un museo, en un remate, o arriba de un sillón."
+  },
+  {
+   "id": "s10",
+   "texto": "Ochenta y cinco años después, una foto de inmobiliaria destapó un secreto que parecía enterrado. Y nos recordó algo incómodo: durante décadas, la Argentina fue uno de los escondites favoritos de los nazis. Algunos secretos de esa época todavía cuelgan de una pared, esperando que alguien mire con atención. Contanos en los comentarios: ¿sabías que Áijman vivió en San Fernando? Si te gustó, suscribite y compartilo con alguien que ame las historias de detectives. Nos vemos en el próximo video."
+  }
+ ],
+ "extra_short": [
+  {
+   "id": "x01",
+   "texto": "Cómo llegaron los nazis y su botín a la Argentina, y dónde puede estar el segundo cuadro, te lo cuento en el video completo del canal. Tocá el enlace de acá abajo."
+  }
+ ]
+}
