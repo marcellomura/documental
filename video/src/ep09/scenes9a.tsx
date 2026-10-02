@@ -450,7 +450,7 @@ const PoreLens: React.FC<{t: number; t0: number; t1: number}> = ({t, t0, t1}) =>
 const BAR_CAM = (t: number, k: number): Cam => {
   const ang = 0.55 + Math.sin(t * 0.1) * 0.06 - 0.2 * k;
   const R = 22 + 6 * k;
-  return {pos: [Math.sin(ang) * R + 2.5 * k, 10.5 + 2.5 * k, Math.cos(ang) * R], look: [2.6 * k, 1.6, 0], fov: 34};
+  return {pos: [Math.sin(ang) * R - 4 + 2.5 * k, 10.5 + 2.5 * k, Math.cos(ang) * R], look: [-4 + 2.6 * k, 1.6, 0], fov: 34};
 };
 export const S04: React.FC<P> = ({t}) => {
   const c = (p: string, n = 0) => cue('s04', p, n);
@@ -464,8 +464,8 @@ export const S04: React.FC<P> = ({t}) => {
       {t < t16 + 0.3 ? (
         <AbsoluteFill style={{opacity: 1 - prog(t, t16, 0.3)}}>
           <OilBg t={t} />
-          <Big t={t} t0={0.05} t1={tSeg + 0.2} text="¿Y CUÁNTO HAY?" size={200} y={520} />
-          <Tag t={t} t0={tSeg} a="EIA" b="AGENCIA DE ENERGÍA DE EE.UU." x={110} y={110} color={K.celeste} />
+          <Big t={t} t0={0.05} t1={tVm - 0.05} text="¿Y CUÁNTO HAY?" size={200} y={540} />
+          <Tag t={t} t0={tSeg} a="SEGÚN LA EIA" b="AGENCIA DE ENERGÍA DE EE.UU." x={110} y={110} color={K.celeste} />
           <Ranking t={t} t0={tVm} hlAt={c('segunda')} title="GAS NO CONVENCIONAL" sub="Recursos recuperables, por país" x={150} y={260} w={760}
             rows={[{name: 'CHINA'}, {name: 'ARGENTINA', hl: true, color: K.celeste}, {name: 'ARGELIA'}, {name: 'ESTADOS UNIDOS'}, {name: 'CANADÁ'}]} />
           <Ranking t={t} t0={tCuarta - 0.4} hlAt={tCuarta} title="PETRÓLEO NO CONVENCIONAL" sub="Recursos recuperables, por país" x={1010} y={260} w={760}
@@ -480,8 +480,8 @@ export const S04: React.FC<P> = ({t}) => {
             <Barrels items={[...A, ...B]} max={320} />
             <ShadowFloorLite />
           </Stage>
-          <Stat t={t} t0={t16} t1={tDoble + 0.2} value={<>16.000</>} label="MILLONES DE BARRILES" sub="QUE SE PUEDEN SACAR CON LA TECNOLOGÍA ACTUAL (EIA)" x={110} y={110} size={150} />
-          <Stat t={t} t0={tDoble} value={<>30.000</>} label="MILLONES DE BARRILES" sub="ESTIMACIÓN DEL IAPG (INSTITUTO ARGENTINO DEL PETRÓLEO Y DEL GAS)" x={110} y={110} size={150} color="#FFD07A" />
+          <Stat t={t} t0={t16} t1={tDoble + 0.2} value={<>16.000</>} label="MILLONES DE BARRILES" sub="QUE SE PUEDEN SACAR CON LA TECNOLOGÍA ACTUAL (EIA)" x={110} y={700} size={150} />
+          <Stat t={t} t0={tDoble} value={<>30.000</>} label="MILLONES DE BARRILES" sub="ESTIMACIÓN DEL IAPG (INSTITUTO ARGENTINO DEL PETRÓLEO Y DEL GAS)" x={110} y={700} size={150} color="#FFD07A" />
           <div style={{position: 'absolute', right: 90, bottom: 70, display: 'flex', alignItems: 'center', gap: 12, opacity: prog(t, t16 + 0.5, 0.5), fontFamily: F.body, fontWeight: 700, fontSize: 24, color: K.mute}}>
             <BarrelIcon size={44} /> = 100 MILLONES DE BARRILES
           </div>
@@ -533,7 +533,7 @@ export const S05: React.FC<P> = ({t}) => {
   // barriles 7/10
   const row = Array.from({length: 10}, (_, i) => ({
     pos: [(i - 4.5) * 1.15, 0, 0] as [number, number, number],
-    color: i < 7 && t > tSiete + 0.5 + i * 0.12 ? K.oil : '#5E6872',
+    color: i < 7 && t > tSiete + 0.5 + i * 0.12 ? K.oil : '#9AA6B2',
     s: 1, rot: [0, i * 0.7, 0] as [number, number, number],
   }));
   const rcam: Cam = {pos: [0, 4.2 - 0.6 * clamp((t - tHoy) / 5), 11.5], look: [0, 0.6, 0], fov: 38};

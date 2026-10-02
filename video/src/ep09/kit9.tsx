@@ -96,14 +96,23 @@ export const TrapTag: React.FC<{t: number; t0: number; t1?: number; n: number; s
   const a = prog(t, t0, 0.45);
   const o = t1 === Infinity ? 1 : 1 - prog(t, t1 - 0.3, 0.3);
   const stamp = pop(t, t0, 1.3);
-  return (
-    <div style={{position: 'absolute', left: x, top: y, opacity: o * a, transform: `scale(${s * (0.6 + 0.4 * stamp)}) rotate(${-3 * (1 - a)}deg)`, transformOrigin: big ? 'center' : 'left top'}}>
+  const inner = (
       <div style={{display: 'flex', alignItems: 'stretch'}}>
         <div style={{background: K.red, color: '#fff', fontFamily: F.head, fontSize: 44, padding: '6px 20px 2px', letterSpacing: 2, lineHeight: 1.05}}>TRAMPA {n}</div>
         <div style={{background: 'rgba(6,8,11,0.8)', border: `2px solid ${K.red}`, borderLeft: 'none', color: K.cream, fontFamily: F.head, fontSize: 44, padding: '6px 20px 2px', lineHeight: 1.05, letterSpacing: 1, clipPath: `inset(0 ${100 - prog(t, t0 + 0.15, 0.5) * 100}% 0 0)`}}>
           {sub}
         </div>
       </div>
+  );
+  if (big)
+    return (
+      <div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center', opacity: o * a}}>
+        <div style={{transform: `scale(${s * (0.6 + 0.4 * stamp)}) rotate(${-3 * (1 - a)}deg)`}}>{inner}</div>
+      </div>
+    );
+  return (
+    <div style={{position: 'absolute', left: x, top: y, opacity: o * a, transform: `scale(${s * (0.6 + 0.4 * stamp)}) rotate(${-3 * (1 - a)}deg)`, transformOrigin: 'left top'}}>
+      {inner}
     </div>
   );
 };

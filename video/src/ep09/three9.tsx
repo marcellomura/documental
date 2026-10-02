@@ -584,7 +584,7 @@ export type MapState = {
   chile?: number;
 };
 const flowMat = new THREE.MeshBasicMaterial({color: '#FFB547', toneMapped: false});
-const pipeCurve = new THREE.CatmullRomCurve3(VMOS.map(([lon, lat]) => new THREE.Vector3(...geo3(lon, lat, 0.42))), false, 'catmullrom', 0.2);
+const pipeCurve = new THREE.CatmullRomCurve3(VMOS.map(([lon, lat]) => new THREE.Vector3(...geo3(lon, lat, 0.62))), false, 'catmullrom', 0.2);
 const TUC_TARGET: [number, number] = [-66.55, -37.2];
 
 export const ProvMap: React.FC<{s: MapState}> = ({s}) => {
@@ -592,20 +592,20 @@ export const ProvMap: React.FC<{s: MapState}> = ({s}) => {
   const focus = s.focus ?? {}, dim = s.dim ?? 0, vm = s.vm ?? 0, tuc = s.tuc ?? 0, wells = s.wells ?? 0, pipe = s.pipe ?? 0, flow = s.flow ?? 0, thick = s.thick ?? 0.25, ships = s.ships ?? 0, chile = s.chile ?? 1;
   const wellIM = useInstanced(lowGeo, wellMat, WELLS.length);
   const nW = Math.round(wells * WELLS.length);
-  WELLS.forEach((p, i) => setInst(wellIM, i, [p[0], 0.33 + 0.02 * Math.sin(t * 3 + i), p[2]], i < nW ? 0.045 : 0));
+  WELLS.forEach((p, i) => setInst(wellIM, i, [p[0], 0.58 + 0.02 * Math.sin(t * 3 + i), p[2]], i < nW ? 0.05 : 0));
   wellIM.instanceMatrix.needsUpdate = true;
   const flowIM = useInstanced(lowGeo, flowMat, 90);
   for (let i = 0; i < 90; i++) {
     const u = (i / 90 + t * 0.06) % 1;
     const vis = flow > 0 && u <= pipe;
     const p = pipeCurve.getPointAt(Math.min(0.999, u));
-    setInst(flowIM, i, [p.x, p.y + 0.02, p.z], vis ? 0.06 + thick * 0.22 : 0);
+    setInst(flowIM, i, [p.x, p.y + 0.05, p.z], vis ? 0.2 + thick * 0.3 : 0);
   }
   flowIM.instanceMatrix.needsUpdate = true;
   const tube = useMemo(() => {
     if (pipe <= 0.005) return null;
     const pts = pipeCurve.getSpacedPoints(160).slice(0, Math.max(2, Math.round(160 * pipe) + 1));
-    return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), Math.max(8, pts.length * 2), 0.05 + thick * 0.16, 10, false);
+    return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), Math.max(8, pts.length * 2), 0.16 + thick * 0.3, 12, false);
   }, [Math.round(pipe * 400), Math.round(thick * 50)]);
   // Tucumán: misma escala, viaja desde su lugar real hasta al lado del área
   const [tx0, tz0] = geoXZ(...PLACES.tucuman), [tx1, tz1] = geoXZ(...TUC_TARGET);
@@ -643,7 +643,7 @@ export const ProvMap: React.FC<{s: MapState}> = ({s}) => {
       })}
       {/* Vaca Muerta */}
       {vm > 0.01 ? (
-        <group position={[0, 0.3 + 0.25 * (1 - easeOut(vm)), 0]}>
+        <group position={[0, 0.5 + 0.25 * (1 - easeOut(vm)), 0]}>
           <mesh geometry={extrude('vmA', [VM_AREA], 0.03)} rotation={[-Math.PI / 2, 0, 0]}>
             <meshStandardMaterial color="#F2A23A" emissive="#FF8A1F" emissiveIntensity={0.4} transparent opacity={0.62 * vm} roughness={0.5} depthWrite={false} />
           </mesh>
@@ -663,15 +663,15 @@ export const ProvMap: React.FC<{s: MapState}> = ({s}) => {
       <primitive object={wellIM} />
       {tube ? (
         <mesh geometry={tube} castShadow>
-          <meshStandardMaterial color="#D9DEE4" metalness={0.7} roughness={0.3} emissive="#FF9A2E" emissiveIntensity={0.25 + 0.4 * flow} />
+          <meshStandardMaterial color="#F2C27A" metalness={0.5} roughness={0.3} emissive="#FF9A2E" emissiveIntensity={0.7 + 0.5 * flow} />
         </mesh>
       ) : null}
       <primitive object={flowIM} />
       {ships > 0.01
         ? [0, 1, 2].map((i) => {
-            const [x, z] = geoXZ(-64.75 + i * 0.25, -41.85 - i * 0.12);
+            const [x, z] = geoXZ(-64.55 + i * 0.45, -41.9 - i * 0.22);
             const k = easeOut(clamp(ships * 3 - i));
-            return <Ship key={i} p={[x + (1 - k) * 4, 0.02, z + (1 - k) * 2]} ry={-0.6} s={0.55 * k} />;
+            return <Ship key={i} p={[x + (1 - k) * 4, 0.02, z + (1 - k) * 2]} ry={-0.6} s={1.5 * k} />;
           })
         : null}
     </group>
