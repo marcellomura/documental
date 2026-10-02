@@ -259,11 +259,16 @@ EP=ep10 GUION=ep10_cuadro_nazi.json python3 tools/align.py
 EP=ep10 GUION=ep10_cuadro_nazi.json SEGS=s01,s02 python3 tools/check_voz.py   # verificar la pronunciación
 python3 tools/timeline_ep10.py && python3 tools/mix_ep10.py        # -> audio/mix/mezcla_ep10.wav
 EP=ep10 OUT=el_cuadro_del_nazi_subtitulos_es.srt python3 tools/srt.py
-tools/render_ep10.sh                                               # -> video/out/ep10_1440_muted.mp4 (por tramos)
-IN=video/out/ep10_1440_muted.mp4 AUD=audio/mix/mezcla_ep10.wav OUT=video/out/el_cuadro_del_nazi_1440p.mp4 TITLE="EL CUADRO DEL NAZI" VBR=16M MAXRATE=24M BUFSIZE=36M tools/final.sh
+tools/render_ep10.sh                                               # -> video/out/ep10/cXX.mp4 (por tramos)
+tools/patch_ep10.sh 4 3916 3916 4570                               # (opcional) re-renderiza un fragmento dentro de su tramo
+# OJO: no pegar los tramos con "concat -c copy" si alguno se re-renderizó: queda con otra base de tiempo y rango de color
+# y el video se congela en esos tramos. final_tramos.sh decodifica cada tramo y los une con el filtro concat.
+TRAMOS="video/out/ep10/c*.mp4" AUD=audio/mix/mezcla_ep10.wav OUT=video/out/el_cuadro_del_nazi_1440p.mp4 TITLE="EL CUADRO DEL NAZI" VBR=16M MAXRATE=24M BUFSIZE=36M tools/final_tramos.sh
+python3 tools/check_congelados.py video/out/el_cuadro_del_nazi_1440p.mp4  # falla si hay algún tramo quieto de 6 s o más
 rclone copy video/out/el_cuadro_del_nazi_1440p.mp4 "gdrive:CONTEXTO/Ep10 · El cuadro del nazi"
 # short
 python3 tools/short_ep10.py
 cd video && npx remotion render src/index10s.tsx ShortCuadro out/short10_muted.mp4 --muted --gl=swangle --crf=15 && cd ..
 IN=video/out/short10_muted.mp4 AUD=audio/mix/mezcla_short10.wav OUT=entrega/el_cuadro_del_nazi_short.mp4 TITLE="EL CUADRO DEL NAZI (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
+python3 tools/check_congelados.py entrega/el_cuadro_del_nazi_short.mp4
 ```

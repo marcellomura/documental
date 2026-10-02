@@ -150,7 +150,7 @@ export const Dossier: React.FC<{t: number; t0: number; x: number; y: number; w?:
   const a = prog(t, t0, 0.8);
   const h = 640;
   return (
-    <div style={{position: 'absolute', left: x - w / 2, top: y - h / 2, width: w, height: h, opacity: a * o, transform: `translateY(${(1 - a) * 80}px) rotate(${rot}deg)`}}>
+    <div style={{position: 'absolute', left: x - w / 2, top: y - h / 2, width: w, height: h, opacity: a * o, transform: `translateY(${(1 - a) * 80}px) rotate(${rot + 0.6 * Math.sin((t - t0) * 0.35)}deg) scale(${1 + 0.035 * clamp((t - t0) / 10)})`}}>
       {/* pestaña */}
       <div style={{position: 'absolute', left: 40, top: -46, width: 300, height: 60, background: '#C9A86A', borderRadius: '12px 12px 0 0', boxShadow: '0 -2px 8px rgba(0,0,0,0.3)'}}>
         <div style={{fontFamily: TYPE, fontSize: 24, color: K.ink, padding: '12px 20px', letterSpacing: 2}}>EXPEDIENTE</div>

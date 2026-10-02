@@ -435,9 +435,9 @@ export const S04: React.FC<P> = ({t}) => {
   const head = rp < 0.25 ? [mix(BERLIN[0], ZURICH[0], rp / 0.25), mix(BERLIN[1], ZURICH[1], rp / 0.25)] : rp < 0.7 ? [mix(ZURICH[0], RIO[0], (rp - 0.25) / 0.45), mix(ZURICH[1], RIO[1], (rp - 0.25) / 0.45)] : [mix(RIO[0], BSAS[0], (rp - 0.7) / 0.3), mix(RIO[1], BSAS[1], (rp - 0.7) / 0.3)];
   const gv = {lon: head[0] + 4, lat: head[1] * 0.75 - 4, dist: 10.8, x: -1.4};
   const kRow = [
-    {k: 'NACIÓ', v: '1907, Alemania', t0: tFried + 0.5},
-    {k: 'PROFESIÓN', v: 'Abogado', t0: tFried + 1.0},
-    {k: 'CARGO', v: 'SS · asesor financiero de Göring', t0: tFried + 1.5},
+    {k: 'PROFESIÓN', v: 'Abogado', t0: tAbog},
+    {k: 'CARGO', v: 'SS · asesor financiero de Göring', t0: tAbog + 0.6},
+    {k: 'NACIÓ', v: '1907, Alemania', t0: tFried + 0.7},
     {k: 'TAREA', v: 'Convertir el saqueo en plata', t0: tTrab + 0.2},
   ];
   return (

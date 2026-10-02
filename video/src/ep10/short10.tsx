@@ -262,14 +262,17 @@ const Cta: React.FC<{T: number; t0: number}> = ({T, t0}) => {
   const t = T - t0;
   const a = pop(t, 0.1, 0.9);
   const bob = Math.sin(t * 6) * 16;
+  const drift = 1 + 0.05 * clamp(t / 12);
+  const sweep = ((t * 0.45) % 1.6) - 0.3; // brillo que cruza la tarjeta
   return (
     <AbsoluteFill>
       <NoirBg t={t} glow="rgba(214,175,92,0.18)" y={30} />
+      <Motes t={t} n={40} o={0.7} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 150, textAlign: 'center', opacity: prog(t, 0, 0.4)}}>
         <div style={{fontFamily: F.head, fontSize: 80, color: K.cream, lineHeight: 1.05}}>¿CÓMO LLEGÓ HASTA ACÁ?</div>
         <div style={{fontFamily: F.head, fontSize: 64, color: K.gold, lineHeight: 1.05, marginTop: 10}}>¿Y DÓNDE ESTÁ EL SEGUNDO CUADRO?</div>
       </div>
-      <div style={{position: 'absolute', left: 60, top: 430, width: 960, transform: `scale(${Math.max(0, a)})`, transformOrigin: '50% 50%'}}>
+      <div style={{position: 'absolute', left: 60, top: 430, width: 960, transform: `scale(${Math.max(0, a) * drift}) rotate(${0.6 * Math.sin(t * 0.8)}deg)`, transformOrigin: '50% 50%'}}>
         <div style={{position: 'relative', width: 960, height: 540, borderRadius: 18, overflow: 'hidden', boxShadow: '0 40px 90px rgba(0,0,0,0.7)', border: '4px solid rgba(255,255,255,0.85)', background: '#14100C'}}>
           <div style={{position: 'absolute', left: 50, top: 40, transform: 'scale(0.62)', transformOrigin: '0 0'}}>
             <GiltFrame src="ep10/img/cuadro.jpg" w={430} h={580} />
@@ -279,6 +282,7 @@ const Cta: React.FC<{T: number; t0: number}> = ({T, t0}) => {
             <div style={{color: K.red}}>DEL NAZI</div>
           </div>
           <div style={{position: 'absolute', right: 18, bottom: 16, background: 'rgba(0,0,0,0.8)', color: '#fff', fontFamily: F.body, fontWeight: 700, fontSize: 30, padding: '4px 12px', borderRadius: 6}}>6:26</div>
+          <div style={{position: 'absolute', top: 0, bottom: 0, left: `${sweep * 100}%`, width: 160, background: 'linear-gradient(90deg, rgba(255,240,200,0) 0%, rgba(255,240,200,0.22) 50%, rgba(255,240,200,0) 100%)', transform: 'skewX(-18deg)'}} />
           <div style={{position: 'absolute', right: 24, top: 22, width: 70, height: 70}}>
             <LogoMark size={70} t={t} t0={0.3} />
           </div>
