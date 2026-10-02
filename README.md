@@ -194,3 +194,38 @@ python3 tools/short_ep06.py
 cd video && npx remotion render src/index6s.tsx ShortCarne out/short6_muted.mp4 --muted --gl=swangle --crf=15 && cd ..
 IN=video/out/short6_muted.mp4 AUD=audio/mix/mezcla_short6.wav OUT=entrega/la_paradoja_de_la_carne_short.mp4 TITLE="LA PARADOJA DE LA CARNE (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
 ```
+
+# Episodio 9 · "VACA MUERTA: EL TESORO Y LA TRAMPA"
+
+En el repo figura como `ep09`. La Argentina produce petróleo récord (936.800 barriles por día en agosto de 2026) y el crudo ya es lo que más exporta, pero la nafta subió casi 20 % desde la guerra en Medio Oriente. El video baja tres kilómetros bajo el desierto de Neuquén y 145 millones de años atrás para explicar qué es Vaca Muerta, cómo funciona el fracking y cuánto hay. Después cuenta las tres trampas (los caños, la nafta al precio del mundo y la enfermedad holandesa) y compara con Arabia Saudita, Venezuela y Noruega. Dura 6:00.
+
+| Archivo | Qué es |
+|---|---|
+| `vaca_muerta_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep9 · Vaca Muerta` |
+| `entrega/vaca_muerta_short.mp4` | Short vertical para YouTube (1:17, 1080×1920, subtítulos incrustados) que manda al video largo |
+| `entrega/vaca_muerta_subtitulos_es.srt` | Subtítulos en español, con cifras |
+| `entrega/vaca_muerta_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
+| `entrega/vaca_muerta_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B, más la vertical |
+| `entrega/vaca_muerta_short_publicacion.md` | Cómo publicar el short y enlazarlo al video |
+
+- Guion: `guion/ep09_vaca_muerta.json` · Escenas: `video/src/ep09/` (composición `Vaca`)
+  - `three9.tsx`: el bloque geológico en corte (mar jurásico con plancton, capas que se depositan, barro que se vuelve roca, calor y presión, gotas de petróleo, el pozo que baja 3 km y dobla, las cinco etapas de fractura y el petróleo que sube), el mapa 3D con las provincias reales extruidas (Natural Earth), el área de la formación, los 4.700 pozos, Tucumán a escala y el oleoducto VMOS hasta Punta Colorada, los barriles instanciados y el litro de nafta.
+  - `kit9.tsx`: la transición de crudo que sube, los sellos de "TRAMPA", el display del surtidor, los rankings y la pantalla partida.
+  - `scenes9a.tsx` y `scenes9b.tsx`: las 10 escenas y la pantalla final. `short9.tsx`: el short vertical (entrada `src/index9s.tsx`).
+- Archivo real: fotos de Wikimedia Commons (`video/public/ep09/creditos.json`) y videos (`video/public/ep09/vid/creditos.json`): el bloqueo de petroleros en el golfo de Omán (CENTCOM, 2026), bombas de petróleo y petroleros frente a California.
+- Datos: `video/src/data/ep09/provincias.json` (límites simplificados de Natural Earth). El área de Vaca Muerta es un contorno aproximado de 30.000 km².
+- Música: dos temas originales de ElevenLabs (el tesoro y las trampas). Efectos de ElevenLabs: perforación, mar, fractura, bocina de barco, bomba de petróleo y surtidor.
+
+```bash
+EP=ep09 NSEG=10 TEMPO=1.14 python3 tools/proc_audio.py
+EP=ep09 GUION=ep09_vaca_muerta.json python3 tools/align.py
+python3 tools/timeline_ep09.py && python3 tools/mix_ep09.py        # -> audio/mix/mezcla_ep09.wav
+EP=ep09 OUT=vaca_muerta_subtitulos_es.srt python3 tools/srt.py
+tools/render_ep09.sh                                               # -> video/out/ep09_1440_muted.mp4 (por tramos)
+IN=video/out/ep09_1440_muted.mp4 AUD=audio/mix/mezcla_ep09.wav OUT=video/out/vaca_muerta_1440p.mp4 TITLE="VACA MUERTA: EL TESORO Y LA TRAMPA" VBR=16M MAXRATE=24M BUFSIZE=36M tools/final.sh
+rclone copy video/out/vaca_muerta_1440p.mp4 "gdrive:CONTEXTO/Ep9 · Vaca Muerta"
+# short
+python3 tools/short_ep09.py
+cd video && npx remotion render src/index9s.tsx ShortVaca out/short9_muted.mp4 --muted --gl=swangle --crf=15 && cd ..
+IN=video/out/short9_muted.mp4 AUD=audio/mix/mezcla_short9.wav OUT=entrega/vaca_muerta_short.mp4 TITLE="VACA MUERTA (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
+```
