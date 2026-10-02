@@ -56,6 +56,14 @@ NUM_EP = {
              ("siete de cada diez", "7 de cada 10"), ("una de cada cinco", "1 de cada 5"), ("tres kilómetros", "3 kilómetros"),
              ("mil veces", "1.000 veces"), ("cien dólares", "100 dólares"), ("cien años", "100 años"), ("seis millones", "6 millones"),
              ("tres millones", "3 millones"), ("siete veces", "7 veces"), ("dos años y medio", "2 años y medio")],
+    "ep10": [("cuatro de septiembre de dos mil veintiséis", "4 de septiembre de 2026"), ("mil novecientos cuarenta y cuatro", "1944"),
+             ("mil novecientos setenta y ocho", "1978"), ("mil novecientos cincuenta", "1950"), ("mil novecientos sesenta", "1960"),
+             ("mil novecientos cuarenta", "1940"), ("doscientos cincuenta mil euros", "250.000 euros"), ("dos mil veinticinco", "2025"),
+             ("Ochenta y cinco años", "85 años"), ("seiscientas mil", "600.000"), ("Cien mil", "100.000"), ("cien mil", "100.000"),
+             ("dos millones", "2 millones"), ("mil cien", "1.100"), ("cuarenta y dos años", "42 años"), ("ciento ochenta", "180"),
+             ("veinticinco de agosto", "25 de agosto"), ("tres de septiembre", "3 de septiembre"), ("casi trescientos años", "casi 300 años"),
+             ("El diez de mayo", "El 10 de mayo"), ("ochenta años", "80 años"), ("diez años", "10 años"),
+             ("Mercedes Benz", "Mercedes-Benz")],
 }
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):
