@@ -14,6 +14,6 @@ for i in "${!B[@]}"; do
   npx remotion render Vaca "$f.tmp.mp4" --muted --gl=swangle --scale=1.3333333333333333 --frames=$a-$b --crf=15 --concurrency=4 --log=error
   mv "$f.tmp.mp4" "$f"
 done
-ls out/ep09/c[0-9][0-9].mp4 | sed 's/^out\/ep06\//file /' > out/ep09/lista.txt
+ls out/ep09/c[0-9][0-9].mp4 | sed "s|^out/ep09/|file |" > out/ep09/lista.txt
 ffmpeg -v error -y -f concat -safe 0 -i out/ep09/lista.txt -c copy out/ep09_1440_muted.mp4
 echo "LISTO out/ep09_1440_muted.mp4"
