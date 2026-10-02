@@ -276,7 +276,7 @@ export const S02: React.FC<P> = ({t}) => {
       {t > tBolsillo - 0.2 ? (
         <AbsoluteFill style={{opacity: prog(t, tBolsillo - 0.2, 0.5)}}>
           <NotebookShot cam={nbCam} open={open} flip={flip} />
-          <Place t={t} t0={tCuad} a="EL CUADERNO NEGRO" b="LA LISTA DE TODA LA GALERÍA" />
+          <Place t={t} t0={tBolsillo + 0.4} a="EL CUADERNO NEGRO" b="LA LISTA DE TODA LA GALERÍA" />
           {t > tLista ? (
             <div style={{position: 'absolute', right: 120, top: 760, textAlign: 'right', opacity: prog(t, tLista, 0.3)}}>
               <div style={{fontFamily: F.head, fontSize: 130, color: K.cream, lineHeight: 1, textShadow: '0 10px 40px #000'}}>
@@ -601,7 +601,7 @@ export const S05: React.FC<P> = ({t}) => {
           </div>
           <div style={{position: 'absolute', left: 140, top: 70, opacity: prog(t, tUna, 0.3)}}>
             <div style={{fontFamily: FT.type, fontSize: 34, color: K.mute}}>Una comisión oficial (CEANA, 1999) contó:</div>
-            <div style={{fontFamily: F.head, fontSize: 120, color: K.cream, lineHeight: 1}}>
+            <div style={{fontFamily: F.head, fontSize: 120, color: K.cream, lineHeight: 1, opacity: prog(t, tCiento - 0.3, 0.25)}}>
               {t > tCiento - 0.3 ? <Count t={t} t0={tCiento - 0.3} dur={1.1} from={0} to={180} /> : '0'}
               <span style={{fontSize: 56, color: K.red, marginLeft: 20}}>CRIMINALES DE GUERRA</span>
             </div>

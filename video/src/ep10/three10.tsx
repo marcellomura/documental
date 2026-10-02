@@ -999,7 +999,7 @@ export const ShipDeck3D: React.FC<{t: number; lantern?: number; fall?: number}> 
    ===================================================================================== */
 export const Notebook3D: React.FC<{open: number; flip?: number; red?: boolean; lamp?: number; table?: boolean}> = ({open, flip = 0, red = false, lamp = 1, table = true}) => {
   const W = 1.05, Hh = 1.5, T = 0.05;
-  const cover = <M c="#0E0D0C" r={0.45} m={0.1} />;
+  const cover = <M c="#262019" r={0.32} m={0.15} />;
   const a = open * Math.PI * 0.98;
   const fl = flip % 1;
   const flips = Math.floor(flip);
@@ -1011,7 +1011,8 @@ export const Notebook3D: React.FC<{open: number; flip?: number; red?: boolean; l
           <M c="#4A3222" r={0.55} map={parquetTex()} />
         </mesh>
       ) : null}
-      <spotLight position={[0.6, 3.4, 1.2]} target-position={[0, 0, 0]} angle={0.6} penumbra={0.7} intensity={14 * lamp} distance={8} color="#FFE2B0" castShadow />
+      <spotLight position={[0.6, 3.4, 1.2]} target-position={[0, 0, 0]} angle={0.6} penumbra={0.7} intensity={22 * lamp} distance={8} color="#FFE2B0" castShadow />
+      <pointLight position={[-1.6, 1.2, -1.8]} intensity={2.5 * lamp} distance={6} color="#FFB870" />
       {/* tapa trasera + bloque de hojas derecho */}
       <mesh position={[W / 2, 0, 0]} receiveShadow castShadow>
         <boxGeometry args={[W, T * 0.6, Hh]} />
