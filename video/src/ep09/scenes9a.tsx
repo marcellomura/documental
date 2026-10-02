@@ -508,7 +508,7 @@ const CenturyBar: React.FC<{t: number; t0: number; tCien: number}> = ({t, t0, tC
   const yr = Math.round(2026 + 100 * k);
   return (
     <AbsoluteFill>
-      <div style={{position: 'absolute', left: 160, top: 300, fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 6, color: K.mute, opacity: prog(t, t0, 0.4)}}>AL RITMO DE PRODUCCIÓN DE HOY, ALCANZARÍA HASTA…</div>
+      <div style={{position: 'absolute', left: 160, top: 230, fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 6, color: K.mute, opacity: prog(t, t0, 0.4)}}>AL RITMO DE PRODUCCIÓN DE HOY, ALCANZARÍA HASTA…</div>
       <div style={{position: 'absolute', left: 160, top: 420, width: 1600, height: 40, borderRadius: 20, background: 'rgba(255,255,255,0.08)'}} />
       <div style={{position: 'absolute', left: 160, top: 420, width: 1600 * k, height: 40, borderRadius: 20, background: `linear-gradient(90deg, ${K.oil}, #FFD07A)`, boxShadow: `0 0 40px ${K.oil}88`}} />
       {[0, 25, 50, 75, 100].map((y) => (
@@ -517,7 +517,7 @@ const CenturyBar: React.FC<{t: number; t0: number; tCien: number}> = ({t, t0, tC
       <div style={{position: 'absolute', left: 0, right: 0, top: 600, textAlign: 'center', fontFamily: F.head, fontSize: 200, color: K.cream, opacity: prog(t, tCien - 0.2, 0.4), transform: `scale(${0.9 + 0.1 * pop(t, tCien - 0.2)})`}}>
         +100 AÑOS
       </div>
-      <div style={{position: 'absolute', left: 160 + 1600 * k, top: 380, transform: 'translate(-50%,-100%)', fontFamily: F.head, fontSize: 56, color: K.oil}}>{yr}</div>
+      <div style={{position: 'absolute', left: 160 + 1600 * k, top: 405, transform: 'translate(-50%,-100%)', fontFamily: F.head, fontSize: 56, color: K.oil, lineHeight: 1}}>{yr}</div>
     </AbsoluteFill>
   );
 };
