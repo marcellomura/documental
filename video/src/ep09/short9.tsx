@@ -154,8 +154,8 @@ const Porque: React.FC<{s: number}> = ({s}) => {
               <div style={{fontFamily: F.head, fontSize: 84, color: K.cream, textAlign: 'center', marginTop: 40, opacity: prog(s, b.at, 0.4)}}>{b.price}</div>
             </div>
           ))}
-          <div style={{position: 'absolute', left: 540, top: 1060 - 440 * mv, transform: 'translate(-50%,-50%)'}}>
-            <BarrelIcon size={190} color={K.oil} />
+          <div style={{position: 'absolute', left: 1000, top: 1000 - 440 * mv, transform: 'translate(-50%,-50%)'}}>
+            <BarrelIcon size={150} color={K.oil} />
           </div>
           <Chip t={s} t0={tEx} text="LO EXPORTA" x={540} y={760} color={K.oil} size={60} />
         </AbsoluteFill>
@@ -208,7 +208,7 @@ const Porque: React.FC<{s: number}> = ({s}) => {
       {s > tTer - 0.2 ? (
         <AbsoluteFill style={{opacity: prog(s, tTer - 0.2, 0.3)}}>
           <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, rgba(242,169,59,0.16) 0%, #06080B 70%)'}} />
-          <Stage cam={{pos: [3.4, 4.4, 12.5], look: [0, 1.2, 0], fov: 34}} w={VW} h={VH} shadow={8} key0={[4, 10, 6]} keyI={2.0}>
+          <Stage cam={{pos: [3.4, 3.6, 16], look: [0, 0.6, 0], fov: 34}} w={VW} h={VH} shadow={8} key0={[4, 10, 6]} keyI={2.0}>
             <LiterGlass fill={easeOut(clamp((s - tTer + 0.1) / 1.0))} tax={easeInOut(clamp((s - c('tercio') - 0.1) / 0.9))} t={s} pos={[0, -0.6, 0]} />
             <Floor />
           </Stage>
@@ -231,7 +231,7 @@ const Venezuela: React.FC<{s: number}> = ({s}) => {
   const ven = towerItems(11, [XV, 0, 0], clamp((s - tUn + 0.3) / 1.0), K.ven, 3, 2, 3);
   const ghost = towerItems(32, [XV, 0, 0], clamp((s - tLl) / 1.4), K.red, 3, 2, 4);
   const k = easeInOut(clamp((s - tLl + 0.2) / 1.6));
-  const cam: Cam = {pos: [0, 4.5 + 5 * k, 17 + 9 * k], look: [0, 2.2 + 4.2 * k, 0], fov: 40};
+  const cam: Cam = {pos: [0, 3.6 + 4 * k, 17 + 9 * k], look: [0, 0.4 + 1.6 * k, 0], fov: 40};
   const top = (x: number, n: number) => project(cam, [x, Math.ceil(n / 6) * 1.22 + 0.4, 0.9], VW, VH);
   const [ax, ay] = top(XA, 9), [vx, vy] = top(XV, 11), [gx, gy] = top(XV, 32);
   const tag = (x: number, y: number, a: string, b: string, col: string, o: number) =>
