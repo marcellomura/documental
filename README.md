@@ -229,3 +229,41 @@ python3 tools/short_ep09.py
 cd video && npx remotion render src/index9s.tsx ShortVaca out/short9_muted.mp4 --muted --gl=swangle --crf=15 && cd ..
 IN=video/out/short9_muted.mp4 AUD=audio/mix/mezcla_short9.wav OUT=entrega/vaca_muerta_short.mp4 TITLE="VACA MUERTA (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
 ```
+
+# Episodio 10 · "EL CUADRO DEL NAZI"
+
+En el repo figura como `ep10`. En agosto de 2025, un periodista holandés reconoció en las fotos de un aviso inmobiliario de Mar del Plata un retrato que los nazis robaron en Ámsterdam en 1940. El video sigue el cuadro desde la galería de Jacques Goudstikker (que murió escapando en un barco con su inventario en el bolsillo) hasta Göring y su hombre de confianza, Friedrich Kadgien, «la Serpiente». Recorre las rutas de las ratas, la Argentina de Perón y los peores criminales que se escondieron acá (Eichmann, Mengele, Priebke). Después cuenta la investigación del diario AD, el allanamiento (y el tapiz de caballos) y la primera devolución de una obra robada por los nazis que hace la Justicia argentina (septiembre de 2026). Cierra con el segundo cuadro, que sigue sin aparecer. Dura 6:26.
+
+| Archivo | Qué es |
+|---|---|
+| `el_cuadro_del_nazi_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep10 · El cuadro del nazi` |
+| `entrega/el_cuadro_del_nazi_short.mp4` | Short vertical para YouTube (1:24, 1080×1920, subtítulos incrustados) que manda al video largo |
+| `entrega/el_cuadro_del_nazi_subtitulos_es.srt` | Subtítulos en español, con los nombres bien escritos y las cifras |
+| `entrega/el_cuadro_del_nazi_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
+| `entrega/el_cuadro_del_nazi_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B, más la vertical |
+| `entrega/el_cuadro_del_nazi_short_publicacion.md` | Cómo publicar el short y enlazarlo al video |
+
+- Guion: `guion/ep10_cuadro_nazi.json`. La locución usa grafías fonéticas para los nombres propios ("Gáutstiker", "Áijman", "ese ese"), y el mapa `display` del guion devuelve la grafía real en los subtítulos y en `video/src/data/ep10/words.json` (lo aplica `tools/timeline_ep10.py`).
+- Verificación de la locución: `tools/check_voz.py` transcribe cada segmento con whisper y lo compara con el guion. Se probó además sin el guion como pista, para confirmar que los nombres se reconocen solos.
+- Escenas: `video/src/ep10/` (composición `Cuadro`)
+  - `three10.tsx`: el living con el sillón de terciopelo verde y el retrato (que se cambia por el tapiz de caballos), el chalet de Mar del Plata de noche (con el cartel SE VENDE, alguien que se mueve detrás de la ventana y los patrulleros), la cubierta del barco de 1940 con la escotilla, el cuaderno negro con las hojas que pasan, la galería con cientos de cuadros que se llevan, el botín (oro, diamantes, billetes) y el campo de 600 marcos (100 en rojo: los que faltan).
+  - `kit10.tsx`: sellos de goma con borde de tinta gastada, fotos de archivo como copias en papel, expediente, máquina de escribir, calendario, año que corre, etiqueta de museo, mapas planos (Natural Earth) con rutas y la transición de diafragma de cámara.
+  - `shots10.tsx`: cámaras y tomas 3D, el globo, el celular con el aviso (genérico, sin marca), el tablero de corcho con hilos rojos.
+  - `scenes10a.tsx` y `scenes10b.tsx`: las 10 escenas y la pantalla final. `short10.tsx`: el short vertical (entrada `src/index10s.tsx`). `src/index10t.tsx`: banco de pruebas de los decorados 3D.
+- Archivo real: fotos de Wikimedia Commons (`video/public/ep10/img/creditos.json`): Goudstikker, Dési, Göring en la galería (1941) y en Rotterdam (1940), tropas alemanas en Ámsterdam, la foto de archivo del cuadro y de la naturaleza muerta de Mignon (RCE), el pasaporte de la Cruz Roja de «Ricardo Klement», Eichmann, Mengele, Priebke, Perón y los Monuments Men.
+- Música: tres temas originales de ElevenLabs (misterio, huida y cierre). Efectos de ElevenLabs: timbre, páginas, barco de noche, caída en la bodega, martillo de juez, flash de cámara antigua, botas, aviones, proyector, celular, patrulleros y radio.
+
+```bash
+EP=ep10 NSEG=10 TEMPO=1.14 python3 tools/proc_audio.py
+EP=ep10 GUION=ep10_cuadro_nazi.json python3 tools/align.py
+EP=ep10 GUION=ep10_cuadro_nazi.json SEGS=s01,s02 python3 tools/check_voz.py   # verificar la pronunciación
+python3 tools/timeline_ep10.py && python3 tools/mix_ep10.py        # -> audio/mix/mezcla_ep10.wav
+EP=ep10 OUT=el_cuadro_del_nazi_subtitulos_es.srt python3 tools/srt.py
+tools/render_ep10.sh                                               # -> video/out/ep10_1440_muted.mp4 (por tramos)
+IN=video/out/ep10_1440_muted.mp4 AUD=audio/mix/mezcla_ep10.wav OUT=video/out/el_cuadro_del_nazi_1440p.mp4 TITLE="EL CUADRO DEL NAZI" VBR=16M MAXRATE=24M BUFSIZE=36M tools/final.sh
+rclone copy video/out/el_cuadro_del_nazi_1440p.mp4 "gdrive:CONTEXTO/Ep10 · El cuadro del nazi"
+# short
+python3 tools/short_ep10.py
+cd video && npx remotion render src/index10s.tsx ShortCuadro out/short10_muted.mp4 --muted --gl=swangle --crf=15 && cd ..
+IN=video/out/short10_muted.mp4 AUD=audio/mix/mezcla_short10.wav OUT=entrega/el_cuadro_del_nazi_short.mp4 TITLE="EL CUADRO DEL NAZI (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
+```
