@@ -385,7 +385,7 @@ export const S09: React.FC<P> = ({t}) => {
       ) : null}
       {between(t, tNombre - 0.2, tCuando + 0.3) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tNombre - 0.2, tCuando + 0.3, 0.3)}}>
-          <FullPhoto src="ep09/slochteren.jpg" t={t} t0={tNombre - 0.2} t1={tCuando + 0.3} zoom={[1.04, 1.14]} dim={0.55} bw credit="Gas de Slochteren, Países Bajos · Nationaal Archief, CC0" />
+          <FullPhoto src="ep09/slochteren.jpg" t={t} t0={tNombre - 0.2} t1={tCuando + 0.3} zoom={[1.04, 1.14]} dim={0.55} bw credit="Gas de Slochteren, Países Bajos · Joop van Bilsen / Anefo, Nationaal Archief, CC0" />
           <Big t={t} t0={tHol - 0.1} text="LA ENFERMEDAD HOLANDESA" size={130} y={470} hl={{HOLANDESA: K.oil}} />
           <Chip t={t} t0={c('Holanda')} text="PAÍSES BAJOS · ENCONTRÓ GAS EN 1959" x={960} y={640} color={K.oil} size={40} />
         </AbsoluteFill>
@@ -513,7 +513,7 @@ const Warning: React.FC<{t: number; t0: number; tAdv: number}> = ({t, t0, tAdv})
     <div style={{position: 'absolute', left: 960, top: 520, transform: `translate(-50%,-50%) rotate(-2deg) scale(${0.85 + 0.15 * pop(t, t0, 0.9)})`, opacity: prog(t, t0, 0.3)}}>
       <div style={{width: 1080, background: '#F5F2EA', borderRadius: 8, padding: '56px 70px 60px', boxShadow: '0 40px 90px rgba(0,0,0,0.6)', color: '#22201D'}}>
         <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 26, letterSpacing: 6, color: '#6A625A'}}>FONDO MONETARIO INTERNACIONAL</div>
-        <div style={{fontFamily: F.head, fontSize: 70, lineHeight: 1.08, marginTop: 18}}>EL BOOM DE LA ENERGÍA PUEDE ABARATAR EL DÓLAR Y GOLPEAR A OTROS SECTORES</div>
+        <div style={{fontFamily: F.head, fontSize: 58, lineHeight: 1.1, marginTop: 18}}>“MANTENER UN TIPO DE CAMBIO REAL COMPETITIVO… PARA EVITAR LOS DESAFÍOS DE LA ENFERMEDAD HOLANDESA QUE PODRÍAN AFECTAR A LOS SECTORES INTENSIVOS EN MANO DE OBRA”</div>
         <div style={{height: 14, width: 700, background: '#D9D3C7', marginTop: 30, borderRadius: 4}} />
         <div style={{height: 14, width: 840, background: '#D9D3C7', marginTop: 14, borderRadius: 4}} />
         <div style={{height: 14, width: 560, background: '#D9D3C7', marginTop: 14, borderRadius: 4}} />
@@ -524,7 +524,7 @@ const Warning: React.FC<{t: number; t0: number; tAdv: number}> = ({t, t0, tAdv})
         </div>
       ) : null}
     </div>
-    <SrcLine t={t} t0={t0 + 0.4} text="Síntesis de la advertencia del FMI sobre la Argentina (vía Bloomberg Línea, 2026)" />
+    <SrcLine t={t} t0={t0 + 0.4} text="FMI, informe sobre la Argentina, citado por Bloomberg Línea (2026)" />
   </AbsoluteFill>
 );
 

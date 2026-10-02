@@ -45,6 +45,17 @@ NUM_EP = {
              ("dieciocho mil quinientos", "18.500"), ("Seis mil quinientos", "6.500"), ("Tres mil setecientos", "3.700"), ("Tres mil", "3.000"),
              ("doscientos", "200"), ("cinco mil", "5.000"), ("tres de cada diez", "3 de cada 10"), ("treinta por ciento", "30 %"),
              ("dos mil veintitrés", "2023"), ("trece por ciento", "13 %"), ("siete semanas", "7 semanas"), ("dos o tres años", "2 o 3 años")],
+    "ep09": [("novecientos treinta y seis mil ochocientos", "936.800"), ("ciento cuarenta y cinco millones", "145 millones"),
+             ("ciento cincuenta millones", "150 millones"), ("treinta mil kilómetros cuadrados", "30.000 kilómetros cuadrados"),
+             ("seis mil seiscientos millones", "6.600 millones"), ("cincuenta y cinco por ciento", "55 %"), ("veinte por ciento", "20 %"),
+             ("Cuatrocientos treinta y siete", "437"), ("dieciséis mil millones", "16.000 millones"), ("treinta mil millones", "30.000 millones"),
+             ("cuatro mil setecientos", "4.700"), ("ciento ochenta mil", "180.000"), ("setecientos veinte mil", "720.000"),
+             ("un millón cien mil", "1.100.000"), ("doscientos mil", "200.000"), ("cuatrocientos mil", "400.000"),
+             ("dos coma tres billones", "2,3 billones"), ("ciento veintiséis", "126"), ("mil setecientos", "1.700"),
+             ("dos mil diez", "2010"), ("dos mil trece", "2013"), ("dos mil", "2.000"), ("cinco mil", "5.000"), ("doce mil", "12.000"),
+             ("siete de cada diez", "7 de cada 10"), ("una de cada cinco", "1 de cada 5"), ("tres kilómetros", "3 kilómetros"),
+             ("mil veces", "1.000 veces"), ("cien dólares", "100 dólares"), ("cien años", "100 años"), ("seis millones", "6 millones"),
+             ("tres millones", "3 millones"), ("siete veces", "7 veces"), ("dos años y medio", "2 años y medio")],
 }
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):

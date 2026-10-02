@@ -587,7 +587,7 @@ export const S05: React.FC<P> = ({t}) => {
       ) : null}
       {t > tAnelo - 0.2 ? (
         <AbsoluteFill style={{opacity: prog(t, tAnelo - 0.2, 0.3)}}>
-          <FullPhoto src="ep09/anelo.jpg" t={t} t0={tAnelo - 0.2} zoom={[1.04, 1.14]} dim={0.55} credit="Panoramio, CC BY 3.0" />
+          <FullPhoto src="ep09/anelo.jpg" t={t} t0={tAnelo - 0.2} zoom={[1.04, 1.14]} dim={0.55} credit="Gervacio Rosales, CC BY 3.0" />
           <Tag t={t} t0={tAnelo + 0.1} a="AÑELO" b="EL PUEBLO EN EL MEDIO DE TODO" x={110} y={110} />
           <People t={t} t0={tPaso} tDoce={tDoce} />
         </AbsoluteFill>
