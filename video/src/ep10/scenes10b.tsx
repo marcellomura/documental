@@ -282,6 +282,7 @@ export const S08: React.FC<P> = ({t}) => {
       {between(t, tHija - 0.2, tAut + 0.4) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tHija - 0.2, tAut + 0.4, 0.35)}}>
           <NoirBg t={t} />
+          <Big t={t} t0={tHija} t1={tArresto - 0.1} text="LA HIJA DE KADGIEN | Y SU MARIDO" size={120} y={540} hl={{KADGIEN: K.red}} />
           <DateCard t={t} t0={tArresto - 0.2} d={2} m={9} y={2025} x={560} yPos={430} label="ARRESTO DOMICILIARIO PARA LA HIJA Y SU MARIDO" color={K.blue} />
           <DateCard t={t} t0={tTres} d={3} m={9} y={2025} x={1360} yPos={430} label="SU ABOGADO ENTREGA EL CUADRO" color={K.blue} />
         </AbsoluteFill>
