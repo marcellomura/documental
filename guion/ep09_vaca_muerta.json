@@ -1,0 +1,57 @@
+{
+ "titulo": "VACA MUERTA: EL TESORO Y LA TRAMPA",
+ "canal": "CONTEXTO",
+ "episodio": 9,
+ "voz": {
+  "voice_id": "gBTPbHzRd0ZmV75Z5Zk4",
+  "modelo": "eleven_multilingual_v2"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "texto": "Mientras el mundo se pelea por el petróleo del estrecho de Ormuz, en el desierto de Neuquén pasa algo histórico. En agosto, la Argentina sacó novecientos treinta y seis mil ochocientos barriles de petróleo por día. Récord absoluto. El petróleo ya es el producto que más exporta el país: le ganó a la harina de soja. Y sin embargo, el litro de nafta subió casi un veinte por ciento desde que empezó la guerra. ¿Cómo puede ser? ¿Nos estamos convirtiendo en Arabia Saudita, o en Venezuela? Para entenderlo, hay que bajar tres kilómetros bajo tierra. Y viajar casi ciento cincuenta millones de años atrás."
+  },
+  {
+   "id": "s02",
+   "texto": "Hace unos ciento cuarenta y cinco millones de años, donde hoy está Neuquén había un mar lleno de plancton y algas. Cuando morían, caían al fondo y quedaban enterrados en el barro, sin oxígeno. Capa sobre capa, durante millones de años. El barro se volvió roca, y con el calor y la presión de la Tierra, esa vida se transformó en petróleo y gas. Esa roca ocupa más de treinta mil kilómetros cuadrados, más que toda la provincia de Tucumán. Y se llama Vaca Muerta, por una sierra cercana."
+  },
+  {
+   "id": "s03",
+   "texto": "Durante casi un siglo supimos que estaba ahí. El problema es que ese petróleo no está en un lago subterráneo. Está atrapado adentro de la roca, en poros mil veces más finos que un pelo. La solución llegó desde Estados Unidos: el fracking. Se perfora tres kilómetros hacia abajo, el pozo dobla y sigue de costado, otros tres kilómetros adentro de la capa. Ahí se inyecta agua con arena a una presión enorme: la roca se fisura, la arena mantiene abiertas las grietas, y el petróleo empieza a salir. El primer pozo así se hizo en dos mil diez. Hoy hay más de cuatro mil setecientos."
+  },
+  {
+   "id": "s04",
+   "texto": "¿Y cuánto hay? Según la agencia de energía de Estados Unidos, Vaca Muerta es la segunda reserva de gas no convencional del mundo y la cuarta de petróleo: dieciséis mil millones de barriles que se pueden sacar con la tecnología actual. Un estudio argentino más nuevo calcula casi el doble: treinta mil millones. Al ritmo de hoy, alcanzaría para más de cien años."
+  },
+  {
+   "id": "s05",
+   "texto": "En dos mil trece, YPF se asoció con Chevron para el primer gran proyecto, y desde entonces la producción no paró de subir. Hoy, siete de cada diez barriles que produce la Argentina salen de Vaca Muerta. Entre enero y agosto, el país exportó petróleo por seis mil seiscientos millones de dólares, un cincuenta y cinco por ciento más que el año pasado. Y Añelo, el pueblo que está en el medio de todo, pasó de cinco mil habitantes a más de doce mil en dos años y medio."
+  },
+  {
+   "id": "s06",
+   "texto": "Pero hay una primera trampa: el petróleo hay que sacarlo de ahí. Y los caños no alcanzan. Por eso se está terminando un oleoducto gigante: Vaca Muerta Oil Sur. Cuatrocientos treinta y siete kilómetros, desde Neuquén hasta Punta Colorada, en la costa de Río Negro, donde van a cargar los barcos. Arranca con ciento ochenta mil barriles por día, y podría llegar a setecientos veinte mil. Sin caños, el récord tiene techo."
+  },
+  {
+   "id": "s07",
+   "texto": "Segunda trampa, la que te toca a vos. Si producimos más petróleo que nunca, ¿por qué sube la nafta? Porque el petróleo argentino se vende al precio del mundo. Si afuera un barril vale cien dólares, ninguna petrolera te lo va a vender más barato acá: lo exporta. Y desde que Irán cerró el estrecho de Ormuz, por donde pasaba una de cada cinco gotas del petróleo del planeta, el barril llegó a ciento veintiséis dólares. Así, el litro de nafta pasó de unos mil setecientos pesos a más de dos mil. Y más de un tercio de lo que pagás en el surtidor son impuestos."
+  },
+  {
+   "id": "s08",
+   "texto": "Entonces, ¿ya somos Arabia Saudita? Ni cerca. Aun golpeada por la guerra, Arabia Saudita saca más de seis millones de barriles por día. Casi siete veces más que nosotros. Pero hay otro país al que sí nos estamos pareciendo: Venezuela. Dice tener las reservas más grandes del mundo, y hoy produce alrededor de un millón cien mil barriles por día. Apenas doscientos mil más que la Argentina. Venezuela llegó a producir más de tres millones. Tuvo el tesoro, y lo perdió."
+  },
+  {
+   "id": "s09",
+   "texto": "Y esa es la tercera trampa, la más peligrosa. Tiene nombre: la enfermedad holandesa, por lo que le pasó a Holanda cuando encontró gas. Cuando un país exporta tantos recursos, entran tantos dólares que el dólar se abarata. Y con el dólar barato, a las fábricas se les hace imposible competir. El Fondo Monetario ya se lo advirtió a la Argentina. Noruega encontró petróleo a fines de los sesenta y decidió no gastárselo. Lo guardó en un fondo que hoy vale dos coma tres billones de dólares: más de cuatrocientos mil dólares por cada noruego."
+  },
+  {
+   "id": "s10",
+   "texto": "Así que la pregunta no es si la Argentina tiene petróleo. Lo tiene, y mucho. La pregunta es qué va a hacer con él. Y la Argentina tiene, debajo de un desierto, el tesoro de un mar de hace ciento cuarenta y cinco millones de años. El petróleo no te hace rico. Lo que hacés con él, sí. Contanos en los comentarios: ¿vamos camino a Noruega, o a Venezuela? Si te sirvió, suscribite y compartilo con alguien que trabaje en Vaca Muerta. Nos vemos en el próximo video."
+  }
+ ],
+ "extra_short": [
+  {
+   "id": "x01",
+   "texto": "Por qué sube la nafta aunque producimos petróleo récord, y cómo no terminar como Venezuela, está en el video completo del canal. Tocá el enlace de acá abajo."
+  }
+ ]
+}
