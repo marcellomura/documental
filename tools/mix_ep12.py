@@ -122,9 +122,15 @@ def fx(name, t, gain=0.5, pan=0.0, dur=None):
     sfx[i:i + n, 1] += a[:n, 1] * gain * r * 1.41
 def amb(t, sec, gain=0.12):
     """cama de ambiente submarino (se encadena si hace falta)"""
-    left = sec; tt = t
-    while left > 0:
-        d = min(left, 20.0); fx("ambiente", tt, gain, dur=d); tt += d - 0.5; left -= d - 0.5
+    left = sec; tt = t; first = True
+    while left > 0.05:
+        d = min(left, 20.0); a = SF["ambiente"][: int(d * SR)].copy(); n = len(a)
+        fi, fo = (0 if first else min(n, int(0.5 * SR))), min(n, int(0.3 * SR))
+        if fi: a[:fi] *= np.linspace(0, 1, fi)[:, None]
+        a[-fo:] *= np.linspace(1, 0, fo)[:, None]
+        put(a, tt, gain)
+        if d >= left: break
+        tt += d - 0.5; left -= d - 0.5; first = False
 
 # transiciones
 CUT = {"s02": ST["s02"] - 0.35, "s03": ST["s03"] - 0.35, "s04": ST["s04"] - 0.6, "s05": ST["s05"] - 0.35, "s06": ST["s06"] - 0.35,
