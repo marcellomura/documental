@@ -1,0 +1,68 @@
+{
+ "titulo": "EL SOL DE PERÓN",
+ "subtitulo": "LA MENTIRA NUCLEAR QUE TERMINÓ SALIENDO BIEN",
+ "episodio": 11,
+ "nota_voz": "El texto usa grafía fonética para que la voz pronuncie bien los nombres; DISPLAY da la ortografía real para subtítulos.",
+ "display": {
+  "Ríjter": "Richter",
+  "Spítser": "Spitzer",
+  "Prínston": "Princeton",
+  "estelarátor": "stellarator",
+  "Ínvap": "INVAP",
+  "Ársat": "ARSAT",
+  "Íter": "ITER",
+  "Édward Téler": "Edward Teller"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "texto": "Veinticuatro de marzo de mil novecientos cincuenta y uno. Juan Domingo Perón reúne a la prensa y hace un anuncio que da la vuelta al mundo: en una isla secreta de la Patagonia, la Argentina logró algo que ni Estados Unidos ni la Unión Soviética habían conseguido. Encender, dentro de una máquina, el mismo fuego que hace brillar al Sol. Energía casi infinita y barata, que según Perón se iba a vender en envases de medio litro, como la leche. Era todo mentira. Pero lo más increíble no es la mentira. Es lo que esa mentira terminó creando."
+  },
+  {
+   "id": "s02",
+   "texto": "El hombre detrás del anuncio se llamaba Ronald Ríjter, un físico austríaco que casi nadie conocía. En mil novecientos cuarenta y ocho llegó a Buenos Aires recomendado por Kurt Tank, el ingeniero alemán que le diseñaba aviones a reacción a Perón. Y le prometió algo irresistible: una Argentina potencia atómica. Perón contaría después que, en media hora, Ríjter le explicó todos los secretos de la física nuclear. Le dieron lo que pidió: plata, obreros, secreto absoluto, y una isla entera en el lago Nahuel Huapi, frente a Bariloche. La isla Huemul."
+  },
+  {
+   "id": "s03",
+   "texto": "Ahí, entre bosques y agua helada, se levantó una ciudad científica de la nada, con un reactor gigante: un cilindro de hormigón de doce metros de ancho, con paredes de cuatro metros. Antes de terminarlo, Ríjter dijo que tenía una grieta y lo mandó demoler. Y cuando alguien le discutía, respondía siempre lo mismo: es que usted no sabe mi secreto. El proyecto costó unos quince millones de dólares de la época. Hoy serían más de quinientos millones."
+  },
+  {
+   "id": "s04",
+   "texto": "Pero, ¿qué decía haber logrado? Fusión nuclear. En el centro del Sol hace unos quince millones de grados, y la gravedad aprieta tanto que los núcleos de hidrógeno chocan y se pegan. Y al fusionarse, liberan muchísima energía. En la Tierra, sin esa gravedad, hace falta más calor todavía: decenas de millones de grados. La fusión sin control ya estaba en los planos de las potencias: era la bomba de hidrógeno. Controlarla, en cambio, era el sueño imposible de la física."
+  },
+  {
+   "id": "s05",
+   "texto": "Ríjter aseguró que el dieciséis de febrero lo había conseguido, y la noticia salió en diarios de todo el planeta. Pero los físicos de afuera no le creían. Édward Téler, el padre de la bomba de hidrógeno, lo resumió así: leyendo una línea, uno piensa que es un genio. Leyendo la siguiente, se da cuenta de que está loco. Y en la isla no trabajaba ni un solo físico argentino de renombre. Antes de seguir: ¿vos le hubieras creído? Dejámelo en los comentarios."
+  },
+  {
+   "id": "s06",
+   "texto": "Con el tiempo, hasta el gobierno empezó a dudar. En septiembre de mil novecientos cincuenta y dos, Perón manda una comisión a la isla. Entre sus miembros va un físico de treinta y tres años, casi desconocido: José Antonio Balseiro. Y su informe es demoledor. Para la reacción que decía Ríjter hacían falta por lo menos cuarenta millones de grados. Su máquina, un arco eléctrico, llegaba a unos pocos miles. Como querer hervir el océano con un fósforo. ¿Y las mediciones que probaban la reacción? Los detectores marcaban lo mismo aunque no hubiera combustible: medían la chispa eléctrica, no átomos fusionándose. Conclusión: las afirmaciones del doctor Ríjter no corresponden a hechos comprobados con criterio científico."
+  },
+  {
+   "id": "s07",
+   "texto": "En noviembre de ese año, los militares toman la isla. Encuentran instrumentos que ni siquiera estaban conectados. El proyecto se declara un fraude, y el sol argentino se apaga en silencio. Después del golpe de mil novecientos cincuenta y cinco, Ríjter es detenido. Pasó sus últimos años criando gallinas, e insistiendo en que tenía la fórmula para crear pequeños soles. Murió en mil novecientos noventa y uno. Fin de la historia. O eso parecía."
+  },
+  {
+   "id": "s08",
+   "texto": "Porque en marzo de mil novecientos cincuenta y uno, un astrofísico de Prínston, Lyman Spítser, leyó la noticia argentina justo antes de irse a esquiar. Pensó: esto no puede funcionar. Pero, ¿qué haría falta para que sí funcione? Y arriba de una aerosilla imaginó una máquina para atrapar con imanes un gas a millones de grados: el estelarátor. Dos meses después, el gobierno de Estados Unidos le dio plata para construirla. Así nació su programa de fusión, que todavía existe. Hasta en la Unión Soviética, el anuncio ayudó a destrabar proyectos. La mentira argentina despertó a las potencias."
+  },
+  {
+   "id": "s09",
+   "texto": "Y en la Argentina pasó algo parecido. Balseiro propuso no tirar todo: con los equipos de la isla nació en Bariloche un instituto de física que hoy lleva su nombre. El Instituto Balseiro. En mil novecientos cincuenta y ocho, el país encendió el primer reactor nuclear de América Latina. Y en mil novecientos setenta y seis, en Bariloche, nació Ínvap, que empezó a hacer lo que Ríjter solo prometió: tecnología nuclear de verdad. Hoy la Argentina vende reactores a Perú, Argelia, Egipto y Australia, donde le ganó la licitación a empresas de Alemania, Francia y Canadá. Ahora construye uno en Países Bajos. Y de esa misma ciudad salieron los satélites Ársat."
+  },
+  {
+   "id": "s10",
+   "texto": "¿Y la fusión? Setenta y cinco años después, todavía no encendió una sola lamparita. En dos mil veintidós, un laboratorio de California logró por primera vez sacarle a la fusión más energía que la que le pusieron los láseres. Pero para disparar esos láseres se gasta muchísima más electricidad de la que sale. Y el gran reactor internacional, Íter, recién planea usar su combustible definitivo en dos mil treinta y nueve. Mientras tanto, en la isla Huemul, las ruinas siguen ahí, tapadas por el bosque y los grafitis. Bariloche quiere abrirla a los visitantes a fin de este año."
+  },
+  {
+   "id": "s11",
+   "texto": "Ríjter prometió un sol, y no entregó nada. Pero obligó a un país a preguntarse quién sabía de verdad. Y la respuesta fue un físico joven que se animó a decirle al presidente que lo habían engañado. A veces, una mentira enorme deja algo verdadero. Contanos en los comentarios: ¿sabías que la Argentina exporta reactores nucleares? Si te gustó, suscribite, y compartilo con alguien que todavía crea en las promesas fáciles. Nos vemos en el próximo video."
+  }
+ ],
+ "extra_short": [
+  {
+   "id": "x01",
+   "texto": "Cómo esa estafa terminó creando una industria nuclear que hoy le vende reactores al mundo, te lo cuento en el video completo del canal. Tocá el enlace de acá abajo."
+  }
+ ]
+}
