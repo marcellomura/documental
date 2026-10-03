@@ -70,9 +70,9 @@ export const S06: React.FC<{t: number}> = ({t}) => {
       {between(t, tColap - 0.15, tEn23) ? <BlinkBars t={t} t0={tColap - 0.15} tParp={tParp} t1={tEn23} /> : null}
       {between(t, tEn23 - 0.2, tAudio + 0.1) ? (
         <>
-          <Clip src="ep12/vid/titan_fondo.mp4" t={t} t0={tEn23 - 0.2} t1={tAudio + 0.1} zoom={[1.3, 1.36]} focus="60% 55%" grade="none" tint={0.1} dim={0.3} credit="U.S. Coast Guard / Pelagic Research Services · dominio público" />
-          <MonoTag t={t} t0={tTitan - 0.2} t1={tAudio} text="TITAN · OCEANGATE · 18.06.2023" x={110} y={210} color={K.amber} />
-          <MonoTag t={t} t0={tTitan + 0.6} t1={tAudio} text="RESTOS A ≈ 3.800 m · 5 PERSONAS A BORDO" x={110} y={256} />
+          <Clip src="ep12/vid/titan_fondo.mp4" t={t} t0={tEn23 - 0.2} t1={tAudio + 0.1} zoom={[1.38, 1.44]} focus="60% 55%" grade="none" tint={0.1} dim={0.3} credit="U.S. Coast Guard / Pelagic Research Services · dominio público" />
+          <MonoTag t={t} t0={tTitan - 0.2} t1={tAudio} text="TITAN · OCEANGATE · 18.06.2023" x={1810} y={210} align="right" color={K.amber} />
+          <MonoTag t={t} t0={tTitan + 0.6} t1={tAudio} text="RESTOS A ≈ 3.800 m · 5 PERSONAS A BORDO" x={1810} y={256} align="right" />
         </>
       ) : null}
       {between(t, tAudio - 0.05, tArg + 0.3) ? (
