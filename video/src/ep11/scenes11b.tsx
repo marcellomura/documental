@@ -164,7 +164,7 @@ export const S08: React.FC<{t: number}> = ({t}) => {
           <SpaceBg t={t} glow="rgba(92,214,255,0.12)" />
           {t < c('Así') + 0.2 ? (
             <AbsoluteFill style={{opacity: 1 - prog(t, c('Así'), 0.3)}}>
-              <DateCard t={t} t0={tPlata + 0.1} d={12} m={5} y={1951} x={560} yPos={420} label="LLEGA LA PLATA" color={K.plasma} />
+              <DateCard t={t} t0={tPlata + 0.1} d={12} m={5} y={1951} x={560} yPos={420} label="PRESENTA EL PROYECTO" color={K.plasma} />
               <MoneyCount t={t} t0={c('plata') - 0.3} to={50000} dur={1.0} x={1260} y={520} size={170} color={K.green} label="FONDOS DE LA COMISIÓN DE ENERGÍA ATÓMICA" />
             </AbsoluteFill>
           ) : null}
