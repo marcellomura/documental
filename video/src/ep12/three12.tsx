@@ -373,8 +373,9 @@ const Surface: React.FC<{t: number; y: number; o: number}> = ({t, y, o}) => {
 };
 
 /* ================================================================== MAR CON TORMENTA (vista desde la superficie) */
-export const StormSea: React.FC<{t: number; flash?: number; size?: number; amp?: number; lights?: boolean}> = ({t, flash = 0, size = 80, amp = 1, lights = true}) => {
-  const geo = useMemo(() => new THREE.PlaneGeometry(size, size, 140, 140), [size]);
+export const StormSea: React.FC<{t: number; flash?: number; size?: number; amp?: number; lights?: boolean; detail?: number}> = ({t, flash = 0, size = 80, amp = 1, lights = true, detail = 0}) => {
+  const seg = detail ? 300 : 140;
+  const geo = useMemo(() => new THREE.PlaneGeometry(size, size, seg, seg), [size, seg]);
   const p = geo.getAttribute('position') as THREE.BufferAttribute;
   for (let i = 0; i < p.count; i++) {
     const x = p.getX(i), z = p.getY(i);
@@ -382,7 +383,9 @@ export const StormSea: React.FC<{t: number; flash?: number; size?: number; amp?:
       0.55 * Math.sin(x * 0.32 + t * 1.25) +
       0.38 * Math.sin(z * 0.41 - t * 1.05 + x * 0.12) +
       0.16 * Math.sin((x - z) * 0.9 + t * 2.1) +
-      0.07 * Math.sin(x * 2.3 + z * 1.7 + t * 3.4);
+      0.07 * Math.sin(x * 2.3 + z * 1.7 + t * 3.4) +
+      detail * (0.03 * Math.sin(x * 3.7 + z * 1.3 + t * 3.9) + 0.025 * Math.sin(z * 4.9 - x * 2.2 + t * 4.6) +
+        0.02 * Math.sin(x * 6.1 - z * 5.3 + t * 6.0) + 0.015 * Math.sin(x * 1.1 + z * 7.7 - t * 5.1));
     p.setZ(i, h * amp);
   }
   p.needsUpdate = true;
@@ -390,9 +393,9 @@ export const StormSea: React.FC<{t: number; flash?: number; size?: number; amp?:
   return (
     <group>
       {lights ? <ambientLight intensity={0.12 + 2.5 * flash} color="#9FB8D0" /> : null}
-      {lights ? <directionalLight position={[-10, 14, -18]} intensity={0.55 + 4 * flash} color="#C9D9EA" /> : null}
+      {lights ? <directionalLight position={[-10, 14, -18]} intensity={(detail ? 0.4 : 0.55) + 4 * flash} color="#C9D9EA" /> : null}
       <mesh geometry={geo} rotation={[-Math.PI / 2, 0, 0]}>
-        <meshStandardMaterial color="#0C2232" roughness={0.18} metalness={0.55} />
+        <meshStandardMaterial color="#0C2232" roughness={detail ? 0.26 : 0.18} metalness={0.55} />
       </mesh>
     </group>
   );

@@ -410,7 +410,7 @@ const StormShot: React.FC<{t: number; t0: number}> = ({t, t0}) => {
     <AbsoluteFill style={{opacity: prog(t, t0, 0.15), background: '#03080D'}}>
       <AbsoluteFill style={{background: `linear-gradient(180deg, rgba(40,58,80,${0.6 + flash}) 0%, #03080D 55%)`}} />
       <Stage12 cam={cam} fog={['#05101A', 0.06]}>
-        <StormSea t={t * 1.6} flash={flash} />
+        <StormSea t={t * 1.6} flash={flash} size={50} detail={1} />
         <group position={[0, -1.25, 0]}>
           <Submarine s={{t, snorkel: 1}} />
         </group>
@@ -432,11 +432,15 @@ const Cutaway: React.FC<{t: number; t0: number; tEntro: number; tValv: number; t
   t, t0, tEntro, tValv, tLleg, tCorto, tHumo, tInc, tTrip, tPopa, t1,
 }) => {
   const fault = t >= tCorto - 0.1 && t < tTrip + 0.4;
-  const cam = camPath(t, [
+  const base = camPath(t, [
     [t0 - 1, {pos: [2.2, 2.6, 6.2], look: [0.8, 0.6, 0], fov: 34}],
     [tLleg - 0.6, {pos: [3.0, 1.5, 4.6], look: [1.5, 0.6, 0], fov: 34}],
     [tTrip - 0.2, {pos: [0.6, 1.1, 7.6], look: [0.8, -0.1, 0], fov: 34}],
   ], 1.6);
+  // deriva continua (órbita lenta y acercamiento) para que la cámara nunca quede quieta entre llaves
+  const ang = (t - t0 - 8) * 0.014, sc = 1 - (t - t0) * 0.004;
+  const [lx, ly, lz] = base.look, dx = base.pos[0] - lx, dz = base.pos[2] - lz;
+  const cam: Cam = {...base, pos: [lx + (dx * Math.cos(ang) - dz * Math.sin(ang)) * sc, ly + (base.pos[1] - ly) * sc, lz + (dx * Math.sin(ang) + dz * Math.cos(ang)) * sc]};
   const shk = fault ? (rnd(Math.floor(t * 24)) - 0.5) * 8 * (1 - prog(t, tTrip - 0.3, 0.5)) : 0;
   const valve = project(cam, VALVE_POS), bowB = project(cam, BOW_BATT_POS), sternB = project(cam, STERN_BATT_POS);
   const sparks = fault ? 1 - prog(t, tTrip, 0.6) : 0;
