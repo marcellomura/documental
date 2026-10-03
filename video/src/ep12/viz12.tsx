@@ -204,7 +204,10 @@ const RAYS: Ray[] = (() => {
   return out;
 })();
 /** corte del océano con los rayos de sonido atrapados en el canal */
-export const SofarDiagram: React.FC<{t: number; t0: number; p: number; showProfile?: number; label?: number; o?: number}> = ({t, t0, p, showProfile = 1, label = 1, o = 1}) => {
+/** build: armado del corte (0→1) · scan: línea que baja hasta el canal (0→1) con su opacidad scanO · band: pulso de la capa · zoom: acercamiento lento */
+export const SofarDiagram: React.FC<{t: number; t0: number; p: number; showProfile?: number; label?: number; o?: number; build?: number; scan?: number; scanO?: number; band?: number; zoom?: number; axis5?: number}> = ({
+  t, t0, p, showProfile = 1, label = 1, o = 1, build = 1, scan = 0, scanO = 0, band = 0, zoom = 0, axis5 = 1,
+}) => {
   const X0 = 420, X1 = 1840, Y0 = 210, Y1 = 960;
   const px = (r: number) => X0 + (r / RANGE_KM) * (X1 - X0);
   const py = (z: number) => Y0 + (z / 5000) * (Y1 - Y0);
@@ -218,7 +221,7 @@ export const SofarDiagram: React.FC<{t: number; t0: number; p: number; showProfi
     return s;
   }, []);
   return (
-    <AbsoluteFill style={{opacity: o}}>
+    <AbsoluteFill style={{opacity: o, transform: `scale(${1 + 0.05 * zoom})`, transformOrigin: `${px(0)}px ${py(1100)}px`}}>
       <svg width={1920} height={1080}>
         <defs>
           <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
@@ -234,17 +237,33 @@ export const SofarDiagram: React.FC<{t: number; t0: number; p: number; showProfi
             </feMerge>
           </filter>
         </defs>
-        <rect x={X0} y={Y0} width={X1 - X0} height={Y1 - Y0} fill="url(#seaG)" />
-        <line x1={X0} y1={Y0} x2={X1} y2={Y0} stroke={K.cyan} strokeWidth={2} opacity={0.6} />
+        <rect x={X0} y={Y0} width={X1 - X0} height={(Y1 - Y0) * build} fill="url(#seaG)" />
+        <line x1={X0} y1={Y0} x2={X0 + (X1 - X0) * clamp(build * 1.6)} y2={Y0} stroke={K.cyan} strokeWidth={2} opacity={0.6} />
+        {/* nieve marina dentro del corte */}
+        {Array.from({length: 70}, (_, i) => {
+          const H = Y1 - Y0, y = Y0 + ((rnd(i + 50) * H + t * 14 * (0.5 + rnd(i + 9))) % H);
+          return y < Y0 + H * build ? <circle key={i} cx={X0 + rnd(i) * (X1 - X0) + Math.sin(t * 0.7 + i) * 6} cy={y} r={1 + rnd(i + 3) * 1.6} fill="#BFE6F5" opacity={0.12 + 0.22 * rnd(i + 7)} /> : null;
+        })}
         {/* banda del canal */}
-        <rect x={X0} y={py(700)} width={X1 - X0} height={py(1550) - py(700)} fill={K.cyan} opacity={0.06 * label} />
-        <line x1={X0} y1={py(1100)} x2={X1} y2={py(1100)} stroke={K.cyan} strokeWidth={1.5} strokeDasharray="8 8" opacity={0.6 * label} />
-        {[0, 1000, 2000, 3000, 4000, 5000].map((z) => (
-          <text key={z} x={X0 - 14} y={py(z) + 7} textAnchor="end" fontFamily={F12.mono} fontSize={20} fill={K.mute}>{fmt(z)} m</text>
+        <rect x={X0} y={py(700)} width={X1 - X0} height={py(1550) - py(700)} fill={K.cyan} opacity={0.06 * label + 0.16 * band} />
+        {[700, 1550].map((z) => (
+          <line key={z} x1={X0} y1={py(z)} x2={X1} y2={py(z)} stroke={K.cyan} strokeWidth={1} opacity={0.35 * band} />
         ))}
-        {[0, 150, 300, 450, 600].map((r) => (
-          <text key={r} x={px(r)} y={Y1 + 34} textAnchor="middle" fontFamily={F12.mono} fontSize={20} fill={K.mute}>{fmt(r)} km</text>
+        <line x1={X0} y1={py(1100)} x2={X0 + (X1 - X0) * label} y2={py(1100)} stroke={K.cyan} strokeWidth={1.5} strokeDasharray="8 8" opacity={0.6 * label} />
+        {[0, 1000, 2000, 3000, 4000, 5000].map((z, i) => (
+          <text key={z} x={X0 - 14} y={py(z) + 7} textAnchor="end" fontFamily={F12.mono} fontSize={20} fill={K.mute} opacity={clamp(build * 7 - i) * (z === 5000 ? axis5 : 1)}>{fmt(z)} m</text>
         ))}
+        {[0, 150, 300, 450, 600].map((r, i) => (
+          <text key={r} x={px(r)} y={Y1 + 34} textAnchor="middle" fontFamily={F12.mono} fontSize={20} fill={K.mute} opacity={clamp(build * 6 - i)}>{fmt(r)} km</text>
+        ))}
+        {/* escaneo de profundidad hasta el canal */}
+        {scanO > 0 ? (
+          <g opacity={scanO}>
+            <rect x={X0} y={Y0} width={X1 - X0} height={py(1100 * scan) - Y0} fill={K.cyan} opacity={0.05} />
+            <line x1={X0} y1={py(1100 * scan)} x2={X1} y2={py(1100 * scan)} stroke={K.cyan} strokeWidth={2.5} filter="url(#glow12)" />
+            <text x={X0 + 24} y={py(1100 * scan) - 14} fontFamily={F12.mono} fontWeight={600} fontSize={26} fill={K.bone}>{fmt(Math.round(1000 * scan / 10) * 10)} m</text>
+          </g>
+        ) : null}
         {/* rayos */}
         {RAYS.map((ray, i) => {
           const n = Math.max(2, Math.round(ray.pts.length * clamp(p)));

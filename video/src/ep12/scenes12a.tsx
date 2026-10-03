@@ -613,6 +613,7 @@ const V_ATL: MapV = {lon: -4, lat: -26, scale: 15.5};
 export const S05: React.FC<{t: number}> = ({t}) => {
   const c = (p: string, n = 0) => cue('s05', p, n);
   const tCier = c('A cierta'), tSon = c('el sonido'), tReb = c('rebota'), tComo = c('como la'), tViaja = c('y viaja'), tSe = c('Se llama'), tDesp = c('Después de');
+  const tCapa = c('una capa');
   const tMund = c('el mundo'), tPara = c('para descubrir'), tUno = c('Uno está'), tSeis = c('a seis'), tOtro = c('Otro,'), tOcho = c('a casi'), tAl = c('Al primero,'), tLleg = c('llegar.'), tCruz = c('Cruzando'), tPunto = c('un punto');
   const showDiag = t < tSe + 2.1;
   return (
@@ -620,7 +621,9 @@ export const S05: React.FC<{t: number}> = ({t}) => {
       {showDiag ? (
         <AbsoluteFill style={{opacity: 1 - prog(t, tSe + 1.6, 0.5)}}>
           <AbyssBg t={t} light={0.15} deep={0.9} snow={0.4} />
-          <SofarDiagram t={t} t0={tSon} p={prog(t, tSon, tViaja + 2.0 - tSon, easeInOut)} showProfile={prog(t, tReb, 0.6)} label={prog(t, tCier + 0.3, 0.6)} o={(1 - prog(t, tSe - 0.2, 0.4) * 0.6) * prog(t, -0.3, 0.5)} />
+          <SofarDiagram t={t} t0={tSon} p={prog(t, tSon, tViaja + 2.0 - tSon, easeInOut)} showProfile={prog(t, tReb, 0.6)} label={prog(t, tCapa + 0.6, 0.6)} o={(1 - prog(t, tSe - 0.2, 0.4) * 0.6) * prog(t, -0.3, 0.5)}
+            build={prog(t, -0.1, 1.8, easeOut)} scan={prog(t, tCier - 0.1, 1.3, easeInOut)} scanO={prog(t, tCier - 0.1, 0.2) * (1 - prog(t, tCapa + 0.9, 0.5))}
+            band={Math.max(0, 1 - Math.abs(t - tCapa - 0.4) * 0.9)} zoom={prog(t, 0, tSe + 2, (x) => x)} axis5={prog(t, 3.4, 0.4)} />
           <FiberInset t={t} t0={tComo - 0.1} t1={tSe - 0.2} x={1260} y={60} w={520} />
           <KTitle t={t} t0={tSe + 0.1} text={'CANAL\nSOFAR'} size={190} y={500} color={K.bone} w0={125} w1={80} g0={200} g1={880} />
           <MonoTag t={t} t0={tSe + 0.6} text="SOUND FIXING AND RANGING" x={960 - 260} y={760} color={K.cyan} />
@@ -643,7 +646,7 @@ export const S05: React.FC<{t: number}> = ({t}) => {
 
 const StationsMap: React.FC<{t: number; t0: number; tSeis: number; tOtro: number; tOcho: number; tAl: number; tLleg: number; tCruz: number; tPunto: number}> = ({t, t0, tSeis, tOtro, tOcho, tAl, tLleg, tCruz, tPunto}) => {
   const z = prog(t, tPunto - 0.6, 2.4, easeInOut);
-  const v: MapV = {lon: mix(V_ATL.lon, PL.evento.lon, z), lat: mix(V_ATL.lat, PL.evento.lat, z), scale: mix(V_ATL.scale, 120, z * z)};
+  const v: MapV = {lon: mix(V_ATL.lon, PL.evento.lon, z), lat: mix(V_ATL.lat, PL.evento.lat, z), scale: mix(V_ATL.scale * (1 + (t - t0) * 0.0035), 120, z * z)}; // acercamiento lento continuo
   const E = PL.evento, A = PL.ascension, C = PL.crozet;
   const dA = 6035, dC = 7760; // distancias publicadas por la CTBTO
   // el frente de onda: 0 → Ascensión en (tAl → tLleg), sigue hasta Crozet
