@@ -313,3 +313,37 @@ IN=video/out/short11_muted.mp4 AUD=audio/mix/mezcla_short11.wav OUT=entrega/el_s
 python3 tools/check_congelados.py entrega/el_sol_de_peron_short.mp4
 # todo lo anterior desde el render, en cola: tools/cola_ep11.sh
 ```
+
+# Episodio 12 · "907 METROS" (ARA San Juan)
+
+En el repo figura como `ep12`. El 15 de noviembre de 2017, un hidrófono de la red que vigila los ensayos nucleares, en la isla Ascensión, registró un ruido que venía del Mar Argentino: era el ARA San Juan, con 44 personas a bordo. El video explica cómo funciona un submarino diésel-eléctrico y el snorkel, reconstruye la noche del 14 de noviembre (el agua que entró por la ventilación, el cortocircuito en las baterías de proa y el último mensaje de las 7:30), la búsqueda (más de una docena de países, un área casi como España, las siete llamadas que no eran del submarino), cómo el canal SOFAR llevó el sonido a 6.000 y 8.000 km, qué es una implosión (con la grabación real del Titan), el año sin rastros, el hallazgo de Ocean Infinity a 907 metros cuando el barco ya se iba y el fallo del juicio de Río Gallegos (2026), con las dos horas que nadie puede explicar. Cierra con los 44 nombres. Dura 7:26.
+
+| Archivo | Qué es |
+|---|---|
+| `907_metros_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep12 · 907 metros (ARA San Juan)` |
+| `entrega/907_metros_short.mp4` | Short vertical para YouTube (1:15, 1080×1920, subtítulos incrustados) que manda al video largo |
+| `entrega/907_metros_subtitulos_es.srt` | Subtítulos en español, con los nombres bien escritos y las cifras |
+| `entrega/907_metros_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos, configuración de subida y fecha sugerida (aniversario) |
+| `entrega/907_metros_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B |
+| `entrega/907_metros_short_publicacion.md` | Cómo publicar el short y enlazarlo al video |
+
+- Guion: `guion/ep12_sanjuan.json` (10 segmentos + el cierre del short). Grafías fonéticas: "Kráfchik", "Óushen Infíniti", "Crozé", "Sófar", "Titán"; el mapa `display` devuelve la grafía real. `tools/timeline_ep12.py` además abre silencios dentro del segmento 6 (después de "implosión." y de "Titanic.", donde suena sola la grabación real) y reserva 19 s para los nombres.
+- Qué mejora respecto del Ep11: **sistema visual nuevo** (Archivo variable con ancho y peso animados, Instrument Serif para lo humano, IBM Plex Mono para datos; títulos que entran letra por letra mientras la fuente pasa de ancha y fina a angosta y pesada; odómetros; escenas que se solapan con transiciones propias: ping de sonar, descenso con desenfoque, barrido, destello y disolvencia; formato de cine 2.39:1 en la apertura que se abre en el título; capítulos en pantalla), **datos reales en 3D** (el fondo del Mar Argentino con la batimetría SRTM15+ de Scripps/NOAA, rayos de sonido del canal SOFAR calculados con el perfil de Munk), **sonido real** (la grabación de la implosión del Titan, NOAA) y un cierre homenaje con los 44 nombres.
+- Escenas: `video/src/ep12/` (composición `SanJuan`)
+  - `kit12.tsx`: paleta, tipografía cinética (`KTitle`, `SyncWords`, `SerifLine`), `Odo`, `DataCard`, `Timecode`, `DepthGauge`, `Chapter`, `NameCard`, fotos y videos de archivo con etalonaje frío, anillos de sonar, retícula, encuesta.
+  - `three12.tsx`: el TR-1700 por partes con rayos X (960 celdas, motores, conducto del snorkel, agua que entra, chispas), el agua (luz que se apaga con la profundidad, rayos, nieve marina, superficie), el mar con tormenta, el fondo marino con batimetría real, el robot, los vehículos autónomos, los restos y la sección de casco que pandea.
+  - `viz12.tsx`: canal SOFAR, mapa del Atlántico con las 11 estaciones, frente de onda geodésico y rumbos, área de búsqueda contra España, espectrograma, eje de horas, calendario, llamadas, y la lista de los 44.
+  - `scenes12a.tsx` (S01–S05 y el título) y `scenes12b.tsx` (S06–S10, los nombres y la pantalla final). `SanJuan.tsx` arma las transiciones. `short12.tsx`: el short vertical (entrada `src/index12s.tsx`).
+- Archivo real: fotos de Wikimedia Commons (`video/public/ep12/img/creditos.json`: U.S. Navy, Embajada de EE. UU., Ministerio de Defensa de Rusia, CTBTO, Casa Rosada, Argentina.gob.ar, Diputados) y videos (`video/public/ep12/vid/creditos.json`: llegada del robot de la Marina de EE. UU. a Comodoro Rivadavia, restos del Titan, submarino Tupi; recortados con ffmpeg desde `raw/ep12/vid`). El espectrograma y la onda del Titan se generan con numpy a partir de `sfx/titan_real.wav`; la imagen de sonar de barrido lateral es una representación generada.
+- Música: cuatro temas originales de ElevenLabs (abismo, la señal, el hallazgo, los nombres). Efectos de ElevenLabs: sonar, ambiente submarino, crujido del casco, implosión, tormenta, cortocircuito, llamada satelital, robot, burbujas, impacto, reloj.
+
+```bash
+EP=ep12 NSEG=10 TEMPO=1.14 python3 tools/proc_audio.py
+EP=ep12 GUION=ep12_sanjuan.json python3 tools/align.py
+EP=ep12 GUION=ep12_sanjuan.json python3 tools/check_voz.py      # verificar la pronunciación
+python3 tools/timeline_ep12.py && python3 tools/mix_ep12.py      # -> audio/mix/mezcla_ep12.wav
+EP=ep12 OUT=907_metros_subtitulos_es.srt python3 tools/srt.py
+python3 tools/short_ep12.py                                       # línea de tiempo y mezcla del short
+tools/cola_ep12.sh   # render por tramos (tools/render_ep12.sh), master 1440p, short y control de congelados
+rclone copy video/out/907_metros_1440p.mp4 "gdrive:CONTEXTO/Ep12 · 907 metros (ARA San Juan)"
+```
