@@ -419,7 +419,7 @@ const Nucleon: React.FC<{p: V3; proton: boolean; r?: number}> = ({p, proton, r =
 export const FUSE_T = {approach: 2.2, merge: 0.35};
 /** k: 0 separados → 1 se tocan; f: 0..1 después del choque (helio + neutrón que sale + destello) */
 export const Fusion3D: React.FC<{t: number; k: number; f: number}> = ({t, k, f}) => {
-  const d = 4.2 * (1 - easeInOut(k));
+  const d = 2.9 * (1 - easeInOut(k));
   const shake = k > 0.9 && f === 0 ? Math.sin(t * 60) * 0.05 : 0;
   const D: V3[] = [[0, 0.2, 0], [0.32, -0.2, 0.1]];
   const T: V3[] = [[0, 0.25, 0], [-0.3, -0.2, 0.1], [0.25, -0.15, -0.3]];
@@ -456,9 +456,9 @@ export const Fusion3D: React.FC<{t: number; k: number; f: number}> = ({t, k, f})
         </sprite>
       ) : null}
       {f > 0 ? (
-        <mesh scale={[1 + f * 10, 1 + f * 10, 1]}>
-          <torusGeometry args={[0.6, 0.03, 8, 64]} />
-          <meshBasicMaterial color="#FFD27A" transparent opacity={Math.max(0, 0.9 - f)} toneMapped={false} />
+        <mesh scale={[1 + f * 8, 1 + f * 8, 1]}>
+          <torusGeometry args={[0.6, 0.012, 8, 96]} />
+          <meshBasicMaterial color="#FFF0C0" transparent opacity={Math.max(0, 0.85 - f * 1.2)} toneMapped={false} blending={THREE.AdditiveBlending} depthWrite={false} />
         </mesh>
       ) : null}
     </group>

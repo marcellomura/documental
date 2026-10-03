@@ -437,8 +437,8 @@ export const S04: React.FC<{t: number}> = ({t}) => {
                 </Stage>
                 {f === 0 ? (
                   <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, opacity: 1 - prog(t, tPegan - 0.3, 0.3)}}>
-                    <text x={project(FUSION_CAM, [-4.2 * (1 - easeInOut(k)) - 0.4, 0, 0])[0]} y={380} textAnchor="middle" fontFamily={F.head} fontSize={46} fill={K.cream}>HIDRÓGENO</text>
-                    <text x={project(FUSION_CAM, [4.2 * (1 - easeInOut(k)) + 0.45, 0, 0])[0]} y={760} textAnchor="middle" fontFamily={F.head} fontSize={46} fill={K.cream}>HIDRÓGENO</text>
+                    <text x={project(FUSION_CAM, [-2.9 * (1 - easeInOut(k)) - 0.4, 0, 0])[0]} y={380} textAnchor="middle" fontFamily={F.head} fontSize={46} fill={K.cream}>HIDRÓGENO</text>
+                    <text x={project(FUSION_CAM, [2.9 * (1 - easeInOut(k)) + 0.45, 0, 0])[0]} y={760} textAnchor="middle" fontFamily={F.head} fontSize={46} fill={K.cream}>HIDRÓGENO</text>
                   </svg>
                 ) : (
                   <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, opacity: prog(t, tLib + 0.3, 0.4)}}>
@@ -455,10 +455,13 @@ export const S04: React.FC<{t: number}> = ({t}) => {
       {between(t, tTierra, tBomba + 0.4) ? (
         <AbsoluteFill style={{opacity: Math.min(prog(t, tTierra, 0.4), 1 - prog(t, tBomba, 0.4))}}>
           <SpaceBg t={t} glow="rgba(92,214,255,0.12)" />
+          <Embers t={t} n={36} o={0.5} color="#9FE6FF" />
+          <div style={{position: 'absolute', inset: 0, transform: `scale(${1 + 0.06 * clamp((t - tTierra) / 7)})`, transformOrigin: '30% 50%'}}>
           <div style={{position: 'absolute', left: 220, top: 200, fontFamily: F.head, fontSize: 76, color: K.cream}}>EN LA TIERRA, SIN ESA GRAVEDAD…</div>
           <EnergyBar t={t} t0={tTierra + 0.6} label="CENTRO DEL SOL" value="15 MILLONES °C" frac={0.17} color={K.sun2} y={420} />
           <EnergyBar t={t} t0={c('decenas') - 0.3} label="LO QUE HACE FALTA EN UN REACTOR" value="DECENAS DE MILLONES °C" frac={0.62} color={K.plasma} y={620} />
           <div style={{position: 'absolute', left: 220, top: 840, fontFamily: F.body, fontWeight: 700, fontSize: 30, color: K.mute, opacity: prog(t, c('decenas') + 0.6, 0.4)}}>Los reactores actuales apuntan a más de 100 millones de grados.</div>
+          </div>
         </AbsoluteFill>
       ) : null}
       {t >= tBomba ? (
