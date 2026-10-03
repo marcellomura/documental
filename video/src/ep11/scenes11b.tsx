@@ -461,10 +461,14 @@ export const S10: React.FC<{t: number}> = ({t}) => {
       ) : null}
       {t >= tRuin ? (
         <AbsoluteFill style={{opacity: prog(t, tRuin, 0.4)}}>
-          <FullPhoto src="ep11/img/ruinas.jpg" t={t} t0={tRuin} zoom={[1.0, 1.06]} focus="60% 75%" dim={0.1} />
+          <div style={{position: 'absolute', inset: 0, overflow: 'hidden'}}>
+            <div style={{position: 'absolute', inset: 0, transform: `scale(${1 + 0.12 * clamp((t - tRuin) / 11)}) translateX(${-30 * clamp((t - tRuin) / 11)}px)`, transformOrigin: '55% 60%'}}>
+              <FullPhoto src="ep11/img/ruinas.jpg" t={t} t0={tRuin} zoom={[1.0, 1.0]} focus="60% 75%" dim={0.1} />
+              <MarkerCircle t={t} t0={c('ruinas') - 0.1} x={800} y={590} rx={360} ry={140} color={K.sun} />
+              <MarkerCircle t={t} t0={c('ruinas') + 0.4} x={1700} y={560} rx={230} ry={180} color={K.sun} />
+            </div>
+          </div>
           <Place t={t} t0={c('isla') - 0.2} a="ISLA HUEMUL · HOY" b="LAS RUINAS DEL PROYECTO" color={K.sun} />
-          <MarkerCircle t={t} t0={c('ruinas') - 0.1} x={800} y={590} rx={360} ry={140} color={K.sun} />
-          <MarkerCircle t={t} t0={c('ruinas') + 0.4} x={1700} y={560} rx={230} ry={180} color={K.sun} />
           {t > tAbre ? (
             <div style={{position: 'absolute', left: 120, top: 820, padding: '22px 34px', background: 'rgba(12,14,23,0.88)', border: `3px solid ${K.green}`, borderRadius: 20, opacity: prog(t, tAbre, 0.4), transform: `scale(${Math.min(1, pop(t, tAbre))})`}}>
               <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 26, letterSpacing: 3, color: K.green}}>BARILOCHE QUIERE ABRIRLA</div>
