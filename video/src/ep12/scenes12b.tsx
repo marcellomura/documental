@@ -22,6 +22,7 @@ const mix = (a: number, b: number, k: number) => a + (b - a) * k;
 export const S06: React.FC<{t: number}> = ({t}) => {
   const c = (p: string, n = 0) => cue('s06', p, n);
   const ins = TL.inserts.s06;
+  const tArm = c('la Armada');
   const tFrase = c('una frase'), tUn = c('un evento'), tZona = c('En la'), tTres = c('tres horas'), tPero = c('Pero lo'), tExp = c('explosión.', 1), tFue = c('Fue una');
   const tImp = ins[0][0], tCada = c('Cada diez'), tAtm = c('una atmósfera'), tCasco = c('El casco'), tTresc = c('trescientos'), tSeg = c('Según'), tCuat = c('cuatrocientos,'), tCed = c('cedió.');
   const tColap = c('El colapso'), tParp = c('un parpadeo.'), tEn23 = c('En dos'), tTitan = c('Titan,'), tTitanic = c('Titanic.'), tAudio = ins[1][0], tArg = c('La Argentina');
@@ -40,9 +41,11 @@ export const S06: React.FC<{t: number}> = ({t}) => {
       {t < tZona ? (
         <AbsoluteFill style={{opacity: fadeIO(t, -0.4, tZona, 0.3)}}>
           <AbyssBg t={t} light={0.2} deep={0.85} snow={0.5} />
-          <Timecode t={t} t0={-0.2} t1={tZona} text="23.11.2017" label="COMUNICADO DE LA ARMADA" y={220} size={86} />
+          {/* comilla gigante de fondo: entra con "la Armada lo anunció" y queda tenue detrás de la cita */}
+          <div style={{position: 'absolute', left: 960, top: 870, transform: `translate(-50%, -50%) scale(${mix(1.3, 1, prog(t, tArm - 0.1, 1.4, easeOut)) + (t - tArm) * 0.01})`, fontFamily: F12.serif, fontSize: 900, lineHeight: 1, color: K.cyan, opacity: prog(t, tArm - 0.1, 0.8) * mix(0.16, 0.06, prog(t, tUn, 0.8)), filter: `blur(${(1 - prog(t, tArm - 0.1, 1.0)) * 18}px)`}}>“</div>
+          <Timecode t={t} t0={-0.2} t1={tZona} text="23.11.2017" label="COMUNICADO DE LA ARMADA" y={mix(470, 220, prog(t, tFrase - 0.4, 0.9, easeInOut))} size={mix(130, 86, prog(t, tFrase - 0.4, 0.9, easeInOut))} />
           <SyncWords t={t} words={quote} size={70} y={600} w={1640} lh={1.25} t1={tZona - 0.15} />
-          <MonoTag t={t} t0={tFrase} t1={tUn - 0.1} text="UNA FRASE QUE NADIE OLVIDÓ" x={960 - 230} y={600} color={K.mute} />
+          <SerifLine t={t} t0={tFrase} t1={tUn - 0.1} text="una frase que nadie olvidó" size={64} x={960} y={620} color={K.mute} />
         </AbsoluteFill>
       ) : null}
       {between(t, tZona - 0.2, tPero) ? (
