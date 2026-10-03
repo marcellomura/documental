@@ -532,6 +532,7 @@ export const S11: React.FC<{t: number; total: number}> = ({t, total}) => {
       {between(t, tResp, tVeces + 0.4) ? (
         <AbsoluteFill style={{opacity: Math.min(prog(t, tResp, 0.4), 1 - prog(t, tVeces, 0.4))}}>
           <SpaceBg t={t} glow="rgba(92,214,255,0.16)" />
+          <Embers t={t} n={30} o={0.45} color="#9FE6FF" />
           <QuoteCard
             t={t}
             t0={tResp}
@@ -570,7 +571,8 @@ export const S11: React.FC<{t: number; total: number}> = ({t, total}) => {
       {between(t, tCont, tSi + 0.3) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tCont, tSi + 0.3, 0.3)}}>
           <SpaceBg t={t} glow="rgba(116,172,223,0.16)" />
-          <div style={{position: 'absolute', left: 340, top: 320, width: 1240, padding: '40px 50px', background: 'rgba(16,18,28,0.94)', border: `3px solid ${K.sun}`, borderRadius: 30, boxShadow: '0 30px 70px rgba(0,0,0,0.6)', transform: `scale(${Math.min(1, pop(t, tCont))})`}}>
+          <Embers t={t} n={40} o={0.6} color="#9FE6FF" />
+          <div style={{position: 'absolute', left: 340, top: 320, width: 1240, padding: '40px 50px', background: 'rgba(16,18,28,0.94)', border: `3px solid ${K.sun}`, borderRadius: 30, boxShadow: `0 30px 70px rgba(0,0,0,0.6), 0 0 ${30 + 20 * Math.sin(t * 3)}px rgba(255,178,62,0.35)`, transform: `scale(${Math.min(1, pop(t, tCont)) * (1 + 0.05 * clamp((t - tCont) / 6))}) rotate(${0.5 * Math.sin(t * 0.9)}deg)`}}>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 34, color: K.sun, letterSpacing: 3}}>💬 CONTANOS EN LOS COMENTARIOS</div>
             <div style={{fontFamily: F.head, fontSize: 92, color: K.cream, lineHeight: 1.05, marginTop: 20, opacity: prog(t, c('¿sabías') - 0.1, 0.3)}}>¿SABÍAS QUE LA ARGENTINA EXPORTA REACTORES NUCLEARES?</div>
           </div>
