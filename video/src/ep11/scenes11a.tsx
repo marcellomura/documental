@@ -273,7 +273,7 @@ const IslaReveal: React.FC<{t: number; t0: number; tB: number; tH: number}> = ({
   return (
     <AbsoluteFill style={{opacity: prog(t, t0, 0.4)}}>
       {t < tH + 0.5 ? (
-        <AbsoluteFill style={{opacity: 1 - prog(t, tH, 0.5), transform: `scale(${1 + 0.9 * easeIn(prog(t, tB + 0.4, 1.4, (x) => x))})`, transformOrigin: `${bx}px ${by}px`}}>
+        <AbsoluteFill style={{opacity: 1 - prog(t, tH, 0.5), transform: `scale(${(1 + 0.08 * clamp((t - t0) / 4)) * (1 + 0.9 * easeIn(prog(t, tB + 0.4, 1.4, (x) => x)))})`, transformOrigin: `${bx}px ${by}px`}}>
           <FlatMap v={MAP_AR} sea="#081019" land="#1C2533" stroke="rgba(160,190,230,0.3)" hl={{ARG: '#2E5F8C'}}>
             <MapPin v={MAP_AR} lon={-71.3} lat={-41.13} label="BARILOCHE" sub="LAGO NAHUEL HUAPI" o={prog(t, tB - 0.6, 0.4)} color={K.sun} side="r" size={40} />
             <MapPin v={MAP_AR} lon={-58.4} lat={-34.6} label="BUENOS AIRES" o={0.7} color={K.celeste} side="r" />
