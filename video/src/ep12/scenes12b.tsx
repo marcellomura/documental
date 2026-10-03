@@ -429,6 +429,23 @@ export const S09: React.FC<{t: number}> = ({t}) => {
           <AbyssBg t={t} light={0.15} deep={0.9} snow={0.3} />
           <DataCard t={t} t0={tVein - 0.2} x={180} y={300} value={26} dur={1.0} label="MESES SIN IR A DIQUE SECO" sub="mantenimiento obligatorio vencido" size={230} color={K.amber} w={760} />
           <DataCard t={t} t0={tTreinta - 0.2} x={1040} y={300} value={33} dur={1.0} label="TAREAS PENDIENTES" sub="de mantenimiento, sin hacer" size={230} color={K.red} w={760} />
+          {/* 26 meses (casilleros que se llenan) y 33 tareas sin hacer */}
+          <svg width={1920} height={1080} style={{position: 'absolute'}}>
+            {Array.from({length: 26}, (_, i) => {
+              const q = prog(t, tVein - 0.1 + i * 0.07, 0.2), x = 180 + (i % 13) * 52, y = 720 + Math.floor(i / 13) * 52;
+              return <rect key={i} x={x} y={y} width={40} height={40} fill={K.amber} fillOpacity={0.75 * q} stroke={K.amber} strokeOpacity={0.5 + 0.5 * q} strokeWidth={2} opacity={prog(t, tVein - 0.3, 0.3)} />;
+            })}
+            <text x={180} y={850} fontFamily={F12.mono} fontSize={20} fill={K.mute} letterSpacing="0.12em" opacity={prog(t, tVein + 1.6, 0.4)}>1 CASILLERO = 1 MES</text>
+            {Array.from({length: 33}, (_, i) => {
+              const q = prog(t, tTreinta - 0.1 + i * 0.05, 0.2), x = 1040 + (i % 11) * 60, y = 720 + Math.floor(i / 11) * 44;
+              return (
+                <g key={i} opacity={prog(t, tTreinta - 0.3, 0.3)}>
+                  <rect x={x} y={y} width={34} height={30} fill="none" stroke={K.line} strokeWidth={2} />
+                  <path d={`M${x + 8} ${y + 7} L${x + 26} ${y + 23} M${x + 26} ${y + 7} L${x + 8} ${y + 23}`} stroke={K.red} strokeWidth={3} opacity={q} />
+                </g>
+              );
+            })}
+          </svg>
           <Credit12 text="Fuente: fundamentos de la sentencia (agosto de 2026)" />
         </AbsoluteFill>
       ) : null}
@@ -441,8 +458,8 @@ export const S09: React.FC<{t: number}> = ({t}) => {
       {between(t, tCond - 0.2, tPero) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tCond - 0.2, tPero, 0.3)}}>
           <AbyssBg t={t} light={0.12} deep={0.92} snow={0.3} />
-          <NameCard t={t} t0={tVilla - 0.1} t1={tLos - 0.1} name="Claudio Villamide" role="EX JEFE DE LA FUERZA DE SUBMARINOS" x={160} y={230} color={K.amber} />
-          <Verdict t={t} t0={tTresA - 0.2} tPor={tPor} t1={tLos - 0.1} />
+          <NameCard t={t} t0={tCond + 0.1} t1={tLos - 0.1} name="Claudio Villamide" role="EX JEFE DE LA FUERZA DE SUBMARINOS" x={160} y={230} color={K.amber} />
+          <Verdict t={t} t0={tTresA - 0.2} tC={c('condenó') + 0.05} tPor={tPor} t1={tLos - 0.1} />
           {[0, 1, 2].map((i) => (
             <React.Fragment key={i}>
               <div style={{position: 'absolute', left: 260 + i * 500, top: 380, width: 400, height: 300, border: `2px solid ${K.line}`, opacity: prog(t, tLos + i * 0.2, 0.4) * (1 - prog(t, tPero - 0.3, 0.3)), display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -481,6 +498,27 @@ const Court: React.FC<{t: number; t0: number; tTrib: number}> = ({t, t0, tTrib})
         <div style={{fontSize: 150, color: K.bone, ...vf(mix(120, 80, prog(t, tTrib, 1)), mix(300, 860, prog(t, tTrib, 1))), marginTop: 10}}>2026</div>
         <div style={{...mono(26, K.mute, 500), letterSpacing: '0.16em', marginTop: 10, opacity: prog(t, tTrib + 0.4, 0.5)}}>DEL 3 DE MARZO AL 8 DE JULIO · MÁS DE 30 AUDIENCIAS</div>
       </div>
+      {/* las audiencias, una por una, hasta el veredicto */}
+      <svg width={1920} height={1080} style={{position: 'absolute'}}>
+        {(() => {
+          const x0 = 460, x1 = 1460, y = 760, tl = prog(t, tTrib + 0.5, 0.6, easeInOut);
+          const ticks = Array.from({length: 31}, (_, i) => x0 + 12 + ((i + (rnd(i + 40) - 0.5) * 0.6) / 30) * (x1 - x0 - 24));
+          const fin = prog(t, tTrib + 2.0, 0.4);
+          return (
+            <g>
+              <line x1={x0} y1={y} x2={x0 + (x1 - x0) * tl} y2={y} stroke={K.line} strokeWidth={2} />
+              {ticks.map((x, i) => {
+                const q = prog(t, tTrib + 0.6 + i * 0.045, 0.2);
+                return <rect key={i} x={x - 3} y={y - 22 * q} width={6} height={22 * q} fill={K.cyan} opacity={0.85 * q} />;
+              })}
+              <text x={x0} y={y + 40} fontFamily={F12.mono} fontSize={22} fill={K.mute} opacity={tl} letterSpacing="0.1em">3 MAR</text>
+              <text x={x1} y={y + 40} textAnchor="end" fontFamily={F12.mono} fontSize={22} fill={K.red} opacity={fin} letterSpacing="0.1em">8 JUL · VEREDICTO</text>
+              <circle cx={x1} cy={y} r={10 + 30 * (1 - fin)} fill="none" stroke={K.red} strokeWidth={2} opacity={fin * (fin < 1 ? 1 - fin * 0.6 : 0.4)} />
+              <circle cx={x1} cy={y} r={9} fill={K.red} opacity={fin} />
+            </g>
+          );
+        })()}
+      </svg>
     </AbsoluteFill>
   );
 };
@@ -523,16 +561,22 @@ const Valve: React.FC<{t: number; t0: number; tJul: number; tCuat: number; t1: n
   );
 };
 
-const Verdict: React.FC<{t: number; t0: number; tPor: number; t1: number}> = ({t, t0, tPor, t1}) => {
-  const o = fadeIO(t, t0, t1, 0.3);
+const Verdict: React.FC<{t: number; t0: number; tC?: number; tPor: number; t1: number}> = ({t, t0, tC, tPor, t1}) => {
+  const tc = tC ?? t0;
+  const o = fadeIO(t, tc, t1, 0.3);
   if (o <= 0) return null;
-  const p = prog(t, t0, 0.6);
+  const p = prog(t, t0, 0.6), pc = prog(t, tc, 0.35);
   return (
     <div style={{position: 'absolute', left: 160, top: 470, opacity: o}}>
-      <div style={{...mono(26, K.red, 600), letterSpacing: '0.24em'}}>CONDENADO</div>
-      <div style={{fontSize: 150, color: K.bone, ...vf(mix(118, 80, p), mix(300, 880, p)), lineHeight: 1}}>3 AÑOS</div>
-      <div style={{fontSize: 52, color: K.bone, ...vf(92, 600)}}>de prisión en suspenso</div>
-      <div style={{...mono(22, K.mute, 500), letterSpacing: '0.12em', marginTop: 8}}>+ 6 AÑOS DE INHABILITACIÓN · ESTRAGO CULPOSO AGRAVADO</div>
+      <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
+        <div style={{fontSize: 64, color: K.red, ...vf(mix(125, 84, pc), mix(300, 860, pc)), letterSpacing: '0.04em', transform: `scale(${mix(1.4, 1, pc)})`, transformOrigin: 'left center'}}>CONDENADO</div>
+        <div style={{height: 3, width: 420 * prog(t, tc + 0.15, 0.6, easeInOut), background: K.red, opacity: 0.7}} />
+      </div>
+      <div style={{opacity: prog(t, t0, 0.3)}}>
+        <div style={{fontSize: 150, color: K.bone, ...vf(mix(118, 80, p), mix(300, 880, p)), lineHeight: 1}}>3 AÑOS</div>
+        <div style={{fontSize: 52, color: K.bone, ...vf(92, 600)}}>de prisión en suspenso</div>
+        <div style={{...mono(22, K.mute, 500), letterSpacing: '0.12em', marginTop: 8}}>+ 6 AÑOS DE INHABILITACIÓN · ESTRAGO CULPOSO AGRAVADO</div>
+      </div>
       <div style={{fontFamily: F12.serif, fontStyle: 'italic', fontSize: 50, color: K.amber, marginTop: 26, opacity: prog(t, tPor - 0.1, 0.5)}}>por autorizar la navegación conociendo las fallas</div>
     </div>
   );
@@ -549,10 +593,16 @@ export const S10: React.FC<{t: number}> = ({t}) => {
       {t < tFam ? <MonoTag t={t} t0={0} t1={tFam} text="907 m · ARA SAN JUAN" x={110} y={170} /> : null}
       {between(t, tFam - 0.2, tGob) ? <Photo src="ep12/img/mdp_01.jpg" t={t} t0={tFam - 0.2} t1={tGob} from={{s: 1.1, x: -30, y: 0}} to={{s: 1.2, x: 20, y: -10}} credit="Argentina.gob.ar · CC BY-SA 2.5" /> : null}
       {between(t, tGob - 0.2, tY) ? <Obeliscos t={t} t0={tGob - 0.2} tDos={tDos} tKm={tKm} t1={tY} /> : null}
+      {/* la respuesta oficial, antes de los números */}
+      <SerifLine t={t} t0={tGob + 0.2} t1={tDos - 0.35} text="según el gobierno de entonces, reflotarlo era" size={58} y={420} color={K.mute} />
+      <KTitle t={t} t0={c('imposible:') - 0.12} t1={tDos - 0.4} text="IMPOSIBLE" size={210} y={590} color={K.red} w0={125} w1={80} />
       {between(t, tY - 0.2, tLo) ? (
         <>
           <Photo src="ep12/img/ha10_01.jpg" t={t} t0={tY - 0.2} t1={tLo} from={{s: 1.25, x: -40, y: 10}} to={{s: 1.06, x: 0, y: 30}} focus="50% 70%" credit="CTBTO · CC BY 2.0" />
           <MonoTag t={t} t0={tRed} t1={tLo - 0.1} text="HA10 · ISLA ASCENSIÓN" x={110} y={210} />
+          <KTitle t={t} t0={tY} t1={tRed + 0.2} text="LA IRONÍA" size={130} y={520} color={K.bone} />
+          <PhotoCard12 src="ep11/vid/ivy_bola.mp4" video t={t} t0={c('bombas') - 0.3} t1={tTerm + 0.15} x={1440} y={430} w={560} h={360} rot={2} caption="PARA ESCUCHAR ESTO" credit="Ivy Mike, 1952 · Depto. de Energía de EE. UU." grade="warm" />
+          <PhotoCard12 src="ep12/img/sj_04.jpg" t={t} t0={tTerm + 0.1} t1={tLo - 0.15} x={1440} y={430} w={560} h={360} rot={-2} caption="ESCUCHÓ ESTO" credit="ARA San Juan · Argentina.gob.ar · CC BY-SA 2.5" grade="cold" />
           <KTitle t={t} t0={t44 - 0.2} t1={tLo - 0.1} text="44 ARGENTINOS" size={120} y={880} color={K.celeste} />
         </>
       ) : null}
@@ -567,6 +617,19 @@ export const S10: React.FC<{t: number}> = ({t}) => {
         <AbsoluteFill style={{opacity: prog(t, tAntes - 0.2, 0.6)}}>
           <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 40%, #0A2238 0%, ${K.abyss} 70%)`}} />
           <MarineSnow t={t} o={0.4} />
+          {/* 44 luces que se encienden de a una (anticipan la grilla de nombres) */}
+          <svg width={1920} height={1080} style={{position: 'absolute', opacity: 1 - 0.65 * prog(t, tEstos - 0.2, 0.6)}}>
+            {Array.from({length: 44}, (_, i) => {
+              const q = prog(t, tAntes + 0.3 + i * 0.065, 0.5), x = 960 + ((i % 11) - 5) * 130, y = 540 + (Math.floor(i / 11) - 1.5) * 110;
+              const fl = 0.85 + 0.15 * Math.sin(t * 2.3 + i * 1.7);
+              return (
+                <g key={i} opacity={q * fl}>
+                  <circle cx={x} cy={y} r={22} fill={K.amber} opacity={0.12} />
+                  <circle cx={x} cy={y} r={5} fill="#FFE2A8" />
+                </g>
+              );
+            })}
+          </svg>
           <KTitle t={t} t0={tEstos - 0.1} text="LOS 44" size={200} y={540} color={K.bone} w0={125} w1={86} g0={200} g1={760} />
         </AbsoluteFill>
       ) : null}
@@ -586,7 +649,7 @@ const Obeliscos: React.FC<{t: number; t0: number; tDos: number; tKm: number; t1:
       <DataCard t={t} t0={tDos - 0.2} x={110} y={240} value={2300} dur={1.0} suffix=" t" label="PESO DEL SUBMARINO" size={150} color={K.amber} />
       <DataCard t={t} t0={tKm - 0.1} x={110} y={560} value={907} dur={1.2} suffix=" m" label="PROFUNDIDAD" size={150} color={K.cyan} />
       <MonoTag t={t} t0={tKm + 1.4} text="= 13 OBELISCOS APILADOS" x={110} y={880} color={K.bone} />
-      <svg width={1920} height={1080} style={{position: 'absolute'}}>
+      <svg width={1920} height={1080} style={{position: 'absolute', opacity: prog(t, tDos - 0.2, 0.4)}}>
         <line x1={1300} y1={top} x2={1700} y2={top} stroke={K.cyan} strokeWidth={3} />
         <text x={1720} y={top + 8} fontFamily={F12.mono} fontSize={22} fill={K.cyan}>0 m</text>
         <line x1={1300} y1={top + H} x2={1700} y2={top + H} stroke={K.red} strokeWidth={3} strokeDasharray="10 6" opacity={prog(t, tKm, 0.4)} />
