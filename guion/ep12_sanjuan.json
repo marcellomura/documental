@@ -1,0 +1,61 @@
+{
+ "titulo": "907 METROS",
+ "subtitulo": "QUÉ LE PASÓ AL ARA SAN JUAN",
+ "episodio": 12,
+ "nota_voz": "El texto usa grafía fonética para que la voz pronuncie bien los nombres; DISPLAY da la ortografía real para subtítulos.",
+ "display": {
+  "Kráfchik": "Krawczyk",
+  "Óushen Infíniti": "Ocean Infinity",
+  "Crozé": "Crozet",
+  "Sófar": "SOFAR",
+  "Titán": "Titan"
+ },
+ "segmentos": [
+  {
+   "id": "s01",
+   "texto": "En una isla perdida en el medio del océano Atlántico hay un micrófono. Está colgado en las profundidades, y lo pusieron ahí para una sola cosa: escuchar bombas atómicas. El quince de noviembre de dos mil diecisiete, ese micrófono registró un ruido que venía de muy lejos. No era una bomba. Era un submarino argentino, con cuarenta y cuatro personas adentro. Durante un año, nadie supo dónde estaba. Esta es la historia del ARA San Juan: qué le pasó, cómo lo encontraron, y las dos horas que, ocho años después, nadie puede explicar."
+  },
+  {
+   "id": "s02",
+   "texto": "El San Juan era un submarino de sesenta y seis metros, construido en Alemania en los años ochenta. No era nuclear: era diésel-eléctrico. Bajo el agua se mueve con baterías, casi mil, como un celular gigante. Pero las baterías se gastan. Para recargarlas, tiene que subir cerca de la superficie y asomar un tubo, el snorkel, por donde respiran sus motores diésel. Es uno de los momentos más delicados de la navegación."
+  },
+  {
+   "id": "s03",
+   "texto": "La noche del catorce de noviembre, el San Juan volvía de Ushuaia a Mar del Plata. A bordo iban cuarenta y cuatro personas. Entre ellas, Eliana Kráfchik, la primera mujer oficial submarinista de Sudamérica. El mar estaba bravo. Navegando con el snorkel, entró agua por el sistema de ventilación, a través de una válvula que ya venía fallando. El agua llegó a las baterías de proa. Cortocircuito, humo, un principio de incendio. La tripulación lo controló, y siguió con las baterías de popa. A las siete y media de la mañana hubo una última comunicación. Después, silencio."
+  },
+  {
+   "id": "s04",
+   "texto": "Recién dos días después, la Armada contó que había perdido contacto. Empezó una búsqueda gigantesca: más de una docena de países, cuatro mil personas, barcos y aviones sobre un área casi del tamaño de España. Las familias esperaban en la base naval de Mar del Plata, aferradas a cualquier señal. Y hubo señales. Siete llamadas satelitales fallidas, que llenaron de esperanza a todo el país. Dos días después, la confirmación: no eran del submarino. Hasta que, ocho días después de la desaparición, habló el micrófono."
+  },
+  {
+   "id": "s05",
+   "texto": "Para entender cómo, hay que saber algo raro del océano. A cierta profundidad hay una capa de agua donde el sonido queda atrapado: rebota arriba y abajo, como la luz en una fibra óptica, y viaja miles de kilómetros sin apagarse. Se llama canal Sófar. Después de la Guerra Fría, el mundo colgó micrófonos en ese canal, para descubrir si alguien probaba bombas atómicas en secreto. Uno está en la isla Ascensión, a seis mil kilómetros del San Juan. Otro, en las islas Crozé, en el océano Índico, a casi ocho mil. Al primero, el ruido tardó más de una hora en llegar. Cruzando los dos registros, apareció un punto en el mapa."
+  },
+  {
+   "id": "s06",
+   "texto": "El veintitrés de noviembre, la Armada lo anunció con una frase que nadie olvidó: un evento anómalo, singular, corto, violento y no nuclear, consistente con una explosión. En la zona del submarino, tres horas después del último contacto. Pero lo que los expertos creen que pasó es lo contrario a una explosión. Fue una implosión. Cada diez metros que bajás en el mar, el agua aprieta con el peso de una atmósfera más. El casco del San Juan estaba diseñado para unos trescientos metros. Según el análisis del sonido, a casi cuatrocientos, cedió. El colapso duró menos que un parpadeo. En dos mil veintitrés, el mundo aprendió esa palabra con el Titán, el sumergible que bajaba a ver el Titanic. La Argentina la había aprendido seis años antes."
+  },
+  {
+   "id": "s07",
+   "texto": "Pero saber qué había pasado no era encontrarlo. El treinta de noviembre terminó la búsqueda de sobrevivientes, y empezaron meses sin nada. Las familias acamparon más de cincuenta días en Plaza de Mayo para que no se abandonara. Al final, el gobierno contrató a una empresa privada, Óushen Infíniti, con una condición: si no lo encontraba, no cobraba nada. Si lo encontraba, siete millones y medio de dólares. En septiembre de dos mil dieciocho llegó su barco, con cinco robots submarinos. Pasaron dos meses. Nada."
+  },
+  {
+   "id": "s08",
+   "texto": "El barco ya tenía fecha para irse: el domingo dieciocho de noviembre partía hacia Sudáfrica. Entonces, revisando otra vez las imágenes del sonar, apareció algo. Un objeto de unos sesenta metros, en el punto de interés número veinticuatro. El viernes a la noche bajaron un robot con cámara. A bordo, mirando la pantalla, había cuatro familiares de los tripulantes. A las doce y media de la madrugada del diecisiete de noviembre, un año y dos días después, lo vieron. El ARA San Juan, a novecientos siete metros de profundidad. Con el casco aplastado."
+  },
+  {
+   "id": "s09",
+   "texto": "¿Por qué pasó? En dos mil veintiséis, un tribunal de Río Gallegos dio una respuesta. La válvula por donde entró el agua tenía una falla detectada en julio de dos mil diecisiete, cuatro meses antes. El submarino llevaba veintiséis meses sin su mantenimiento obligatorio en dique seco, y tenía treinta y tres tareas pendientes. Aun así, salió a patrullar. El tribunal condenó a Claudio Villamide, el jefe de la Fuerza de Submarinos, a tres años de prisión en suspenso, por autorizar la navegación conociendo las fallas. Los otros tres jefes acusados fueron absueltos. Pero hay algo que ni el juicio pudo reconstruir. Entre las ocho y cuarenta y cinco y las diez y cincuenta y uno, nadie sabe qué pasó adentro del San Juan."
+  },
+  {
+   "id": "s10",
+   "texto": "El submarino sigue ahí abajo. Las familias pidieron reflotarlo, para saber la verdad. El gobierno de entonces dijo que era imposible: dos mil trescientas toneladas, a casi un kilómetro de profundidad. Y queda esta ironía. La red de micrófonos que el mundo construyó para escuchar bombas atómicas terminó escuchando el final de cuarenta y cuatro argentinos. Lo que pasó en esas dos horas, por ahora, lo sabe solamente el mar. ¿Vos creés que hay que intentar sacarlo del fondo? Te leo en los comentarios. Y antes de irte, quedate unos segundos más. Estos son sus nombres."
+  }
+ ],
+ "extra_short": [
+  {
+   "id": "x01",
+   "texto": "Cómo lo encontraron a días de abandonar la búsqueda, y lo que dijo la Justicia ocho años después, te lo cuento en el video completo del canal. Tocá el enlace de acá abajo."
+  }
+ ]
+}

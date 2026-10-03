@@ -16,6 +16,14 @@ const FONTS: [string, string, FontFaceDescriptors][] = [
   ['Special Elite', 'SpecialElite-Regular.ttf', {}],
   ['Rock Salt', 'RockSalt-Regular.ttf', {}],
   ['Bungee', 'Bungee-Regular.ttf', {}],
+  // Ep12: grotesca variable (ancho y peso animables), serif editorial y mono técnica
+  ['Archivo', 'Archivo-VF.ttf', {weight: '100 900', stretch: '62% 125%'}],
+  ['Archivo', 'Archivo-Italic-VF.ttf', {weight: '100 900', stretch: '62% 125%', style: 'italic'}],
+  ['Instrument Serif', 'InstrumentSerif-Regular.ttf', {}],
+  ['Instrument Serif', 'InstrumentSerif-Italic.ttf', {style: 'italic'}],
+  ['IBM Plex Mono', 'IBMPlexMono-Regular.ttf', {weight: '400'}],
+  ['IBM Plex Mono', 'IBMPlexMono-Medium.ttf', {weight: '500'}],
+  ['IBM Plex Mono', 'IBMPlexMono-SemiBold.ttf', {weight: '600'}],
 ];
 if (typeof document !== 'undefined' && !(window as any).__fontsLoading) {
   (window as any).__fontsLoading = true;

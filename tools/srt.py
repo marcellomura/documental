@@ -70,6 +70,17 @@ NUM_EP = {
              ("dos mil treinta y nueve", "2039"), ("dos mil veintidós", "2022"), ("dieciséis de febrero", "16 de febrero"),
              ("doce metros", "12 metros"), ("cuatro metros", "4 metros"), ("quince millones", "15 millones"), ("quinientos millones", "500 millones"),
              ("cuarenta millones", "40 millones"), ("treinta y tres años", "33 años"), ("Setenta y cinco años", "75 años")],
+    "ep12": [("quince de noviembre de dos mil diecisiete", "15 de noviembre de 2017"), ("catorce de noviembre", "14 de noviembre"),
+             ("veintitrés de noviembre", "23 de noviembre"), ("treinta de noviembre", "30 de noviembre"), ("domingo dieciocho de noviembre", "domingo 18 de noviembre"),
+             ("diecisiete de noviembre", "17 de noviembre"), ("dos mil dieciocho", "2018"), ("dos mil diecisiete", "2017"), ("dos mil veintitrés", "2023"),
+             ("dos mil veintiséis", "2026"), ("cuarenta y cuatro", "44"), ("sesenta y seis metros", "66 metros"), ("seis mil kilómetros", "6.000 kilómetros"),
+             ("casi ocho mil", "casi 8.000"), ("cuatro mil personas", "4.000 personas"), ("Siete llamadas", "7 llamadas"), ("diez metros", "10 metros"),
+             ("unos trescientos metros", "unos 300 metros"), ("casi cuatrocientos", "casi 400"), ("cincuenta días", "50 días"),
+             ("siete millones y medio de dólares", "7,5 millones de dólares"), ("cinco robots", "5 robots"), ("sesenta metros", "60 metros"),
+             ("número veinticuatro", "número 24"), ("cuatro familiares", "4 familiares"), ("doce y media", "12:30"), ("novecientos siete metros", "907 metros"),
+             ("veintiséis meses", "26 meses"), ("treinta y tres tareas", "33 tareas"), ("tres años", "3 años"), ("ocho y cuarenta y cinco", "8:45"),
+             ("diez y cincuenta y uno", "10:51"), ("dos mil trescientas toneladas", "2.300 toneladas"), ("siete y media", "7:30"), ("ocho años", "8 años"),
+             ("ocho días", "8 días"), ("seis años", "6 años"), ("cuatro meses", "4 meses")],
 }
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):

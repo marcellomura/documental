@@ -1,0 +1,510 @@
+1
+00:00:01,000 --> 00:00:05,540
+En una isla perdida en el medio del
+océano Atlántico hay un micrófono.
+
+2
+00:00:05,560 --> 00:00:09,990
+Está colgado en las profundidades, y
+lo pusieron ahí para una sola cosa:
+
+3
+00:00:10,100 --> 00:00:12,250
+escuchar bombas atómicas.
+
+4
+00:00:12,420 --> 00:00:19,490
+El 15 de noviembre de 2017, ese micrófono
+registró un ruido que venía de muy lejos.
+
+5
+00:00:19,720 --> 00:00:21,150
+No era una bomba.
+
+6
+00:00:21,280 --> 00:00:25,530
+Era un submarino argentino,
+con 44 personas adentro.
+
+7
+00:00:25,680 --> 00:00:28,450
+Durante un año, nadie supo dónde estaba.
+
+8
+00:00:28,680 --> 00:00:30,490
+Esta es la historia del ARA San Juan:
+
+9
+00:00:30,780 --> 00:00:34,490
+qué le pasó, cómo lo encontraron,
+y las dos horas que,
+
+10
+00:00:34,520 --> 00:00:37,670
+8 años después, nadie puede explicar.
+
+11
+00:00:41,276 --> 00:00:48,026
+El San Juan era un submarino de 66 metros,
+construido en Alemania en los años ochenta.
+
+12
+00:00:48,176 --> 00:00:48,946
+No era nuclear:
+
+13
+00:00:49,336 --> 00:00:50,946
+era diésel-eléctrico.
+
+14
+00:00:51,116 --> 00:00:55,926
+Bajo el agua se mueve con baterías,
+casi mil, como un celular gigante.
+
+15
+00:00:56,016 --> 00:00:57,606
+Pero las baterías se gastan.
+
+16
+00:00:57,796 --> 00:01:02,986
+Para recargarlas, tiene que subir cerca
+de la superficie y asomar un tubo,
+
+17
+00:01:03,016 --> 00:01:06,606
+el snorkel, por donde respiran
+sus motores diésel.
+
+18
+00:01:06,816 --> 00:01:10,106
+Es uno de los momentos más
+delicados de la navegación.
+
+19
+00:01:11,119 --> 00:01:16,309
+La noche del 14 de noviembre, el San Juan
+volvía de Ushuaia a Mar del Plata.
+
+20
+00:01:16,539 --> 00:01:18,969
+A bordo iban 44 personas.
+
+21
+00:01:19,219 --> 00:01:25,049
+Entre ellas, Eliana Krawczyk, la primera
+mujer oficial submarinista de Sudamérica.
+
+22
+00:01:25,319 --> 00:01:26,869
+El mar estaba bravo.
+
+23
+00:01:27,079 --> 00:01:31,369
+Navegando con el snorkel, entró agua
+por el sistema de ventilación,
+
+24
+00:01:31,539 --> 00:01:33,819
+a través de una válvula
+que ya venía fallando.
+
+25
+00:01:33,839 --> 00:01:36,789
+El agua llegó a las baterías de proa.
+
+26
+00:01:37,199 --> 00:01:40,449
+Cortocircuito, humo, un
+principio de incendio.
+
+27
+00:01:40,539 --> 00:01:44,469
+La tripulación lo controló, y siguió
+con las baterías de popa.
+
+28
+00:01:44,539 --> 00:01:48,349
+A las 7:30 de la mañana hubo
+una última comunicación.
+
+29
+00:01:48,579 --> 00:01:50,209
+Después, silencio.
+
+30
+00:01:52,020 --> 00:01:56,440
+Recién dos días después, la Armada
+contó que había perdido contacto.
+
+31
+00:01:56,460 --> 00:01:58,770
+Empezó una búsqueda gigantesca:
+
+32
+00:01:58,960 --> 00:02:04,980
+más de una docena de países, 4.000 personas,
+barcos y aviones sobre un área casi
+
+33
+00:02:05,000 --> 00:02:06,490
+del tamaño de España.
+
+34
+00:02:06,780 --> 00:02:10,110
+Las familias esperaban en la
+base naval de Mar del Plata,
+
+35
+00:02:10,300 --> 00:02:11,970
+aferradas a cualquier señal.
+
+36
+00:02:12,100 --> 00:02:13,610
+Y hubo señales.
+
+37
+00:02:13,900 --> 00:02:18,880
+7 llamadas satelitales fallidas, que
+llenaron de esperanza a todo el país.
+
+38
+00:02:18,900 --> 00:02:21,630
+Dos días después, la confirmación:
+
+39
+00:02:21,840 --> 00:02:23,610
+no eran del submarino.
+
+40
+00:02:23,640 --> 00:02:27,730
+Hasta que, 8 días después de la
+desaparición, habló el micrófono.
+
+41
+00:02:28,719 --> 00:02:32,369
+Para entender cómo, hay que
+saber algo raro del océano.
+
+42
+00:02:32,539 --> 00:02:36,709
+A cierta profundidad hay una capa de
+agua donde el sonido queda atrapado:
+
+43
+00:02:36,879 --> 00:02:40,709
+rebota arriba y abajo, como
+la luz en una fibra óptica,
+
+44
+00:02:40,939 --> 00:02:43,589
+y viaja miles de kilómetros sin apagarse.
+
+45
+00:02:43,859 --> 00:02:45,749
+Se llama canal SOFAR.
+
+46
+00:02:46,019 --> 00:02:50,069
+Después de la Guerra Fría, el mundo
+colgó micrófonos en ese canal,
+
+47
+00:02:50,199 --> 00:02:53,609
+para descubrir si alguien probaba
+bombas atómicas en secreto.
+
+48
+00:02:53,779 --> 00:02:57,699
+Uno está en la isla Ascensión,
+a 6.000 kilómetros del San Juan.
+
+49
+00:02:57,719 --> 00:03:01,749
+Otro, en las islas Crozet,
+en el océano Índico,
+
+50
+00:03:01,979 --> 00:03:03,629
+a casi 8.000.
+
+51
+00:03:04,039 --> 00:03:07,069
+Al primero, el ruido tardó
+más de una hora en llegar.
+
+52
+00:03:07,319 --> 00:03:11,029
+Cruzando los dos registros,
+apareció un punto en el mapa.
+
+53
+00:03:12,283 --> 00:03:17,273
+El 23 de noviembre, la Armada lo anunció
+con una frase que nadie olvidó:
+
+54
+00:03:17,343 --> 00:03:22,353
+un evento anómalo, singular,
+corto, violento y no nuclear,
+
+55
+00:03:22,483 --> 00:03:24,533
+consistente con una explosión.
+
+56
+00:03:24,663 --> 00:03:28,813
+En la zona del submarino, tres horas
+después del último contacto.
+
+57
+00:03:28,843 --> 00:03:33,233
+Pero lo que los expertos creen que pasó
+es lo contrario a una explosión.
+
+58
+00:03:33,363 --> 00:03:34,553
+Fue una implosión.
+
+59
+00:03:35,823 --> 00:03:41,023
+Cada 10 metros que bajás en el mar, el agua
+aprieta con el peso de una atmósfera
+
+60
+00:03:41,043 --> 00:03:46,313
+más. El casco del San Juan estaba
+diseñado para unos 300 metros.
+
+61
+00:03:46,523 --> 00:03:50,893
+Según el análisis del sonido,
+a casi 400, cedió.
+
+62
+00:03:51,043 --> 00:03:53,813
+El colapso duró menos que un parpadeo.
+
+63
+00:03:53,923 --> 00:03:58,513
+En 2023, el mundo aprendió
+esa palabra con el Titan,
+
+64
+00:03:58,683 --> 00:04:01,413
+el sumergible que bajaba a ver el Titanic.
+
+65
+00:04:05,123 --> 00:04:08,293
+La Argentina la había
+aprendido 6 años antes.
+
+66
+00:04:10,237 --> 00:04:13,607
+Pero saber qué había pasado
+no era encontrarlo.
+
+67
+00:04:13,877 --> 00:04:17,227
+El 30 de noviembre terminó la
+búsqueda de sobrevivientes,
+
+68
+00:04:17,457 --> 00:04:19,387
+y empezaron meses sin nada.
+
+69
+00:04:19,737 --> 00:04:25,427
+Las familias acamparon más de 50 días en
+Plaza de Mayo para que no se abandonara.
+
+70
+00:04:25,737 --> 00:04:29,267
+Al final, el gobierno contrató
+a una empresa privada,
+
+71
+00:04:29,417 --> 00:04:32,067
+Ocean Infinity, con una condición:
+
+72
+00:04:32,257 --> 00:04:34,247
+si no lo encontraba, no cobraba nada.
+
+73
+00:04:34,477 --> 00:04:37,467
+Si lo encontraba, 7,5 millones de dólares.
+
+74
+00:04:37,717 --> 00:04:43,527
+En septiembre de 2018 llegó su
+barco, con 5 robots submarinos.
+
+75
+00:04:43,677 --> 00:04:44,947
+Pasaron dos meses.
+
+76
+00:04:45,157 --> 00:04:45,527
+Nada.
+
+77
+00:04:46,912 --> 00:04:49,242
+El barco ya tenía fecha para irse:
+
+78
+00:04:49,332 --> 00:04:53,002
+el domingo 18 de noviembre
+partía hacia Sudáfrica.
+
+79
+00:04:53,192 --> 00:04:56,452
+Entonces, revisando otra vez
+las imágenes del sonar,
+
+80
+00:04:56,472 --> 00:04:57,622
+apareció algo.
+
+81
+00:04:57,812 --> 00:05:03,402
+Un objeto de unos 60 metros, en
+el punto de interés número 24.
+
+82
+00:05:03,572 --> 00:05:07,222
+El viernes a la noche bajaron
+un robot con cámara.
+
+83
+00:05:07,352 --> 00:05:11,892
+A bordo, mirando la pantalla, había
+4 familiares de los tripulantes.
+
+84
+00:05:11,912 --> 00:05:15,722
+A las 12:30 de la madrugada
+del 17 de noviembre,
+
+85
+00:05:15,832 --> 00:05:18,682
+un año y dos días después, lo vieron.
+
+86
+00:05:18,852 --> 00:05:23,442
+El ARA San Juan, a 907
+metros de profundidad.
+
+87
+00:05:23,632 --> 00:05:25,622
+Con el casco aplastado.
+
+88
+00:05:27,551 --> 00:05:28,321
+¿Por qué pasó?
+
+89
+00:05:28,651 --> 00:05:33,341
+En 2026, un tribunal de Río
+Gallegos dio una respuesta.
+
+90
+00:05:33,851 --> 00:05:39,401
+La válvula por donde entró el agua tenía
+una falla detectada en julio de 2017,
+
+91
+00:05:39,571 --> 00:05:40,901
+4 meses antes.
+
+92
+00:05:41,291 --> 00:05:47,361
+El submarino llevaba 26 meses sin su mantenimiento
+obligatorio en dique seco,
+
+93
+00:05:47,391 --> 00:05:50,081
+y tenía 33 tareas pendientes.
+
+94
+00:05:50,251 --> 00:05:52,521
+Aun así, salió a patrullar.
+
+95
+00:05:52,691 --> 00:05:57,851
+El tribunal condenó a Claudio Villamide,
+el jefe de la Fuerza de Submarinos,
+
+96
+00:05:57,871 --> 00:06:03,981
+a 3 años de prisión en suspenso, por autorizar
+la navegación conociendo las fallas.
+
+97
+00:06:04,171 --> 00:06:07,861
+Los otros tres jefes acusados
+fueron absueltos.
+
+98
+00:06:07,971 --> 00:06:11,421
+Pero hay algo que ni el
+juicio pudo reconstruir.
+
+99
+00:06:11,531 --> 00:06:18,921
+Entre las 8:45 y las 10:51, nadie
+sabe qué pasó adentro del San Juan.
+
+100
+00:06:20,534 --> 00:06:22,604
+El submarino sigue ahí abajo.
+
+101
+00:06:22,834 --> 00:06:26,444
+Las familias pidieron reflotarlo,
+para saber la verdad.
+
+102
+00:06:26,734 --> 00:06:30,064
+El gobierno de entonces
+dijo que era imposible:
+
+103
+00:06:30,234 --> 00:06:34,764
+2.300 toneladas, a casi un
+kilómetro de profundidad.
+
+104
+00:06:34,954 --> 00:06:36,244
+Y queda esta ironía.
+
+105
+00:06:36,454 --> 00:06:42,134
+La red de micrófonos que el mundo construyó
+para escuchar bombas atómicas terminó
+
+106
+00:06:42,154 --> 00:06:46,174
+escuchando el final de 44 argentinos.
+
+107
+00:06:46,194 --> 00:06:51,024
+Lo que pasó en esas dos horas, por
+ahora, lo sabe solamente el mar.
+
+108
+00:06:51,294 --> 00:06:53,904
+¿Vos creés que hay que intentar
+sacarlo del fondo?
+
+109
+00:06:54,194 --> 00:06:55,584
+Te leo en los comentarios.
+
+110
+00:06:55,994 --> 00:06:58,744
+Y antes de irte, quedate
+unos segundos más.
+
+111
+00:06:59,054 --> 00:07:00,584
+Estos son sus nombres.
