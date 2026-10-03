@@ -279,7 +279,7 @@ En el repo figura como `ep11`. El 24 de marzo de 1951, Perón anunció que en la
 
 | Archivo | Qué es |
 |---|---|
-| `el_sol_de_peron_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep11 · El Sol de Perón` |
+| `el_sol_de_peron_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS, 864 MB, md5 `1f0bc0c2d9627f4d74fe295bd120d3da`). No va en git: está en Drive, en `CONTEXTO/Ep11 · El Sol de Perón` (carpeta `1Vwqy7cytUdf7ufLwYe5R3SNy6t_2QtLH`, archivo `1uUhWpNzx8OQa8Vvn138FkPVaMWjUbAau`) |
 | `entrega/el_sol_de_peron_short.mp4` | Short vertical para YouTube (1:10, 1080×1920, subtítulos incrustados) que manda al video largo |
 | `entrega/el_sol_de_peron_subtitulos_es.srt` | Subtítulos en español, con los nombres bien escritos y las cifras |
 | `entrega/el_sol_de_peron_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
@@ -287,6 +287,7 @@ En el repo figura como `ep11`. El 24 de marzo de 1951, Perón anunció que en la
 | `entrega/el_sol_de_peron_short_publicacion.md` | Cómo publicar el short y enlazarlo al video |
 
 - Guion: `guion/ep11_huemul.json` (11 segmentos + el cierre del short). Grafías fonéticas: "Ríjter", "Spítser", "Prínston", "estelarátor", "Ínvap", "Ársat", "Íter", "Édward Téler"; el mapa `display` devuelve la grafía real (lo aplica `tools/timeline_ep11.py`). La locución se verificó con `tools/check_voz.py` y además sin el guion como pista.
+- Control de calidad: cada tramo se revisó con `tools/check_congelados.py` y una hoja de cuadros cada 2 s apenas salía del render; los que tenían pausas de 3 s o más se corrigieron (movimiento lento, barra que crece en vivo, gallina dibujada a mano) y se volvieron a renderizar. El master final no tiene tramos quietos de más de 3 s (solo pausas de lectura de 2–3 s sobre textos).
 - Qué mejora respecto del Ep10: mucho más **video de archivo real** (noticiero de 1953 con Perón en el balcón, el noticiero Sucesos Argentinos del Pulqui II, la bomba H Ivy Mike, el láser del NIF, el Sol filmado por la NASA), una estructura en tres actos con ganchos al final de cada parte ("Fin de la historia. O eso parecía"), una encuesta para comentarios a mitad del video y una pregunta al final.
 - Escenas: `video/src/ep11/` (composición `Sol`)
   - `three11.tsx`: la isla Huemul en el lago con montañas, bosque, edificios que se levantan, lancha y reflectores militares de noche; el reactor de hormigón de 12 m (cuñas extruidas) con la grieta y la demolición; el Sol con su núcleo; la fusión deuterio + tritio → helio + neutrón; el stellarator de Spitzer (bobinas y plasma retorcido).
