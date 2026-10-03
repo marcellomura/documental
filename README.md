@@ -272,3 +272,43 @@ cd video && npx remotion render src/index10s.tsx ShortCuadro out/short10_muted.m
 IN=video/out/short10_muted.mp4 AUD=audio/mix/mezcla_short10.wav OUT=entrega/el_cuadro_del_nazi_short.mp4 TITLE="EL CUADRO DEL NAZI (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
 python3 tools/check_congelados.py entrega/el_cuadro_del_nazi_short.mp4
 ```
+
+# Episodio 11 · "EL SOL DE PERÓN"
+
+En el repo figura como `ep11`. El 24 de marzo de 1951, Perón anunció que en la isla Huemul (lago Nahuel Huapi, Bariloche) la Argentina había logrado la fusión nuclear controlada, algo que ni Estados Unidos ni la URSS habían conseguido; hasta dijo que la energía se iba a vender "en envases de medio litro, como la leche". El video cuenta quién era Ronald Richter, la ciudad científica de la isla y el reactor de 12 metros que mandó demoler, explica la fusión nuclear de forma simple, muestra cómo José Antonio Balseiro (33 años) desarmó el fraude en 1952 y cierra con el giro: la mentira despertó los programas de fusión de EE. UU. (el stellarator de Spitzer) y de la URSS, y en Bariloche dejó el Instituto Balseiro, INVAP y una industria que hoy exporta reactores. Termina con la fusión hoy (NIF, ITER) y la isla que se abre al público. Dura 7:07.
+
+| Archivo | Qué es |
+|---|---|
+| `el_sol_de_peron_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep11 · El Sol de Perón` |
+| `entrega/el_sol_de_peron_short.mp4` | Short vertical para YouTube (1:10, 1080×1920, subtítulos incrustados) que manda al video largo |
+| `entrega/el_sol_de_peron_subtitulos_es.srt` | Subtítulos en español, con los nombres bien escritos y las cifras |
+| `entrega/el_sol_de_peron_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos y configuración de subida |
+| `entrega/el_sol_de_peron_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B |
+| `entrega/el_sol_de_peron_short_publicacion.md` | Cómo publicar el short y enlazarlo al video |
+
+- Guion: `guion/ep11_huemul.json` (11 segmentos + el cierre del short). Grafías fonéticas: "Ríjter", "Spítser", "Prínston", "estelarátor", "Ínvap", "Ársat", "Íter", "Édward Téler"; el mapa `display` devuelve la grafía real (lo aplica `tools/timeline_ep11.py`). La locución se verificó con `tools/check_voz.py` y además sin el guion como pista.
+- Qué mejora respecto del Ep10: mucho más **video de archivo real** (noticiero de 1953 con Perón en el balcón, el noticiero Sucesos Argentinos del Pulqui II, la bomba H Ivy Mike, el láser del NIF, el Sol filmado por la NASA), una estructura en tres actos con ganchos al final de cada parte ("Fin de la historia. O eso parecía"), una encuesta para comentarios a mitad del video y una pregunta al final.
+- Escenas: `video/src/ep11/` (composición `Sol`)
+  - `three11.tsx`: la isla Huemul en el lago con montañas, bosque, edificios que se levantan, lancha y reflectores militares de noche; el reactor de hormigón de 12 m (cuñas extruidas) con la grieta y la demolición; el Sol con su núcleo; la fusión deuterio + tritio → helio + neutrón; el stellarator de Spitzer (bobinas y plasma retorcido).
+  - `kit11.tsx`: película de noticiero (parpadeo, rayas, polvo), cuenta regresiva de película, video de archivo enmarcado con perforaciones, diarios recreados, teletipo, botellas de "energía ½ litro", banderas, termómetro en escala real, osciloscopios, enchufe desconectado, encuesta para comentarios, rótulos y el destello solar como transición.
+  - `scenes11a.tsx` (S01–S06) y `scenes11b.tsx` (S07–S11 y la pantalla final). `short11.tsx`: el short vertical (entrada `src/index11s.tsx`).
+- Archivo real: fotos de Wikimedia Commons (`video/public/ep11/img/creditos.json`) y videos (`video/public/ep11/vid/creditos.json`, recortados con ffmpeg desde `raw/ep11/vid`). El noticiero del Pulqui II tenía barras negras y una marca de agua arriba a la izquierda: se recorta con `crop=924:520:178:125`.
+- Música: tres temas originales de ElevenLabs (era atómica, tensión, legado). Efectos de ElevenLabs: arco eléctrico, contador Geiger, prensa con flashes, jet, explosión termonuclear, zumbido de laboratorio, teletipo, láser, demolición y gallinas.
+
+```bash
+EP=ep11 NSEG=11 TEMPO=1.16 python3 tools/proc_audio.py
+EP=ep11 GUION=ep11_huemul.json python3 tools/align.py
+EP=ep11 GUION=ep11_huemul.json SEGS=s01,s02 python3 tools/check_voz.py   # verificar la pronunciación
+python3 tools/timeline_ep11.py && python3 tools/mix_ep11.py        # -> audio/mix/mezcla_ep11.wav
+EP=ep11 OUT=el_sol_de_peron_subtitulos_es.srt python3 tools/srt.py
+tools/render_ep11.sh                                               # -> video/out/ep11/cXX.mp4 (por tramos, ~5 h)
+TRAMOS="video/out/ep11/c*.mp4" AUD=audio/mix/mezcla_ep11.wav OUT=video/out/el_sol_de_peron_1440p.mp4 TITLE="EL SOL DE PERÓN" VBR=16M MAXRATE=24M BUFSIZE=36M tools/final_tramos.sh
+python3 tools/check_congelados.py video/out/el_sol_de_peron_1440p.mp4
+rclone copy video/out/el_sol_de_peron_1440p.mp4 "gdrive:CONTEXTO/Ep11 · El Sol de Perón"
+# short (el cierre x01 se procesa aparte en audio/ep11/short/final)
+python3 tools/short_ep11.py
+cd video && npx remotion render src/index11s.tsx ShortSol out/short11_muted.mp4 --muted --gl=swangle --crf=15 && cd ..
+IN=video/out/short11_muted.mp4 AUD=audio/mix/mezcla_short11.wav OUT=entrega/el_sol_de_peron_short.mp4 TITLE="EL SOL DE PERÓN (Short)" VBR=7M MAXRATE=12M BUFSIZE=20M tools/final.sh
+python3 tools/check_congelados.py entrega/el_sol_de_peron_short.mp4
+# todo lo anterior desde el render, en cola: tools/cola_ep11.sh
+```

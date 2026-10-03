@@ -1,0 +1,532 @@
+1
+00:00:00,450 --> 00:00:04,420
+24 de marzo de 1951.
+
+2
+00:00:04,530 --> 00:00:09,200
+Juan Domingo Perón reúne a la prensa y hace
+un anuncio que da la vuelta al mundo:
+
+3
+00:00:09,430 --> 00:00:14,710
+en una isla secreta de la Patagonia, la Argentina
+logró algo que ni Estados Unidos
+
+4
+00:00:14,730 --> 00:00:17,800
+ni la Unión Soviética habían conseguido.
+
+5
+00:00:17,910 --> 00:00:22,760
+Encender, dentro de una máquina, el
+mismo fuego que hace brillar al Sol.
+
+6
+00:00:22,870 --> 00:00:28,410
+Energía casi infinita y barata, que según
+Perón se iba a vender en envases de medio
+
+7
+00:00:28,430 --> 00:00:30,180
+litro, como la leche.
+
+8
+00:00:30,250 --> 00:00:31,820
+Era todo mentira.
+
+9
+00:00:31,970 --> 00:00:34,680
+Pero lo más increíble no es la mentira.
+
+10
+00:00:34,810 --> 00:00:37,180
+Es lo que esa mentira terminó creando.
+
+11
+00:00:40,224 --> 00:00:43,454
+El hombre detrás del anuncio
+se llamaba Ronald Richter,
+
+12
+00:00:43,624 --> 00:00:46,434
+un físico austríaco que
+casi nadie conocía.
+
+13
+00:00:46,604 --> 00:00:52,534
+En 1948 llegó a Buenos Aires
+recomendado por Kurt Tank,
+
+14
+00:00:52,824 --> 00:00:56,574
+el ingeniero alemán que le diseñaba
+aviones a reacción a Perón.
+
+15
+00:00:56,784 --> 00:00:58,814
+Y le prometió algo irresistible:
+
+16
+00:00:59,004 --> 00:01:01,214
+una Argentina potencia atómica.
+
+17
+00:01:01,344 --> 00:01:05,904
+Perón contaría después que, en media hora,
+Richter le explicó todos los secretos
+
+18
+00:01:05,924 --> 00:01:06,944
+de la física nuclear.
+
+19
+00:01:06,964 --> 00:01:08,534
+Le dieron lo que pidió:
+
+20
+00:01:08,624 --> 00:01:15,114
+plata, obreros, secreto absoluto, y una
+isla entera en el lago Nahuel Huapi,
+
+21
+00:01:15,244 --> 00:01:16,534
+frente a Bariloche.
+
+22
+00:01:16,684 --> 00:01:18,174
+La isla Huemul.
+
+23
+00:01:19,204 --> 00:01:24,594
+Ahí, entre bosques y agua helada, se levantó
+una ciudad científica de la nada,
+
+24
+00:01:24,644 --> 00:01:26,594
+con un reactor gigante:
+
+25
+00:01:26,804 --> 00:01:29,514
+un cilindro de hormigón
+de 12 metros de ancho,
+
+26
+00:01:29,624 --> 00:01:31,374
+con paredes de 4 metros.
+
+27
+00:01:31,624 --> 00:01:36,454
+Antes de terminarlo, Richter dijo que
+tenía una grieta y lo mandó demoler.
+
+28
+00:01:36,504 --> 00:01:40,374
+Y cuando alguien le discutía,
+respondía siempre lo mismo:
+
+29
+00:01:40,724 --> 00:01:43,254
+es que usted no sabe mi secreto.
+
+30
+00:01:43,464 --> 00:01:47,284
+El proyecto costó unos 15 millones
+de dólares de la época.
+
+31
+00:01:47,304 --> 00:01:50,274
+Hoy serían más de 500 millones.
+
+32
+00:01:51,455 --> 00:01:53,405
+Pero, ¿qué decía haber logrado?
+
+33
+00:01:53,695 --> 00:01:54,805
+Fusión nuclear.
+
+34
+00:01:55,135 --> 00:01:58,175
+En el centro del Sol hace
+unos 15 millones de grados,
+
+35
+00:01:58,195 --> 00:02:02,445
+y la gravedad aprieta tanto que los núcleos
+de hidrógeno chocan y se pegan.
+
+36
+00:02:02,595 --> 00:02:05,465
+Y al fusionarse, liberan
+muchísima energía.
+
+37
+00:02:05,795 --> 00:02:09,925
+En la Tierra, sin esa gravedad,
+hace falta más calor todavía:
+
+38
+00:02:10,355 --> 00:02:12,665
+decenas de millones de grados.
+
+39
+00:02:12,855 --> 00:02:16,565
+La fusión sin control ya estaba
+en los planos de las potencias:
+
+40
+00:02:16,895 --> 00:02:18,845
+era la bomba de hidrógeno.
+
+41
+00:02:19,095 --> 00:02:22,845
+Controlarla, en cambio, era el
+sueño imposible de la física.
+
+42
+00:02:24,107 --> 00:02:27,837
+Richter aseguró que el 16 de
+febrero lo había conseguido,
+
+43
+00:02:27,927 --> 00:02:30,897
+y la noticia salió en diarios
+de todo el planeta.
+
+44
+00:02:31,067 --> 00:02:33,777
+Pero los físicos de afuera no le creían.
+
+45
+00:02:34,027 --> 00:02:37,127
+Edward Teller, el padre
+de la bomba de hidrógeno,
+
+46
+00:02:37,147 --> 00:02:38,157
+lo resumió así:
+
+47
+00:02:38,287 --> 00:02:42,117
+leyendo una línea, uno
+piensa que es un genio.
+
+48
+00:02:42,307 --> 00:02:45,777
+Leyendo la siguiente, se da
+cuenta de que está loco.
+
+49
+00:02:45,947 --> 00:02:50,977
+Y en la isla no trabajaba ni un solo
+físico argentino de renombre.
+
+50
+00:02:51,147 --> 00:02:52,297
+Antes de seguir:
+
+51
+00:02:52,667 --> 00:02:54,297
+¿vos le hubieras creído?
+
+52
+00:02:54,447 --> 00:02:55,877
+Dejámelo en los comentarios.
+
+53
+00:02:57,464 --> 00:03:00,664
+Con el tiempo, hasta el
+gobierno empezó a dudar.
+
+54
+00:03:00,684 --> 00:03:06,774
+En septiembre de 1952, Perón
+manda una comisión a la isla.
+
+55
+00:03:06,864 --> 00:03:11,774
+Entre sus miembros va un físico
+de 33 años, casi desconocido:
+
+56
+00:03:11,864 --> 00:03:13,674
+José Antonio Balseiro.
+
+57
+00:03:13,824 --> 00:03:15,794
+Y su informe es demoledor.
+
+58
+00:03:16,064 --> 00:03:21,204
+Para la reacción que decía Richter hacían
+falta por lo menos 40 millones de grados.
+
+59
+00:03:21,224 --> 00:03:25,414
+Su máquina, un arco eléctrico,
+llegaba a unos pocos miles.
+
+60
+00:03:25,644 --> 00:03:28,714
+Como querer hervir el
+océano con un fósforo.
+
+61
+00:03:28,744 --> 00:03:31,474
+¿Y las mediciones que
+probaban la reacción?
+
+62
+00:03:31,744 --> 00:03:35,514
+Los detectores marcaban lo mismo
+aunque no hubiera combustible:
+
+63
+00:03:35,584 --> 00:03:40,134
+medían la chispa eléctrica,
+no átomos fusionándose.
+
+64
+00:03:40,284 --> 00:03:41,114
+Conclusión:
+
+65
+00:03:41,304 --> 00:03:46,224
+las afirmaciones del doctor Richter no corresponden
+a hechos comprobados con criterio
+
+66
+00:03:46,244 --> 00:03:47,254
+científico.
+
+67
+00:03:48,340 --> 00:03:52,050
+En noviembre de ese año, los
+militares toman la isla.
+
+68
+00:03:52,180 --> 00:03:55,550
+Encuentran instrumentos que ni
+siquiera estaban conectados.
+
+69
+00:03:55,680 --> 00:04:01,130
+El proyecto se declara un fraude, y el
+sol argentino se apaga en silencio.
+
+70
+00:04:01,260 --> 00:04:06,470
+Después del golpe de 1955,
+Richter es detenido.
+
+71
+00:04:06,660 --> 00:04:11,980
+Pasó sus últimos años criando gallinas, e
+insistiendo en que tenía la fórmula para
+
+72
+00:04:12,000 --> 00:04:13,460
+crear pequeños soles.
+
+73
+00:04:13,480 --> 00:04:16,750
+Murió en 1991.
+
+74
+00:04:16,900 --> 00:04:18,170
+Fin de la historia.
+
+75
+00:04:18,360 --> 00:04:19,630
+O eso parecía.
+
+76
+00:04:21,410 --> 00:04:26,100
+Porque en marzo de 1951, un
+astrofísico de Princeton,
+
+77
+00:04:26,430 --> 00:04:30,840
+Lyman Spitzer, leyó la noticia argentina
+justo antes de irse a esquiar.
+
+78
+00:04:30,970 --> 00:04:33,560
+Pensó: esto no puede funcionar.
+
+79
+00:04:33,710 --> 00:04:36,420
+Pero, ¿qué haría falta
+para que sí funcione?
+
+80
+00:04:36,590 --> 00:04:41,970
+Y arriba de una aerosilla imaginó una máquina
+para atrapar con imanes un gas a millones
+
+81
+00:04:41,990 --> 00:04:43,170
+de grados:
+
+82
+00:04:43,190 --> 00:04:44,480
+el stellarator.
+
+83
+00:04:44,690 --> 00:04:49,510
+Dos meses después, el gobierno de Estados
+Unidos le dio plata para construirla.
+
+84
+00:04:49,530 --> 00:04:53,100
+Así nació su programa de fusión,
+que todavía existe.
+
+85
+00:04:53,210 --> 00:04:58,080
+Hasta en la Unión Soviética, el anuncio
+ayudó a destrabar proyectos.
+
+86
+00:04:58,110 --> 00:05:01,720
+La mentira argentina despertó
+a las potencias.
+
+87
+00:05:02,905 --> 00:05:05,715
+Y en la Argentina pasó algo parecido.
+
+88
+00:05:05,865 --> 00:05:07,915
+Balseiro propuso no tirar todo:
+
+89
+00:05:08,105 --> 00:05:12,665
+con los equipos de la isla nació en Bariloche
+un instituto de física que hoy lleva
+
+90
+00:05:12,685 --> 00:05:13,395
+su nombre.
+
+91
+00:05:13,605 --> 00:05:15,395
+El Instituto Balseiro.
+
+92
+00:05:15,525 --> 00:05:21,935
+En 1958, el país encendió el primer
+reactor nuclear de América Latina.
+
+93
+00:05:22,125 --> 00:05:29,635
+Y en 1976, en Bariloche, nació INVAP, que empezó
+a hacer lo que Richter solo prometió:
+
+94
+00:05:29,845 --> 00:05:31,595
+tecnología nuclear de verdad.
+
+95
+00:05:31,885 --> 00:05:35,245
+Hoy la Argentina vende reactores
+a Perú, Argelia,
+
+96
+00:05:35,265 --> 00:05:40,075
+Egipto y Australia, donde le ganó la
+licitación a empresas de Alemania,
+
+97
+00:05:40,145 --> 00:05:41,405
+Francia y Canadá.
+
+98
+00:05:41,425 --> 00:05:43,915
+Ahora construye uno en Países Bajos.
+
+99
+00:05:43,985 --> 00:05:47,855
+Y de esa misma ciudad salieron
+los satélites ARSAT.
+
+100
+00:05:48,877 --> 00:05:49,727
+¿Y la fusión?
+
+101
+00:05:50,157 --> 00:05:54,507
+75 años después, todavía no
+encendió una sola lamparita.
+
+102
+00:05:54,597 --> 00:06:00,897
+En 2022, un laboratorio de California logró
+por primera vez sacarle a la fusión
+
+103
+00:06:00,917 --> 00:06:03,767
+más energía que la que
+le pusieron los láseres.
+
+104
+00:06:03,977 --> 00:06:09,707
+Pero para disparar esos láseres se gasta
+muchísima más electricidad de la que sale.
+
+105
+00:06:09,837 --> 00:06:15,637
+Y el gran reactor internacional, ITER, recién
+planea usar su combustible definitivo
+
+106
+00:06:15,657 --> 00:06:21,457
+en 2039. Mientras tanto, en la isla
+Huemul, las ruinas siguen ahí,
+
+107
+00:06:21,477 --> 00:06:24,507
+tapadas por el bosque y los grafitis.
+
+108
+00:06:24,757 --> 00:06:28,267
+Bariloche quiere abrirla a los
+visitantes a fin de este año.
+
+109
+00:06:29,460 --> 00:06:32,430
+Richter prometió un sol,
+y no entregó nada.
+
+110
+00:06:32,700 --> 00:06:36,370
+Pero obligó a un país a preguntarse
+quién sabía de verdad.
+
+111
+00:06:36,620 --> 00:06:41,480
+Y la respuesta fue un físico joven que se
+animó a decirle al presidente que lo habían
+
+112
+00:06:41,500 --> 00:06:46,390
+engañado. A veces, una mentira
+enorme deja algo verdadero.
+
+113
+00:06:46,440 --> 00:06:48,070
+Contanos en los comentarios:
+
+114
+00:06:48,720 --> 00:06:52,410
+¿sabías que la Argentina exporta
+reactores nucleares?
+
+115
+00:06:52,700 --> 00:06:58,680
+Si te gustó, suscribite, y compartilo con
+alguien que todavía crea en las promesas
+
+116
+00:06:58,700 --> 00:07:01,350
+fáciles. Nos vemos en el próximo video.
