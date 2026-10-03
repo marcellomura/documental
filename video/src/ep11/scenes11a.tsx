@@ -5,7 +5,7 @@ import {F} from '../theme';
 import {cue} from './lib';
 import {
   K, TYPE, SpaceBg, Embers, FilmFX, ArchiveVideo, FilmFrame, ArchCredit, Leader, NameTag, Newspaper, Ticker, MilkBottle, Flag, QuoteCard, Poll, DocSheet, EnergyBar, Scope, MoneyCount,
-  Big, Chip, FullPhoto, Vig, Stamp, Typed, PhotoCard, DateCard, Place, YearRoll, MarkerCircle, between, fadeIO, clamp, easeIn, easeInOut, easeOut, prog, pop, rnd,
+  Big, Chip, FullPhoto, Vig, Stamp, Typed, PhotoCard, DateCard, Place, YearRoll, MarkerCircle, between, fadeIO, clamp, easeIn, easeInOut, easeOut, prog, pop, rnd, fmt,
 } from './kit11';
 import {FlatMap, MapRoute, MapPin, mapXY} from '../ep10/kit10';
 import type {MapView} from '../ep10/kit10';
@@ -614,8 +614,8 @@ export const S06: React.FC<{t: number}> = ({t}) => {
         <AbsoluteFill style={{opacity: Math.min(prog(t, tMed, 0.4), 1 - prog(t, tConc, 0.4))}}>
           <SpaceBg t={t} glow="rgba(89,209,138,0.1)" />
           <div style={{position: 'absolute', left: 0, right: 0, top: 110, textAlign: 'center', fontFamily: F.head, fontSize: 70, color: K.cream, opacity: prog(t, tMed, 0.4)}}>¿Y LAS MEDICIONES?</div>
-          <Scope t={t} t0={c('Los detectores') - 0.3} x={150} y={300} title="REACCIÓN “EXITOSA”" spikes={[c('marcaban'), c('marcaban') + 1.4, c('combustible:') + 0.2, c('chispa') - 0.2]} fuel />
-          <Scope t={t} t0={c('aunque') - 0.4} x={1010} y={300} title="SIN COMBUSTIBLE" spikes={[c('marcaban'), c('marcaban') + 1.4, c('combustible:') + 0.2, c('chispa') - 0.2]} fuel={false} />
+          <Scope t={t} t0={tMed + 0.3} x={150} y={300} title="REACCIÓN “EXITOSA”" spikes={[c('marcaban'), c('marcaban') + 1.4, c('combustible:') + 0.2, c('chispa') - 0.2]} fuel />
+          <Scope t={t} t0={tMed + 0.6} x={1010} y={300} title="SIN COMBUSTIBLE" spikes={[c('marcaban'), c('marcaban') + 1.4, c('combustible:') + 0.2, c('chispa') - 0.2]} fuel={false} />
           <Big t={t} t0={c('lo mismo') - 0.1} t1={c('medían') - 0.1} text="MARCABAN LO MISMO" size={84} y={900} color={K.sun} />
           {t > c('medían') - 0.1 ? <Big t={t} t0={c('medían') - 0.1} text="MEDÍAN LA CHISPA, NO LA FUSIÓN" size={84} y={900} color={K.red} /> : null}
         </AbsoluteFill>
@@ -637,16 +637,17 @@ export const S06: React.FC<{t: number}> = ({t}) => {
 const TempCompare: React.FC<{t: number; c: (p: string, n?: number, w?: 's' | 'e') => number; t0: number; t1: number}> = ({t, c, t0, t1}) => {
   const tNeed = c('cuarenta') - 0.2, tArc = c('Su máquina,') - 0.1, tMiles = c('unos pocos') - 0.1, tOce = c('Como querer') - 0.1;
   const L = 1560, X0 = 180;
-  const need = easeOut(prog(t, tNeed, 1.2));
+  const need = 0.35 * easeInOut(prog(t, t0 + 0.3, tNeed - t0 - 0.3, (x) => x)) + 0.65 * easeOut(prog(t, tNeed, 1.2));
   const mag = prog(t, tMiles, 0.5);
   return (
     <AbsoluteFill style={{opacity: Math.min(prog(t, t0, 0.4), 1 - prog(t, t1, 0.4))}}>
       <SpaceBg t={t} glow="rgba(92,214,255,0.12)" />
       {t < tOce + 0.3 ? (
-        <AbsoluteFill style={{opacity: 1 - prog(t, tOce, 0.3)}}>
+        <AbsoluteFill style={{opacity: 1 - prog(t, tOce, 0.3), transform: `scale(${1 + 0.07 * clamp((t - t0) / 10)})`, transformOrigin: '20% 50%'}}>
           <div style={{position: 'absolute', left: X0, top: 200, fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 4, color: K.mute, opacity: prog(t, t0 + 0.2, 0.4)}}>LO QUE HACÍA FALTA</div>
           <div style={{position: 'absolute', left: X0, top: 250, height: 90, width: L * need, background: `linear-gradient(90deg, ${K.sun2}, ${K.sun})`, borderRadius: 10, boxShadow: '0 0 40px rgba(255,140,40,0.5)'}} />
           <div style={{position: 'absolute', left: X0, top: 360, fontFamily: F.head, fontSize: 110, color: K.cream, opacity: prog(t, tNeed + 0.4, 0.4)}}>40.000.000 °C</div>
+          <div style={{position: 'absolute', left: X0, top: 360, fontFamily: F.head, fontSize: 110, color: K.sun, opacity: 1 - prog(t, tNeed + 0.2, 0.3)}}>{fmt(Math.round(40000000 * need / 1000) * 1000)} °C</div>
           <div style={{position: 'absolute', left: X0, top: 600, fontFamily: F.body, fontWeight: 800, fontSize: 30, letterSpacing: 4, color: K.mute, opacity: prog(t, tArc, 0.4)}}>EL ARCO ELÉCTRICO DE RICHTER</div>
           <div style={{position: 'absolute', left: X0, top: 650, height: 90, width: 4, background: K.plasma, opacity: prog(t, tArc + 0.2, 0.2), boxShadow: `0 0 20px ${K.plasma}`}} />
           {mag > 0 ? (
