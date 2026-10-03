@@ -4,7 +4,8 @@
 set -e
 cd "$(dirname "$0")/.."
 while pgrep -f "tools/render_ep11.sh" > /dev/null; do sleep 60; done
-[ -s video/out/ep11/c11.mp4 ] || { echo "faltan tramos"; exit 1; }
+tools/render_ep11.sh   # re-renderiza los tramos que falten (por ejemplo, uno borrado para corregirlo)
+for n in $(seq -w 1 11); do [ -s video/out/ep11/c$n.mp4 ] || { echo "falta el tramo $n"; exit 1; }; done
 echo "== master $(date +%H:%M)"
 TRAMOS="video/out/ep11/c*.mp4" AUD=audio/mix/mezcla_ep11.wav OUT=video/out/el_sol_de_peron_1440p.mp4 \
   TITLE="EL SOL DE PERÓN" VBR=16M MAXRATE=24M BUFSIZE=36M tools/final_tramos.sh

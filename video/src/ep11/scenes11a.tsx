@@ -121,7 +121,9 @@ export const S01: React.FC<{t: number; dur: number}> = ({t, dur}) => {
             const crack = prog(t, tMent + 0.1 + i * 0.12, 0.5);
             const fill = easeOut(prog(t, t0, 1.4)) * (1 - 0.85 * prog(t, tMent + 0.5, 0.8));
             const shake = crack > 0 && crack < 1 ? Math.sin(t * 70 + i) * 6 * (1 - crack) : 0;
-            return t >= t0 - 0.05 ? <MilkBottle key={i} t={t} x={660 + i * 300 + shake} y={640} s={1.0} fill={fill} glow={fill} crack={crack} o={prog(t, t0, 0.3)} rot={i === 1 ? 0 : (i - 1) * 3} /> : null;
+            const bob = Math.sin(t * 1.7 + i * 1.3) * 10 * (1 - crack);
+            const push = 1 + 0.07 * clamp((t - tEn) / 7);
+            return t >= t0 - 0.05 ? <MilkBottle key={i} t={t} x={960 + (660 + i * 300 - 960) * push + shake} y={640 + bob} s={push} fill={fill} glow={fill} crack={crack} o={prog(t, t0, 0.3)} rot={(i === 1 ? 0 : (i - 1) * 3) + Math.sin(t * 1.3 + i) * 1.5} /> : null;
           })}
           <div style={{position: 'absolute', left: 0, right: 0, top: 110, textAlign: 'center', opacity: fadeIO(t, tEn, tMent + 0.2)}}>
             <div style={{fontFamily: F.head, fontSize: 92, color: K.sun, letterSpacing: 3, textShadow: '0 0 40px rgba(255,160,60,0.5)'}}>ENERGÍA CASI INFINITA Y BARATA</div>
@@ -138,7 +140,12 @@ export const S01: React.FC<{t: number; dur: number}> = ({t, dur}) => {
       {between(t, tPero, TITLE + 0.05) ? (
         <AbsoluteFill style={{opacity: prog(t, tPero, 0.3)}}>
           <SpaceBg t={t} glow="rgba(92,214,255,0.12)" />
-          {t < tEs + 0.05 ? <Big t={t} t0={tPero + 0.1} text="LO MÁS INCREÍBLE NO ES LA MENTIRA" size={96} color={K.cream} y={520} /> : null}
+          {t < tEs + 0.05 ? (
+            <div style={{position: 'absolute', inset: 0, transform: `scale(${1 + 0.06 * clamp((t - tPero) / 3)})`}}>
+              <Big t={t} t0={tPero + 0.1} text="LO MÁS INCREÍBLE NO ES LA MENTIRA" size={96} color={K.cream} y={520} />
+            </div>
+          ) : null}
+          <Embers t={t} n={40} o={0.6} />
           {['ep11/img/ib2.jpg', 'ep11/img/ra6_int.jpg', 'ep11/img/w7x.jpg', 'ep11/img/arsat1.jpg'].map((src, i) => {
             const t0 = tEs + 0.1 + i * 0.42;
             if (t < t0 || t > TITLE) return null;
