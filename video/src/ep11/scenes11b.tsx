@@ -63,7 +63,14 @@ export const S07: React.FC<{t: number}> = ({t}) => {
           <AbsoluteFill style={{background: '#E9DFC9'}}>
             <Img src={staticFile('tex/paper.png')} style={{width: '100%', height: '100%', mixBlendMode: 'multiply', opacity: 0.7}} />
           </AbsoluteFill>
+          <div style={{position: 'absolute', inset: 0, transform: `scale(${1 + 0.06 * clamp((t - tPaso) / 10)})`, transformOrigin: '30% 50%'}}>
           <PhotoCard t={t} t0={tPaso} src="ep11/img/richter.jpg" x={500} y={500} w={520} h={650} rot={-4} caption="Ronald Richter" />
+          {t > c('criando') - 0.3 && t < c('pequeños') - 0.2 ? (
+            <div style={{position: 'absolute', left: 1080, top: 230, opacity: Math.min(prog(t, c('criando') - 0.3, 0.3), 1 - prog(t, c('pequeños') - 0.6, 0.4))}}>
+              <Hen t={t - c('criando') + 0.3} />
+              <div style={{fontFamily: F.hand, fontSize: 72, color: '#3A2A1E', marginTop: -10, transform: 'rotate(-3deg)'}}>criando gallinas…</div>
+            </div>
+          ) : null}
           <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0}}>
             {Array.from({length: 7}, (_, i) => {
               const t0 = c('pequeños') - 0.6 + i * 0.22;
@@ -82,6 +89,7 @@ export const S07: React.FC<{t: number}> = ({t}) => {
             })}
           </svg>
           <div style={{position: 'absolute', left: 980, top: 820, width: 860, fontFamily: F.hand, fontSize: 56, color: '#3A2A1E', opacity: prog(t, c('la fórmula') - 0.1, 0.5), transform: 'rotate(-2deg)'}}>“Tengo la fórmula para crear pequeños soles”</div>
+          </div>
           {t > tMurio - 0.2 ? (
             <div style={{position: 'absolute', left: 1000, top: 110, fontFamily: F.head, fontSize: 130, color: '#2A2018', opacity: prog(t, tMurio - 0.2, 0.4)}}>
               1909 – <span style={{color: K.red}}>1991</span>
@@ -113,6 +121,22 @@ export const S07: React.FC<{t: number}> = ({t}) => {
         </AbsoluteFill>
       ) : null}
     </AbsoluteFill>
+  );
+};
+
+/** gallina dibujada a mano que se traza y picotea */
+const Hen: React.FC<{t: number}> = ({t}) => {
+  const d = 'M60 160 C40 120 60 70 110 70 C120 40 150 30 165 55 C180 50 190 62 182 72 L200 80 L182 86 C188 120 170 170 120 180 C95 185 70 178 60 160 Z M150 50 C152 38 160 32 166 40 M100 120 C120 110 140 115 150 130 M105 180 L100 215 L88 222 M100 215 L112 222 M135 178 L140 212 L128 220 M140 212 L152 220';
+  const k = clamp(t / 1.4);
+  const peck = Math.max(0, Math.sin(t * 5)) * 6;
+  return (
+    <svg width={440} height={380} viewBox="0 0 240 240" style={{overflow: 'visible'}}>
+      <g transform={`rotate(${peck * 0.6} 180 80)`}>
+        <path d={d} fill="none" stroke="#3A2A1E" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - k} />
+        <circle cx={168} cy={64} r={4} fill="#3A2A1E" opacity={k} />
+        <path d="M160 46 C164 36 172 38 170 46" fill="none" stroke="#B5531E" strokeWidth={6} strokeLinecap="round" opacity={k} />
+      </g>
+    </svg>
   );
 };
 
