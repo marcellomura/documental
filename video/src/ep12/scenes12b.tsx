@@ -191,7 +191,8 @@ export const S07: React.FC<{t: number}> = ({t}) => {
       {between(t, tTreinta - 0.2, tFam) ? (
         <AbsoluteFill style={{opacity: fadeIO(t, tTreinta - 0.2, tFam, 0.3)}}>
           <AbyssBg t={t} light={0.2} deep={0.85} snow={0.5} />
-          <Timecode t={t} t0={tTreinta - 0.1} text="30.11.2017" label="TERMINA LA BÚSQUEDA DE SOBREVIVIENTES" x={110} y={200} size={80} align="left" />
+          <Timecode t={t} t0={tTreinta - 0.1} text="30.11.2017" label="15 DÍAS DESPUÉS" x={110} y={200} size={80} align="left" />
+          <KTitle t={t} t0={c('terminó') - 0.1} t1={tMeses - 0.55} text={'TERMINÓ LA BÚSQUEDA\nDE SOBREVIVIENTES'} size={118} y={580} hl={{SOBREVIVIENTES: K.red}} />
           <Months t={t} t0={tMeses - 0.2} />
           <PhotoCard12 src="ep12/img/blq_01.jpg" t={t} t0={tMeses + 0.4} t1={tFam} x={1380} y={560} w={760} h={507} rot={2} caption="FALSO CONTACTO: UN BLOQUE DE HORMIGÓN" credit="Robot ruso Panther Plus · Min. de Defensa de Rusia · CC BY 4.0" grade="none" />
         </AbsoluteFill>
