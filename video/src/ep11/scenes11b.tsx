@@ -9,6 +9,8 @@ import {
   Big, Chip, FullPhoto, Vig, Stamp, Typed, PhotoCard, DateCard, Place, YearRoll, MarkerCircle, between, fadeIO, clamp, easeIn, easeInOut, easeOut, prog, pop, rnd,
 } from './kit11';
 import {GlobeShot, GPin} from '../ep10/shots10';
+import {FlatMap, MapRoute, MapPin} from '../ep10/kit10';
+import type {MapView} from '../ep10/kit10';
 import {IslandShot, ISL_WIDE, Stage, Sun3D, Stellarator3D, STEL_CAM, camPath} from './three11';
 
 const C = (seg: string) => (phrase: string, n = 0, w: 's' | 'e' = 's') => cue(seg, phrase, n, w);
@@ -30,7 +32,8 @@ export const S07: React.FC<{t: number}> = ({t}) => {
         <AbsoluteFill style={{opacity: Math.min(prog(t, tInst, 0.4), 1 - prog(t, tFraude, 0.4))}}>
           <FullPhoto src="ep11/img/richter_lab.jpg" t={t} t0={tInst} zoom={[1.12, 1.28]} focus="35% 60%" bw dim={0.55} />
           <FilmFX t={t} k={0.6} />
-          <Plug t={t} t0={c('conectados.') - 0.6} x={960} y={420} s={0.9} />
+          <div style={{position: 'absolute', left: 360, top: 230, width: 1200, height: 380, borderRadius: 40, background: 'rgba(5,6,11,0.82)', boxShadow: '0 30px 80px rgba(0,0,0,0.6)', opacity: prog(t, tInst + 0.1, 0.4)}} />
+          <Plug t={t} t0={c('conectados.') - 0.7} x={960} y={420} s={1.25} />
           <Big t={t} t0={c('instrumentos') - 0.1} text="INSTRUMENTOS SIN CONECTAR" size={96} y={800} color={K.cream} hl={{CONECTAR: K.red}} />
         </AbsoluteFill>
       ) : null}
@@ -65,7 +68,7 @@ export const S07: React.FC<{t: number}> = ({t}) => {
             {Array.from({length: 7}, (_, i) => {
               const t0 = c('pequeños') - 0.6 + i * 0.22;
               const k = prog(t, t0, 0.5);
-              const x = 1000 + (i % 4) * 210 + (i > 3 ? 100 : 0), y = 300 + Math.floor(i / 4) * 300;
+              const x = 1010 + (i % 4) * 210 + (i > 3 ? 100 : 0), y = 420 + Math.floor(i / 4) * 230;
               const r = 50 + rnd(i) * 20;
               return k > 0 ? (
                 <g key={i} opacity={k} stroke="#B5531E" strokeWidth={5} fill="none" strokeLinecap="round">
@@ -80,8 +83,8 @@ export const S07: React.FC<{t: number}> = ({t}) => {
           </svg>
           <div style={{position: 'absolute', left: 980, top: 820, width: 860, fontFamily: F.hand, fontSize: 56, color: '#3A2A1E', opacity: prog(t, c('la fórmula') - 0.1, 0.5), transform: 'rotate(-2deg)'}}>“Tengo la fórmula para crear pequeños soles”</div>
           {t > tMurio - 0.2 ? (
-            <div style={{position: 'absolute', left: 1000, top: 140, fontFamily: F.head, fontSize: 120, color: '#2A2018', opacity: prog(t, tMurio - 0.2, 0.4)}}>
-              1909 – <span style={{color: K.red}}>{Math.round(1955 + 36 * easeOut(prog(t, tMurio, 1.4)))}</span>
+            <div style={{position: 'absolute', left: 1000, top: 110, fontFamily: F.head, fontSize: 130, color: '#2A2018', opacity: prog(t, tMurio - 0.2, 0.4)}}>
+              1909 – <span style={{color: K.red}}>1991</span>
             </div>
           ) : null}
           <ArchCredit text="Foto: Wikimedia Commons (dominio público)" />
@@ -267,12 +270,13 @@ const Chairlift: React.FC<{t: number}> = ({t}) => {
 
 /* ============================================================ S09 — el legado */
 const BARI: [number, number] = [-71.3, -41.13];
+const WORLD: MapView = {lon: 22, lat: 6, scale: 5.5};
 const EXPORTS: {name: string; sub: string; p: [number, number]; ph: string; side?: 'l' | 'r'}[] = [
   {name: 'PERÚ', sub: 'RP-0 · RP-10', p: [-77.0, -12.0], ph: 'Perú,', side: 'l'},
-  {name: 'ARGELIA', sub: 'NUR', p: [3.0, 36.7], ph: 'Argelia,'},
+  {name: 'ARGELIA', sub: 'NUR', p: [3.0, 36.7], ph: 'Argelia,', side: 'l'},
   {name: 'EGIPTO', sub: 'ETRR-2', p: [31.2, 30.0], ph: 'Egipto'},
   {name: 'AUSTRALIA', sub: 'OPAL', p: [151.0, -34.0], ph: 'Australia,'},
-  {name: 'PAÍSES BAJOS', sub: 'PALLAS · en construcción', p: [4.7, 52.8], ph: 'Países'},
+  {name: 'PAÍSES BAJOS', sub: 'PALLAS · en construcción', p: [4.7, 52.8], ph: 'Países', side: 'l'},
 ];
 export const S09: React.FC<{t: number}> = ({t}) => {
   const c = C('s09');
@@ -330,32 +334,18 @@ export const S09: React.FC<{t: number}> = ({t}) => {
       {between(t, tVende, tArsat + 0.4) ? (
         <AbsoluteFill style={{opacity: Math.min(prog(t, tVende, 0.4), 1 - prog(t, tArsat, 0.4))}}>
           <SpaceBg t={t} glow="rgba(116,172,223,0.12)" />
-          {(() => {
-            const tAus = c('Australia,');
-            const tPB = c('Países') - 0.3;
-            const lon = t < tAus - 0.3 ? -40 + 50 * easeInOut(prog(t, tVende, 3.0)) : t < tPB ? 10 + 110 * easeInOut(prog(t, tAus - 0.3, 1.4)) : 120 - 110 * easeInOut(prog(t, tPB, 1.4));
-            const lat = t < tAus - 0.3 ? 0 : t < tPB ? -12 : 25 * easeInOut(prog(t, tPB, 1.4)) - 12 * (1 - easeInOut(prog(t, tPB, 1.4)));
-            return (
-              <GlobeShot
-                t={t}
-                v={{lon, lat, dist: 9.6, x: -1.0}}
-                routes={EXPORTS.map((e) => ({pts: [BARI, e.p], p: prog(t, c(e.ph) - 0.4, 1.0), color: K.plasma, h: 0.14}))}
-                countries={[{a3: 'ARG', color: '#74ACDF', o: 0.9}]}
-              >
-                {(pt) => (
-                  <>
-                    {EXPORTS.map((e) => (
-                      <GPin key={e.name} xy={pt(...e.p)} label={e.name} sub={e.sub} o={prog(t, c(e.ph) + 0.4, 0.4)} color={K.plasma} side={e.side ?? 'r'} />
-                    ))}
-                    <GPin xy={pt(...BARI)} label="BARILOCHE" o={0.9} color={K.sun} side="l" />
-                  </>
-                )}
-              </GlobeShot>
-            );
-          })()}
+          <FlatMap v={WORLD} sea="#071019" land="#1A2433" stroke="rgba(160,190,230,0.22)" hl={{ARG: '#2E5F8C', PER: '#1F4A63', DZA: '#1F4A63', EGY: '#1F4A63', AUS: '#1F4A63', NLD: '#1F4A63'}}>
+            {EXPORTS.map((e) => (
+              <MapRoute key={e.name} v={WORLD} pts={[BARI, e.p]} p={easeInOut(prog(t, c(e.ph) - 0.5, 0.9, (x) => x))} color={K.plasma} curve={e.name === 'PERÚ' ? -0.3 : 0.16} width={5} />
+            ))}
+            {EXPORTS.map((e) => (
+              <MapPin key={'p' + e.name} v={WORLD} lon={e.p[0]} lat={e.p[1]} label={e.name} sub={e.sub} o={prog(t, c(e.ph) + 0.3, 0.4)} color={K.plasma} side={e.side ?? 'r'} size={34} />
+            ))}
+            <MapPin v={WORLD} lon={BARI[0]} lat={BARI[1]} label="BARILOCHE" o={prog(t, tVende, 0.4)} color={K.sun} side="r" size={34} />
+          </FlatMap>
           <div style={{position: 'absolute', left: 80, top: 80, fontFamily: F.head, fontSize: 70, color: K.cream, opacity: prog(t, tVende, 0.4)}}>LA ARGENTINA VENDE REACTORES</div>
           {between(t, c('donde') - 0.2, c('Ahora') - 0.1) ? (
-            <div style={{position: 'absolute', left: 1180, top: 300, width: 640, padding: '30px 36px', background: 'rgba(12,14,23,0.9)', border: `3px solid ${K.plasma}`, borderRadius: 22, opacity: fadeIO(t, c('donde') - 0.2, c('Ahora') - 0.1, 0.3)}}>
+            <div style={{position: 'absolute', left: 1240, top: 130, width: 600, padding: '26px 32px', background: 'rgba(12,14,23,0.92)', border: `3px solid ${K.plasma}`, borderRadius: 22, opacity: fadeIO(t, c('donde') - 0.2, c('Ahora') - 0.1, 0.3)}}>
               <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 26, letterSpacing: 3, color: K.mute}}>LICITACIÓN DEL REACTOR OPAL · 2000</div>
               <div style={{fontFamily: F.head, fontSize: 60, color: K.cream, marginTop: 8}}>LE GANÓ A:</div>
               {[['ALEMANIA', 'Alemania,'], ['FRANCIA', 'Francia'], ['CANADÁ', 'Canadá.']].map(([n, ph]) => (
@@ -447,11 +437,12 @@ export const S10: React.FC<{t: number}> = ({t}) => {
       ) : null}
       {t >= tRuin ? (
         <AbsoluteFill style={{opacity: prog(t, tRuin, 0.4)}}>
-          <FullPhoto src="ep11/img/ruinas.jpg" t={t} t0={tRuin} zoom={[1.0, 1.32]} focus="70% 70%" dim={0.15} />
+          <FullPhoto src="ep11/img/ruinas.jpg" t={t} t0={tRuin} zoom={[1.0, 1.06]} focus="60% 75%" dim={0.1} />
           <Place t={t} t0={c('isla') - 0.2} a="ISLA HUEMUL · HOY" b="LAS RUINAS DEL PROYECTO" color={K.sun} />
-          <MarkerCircle t={t} t0={c('ruinas') - 0.1} x={1470} y={800} rx={330} ry={150} color={K.sun} />
+          <MarkerCircle t={t} t0={c('ruinas') - 0.1} x={800} y={590} rx={360} ry={140} color={K.sun} />
+          <MarkerCircle t={t} t0={c('ruinas') + 0.4} x={1700} y={560} rx={230} ry={180} color={K.sun} />
           {t > tAbre ? (
-            <div style={{position: 'absolute', left: 120, top: 760, padding: '22px 34px', background: 'rgba(12,14,23,0.88)', border: `3px solid ${K.green}`, borderRadius: 20, opacity: prog(t, tAbre, 0.4), transform: `scale(${Math.min(1, pop(t, tAbre))})`}}>
+            <div style={{position: 'absolute', left: 120, top: 820, padding: '22px 34px', background: 'rgba(12,14,23,0.88)', border: `3px solid ${K.green}`, borderRadius: 20, opacity: prog(t, tAbre, 0.4), transform: `scale(${Math.min(1, pop(t, tAbre))})`}}>
               <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 26, letterSpacing: 3, color: K.green}}>BARILOCHE QUIERE ABRIRLA</div>
               <div style={{fontFamily: F.head, fontSize: 64, color: K.cream}}>VISITAS: FIN DE 2026</div>
             </div>
@@ -532,11 +523,20 @@ export const S11: React.FC<{t: number; total: number}> = ({t, total}) => {
       {between(t, tVeces, tCont + 0.4) ? (
         <AbsoluteFill style={{opacity: Math.min(prog(t, tVeces, 0.4), 1 - prog(t, tCont, 0.4))}}>
           <SpaceBg t={t} glow="rgba(255,140,40,0.14)" />
-          <Stage cam={{pos: [0, 0, 13 - 2 * prog(t, tVeces, 4, (x) => x)], look: [0, 0, 0], fov: 40}} keyI={0.4} fill={0.3}>
-            <Sun3D t={t} r={2.6} pos={[0, -6 + 5 * easeOut(prog(t, tVeces, 2.6)), -2]} />
-          </Stage>
+          {(() => {
+            const y = 1180 - 520 * easeOut(prog(t, tVeces, 2.8));
+            return (
+              <>
+                <AbsoluteFill style={{background: `radial-gradient(circle at 50% ${(y / 1080) * 100}%, rgba(255,200,110,0.55) 0%, rgba(255,120,30,0.25) 22%, rgba(0,0,0,0) 45%)`}} />
+                <div style={{position: 'absolute', left: 960 - 300, top: y - 300, width: 600, height: 600, borderRadius: 300, overflow: 'hidden', boxShadow: '0 0 120px 40px rgba(255,150,50,0.45)'}}>
+                  <ArchiveVideo src="ep11/vid/sol171.mp4" t={t} t0={tVeces - 0.4} rate={0.5} film={0} dim={0} zoom={[1.12, 1.12]} fade={0.1} />
+                </div>
+              </>
+            );
+          })()}
           <Embers t={t} n={50} o={0.7} />
-          <Big t={t} t0={tVeces + 0.2} text="A VECES, UNA MENTIRA ENORME | DEJA ALGO VERDADERO" size={110} y={250} color={K.cream} hl={{VERDADERO: K.sun}} lh={1.05} />
+          <Big t={t} t0={tVeces + 0.2} text="A VECES, UNA MENTIRA ENORME | DEJA ALGO VERDADERO" size={110} y={220} color={K.cream} hl={{VERDADERO: K.sun}} lh={1.05} />
+          <ArchCredit text="Sol: NASA SDO (dominio público)" />
         </AbsoluteFill>
       ) : null}
       {between(t, tCont, tSi + 0.3) ? (

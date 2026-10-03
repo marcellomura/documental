@@ -64,10 +64,10 @@ const concreteTex = () =>
     512,
     512,
     (g) => {
-      g.fillStyle = '#8E8A82';
+      g.fillStyle = '#C4C0B8';
       g.fillRect(0, 0, 512, 512);
       for (let i = 0; i < 9000; i++) {
-        const v = 110 + Math.floor(rnd(i) * 60);
+        const v = 160 + Math.floor(rnd(i) * 60);
         g.fillStyle = `rgba(${v},${v - 4},${v - 10},0.35)`;
         g.fillRect(rnd(i + 1) * 512, rnd(i + 2) * 512, 2, 2);
       }
@@ -277,7 +277,7 @@ export const Island3D: React.FC<{s: IslandState}> = ({s}) => {
 export const ISL_WIDE: Cam = {pos: [6, 17, 44], look: [0, 1, 0], fov: 38};
 export const ISL_HIGH: Cam = {pos: [0, 40, 30], look: [0, 0, 0], fov: 40};
 export const ISL_LOW: Cam = {pos: [-14, 4.5, 20], look: [0, 1.5, 0], fov: 36};
-export const ISL_REACT: Cam = {pos: [5, 6, 10], look: [REACTOR_XZ[0], 2, REACTOR_XZ[1]], fov: 36};
+export const ISL_REACT: Cam = {pos: [7, 9, 17], look: [REACTOR_XZ[0], 1.6, REACTOR_XZ[1]], fov: 36};
 
 export const IslandShot: React.FC<{s: IslandState; cam: Cam; o?: number; w?: number; h?: number}> = ({s, cam, o = 1, w, h}) => {
   const night = s.night ?? 0;
@@ -316,7 +316,7 @@ export const Reactor3D: React.FC<{t: number; build: number; crack: number; demol
     <group>
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[160, 160]} />
-        <meshStandardMaterial color="#6E6A60" roughness={1} />
+        <meshStandardMaterial color="#7C7F78" roughness={1} />
       </mesh>
       {Array.from({length: SEG}, (_, i) => {
         const a = (i / SEG) * Math.PI * 2 + Math.PI / 2;
@@ -330,7 +330,7 @@ export const Reactor3D: React.FC<{t: number; build: number; crack: number; demol
           <group key={i} rotation={[0, -a, 0]}>
             <group position={[out, -fall, 0]} rotation={[0, 0, -tilt]}>
               <mesh geometry={geo} scale={[1, k, 1]} castShadow receiveShadow>
-                <meshStandardMaterial map={concreteTex()} color="#DAD4C8" roughness={0.95} />
+                <meshStandardMaterial map={concreteTex()} color="#FFFFFF" roughness={0.95} />
               </mesh>
             </group>
           </group>

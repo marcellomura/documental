@@ -24,7 +24,7 @@ export const S01: React.FC<{t: number; dur: number}> = ({t, dur}) => {
       {/* noticiero: Perón en el balcón */}
       {between(t, 0.8, tIsla + 0.4) ? (
         <AbsoluteFill>
-          <ArchiveVideo src="ep11/vid/bal_saludo.mp4" t={t} t0={0.9} t1={tIsla + 0.4} from={1.6} bw sepia zoom={[1.06, 1.16]} focus="50% 40%" credit="Noticiero 1953 · DiFilm / Wikimedia Commons (dominio público)" />
+          <ArchiveVideo src="ep11/vid/bal_saludo.mp4" t={t} t0={0.9} t1={tIsla + 0.4} from={1.2} rate={0.8} bw sepia zoom={[1.06, 1.16]} focus="50% 40%" credit="Noticiero 1953 · DiFilm / Wikimedia Commons (dominio público)" />
           <div style={{position: 'absolute', left: 0, right: 0, top: 160, textAlign: 'center', opacity: fadeIO(t, 1.0, c('Juan') + 0.4)}}>
             <div style={{fontFamily: F.head, fontSize: 150, color: K.cream, letterSpacing: 8, textShadow: '0 10px 50px rgba(0,0,0,0.9)', transform: `scale(${1.08 - 0.08 * easeOut(prog(t, 1.0, 1.2))})`}}>24 · III · 1951</div>
           </div>
@@ -178,7 +178,7 @@ export const TitleCard: React.FC<{t: number}> = ({t}) => {
 };
 
 /* ============================================================ S02 — Richter */
-const MAP_EU: MapView = {lon: -22, lat: 8, scale: 13};
+const MAP_EU: MapView = {lon: -22, lat: 12, scale: 12.5};
 export const S02: React.FC<{t: number}> = ({t}) => {
   const c = C('s02');
   const tMap = c('En mil'), tTank = c('recomendado') - 0.2, tProm = c('Y le prometió'), tMedia = c('Perón contaría'), tDieron = c('Le dieron'), tIsla = c('y una isla');
@@ -288,7 +288,7 @@ const IslaReveal: React.FC<{t: number; t0: number; tB: number; tH: number}> = ({
 /* ============================================================ S03 — la ciudad científica y el reactor demolido */
 export const S03: React.FC<{t: number}> = ({t}) => {
   const c = C('s03');
-  const tCity = c('se levantó') - 0.3, tCil = c('un cilindro') - 0.2, tAlg = c('Y cuando') - 0.1, tCost = c('El proyecto') - 0.1;
+  const tCity = c('se levantó') - 0.3, tCil = c('un cilindro') - 0.2, tAlg = c('respondía') - 0.7, tCost = c('El proyecto') - 0.1;
   const tCrack = c('Antes'), tDem = c('mandó');
   return (
     <AbsoluteFill style={{background: K.bg0}}>
@@ -345,8 +345,8 @@ const ReactorShot: React.FC<{t: number; c: (p: string, n?: number, w?: 's' | 'e'
   const showDims = t < tCrack + 0.3;
   return (
     <AbsoluteFill style={{opacity: Math.min(prog(t, t0, 0.4), 1 - prog(t, t1, 0.4))}}>
-      <AbsoluteFill style={{background: 'linear-gradient(180deg, #1A2232 0%, #3A3A44 60%, #2A2824 100%)'}} />
-      <Stage cam={cam} key0={[-14, 22, 16]} keyI={2.4} fill={0.6} shadow={24}>
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, #2C3E5C 0%, #6F86A6 45%, #A9B4C2 62%, #5A5A58 100%)'}} />
+      <Stage cam={cam} key0={[18, 24, 22]} keyI={2.2} fill={1.0} shadow={26} rimColor="#9FB6FF">
         <Reactor3D t={t} build={1} crack={crack} demolish={dem} />
       </Stage>
       {showDims ? (
@@ -409,7 +409,7 @@ export const S04: React.FC<{t: number}> = ({t}) => {
                 })
               : null}
           </svg>
-          <div style={{position: 'absolute', left: 1320, top: 420, opacity: prog(t, c('quince') - 0.1, 0.4)}}>
+          <div style={{position: 'absolute', left: 1400, top: 420, opacity: prog(t, c('quince') - 0.1, 0.4)}}>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 28, letterSpacing: 4, color: K.mute}}>CENTRO DEL SOL</div>
             <div style={{fontFamily: F.head, fontSize: 104, color: K.cream, lineHeight: 1}}>15.000.000 °C</div>
           </div>
@@ -493,13 +493,13 @@ export const S05: React.FC<{t: number}> = ({t}) => {
       {between(t, tNot, tTel + 0.4) ? (
         <AbsoluteFill style={{opacity: Math.min(prog(t, tNot, 0.3), 1 - prog(t, tTel, 0.4))}}>
           <SpaceBg t={t} glow="rgba(232,195,106,0.12)" />
-          <Newspaper t={t} t0={tNot + 0.1} x={520} y={560} w={640} rot={-6} masthead="EL DIARIO" date="25 DE MARZO DE 1951" head="La Argentina domina la energía atómica" sub="Anuncio del presidente desde la Casa Rosada" />
-          <Newspaper t={t} t0={tNot + 0.55} x={1000} y={520} w={640} rot={3} masthead="THE DAILY NEWS" date="MARCH 25, 1951" head="Argentina claims atomic power" sub="Physicists abroad ask for proof" dark />
-          <Newspaper t={t} t0={tNot + 1.0} x={1420} y={590} w={600} rot={-2} masthead="LE QUOTIDIEN" date="25 MARS 1951" head="L'Argentine et le secret de l'atome" />
+          <Newspaper t={t} t0={tNot + 0.1} x={450} y={560} w={600} rot={-6} masthead="EL DIARIO" date="25 DE MARZO DE 1951" head="La Argentina domina la energía atómica" sub="Anuncio del presidente desde la Casa Rosada" />
+          <Newspaper t={t} t0={tNot + 0.55} x={970} y={520} w={600} rot={3} masthead="THE DAILY NEWS" date="MARCH 25, 1951" head="Argentina claims atomic power" sub="Physicists abroad ask for proof" dark />
+          <Newspaper t={t} t0={tNot + 1.0} x={1480} y={590} w={580} rot={-2} masthead="LE QUOTIDIEN" date="25 MARS 1951" head="L'Argentine et le secret de l'atome" />
           {t > tPero ? (
             <>
               <AbsoluteFill style={{background: `rgba(5,6,11,${0.5 * prog(t, tPero, 0.4)})`}} />
-              {[520, 1000, 1420].map((x, i) => (
+              {[450, 970, 1480].map((x, i) => (
                 <Stamp key={i} t={t} t0={tPero + 0.3 + i * 0.25} text="?" x={x} y={520} rot={(i - 1) * 8} size={220} color={K.red} />
               ))}
               <Big t={t} t0={c('no le') - 0.1} text="LOS FÍSICOS NO LE CREÍAN" size={96} y={930} color={K.cream} />
@@ -535,7 +535,7 @@ export const S05: React.FC<{t: number}> = ({t}) => {
       {between(t, tIsla, tPoll + 0.4) ? (
         <AbsoluteFill style={{opacity: Math.min(prog(t, tIsla, 0.4), 1 - prog(t, tPoll, 0.4))}}>
           <IslandShot s={{t, build: 1, reactor: 1, lit: 0.5}} cam={camPath(t - tIsla, [[0, ISL_LOW], [0.1, {pos: [-6, 7, 26], look: [0, 1.5, 0], fov: 36}]], 4)} />
-          <AbsoluteFill style={{background: 'rgba(5,6,11,0.35)'}} />
+          <AbsoluteFill style={{background: 'rgba(5,6,11,0.6)'}} />
           <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center'}}>
             <div style={{fontFamily: F.body, fontWeight: 800, fontSize: 34, letterSpacing: 5, color: K.cream, opacity: prog(t, tIsla + 0.3, 0.4)}}>FÍSICOS ARGENTINOS DE RENOMBRE EN LA ISLA</div>
             <div style={{fontFamily: F.head, fontSize: 340, color: K.red, lineHeight: 1, transform: `scale(${Math.min(1.06, pop(t, c('ni un'), 1.2))})`, opacity: prog(t, c('ni un'), 0.2), textShadow: '0 10px 50px rgba(0,0,0,0.8)'}}>0</div>
@@ -545,7 +545,9 @@ export const S05: React.FC<{t: number}> = ({t}) => {
       {t >= tPoll ? (
         <AbsoluteFill style={{opacity: prog(t, tPoll, 0.4)}}>
           <SpaceBg t={t} glow="rgba(255,178,62,0.16)" />
-          <Poll t={t} t0={c('¿vos') - 0.3} q="¿LE HUBIERAS CREÍDO?" a="SÍ, LE CREÍA" b="NO, NI AHÍ" />
+          <div style={{position: 'absolute', inset: 0, transform: 'scale(1.22)', transformOrigin: '50% 50%'}}>
+            <Poll t={t} t0={c('¿vos') - 0.3} q="¿LE HUBIERAS CREÍDO?" a="SÍ, LE CREÍA" b="NO, NI AHÍ" />
+          </div>
         </AbsoluteFill>
       ) : null}
     </AbsoluteFill>
@@ -560,7 +562,7 @@ export const S06: React.FC<{t: number}> = ({t}) => {
     <AbsoluteFill style={{background: K.bg0}}>
       {t < tSep + 0.4 ? (
         <AbsoluteFill style={{opacity: 1 - prog(t, tSep, 0.4)}}>
-          <FullPhoto src="ep11/img/peron_banda.jpg" t={t} t0={-0.3} zoom={[1.05, 1.15]} focus="50% 25%" bw dim={0.35} />
+          <FullPhoto src="ep11/img/peron_banda.jpg" t={t} t0={-0.3} zoom={[1.0, 1.06]} focus="50% 6%" bw dim={0.35} />
           <FilmFX t={t} k={0.5} />
           <Big t={t} t0={c('dudar.') - 0.2} text="LAS DUDAS" size={130} y={860} color={K.sun} />
           <ArchCredit text="Foto: Casa Rosada (CC BY 2.5 AR)" />
@@ -654,7 +656,7 @@ const TempCompare: React.FC<{t: number; c: (p: string, n?: number, w?: 's' | 'e'
             {Array.from({length: 7}, (_, i) => (
               <path key={i} d={`M0 ${640 + i * 60} ${Array.from({length: 13}, (_, j) => `Q ${j * 160 + 80} ${640 + i * 60 + Math.sin(t * 2 + i + j) * 22 - 26} ${(j + 1) * 160} ${640 + i * 60}`).join(' ')}`} fill="none" stroke={K.plasma} strokeWidth={5} opacity={0.25 + i * 0.08} />
             ))}
-            <g transform={`translate(960, ${560 - 10 * Math.sin(t * 2)})`}>
+            <g transform={`translate(960, ${520 - 10 * Math.sin(t * 2)}) scale(2.2)`}>
               <rect x={-8} y={0} width={16} height={150} rx={4} fill="#D9B98A" />
               <ellipse cx={0} cy={-6} rx={18} ry={24} fill="#8A2A1E" />
               <path d={`M0 ${-70 - 6 * Math.sin(t * 12)} C 24 -40 22 -12 0 -10 C -22 -12 -24 -40 0 ${-70 - 6 * Math.sin(t * 12)} Z`} fill={K.sun} />

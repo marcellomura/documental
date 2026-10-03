@@ -477,7 +477,7 @@ export const Scope: React.FC<{t: number; t0: number; x: number; y: number; w?: n
   const pts: string[] = [];
   const span = 4.0;
   for (let i = 0; i <= N; i++) {
-    const tt = t - t0 - span + (i / N) * span;
+    const tt = t - span + (i / N) * span;
     let v = Math.sin(tt * 40 + i) * 0.03 + (rnd(Math.floor(tt * 60) + i) - 0.5) * 0.05;
     for (const s of spikes) {
       const d = tt - s;
