@@ -321,7 +321,7 @@ En el repo figura como `ep12`. El 15 de noviembre de 2017, un hidrófono de la r
 | Archivo | Qué es |
 |---|---|
 | `907_metros_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS, 899 MB, md5 `3f9f26bf3197f15057a7e80ae8bbae07`). No va en git: está en Drive, en `CONTEXTO/Ep12 · 907 metros (ARA San Juan)` (carpeta `1ziv1rEnuQe9uB0NksQ3itEttfIsIv1q5`, archivo `1UJWcyImOTASbf-1HlCgpCd1Kx5lwL97x`) |
-| `entrega/907_metros_short.mp4` | Short vertical para YouTube (1:15, 1080×1920, subtítulos incrustados) que manda al video largo |
+| `entrega/907_metros_short.mp4` | Short vertical para YouTube (1:15, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive (archivo `16r18GCaN10NF47O5cuZCYa0OGyFfVmFs`, md5 `5afe582757dcb42d18ebccf8859ea8f3`) |
 | `entrega/907_metros_subtitulos_es.srt` | Subtítulos en español, con los nombres bien escritos y las cifras |
 | `entrega/907_metros_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos, configuración de subida y fecha sugerida (aniversario) |
 | `entrega/907_metros_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B |
