@@ -314,7 +314,8 @@ export const S08: React.FC<{t: number}> = ({t}) => {
       {t < tEnt ? (
         <AbsoluteFill style={{opacity: fadeIO(t, -0.4, tEnt, 0.3)}}>
           <AbyssBg t={t} light={0.2} deep={0.85} snow={0.4} />
-          <Calendar t={t} t0={-0.2} x={700} y={560} marks={[{d: 18, color: K.red, label: 'DOMINGO: EL BARCO PARTE HACIA SUDÁFRICA', at: tDom}]} />
+          <Calendar t={t} t0={-0.2} x={700} y={560} marks={[{d: 18, color: K.red, label: 'DOMINGO: EL BARCO PARTE HACIA SUDÁFRICA', at: tDom}]}
+            cross={{to: 15, at: 0.4, step: (tDom - 0.6) / 15}} zoom={1 + 0.07 * prog(t, -0.2, tEnt + 0.2, (x) => x)} />
           <KTitle t={t} t0={tSud - 0.2} text={'SE\nIBAN'} size={170} x={1480} y={520} color={K.red} />
         </AbsoluteFill>
       ) : null}
@@ -351,7 +352,7 @@ export const S08: React.FC<{t: number}> = ({t}) => {
 /** mosaico de sonar de barrido lateral: aparece un objeto de unos 60 m */
 const SonarScan: React.FC<{t: number; t0: number; tApa: number; tObj: number; tSes: number; tPunto: number; t1: number}> = ({t, t0, tApa, tObj, tSes, tPunto, t1}) => {
   const p = prog(t, t0 + 0.2, tApa - t0 + 0.6, easeInOut);
-  const zoom = 1 + 0.35 * prog(t, tObj, 3.5, easeInOut);
+  const zoom = 1 + 0.35 * prog(t, tObj, 3.5, easeInOut) + 0.06 * prog(t, tObj + 3.5, t1 - tObj - 3.5, (x) => x); // y sigue acercándose despacio
   return (
     <AbsoluteFill style={{opacity: fadeIO(t, t0, t1, 0.3), background: '#060403'}}>
       <AbsoluteFill style={{transform: `scale(${zoom})`, transformOrigin: '67% 52%'}}>

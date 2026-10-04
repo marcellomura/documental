@@ -409,14 +409,17 @@ export const HourAxis: React.FC<{t: number; t0: number; from: number; to: number
 };
 
 /* ================================================================== CALENDARIO */
-export const Calendar: React.FC<{t: number; t0: number; t1?: number; x?: number; y?: number; marks: {d: number; color: string; label: string; at: number}[]; o?: number}> = ({t, t0, t1 = Infinity, x = 560, y = 540, marks, o = 1}) => {
+/** cross: tacha los días 1..to de a uno desde at (cuenta regresiva) · zoom: acercamiento lento */
+export const Calendar: React.FC<{t: number; t0: number; t1?: number; x?: number; y?: number; marks: {d: number; color: string; label: string; at: number}[]; o?: number; cross?: {to: number; at: number; step: number}; zoom?: number}> = ({
+  t, t0, t1 = Infinity, x = 560, y = 540, marks, o = 1, cross, zoom = 1,
+}) => {
   const oo = fadeIO(t, t0, t1, 0.4) * o;
   if (oo <= 0) return null;
   const first = 3; // 1/11/2018 fue jueves (L=0)
   const cell = 104;
   const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
   return (
-    <div style={{position: 'absolute', left: x, top: y, transform: 'translate(-50%,-50%)', opacity: oo}}>
+    <div style={{position: 'absolute', left: x, top: y, transform: `translate(-50%,-50%) scale(${zoom})`, opacity: oo}}>
       <div style={{fontSize: 64, color: K.bone, ...vf(84, 800), marginBottom: 8}}>NOVIEMBRE 2018</div>
       <div style={{display: 'grid', gridTemplateColumns: `repeat(7, ${cell}px)`, gap: 6}}>
         {days.map((d, i) => (
@@ -429,7 +432,12 @@ export const Calendar: React.FC<{t: number; t0: number; t1?: number; x?: number;
           const app = prog(t, t0 + i * 0.012, 0.3);
           return (
             <div key={i} style={{height: cell * 0.82, border: d > 0 ? `1px solid ${K.line}` : 'none', position: 'relative', opacity: app, background: m && q > 0 ? `${m.color}${Math.round(q * 40).toString(16).padStart(2, '0')}` : 'transparent'}}>
-              {d > 0 ? <div style={{position: 'absolute', left: 10, top: 6, ...mono(26, m && q > 0 ? m.color : K.bone, 600)}}>{d}</div> : null}
+              {d > 0 ? <div style={{position: 'absolute', left: 10, top: 6, ...mono(26, m && q > 0 ? m.color : K.bone, 600), opacity: cross && d <= cross.to ? 1 - 0.55 * prog(t, cross.at + (d - 1) * cross.step, 0.2) : 1}}>{d}</div> : null}
+              {cross && d > 0 && d <= cross.to && t > cross.at + (d - 1) * cross.step ? (
+                <svg width={cell} height={cell * 0.82} style={{position: 'absolute', left: 0, top: 0}}>
+                  <line x1={cell * 0.18} y1={cell * 0.66} x2={cell * 0.18 + cell * 0.64 * prog(t, cross.at + (d - 1) * cross.step, 0.18)} y2={cell * 0.66 - cell * 0.5 * prog(t, cross.at + (d - 1) * cross.step, 0.18)} stroke={K.mute} strokeWidth={3} strokeLinecap="round" />
+                </svg>
+              ) : null}
               {m && q > 0 ? (
                 <svg width={cell} height={cell * 0.82} style={{position: 'absolute', left: 0, top: 0}}>
                   <ellipse cx={cell / 2} cy={cell * 0.41} rx={cell * 0.44} ry={cell * 0.36} fill="none" stroke={m.color} strokeWidth={4} strokeDasharray={300} strokeDashoffset={300 * (1 - q)} />
