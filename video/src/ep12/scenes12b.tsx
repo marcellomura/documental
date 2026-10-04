@@ -688,7 +688,7 @@ export const Names: React.FC<{t: number; dur: number}> = ({t, dur}) => {
   const o = prog(t, 0, 0.6) * (1 - prog(t, dur - 0.6, 0.6));
   const cols = 4, rows = 11;
   return (
-    <AbsoluteFill style={{opacity: o}}>
+    <AbsoluteFill style={{opacity: o, transform: driftT(t, 0, 0.004)}}>
       <AbsoluteFill style={{background: `radial-gradient(ellipse at 50% 30%, #0A2238 0%, ${K.abyss} 75%)`}} />
       <MarineSnow t={t} o={0.35} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 52, textAlign: 'center', ...mono(22, K.celeste, 600), letterSpacing: '0.4em', opacity: prog(t, 0.2, 0.6)}}>
