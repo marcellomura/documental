@@ -8,7 +8,7 @@ Cómo está armado:
 2. **La presión:** "El casco del San Juan estaba diseñado para unos 300 metros. Según el análisis del sonido, a casi 400, cedió". La sección de casco en 3D se pandea y aparece "MENOS QUE UN PARPADEO".
 3. **El Titan:** "En 2023 el mundo aprendió esa palabra con el Titan". Se ven los restos reales en el fondo y después, sin voz, **suena la grabación real de la implosión** con su espectrograma.
 4. **El hallazgo:** "17.11.2018 · 00:30… un año y dos días después". Aparecen los restos en las luces del robot (recreación) y "907 METROS".
-5. **El cierre:** "Cómo lo encontraron a días de abandonar la búsqueda, y lo que dijo la Justicia ocho años después, te lo cuento en el video completo del canal. Tocá el enlace de acá abajo". Aparece la tarjeta del episodio y una flecha hacia abajo.
+5. **El cierre:** "Cómo lo encontraron a días de abandonar la búsqueda, y lo que dijo la Justicia ocho años después, te lo cuento en el video completo del canal. Tocá el enlace de acá abajo". Aparecen la tarjeta del episodio y dos adelantos al ritmo de la voz ("Cómo lo encontraron", con la imagen del sonar, y "Lo que dijo la Justicia · 2026"). Los subtítulos siguen hasta "Tocá el enlace de acá abajo", donde aparece la flecha.
 
 ## Lo más importante: el enlace al video
 
