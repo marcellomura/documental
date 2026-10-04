@@ -609,7 +609,7 @@ export const S10: React.FC<{t: number}> = ({t}) => {
       ) : null}
       {between(t, tLo - 0.2, tVos) ? <Dawn t={t} t0={tLo - 0.2} tSabe={tSabe} t1={tVos} /> : null}
       {between(t, tVos - 0.3, tAntes) ? (
-        <AbsoluteFill>
+        <AbsoluteFill style={{transform: driftT(t, tVos - 0.3, 0.012)}}>
           <AbyssBg t={t} light={0.2} deep={0.85} snow={0.5} />
           <Poll12 t={t} t0={tVos - 0.2} t1={tAntes} q="¿HAY QUE SACAR EL SUBMARINO DEL FONDO?" a="Sí, para saber la verdad" b="No, ese es su lugar de descanso" />
         </AbsoluteFill>
@@ -660,7 +660,7 @@ const Obeliscos: React.FC<{t: number; t0: number; tDos: number; tKm: number; t1:
           return <path key={i} d={`M1500 ${y} L1508 ${y + per * 0.12} L1514 ${y + per} L1486 ${y + per} L1492 ${y + per * 0.12} Z`} fill={K.bone} opacity={0.85} />;
         })}
       </svg>
-      <Credit12 text="El Obelisco de Buenos Aires mide 67,5 m" />
+      <Credit12 text="El Obelisco de Buenos Aires mide 67,5 m" o={prog(t, tKm + 1.2, 0.4)} />
     </AbsoluteFill>
   );
 };
