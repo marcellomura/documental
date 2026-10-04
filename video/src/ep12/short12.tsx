@@ -9,7 +9,7 @@ import short from '../data/ep12/short.json';
 import words from '../data/ep12/words.json';
 import wordsX from '../data/ep12/words_short.json';
 import {cue as cueMain} from './lib';
-import {K, F12, vf, mono, clamp, easeIn, easeInOut, prog, pop, between, fadeIO, AbyssBg, MarineSnow, Vignette, Scanlines, KTitle, SerifLine, Odo, ramp, DataCard, MonoTag, Timecode, Photo, Clip, Credit12, Rings, DepthGauge, Defs12} from './kit12';
+import {K, F12, vf, mono, clamp, easeIn, easeInOut, prog, pop, between, fadeIO, AbyssBg, MarineSnow, Vignette, Scanlines, KTitle, SerifLine, Odo, ramp, DataCard, MonoTag, Timecode, Photo, Clip, Credit12, Rings, DepthGauge, Defs12, driftT} from './kit12';
 import {Stage12, HullRing, Water, Wreck} from './three12';
 import type {Cam} from './three12';
 import {LiveTrace, Spectro} from './viz12';
@@ -237,7 +237,7 @@ const Cta: React.FC<{T: number; t0: number}> = ({T, t0}) => {
   const t = T - t0;
   const bob = Math.sin(t * 5) * 14;
   return (
-    <AbsoluteFill>
+    <AbsoluteFill style={{transform: driftT(t, 0, 0.006)}}>
       <AbyssBg t={t} light={0.3} deep={0.7} />
       <Rings t={t} t0={0.1} x={540} y={620} every={1.4} maxR={800} color={K.cyan} o={0.5} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 330, display: 'flex', justifyContent: 'center', transform: `scale(${pop(t, 0.1, 1)})`}}>
@@ -252,6 +252,25 @@ const Cta: React.FC<{T: number; t0: number}> = ({T, t0}) => {
           </div>
         </div>
       </div>
+      {/* lo que trae el video completo, al ritmo de la voz */}
+      {[
+        {at: cue('x01', 'Cómo') + 0.15, y: 700, label: 'EN EL VIDEO', title: 'Cómo lo encontraron', sub: 'a días de abandonar la búsqueda', img: true},
+        {at: cue('x01', 'Justicia') - 0.35, y: 880, label: 'EN EL VIDEO', title: 'Lo que dijo la Justicia', sub: 'el fallo de Río Gallegos, 2026', img: false},
+      ].map((c, i) => {
+        const q = prog(t, c.at, 0.45);
+        return (
+          <div key={i} style={{position: 'absolute', left: 130, width: 820, top: c.y, height: 150, display: 'flex', alignItems: 'center', gap: 28, padding: '0 24px', background: 'rgba(1,6,12,0.82)', border: `1px solid ${K.line}`, borderRadius: 18, opacity: q, transform: `translateX(${(1 - q) * 60}px)`}}>
+            <div style={{width: 170, height: 110, borderRadius: 10, overflow: 'hidden', flexShrink: 0, background: '#0A1C2A', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+              {c.img ? <Img src={staticFile('ep12/img/sonar_mosaico.jpg')} style={{width: 340, height: 220, objectFit: 'cover', objectPosition: '67% 52%', transform: `scale(${1.6 + 0.1 * t / 10})`}} /> : <div style={{fontSize: 64, color: K.amber, ...vf(80, 880)}}>2026</div>}
+            </div>
+            <div>
+              <div style={{...mono(20, K.cyan, 600), letterSpacing: '0.22em'}}>{c.label}</div>
+              <div style={{fontSize: 52, color: K.bone, lineHeight: 1.05, ...vf(84, 820)}}>{c.title}</div>
+              <div style={{fontFamily: F12.serif, fontStyle: 'italic', fontSize: 34, color: K.mute}}>{c.sub}</div>
+            </div>
+          </div>
+        );
+      })}
       <div style={{position: 'absolute', left: 0, right: 0, top: 1150, textAlign: 'center', opacity: prog(t, cue('x01', 'Tocá') - 0.2 - 0, 0.3)}}>
         <div style={{display: 'inline-block', background: K.cyan, color: K.abyss, fontSize: 66, padding: '16px 40px 10px', borderRadius: 14, ...vf(84, 880)}}>TOCÁ EL ENLACE DE ABAJO</div>
         <div style={{fontSize: 200, color: K.cyan, lineHeight: 1, transform: `translateY(${bob}px)`, marginTop: 10, ...vf(100, 800)}}>↓</div>
@@ -280,7 +299,7 @@ export const ShortSanJuan: React.FC = () => {
         );
       })}
       <Vignette k={0.4} />
-      {T < TL.cta - 0.1 ? <Captions T={T} y={1440} /> : null}
+      {T < TL.cta + cue('x01', 'Tocá') - 0.25 ? <Captions T={T} y={1440} /> : null}
       <Grain opacity={0.05} />
     </AbsoluteFill>
   );
