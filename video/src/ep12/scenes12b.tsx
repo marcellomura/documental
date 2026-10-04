@@ -8,7 +8,7 @@ import {cue, TL} from './lib';
 import {
   K, F12, vf, mono, clamp, easeIn, easeInOut, easeOut, prog, pop, rnd, fmt, between, fadeIO,
   AbyssBg, MarineSnow, Vignette, Scanlines, KTitle, SyncWords, SerifLine, Odo, ramp, DataCard, MonoTag, Timecode, Chapter, NameCard,
-  Stamp12, Photo, Clip, Credit12, PhotoCard12, Rings, Reticle, DepthGauge, Poll12,
+  Stamp12, Photo, Clip, Credit12, PhotoCard12, driftT, Rings, Reticle, DepthGauge, Poll12,
 } from './kit12';
 import type {WordCue} from './kit12';
 import {Stage12, Water, HullRing, Seafloor, Beacon, AUV, ROV, StormSea, geoPos, geoXZ, camPath} from './three12';
@@ -418,7 +418,7 @@ export const S09: React.FC<{t: number}> = ({t}) => {
   return (
     <AbsoluteFill style={{background: K.abyss}}>
       {t < tVal ? (
-        <AbsoluteFill style={{opacity: fadeIO(t, -0.4, tVal, 0.3)}}>
+        <AbsoluteFill style={{opacity: fadeIO(t, -0.4, tVal, 0.3), transform: driftT(t, -0.4)}}>
           <AbyssBg t={t} light={0.15} deep={0.9} snow={0.3} />
           <KTitle t={t} t0={-0.2} t1={tEn - 0.1} text="¿POR QUÉ?" size={240} y={540} color={K.bone} />
           <Court t={t} t0={tEn - 0.1} tTrib={tTrib} />
@@ -426,7 +426,7 @@ export const S09: React.FC<{t: number}> = ({t}) => {
       ) : null}
       {between(t, tVal - 0.2, tSub) ? <Valve t={t} t0={tVal - 0.2} tJul={tJul} tCuat={tCuat} t1={tSub} /> : null}
       {between(t, tSub - 0.2, tAun) ? (
-        <AbsoluteFill style={{opacity: fadeIO(t, tSub - 0.2, tAun, 0.3)}}>
+        <AbsoluteFill style={{opacity: fadeIO(t, tSub - 0.2, tAun, 0.3), transform: driftT(t, tSub - 0.2, 0.01)}}>
           <AbyssBg t={t} light={0.15} deep={0.9} snow={0.3} />
           <DataCard t={t} t0={tVein - 0.2} x={180} y={300} value={26} dur={1.0} label="MESES SIN IR A DIQUE SECO" sub="mantenimiento obligatorio vencido" size={230} color={K.amber} w={760} />
           <DataCard t={t} t0={tTreinta - 0.2} x={1040} y={300} value={33} dur={1.0} label="TAREAS PENDIENTES" sub="de mantenimiento, sin hacer" size={230} color={K.red} w={760} />
@@ -457,7 +457,7 @@ export const S09: React.FC<{t: number}> = ({t}) => {
         </>
       ) : null}
       {between(t, tCond - 0.2, tPero) ? (
-        <AbsoluteFill style={{opacity: fadeIO(t, tCond - 0.2, tPero, 0.3)}}>
+        <AbsoluteFill style={{opacity: fadeIO(t, tCond - 0.2, tPero, 0.3), transform: driftT(t, tCond - 0.2, 0.008)}}>
           <AbyssBg t={t} light={0.12} deep={0.92} snow={0.3} />
           <NameCard t={t} t0={tCond + 0.1} t1={tLos - 0.1} name="Claudio Villamide" role="EX JEFE DE LA FUERZA DE SUBMARINOS" x={160} y={230} color={K.amber} />
           <Verdict t={t} t0={tTresA - 0.2} tC={c('condenó') + 0.05} tPor={tPor} t1={tLos - 0.1} />
@@ -476,7 +476,7 @@ export const S09: React.FC<{t: number}> = ({t}) => {
         </AbsoluteFill>
       ) : null}
       {t >= tPero - 0.2 ? (
-        <AbsoluteFill style={{opacity: prog(t, tPero - 0.2, 0.5)}}>
+        <AbsoluteFill style={{opacity: prog(t, tPero - 0.2, 0.5), transform: driftT(t, tPero - 0.2, 0.005)}}>
           <AbyssBg t={t} light={0.05} deep={1} snow={0.6} />
           <SerifLine t={t} t0={tPero + 0.2} t1={tEntre - 0.2} text="algo que ni el juicio pudo reconstruir" size={74} y={540} />
           <HourAxis t={t} t0={tEntre - 0.2} from={7} to={11} y={640} marks={[{h: 8.75, label: 'ÚLTIMA SEÑAL AUTOMÁTICA', at: tEntre + 0.3}, {h: 10.85, label: 'EL RUIDO', color: K.red, at: tDiez}]} spans={[{a: 8.75, b: 10.85, label: '2 H 06 MIN SIN DATOS', color: K.amber, at: tNadie - 0.4, unknown: true}]} />
@@ -531,7 +531,7 @@ const Valve: React.FC<{t: number; t0: number; tJul: number; tCuat: number; t1: n
   const leak = (t * 1.3) % 1;
   const tl = prog(t, tJul - 0.2, 1.4, easeInOut);
   return (
-    <AbsoluteFill style={{opacity: o}}>
+    <AbsoluteFill style={{opacity: o, transform: driftT(t, t0)}}>
       <AbyssBg t={t} light={0.15} deep={0.9} snow={0.3} />
       <svg width={1920} height={1080} style={{position: 'absolute'}}>
         <g transform="translate(560 430)" opacity={p}>

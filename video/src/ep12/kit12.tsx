@@ -573,3 +573,6 @@ export const Poll12: React.FC<{t: number; t0: number; t1?: number; q: string; a:
     </div>
   );
 };
+
+/** acercamiento lento y continuo (cámara que respira) para que ningún gráfico quede quieto: va en el transform de cada bloque */
+export const driftT = (t: number, t0: number, k = 0.012) => `scale(${1 + k * Math.max(0, t - t0)})`;
