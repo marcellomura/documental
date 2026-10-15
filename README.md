@@ -158,7 +158,13 @@ IN=video/out/ep05_4k_muted.mp4 AUD=audio/mix/mezcla_ep05.wav OUT=entrega/tu_relo
 
 ### Short, Reel y TikTok (octubre de 2026)
 
-Tres versiones del mismo corto vertical (1080×1920, 1:15–1:16, subtítulos incrustados, −14 LUFS), en `entrega/` y en Drive. Están en la carpeta `CONTEXTO/Ep5 · Tu reloj está mal`, junto al master 4K.
+Tres versiones del mismo corto vertical (1080×1920, 1:15–1:16, subtítulos incrustados, −14 LUFS), en `entrega/` y en Drive. Están en la carpeta `CONTEXTO/Ep5 · Tu reloj está mal` (id `1pHe9G-0pln8FFn3qYIH5uLeHT03jJryD`), junto al master 4K (`195hiRVpfhYSnTnTJrYheRMoWyeyeos9p`).
+
+- YouTube Shorts: archivo `1JAwNryw7Vve9VUBsro-DmPsg0SWNf_uc`, md5 `0b5a5391958ba0ae4178e8e528620e47`.
+- Reel: archivo `1zO63MSvtGiI40-SLX96kQXdEAHy97FB3`, md5 `25460f9e8608e9fff3be8e3a74a215ee`.
+- TikTok: archivo `1tF-i8rZds6AZv94HD0DT8w3GYdXq7QFe`, md5 `7647a622e983a488f7ac3a408f69d011`.
+
+La página de publicación con botones de copiar (títulos y miniaturas A/B del video largo, y textos y portadas de los cortos) se arma con `python3 tools/pagina_publicacion_ep05.py tools/pagina_publicacion_ep05_ids.json salida.html`, a partir de los `.md` de `entrega/`.
 
 | Archivo | Plataforma | Cierre |
 |---|---|---|
