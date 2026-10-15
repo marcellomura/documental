@@ -156,6 +156,36 @@ cd video && npx remotion render Reloj out/ep05_4k_muted.mp4 --muted --scale=2 --
 IN=video/out/ep05_4k_muted.mp4 AUD=audio/mix/mezcla_ep05.wav OUT=entrega/tu_reloj_esta_mal_1080p.mp4 TITLE="TU RELOJ ESTÁ MAL" VBR=2600k VF=scale=1920:1080:flags=lanczos tools/final.sh
 ```
 
+### Short, Reel y TikTok (octubre de 2026)
+
+Tres versiones del mismo corto vertical (1080×1920, 1:15–1:16, subtítulos incrustados, −14 LUFS), en `entrega/` y en Drive. Están en la carpeta `CONTEXTO/Ep5 · Tu reloj está mal`, junto al master 4K.
+
+| Archivo | Plataforma | Cierre |
+|---|---|---|
+| `tu_reloj_esta_mal_short_youtube.mp4` | YouTube Shorts | «Tocá el enlace de acá abajo» |
+| `tu_reloj_esta_mal_reel_instagram.mp4` | Reels | «El link está en la bio» |
+| `tu_reloj_esta_mal_tiktok.mp4` | TikTok | «Buscá CONTEXTO en YouTube» |
+
+- Guía de publicación (títulos, textos, portadas, configuración y calendario de cada plataforma): `entrega/tu_reloj_esta_mal_cortos_publicacion.md`.
+- **Narración:** tramos de la narración original:
+  - el gancho completo
+  - "¿Y cuál usamos? Menos tres…"
+  - "tu cuerpo no lee el reloj"
+  - el jet lag social
+  - la pregunta
+- **Cierres:** se generaron aparte con la misma voz y el mismo modelo del episodio (Carlos Pro, `eleven_multilingual_v2`). Guion en `guion/ep05_short_x.json`; audio en `audio/ep05/short/final/x01–x03.wav`, procesado como la narración (tempo 1,10).
+- **Escenas:** `video/src/ep05/short5.tsx`, composiciones `ShortRelojYT`, `ShortRelojIG` y `ShortRelojTT` (entrada `src/index05s.tsx`). Reusa:
+  - el globo con día y noche reales
+  - los relojes 3D
+  - la escuela a oscuras
+  - la transición de aguja de reloj, en versión vertical
+- **Render:** el cuerpo es igual en las tres hasta la transición al cierre, así que se renderiza una vez y cada cierre aparte; `tools/final.sh` los une con `PATCH`. Usa una carpeta `public` reducida y un bundle propio, para no chocar con los renders por tramos que borran `/tmp/remotion-webpack-bundle-*`.
+
+```bash
+python3 tools/short_ep05.py                       # línea de tiempo y las tres mezclas
+PUB=<public reducida: ep05/globe, fonts, brand, tex> BUNDLE=<carpeta del bundle> tools/render_short05.sh
+```
+
 ---
 
 # Episodio 8 · "LA PARADOJA DE LA CARNE"
