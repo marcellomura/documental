@@ -1,0 +1,72 @@
+{
+  "titulo": "EL LOTE 31.202",
+  "subtitulo": "NUEVE BARRERAS, NOVENTA MUERTES",
+  "episodio": 13,
+  "edicion": "EDICIÓN ESPECIAL",
+  "nota_voz": "El texto usa grafía fonética para que la voz pronuncie bien siglas y nombres; DISPLAY da la ortografía real para subtítulos. Las cifras van en palabras.",
+  "nota_legal": "Procesados, no condenados. 90 muertes según la Justicia (ampliación del 13/5/2026). Chats: prueba de la Fiscalía publicada por Infobae y La Nación. Lugones no está imputado. El desvío de fentanilo es una hipótesis de la investigación.",
+  "display": {
+    "hache ele be": "HLB",
+    "Anmat": "ANMAT",
+    "Iname": "INAME",
+    "Chukrán": "Tchukrán",
+    "Klebsiela neumonie": "Klebsiella pneumoniae"
+  },
+  "segmentos": [
+    {
+      "id": "s01",
+      "texto": "El veintisiete de noviembre de dos mil veinticuatro, alguien de un laboratorio le escribe a una funcionaria del Estado: ¿es cierto que mañana vienen a inspeccionar? Ella le contesta que sí. Y le explica por qué. Esa misma noche, en el laboratorio, organizan dieciocho tareas para que nadie vea lo que no tenía que ver. Tres semanas después, en esa planta, se fabricó un remedio al que hoy la Justicia le atribuye noventa muertes. Para llegar a la vena de un paciente, ese remedio tenía que atravesar nueve barreras. Las atravesó todas. Esta es la historia del lote treinta y un mil doscientos dos. Y de cómo falló, una por una, cada barrera que tenía que frenarlo."
+    },
+    {
+      "id": "s02",
+      "texto": "Primero: qué es este remedio. El fentanilo es un analgésico opioide, entre cincuenta y cien veces más potente que la morfina. En la calle, es una droga que mata. En un hospital, es indispensable: se usa en cirugías y en terapia intensiva, para sedar y aliviar el dolor de pacientes graves, muchos de ellos intubados. Se inyecta directo en la sangre. Por eso tiene que ser estéril: ni una sola bacteria. Una persona sana puede pelear una infección. Un paciente en terapia intensiva, muchas veces no. Las víctimas de esta historia no buscaban ninguna droga. Eran pacientes internados, que confiaban en que lo que les entraba por la vena estaba controlado."
+    },
+    {
+      "id": "s03",
+      "texto": "Para entender cómo pudo pasar, hay que conocer una idea que se usa para investigar accidentes de avión y errores médicos: el modelo del queso suizo. Ninguna barrera de seguridad es perfecta. Cada una tiene agujeros, como una feta de queso. Por eso se ponen varias, una detrás de otra: lo que se escapa por un agujero, lo frena la feta siguiente. El desastre ocurre cuando los agujeros de todas las fetas se alinean, y algo atraviesa el sistema de punta a punta. En esta historia hubo nueve fetas. Vamos a recorrerlas una por una."
+    },
+    {
+      "id": "s04",
+      "texto": "La primera barrera es la fábrica. Un inyectable se produce en salas limpias, con aire filtrado, ropa especial y agua purificada. En la planta de Laboratorios Ramallo, que fabricaba para hache ele be Farma, la investigación encontró producción en áreas no habilitadas, limpiezas de apenas dos o tres horas entre un lote y otro, y agua para inyectables con arsénico, seis a siete veces por encima del límite. La segunda barrera es el ensayo de esterilidad: antes de vender un lote, se toma una muestra y se cultiva, para ver si crece algo. Según la causa, ahí mezclaban hasta ocho lotes en una sola prueba. Con esa mezcla, un lote contaminado puede pasar sin que la bacteria aparezca: el ensayo da negativo, y el lote sale. La tercera barrera es la liberación: alguien de control de calidad firma que ese lote está en condiciones. Según la investigación, esas firmas las ponía personal que no participaba del control de calidad, y los registros se completaban después de fabricar."
+    },
+    {
+      "id": "s05",
+      "texto": "La cuarta barrera es el historial. Cuando un remedio falla, médicos y farmacéuticos lo reportan a la Anmat, el organismo que controla los medicamentos en la Argentina. Entre dos mil dieciocho y dos mil veinticuatro, la Anmat recibió ciento dieciocho reportes sobre estos laboratorios, y la gran mayoría se confirmaron. Hubo al menos treinta y ocho retiros de lotes del mercado. En dos mil veintitrés, una dexametasona de la misma empresa apareció contaminada con Ralstonia, una de las bacterias de esta historia. De veintitrés ampollas, analizaron una. Y no se tomaron medidas. La quinta barrera es la clausura. En dos mil diecinueve, una inspección había ordenado cerrar la planta por fallas graves en la producción. Esa clausura nunca se ejecutó."
+    },
+    {
+      "id": "s06",
+      "texto": "La sexta barrera es la inspección. A fines de dos mil veinticuatro, por los reportes acumulados, la Anmat decidió inspeccionar Ramallo. Y acá vuelve el mensaje del principio. El veintisiete de noviembre, Javier Chukrán, de hache ele be, le escribe a una funcionaria del Iname, el instituto técnico de la Anmat: me comentaron que mañana van a ir a Ramallo. Ella responde: sí, es una inspección que deviene de reportes de productos. Esa noche, en el grupo del laboratorio, se coordinaron dieciocho tareas: masillar paredes, sacar la materia prima rechazada, poner carteles de fuera de uso en las máquinas, completar planillas, tirar reactivos vencidos. Las inspectoras fueron un solo día. Aun así, encontraron deficiencias críticas. Pero el acta se cerró recién un mes después. Y mientras seguía abierta, el dieciséis de diciembre, en esa misma planta, empezó a fabricarse una tanda de fentanilo. Seis lotes. Uno de ellos, el treinta y un mil doscientos dos."
+    },
+    {
+      "id": "s07",
+      "texto": "La séptima barrera es la sanción. Con el informe de la inspección, el Iname preparó dos cartas de advertencia. Una para Ramallo, que fabricaba. Y otra para hache ele be, que vendía, y que prohibía comercializar todos sus productos. La de hache ele be nunca se firmó. La de Ramallo se firmó recién el diez de febrero de dos mil veinticinco. En el medio, el catorce de enero, la titular de la Anmat, Nélida Agustina Bisio, y la directora del Iname, Gabriela Mantecón Fumadó, se reunieron con el dueño del laboratorio y parte de su equipo. El treinta de enero, el lote treinta y un mil doscientos dos empezó a salir hacia las droguerías. El ocho de febrero se aplicó por primera vez. La paciente, una mujer de cincuenta años, murió el doce de febrero."
+    },
+    {
+      "id": "s08",
+      "texto": "La octava barrera es la alarma interna. El veintiséis de febrero, una técnica del Iname le escribe a su jefa: es peligroso. Una persona que reporte evento adverso o se muera, es nuestra responsabilidad. Según el expediente, la respuesta de Mantecón Fumadó fue: es un montón de guita que está en la calle. Y después: sí, lo sé. Dos semanas más tarde, el catorce de marzo, hache ele be entregó otras ciento veinte mil ampollas de fentanilo, del lote treinta y un mil doscientos cuarenta y cuatro. El veintiséis de marzo, Bisio le escribe a Mantecón: decime en dos palabras si esto da para cierre, porque Mario pregunta. Ese Mario sería Mario Lugones, el ministro de Salud de la Nación. El cierre recién llegó en mayo. Para entonces, ya había muertos."
+    },
+    {
+      "id": "s09",
+      "texto": "La novena barrera es la trazabilidad: poder saber en qué paciente terminó cada ampolla. En la Argentina, para muchos remedios es obligatoria. El fentanilo no estaba en esa lista. Así que las ampollas salieron hacia droguerías, clínicas y hospitales de Buenos Aires, Santa Fe, Córdoba, la Ciudad, Neuquén, Formosa y Jujuy, y nadie podía seguirles el rastro una por una. Las nueve fetas estaban alineadas. Y entonces apareció una barrera que no figuraba en ningún organigrama."
+    },
+    {
+      "id": "s10",
+      "texto": "En abril de dos mil veinticinco, en el Hospital Italiano de La Plata, empezó un brote extraño. Dos bacterias: Klebsiela neumonie, resistente a muchos antibióticos, y Ralstonia, que suele vivir en el agua. No eran bacterias de ese hospital. Los pacientes infectados tenían algo en común: a todos les habían aplicado fentanilo de hache ele be. En el hospital analizaron doce ampollas. Diez tenían las bacterias. Las de otra marca, ninguna. El dos de mayo, la jefa de Farmacia, Daiana Martínez, mandó un correo a la Anmat. Tiempo después, el Instituto Malbrán confirmó la coincidencia genómica entre las bacterias de los pacientes y las de las ampollas. La barrera que funcionó no fue un organismo de control. Fue un equipo de hospital que se dio cuenta."
+    },
+    {
+      "id": "s11",
+      "texto": "Lo que pasó después parece de película. Entre el siete y el nueve de mayo, cuando ya sabían que el fentanilo estaba contaminado, en Ramallo se esterilizaron en autoclave al menos cien ampollas de fentanilo. El domingo once hubo un acto de vandalismo en hache ele be. En esos días se destruyeron información digital, documentación y el citrato de fentanilo. El catorce de mayo, un empleado le escribe a una compañera: hoy quemamos todo. Casi cinco kilos de citrato de fentanilo que figuraban en una inspección anterior no aparecieron en los allanamientos: la empresa dice que los destruyó, y el juez investiga si se desviaron. En agosto de dos mil veinticinco detuvieron al dueño, Ariel García Furfaro, que en dos mil dos había sido condenado por intentar matar a un empleado. Hoy hay trece procesados: dueños, gerentes y directores técnicos. Sus defensas piden anular las pericias y sostienen que los pacientes murieron por sus enfermedades. Y en agosto de dos mil veintiséis pasó algo que casi nunca pasa: detuvieron a la extitular de la Anmat y a la exdirectora del Iname. En septiembre las procesaron, aunque siguen en libertad. Al ministro Lugones, el juez no lo imputó: consideró que conocía las generalidades del caso, pero que su intervención iba en otro sentido."
+    },
+    {
+      "id": "s12",
+      "texto": "Hoy, la Justicia le atribuye a este fentanilo noventa muertes y cuarenta y cuatro pacientes con secuelas. Otros relevamientos hablan de más de cien muertes. La causa todavía no llegó a juicio: la Cámara Federal de La Plata tiene las apelaciones sin resolver. Y en octubre de dos mil veintiséis, la Provincia de Buenos Aires autorizó a sus hospitales a descartar más de cuatro millones de unidades de remedios de estos laboratorios, que seguían en sus depósitos. Las nueve barreras existían. Estaban en las leyes, en los manuales, en los organigramas. Fallaron una por una. Y en esta historia, cada agujero tiene una fecha. ¿Quién tiene más culpa: el laboratorio que lo fabricó, o el Estado que no lo detuvo? Te leo en los comentarios. Y si este video te sirvió para entender lo que pasó, compartilo: es la mejor forma de que no se olvide."
+    }
+  ],
+  "extra_short": [
+    {
+      "id": "x01",
+      "texto": "Cuáles fueron las nueve barreras, quién firmó y quién no, y qué dijo la Justicia, te lo cuento en la edición especial del canal. Tocá el enlace de acá abajo."
+    }
+  ],
+  "modelo_voz": "eleven_v4 · voz gBTPbHzRd0ZmV75Z5Zk4 (Carlos Pro - Argentinian Documentary & Radio)"
+}
