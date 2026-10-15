@@ -23,6 +23,8 @@ import {Sol} from './ep11/Sol';
 import tl11 from './data/ep11/timeline.json';
 import tl10 from './data/ep10/timeline.json';
 import {SanJuan} from './ep12/SanJuan';
+import {Lote} from './ep13/Lote';
+import tl13 from './data/ep13/timeline.json';
 import tl12 from './data/ep12/timeline.json';
 
 export const RemotionRoot: React.FC = () => (
@@ -45,6 +47,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Vaca" component={Vaca} durationInFrames={Math.ceil(tl9.total * tl9.fps)} fps={tl9.fps} width={1920} height={1080} defaultProps={{dpr: 1}} />
     <Composition id="Cuadro" component={Cuadro} durationInFrames={Math.ceil(tl10.total * tl10.fps)} fps={tl10.fps} width={1920} height={1080} />
     <Composition id="SanJuan" component={SanJuan} durationInFrames={Math.ceil(tl12.total * tl12.fps)} fps={tl12.fps} width={1920} height={1080} />
+      <Composition id="Lote" component={Lote} durationInFrames={Math.ceil(tl13.total * tl13.fps)} fps={tl13.fps} width={1920} height={1080} />
     <Composition id="Sol" component={Sol} durationInFrames={Math.ceil(tl11.total * tl11.fps)} fps={tl11.fps} width={1920} height={1080} />
     <Composition id="Carne" component={Carne} durationInFrames={Math.ceil(tl6.total * tl6.fps)} fps={tl6.fps} width={1920} height={1080} defaultProps={{dpr: 1}} />
     <Still id="Miniatura" component={Miniatura} width={1280} height={720} />

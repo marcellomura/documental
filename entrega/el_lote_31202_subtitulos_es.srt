@@ -1,0 +1,838 @@
+1
+00:00:02,000 --> 00:00:07,460
+El 27 de noviembre de 2024, alguien de un
+laboratorio le escribe a una funcionaria
+
+2
+00:00:07,480 --> 00:00:08,230
+del Estado:
+
+3
+00:00:08,580 --> 00:00:10,570
+¿es cierto que mañana
+vienen a inspeccionar?
+
+4
+00:00:11,480 --> 00:00:12,690
+Ella le contesta que sí.
+
+5
+00:00:13,040 --> 00:00:14,250
+Y le explica por qué.
+
+6
+00:00:14,940 --> 00:00:19,520
+Esa misma noche, en el laboratorio, organizan
+18 tareas para que nadie vea lo que
+
+7
+00:00:19,540 --> 00:00:20,450
+no tenía que ver.
+
+8
+00:00:21,060 --> 00:00:25,660
+Tres semanas después, en esa planta, se
+fabricó un remedio al que hoy la Justicia
+
+9
+00:00:25,680 --> 00:00:27,470
+le atribuye 90 muertes.
+
+10
+00:00:28,460 --> 00:00:32,930
+Para llegar a la vena de un paciente, ese
+remedio tenía que atravesar nueve barreras.
+
+11
+00:00:33,240 --> 00:00:34,650
+Las atravesó todas.
+
+12
+00:00:35,740 --> 00:00:38,730
+Esta es la historia del lote 31.202.
+
+13
+00:00:39,040 --> 00:00:43,390
+Y de cómo falló, una por una, cada
+barrera que tenía que frenarlo.
+
+14
+00:00:50,894 --> 00:00:53,024
+Primero: qué es este remedio.
+
+15
+00:00:53,314 --> 00:00:59,144
+El fentanilo es un analgésico opioide, entre
+50 y 100 veces más potente que la morfina.
+
+16
+00:00:59,274 --> 00:01:01,164
+En la calle, es una droga que mata.
+
+17
+00:01:01,334 --> 00:01:02,744
+En un hospital, es indispensable:
+
+18
+00:01:03,094 --> 00:01:07,354
+se usa en cirugías y en terapia intensiva,
+para sedar y aliviar el dolor de pacientes
+
+19
+00:01:07,374 --> 00:01:09,584
+graves, muchos de ellos intubados.
+
+20
+00:01:09,714 --> 00:01:11,364
+Se inyecta directo en la sangre.
+
+21
+00:01:11,654 --> 00:01:13,024
+Por eso tiene que ser estéril:
+
+22
+00:01:13,114 --> 00:01:14,304
+ni una sola bacteria.
+
+23
+00:01:15,094 --> 00:01:17,294
+Una persona sana puede
+pelear una infección.
+
+24
+00:01:17,314 --> 00:01:20,264
+Un paciente en terapia intensiva,
+muchas veces no.
+
+25
+00:01:20,474 --> 00:01:23,354
+Las víctimas de esta historia
+no buscaban ninguna droga.
+
+26
+00:01:23,374 --> 00:01:27,514
+Eran pacientes internados, que confiaban en
+que lo que les entraba por la vena estaba
+
+27
+00:01:27,534 --> 00:01:28,404
+controlado.
+
+28
+00:01:29,619 --> 00:01:33,639
+Para entender cómo pudo pasar, hay que conocer
+una idea que se usa para investigar
+
+29
+00:01:33,659 --> 00:01:35,889
+accidentes de avión y errores médicos:
+
+30
+00:01:36,279 --> 00:01:38,009
+el modelo del queso suizo.
+
+31
+00:01:38,359 --> 00:01:40,709
+Ninguna barrera de seguridad es perfecta.
+
+32
+00:01:40,839 --> 00:01:43,529
+Cada una tiene agujeros,
+como una feta de queso.
+
+33
+00:01:43,739 --> 00:01:46,189
+Por eso se ponen varias,
+una detrás de otra:
+
+34
+00:01:46,299 --> 00:01:49,089
+lo que se escapa por un agujero,
+lo frena la feta siguiente.
+
+35
+00:01:49,599 --> 00:01:53,429
+El desastre ocurre cuando los agujeros
+de todas las fetas se alinean,
+
+36
+00:01:53,479 --> 00:01:56,169
+y algo atraviesa el sistema
+de punta a punta.
+
+37
+00:01:57,979 --> 00:02:00,289
+En esta historia hubo nueve fetas.
+
+38
+00:02:00,619 --> 00:02:02,609
+Vamos a recorrerlas una por una.
+
+39
+00:02:04,034 --> 00:02:05,824
+La primera barrera es la fábrica.
+
+40
+00:02:06,014 --> 00:02:09,564
+Un inyectable se produce en salas
+limpias, con aire filtrado,
+
+41
+00:02:09,674 --> 00:02:11,824
+ropa especial y agua purificada.
+
+42
+00:02:11,954 --> 00:02:15,764
+En la planta de Laboratorios Ramallo,
+que fabricaba para HLB Pharma,
+
+43
+00:02:15,834 --> 00:02:18,984
+la investigación encontró producción
+en áreas no habilitadas,
+
+44
+00:02:19,114 --> 00:02:22,244
+limpiezas de apenas 2 o 3
+horas entre un lote y otro,
+
+45
+00:02:22,294 --> 00:02:27,264
+y agua para inyectables con arsénico,
+6 a 7 veces por encima del límite.
+
+46
+00:02:28,594 --> 00:02:31,234
+La segunda barrera es el
+ensayo de esterilidad:
+
+47
+00:02:31,254 --> 00:02:34,454
+antes de vender un lote, se toma
+una muestra y se cultiva,
+
+48
+00:02:34,474 --> 00:02:35,844
+para ver si crece algo.
+
+49
+00:02:35,934 --> 00:02:39,484
+Según la causa, ahí mezclaban hasta
+ocho lotes en una sola prueba.
+
+50
+00:02:39,634 --> 00:02:43,724
+Con esa mezcla, un lote contaminado puede
+pasar sin que la bacteria aparezca:
+
+51
+00:02:43,794 --> 00:02:46,084
+el ensayo da negativo, y el lote sale.
+
+52
+00:02:47,574 --> 00:02:49,644
+La tercera barrera es la liberación:
+
+53
+00:02:49,874 --> 00:02:53,424
+alguien de control de calidad firma
+que ese lote está en condiciones.
+
+54
+00:02:53,694 --> 00:02:58,034
+Según la investigación, esas firmas las ponía
+personal que no participaba del control
+
+55
+00:02:58,054 --> 00:03:01,704
+de calidad, y los registros se
+completaban después de fabricar.
+
+56
+00:03:02,835 --> 00:03:04,605
+La cuarta barrera es el historial.
+
+57
+00:03:05,015 --> 00:03:09,265
+Cuando un remedio falla, médicos y farmacéuticos
+lo reportan a la ANMAT,
+
+58
+00:03:09,375 --> 00:03:12,045
+el organismo que controla los
+medicamentos en la Argentina.
+
+59
+00:03:12,315 --> 00:03:18,755
+Entre 2018 y 2024, la ANMAT recibió 118
+reportes sobre estos laboratorios,
+
+60
+00:03:18,775 --> 00:03:20,765
+y la gran mayoría se confirmaron.
+
+61
+00:03:20,935 --> 00:03:23,905
+Hubo al menos 38 retiros
+de lotes del mercado.
+
+62
+00:03:24,315 --> 00:03:29,765
+En 2023, una dexametasona de la misma empresa
+apareció contaminada con Ralstonia,
+
+63
+00:03:29,835 --> 00:03:31,405
+una de las bacterias de esta historia.
+
+64
+00:03:31,555 --> 00:03:34,025
+De 23 ampollas, analizaron una.
+
+65
+00:03:34,355 --> 00:03:35,705
+Y no se tomaron medidas.
+
+66
+00:03:37,375 --> 00:03:39,225
+La quinta barrera es la clausura.
+
+67
+00:03:39,435 --> 00:03:44,035
+En 2019, una inspección había ordenado
+cerrar la planta por fallas graves en la
+
+68
+00:03:44,055 --> 00:03:44,585
+producción.
+
+69
+00:03:44,895 --> 00:03:46,905
+Esa clausura nunca se ejecutó.
+
+70
+00:03:48,475 --> 00:03:50,905
+La sexta barrera es la inspección.
+
+71
+00:03:51,155 --> 00:03:57,265
+A fines de 2024, por los reportes acumulados,
+la ANMAT decidió inspeccionar Ramallo.
+
+72
+00:03:57,395 --> 00:03:59,125
+Y acá vuelve el mensaje del principio.
+
+73
+00:03:59,455 --> 00:04:05,085
+El 27 de noviembre, Javier Tchukrán, de HLB,
+le escribe a una funcionaria del INAME,
+
+74
+00:04:05,175 --> 00:04:06,865
+el instituto técnico de la ANMAT:
+
+75
+00:04:06,955 --> 00:04:09,015
+me comentaron que mañana
+van a ir a Ramallo.
+
+76
+00:04:09,035 --> 00:04:09,815
+Ella responde:
+
+77
+00:04:09,835 --> 00:04:12,945
+sí, es una inspección que deviene
+de reportes de productos.
+
+78
+00:04:13,755 --> 00:04:18,045
+Esa noche, en el grupo del laboratorio,
+se coordinaron 18 tareas:
+
+79
+00:04:18,075 --> 00:04:21,035
+masillar paredes, sacar la
+materia prima rechazada,
+
+80
+00:04:21,055 --> 00:04:23,405
+poner carteles de fuera
+de uso en las máquinas,
+
+81
+00:04:23,475 --> 00:04:26,325
+completar planillas, tirar
+reactivos vencidos.
+
+82
+00:04:27,355 --> 00:04:29,425
+Las inspectoras fueron un solo día.
+
+83
+00:04:29,575 --> 00:04:32,425
+Aun así, encontraron
+deficiencias críticas.
+
+84
+00:04:32,515 --> 00:04:34,985
+Pero el acta se cerró
+recién un mes después.
+
+85
+00:04:35,835 --> 00:04:38,905
+Y mientras seguía abierta,
+el 16 de diciembre,
+
+86
+00:04:38,935 --> 00:04:42,565
+en esa misma planta, empezó a fabricarse
+una tanda de fentanilo.
+
+87
+00:04:42,755 --> 00:04:43,655
+Seis lotes.
+
+88
+00:04:43,675 --> 00:04:46,385
+Uno de ellos, el 31.202.
+
+89
+00:04:48,340 --> 00:04:50,210
+La séptima barrera es la sanción.
+
+90
+00:04:50,620 --> 00:04:54,810
+Con el informe de la inspección, el INAME
+preparó dos cartas de advertencia.
+
+91
+00:04:54,980 --> 00:04:56,990
+Una para Ramallo, que fabricaba.
+
+92
+00:04:57,300 --> 00:05:02,430
+Y otra para HLB, que vendía, y que prohibía
+comercializar todos sus productos.
+
+93
+00:05:02,680 --> 00:05:04,870
+La de HLB nunca se firmó.
+
+94
+00:05:05,940 --> 00:05:09,990
+La de Ramallo se firmó recién
+el 10 de febrero de 2025.
+
+95
+00:05:10,080 --> 00:05:13,150
+En el medio, el 14 de enero,
+la titular de la ANMAT,
+
+96
+00:05:13,240 --> 00:05:15,740
+Nélida Agustina Bisio, y
+la directora del INAME,
+
+97
+00:05:15,760 --> 00:05:19,720
+Gabriela Mantecón Fumadó, se reunieron con
+el dueño del laboratorio y parte de su
+
+98
+00:05:19,740 --> 00:05:25,610
+equipo. El 30 de enero, el lote 31.202
+empezó a salir hacia las droguerías.
+
+99
+00:05:25,760 --> 00:05:28,150
+El 8 de febrero se aplicó por primera vez.
+
+100
+00:05:28,640 --> 00:05:32,570
+La paciente, una mujer de 50
+años, murió el 12 de febrero.
+
+101
+00:05:34,915 --> 00:05:37,445
+La octava barrera es la alarma interna.
+
+102
+00:05:37,935 --> 00:05:41,885
+El 26 de febrero, una técnica
+del INAME le escribe a su jefa:
+
+103
+00:05:42,115 --> 00:05:43,185
+es peligroso.
+
+104
+00:05:43,415 --> 00:05:46,065
+Una persona que reporte evento
+adverso o se muera,
+
+105
+00:05:46,115 --> 00:05:47,585
+es nuestra responsabilidad.
+
+106
+00:05:48,475 --> 00:05:52,175
+Según el expediente, la respuesta
+de Mantecón Fumadó fue:
+
+107
+00:05:52,195 --> 00:05:54,045
+es un montón de guita
+que está en la calle.
+
+108
+00:05:55,015 --> 00:05:55,625
+Y después:
+
+109
+00:05:55,995 --> 00:05:56,985
+sí, lo sé.
+
+110
+00:05:58,655 --> 00:06:03,725
+Dos semanas más tarde, el 14 de marzo,
+HLB entregó otra partida de fentanilo:
+
+111
+00:06:03,855 --> 00:06:08,345
+120.000 ampollas del lote 31.244.
+
+112
+00:06:08,835 --> 00:06:12,045
+El 26 de marzo, Bisio
+le escribe a Mantecón:
+
+113
+00:06:12,355 --> 00:06:14,575
+decime en dos palabras
+si esto da para cierre,
+
+114
+00:06:14,595 --> 00:06:15,705
+porque Mario pregunta.
+
+115
+00:06:16,395 --> 00:06:19,845
+Ese Mario sería Mario Lugones, el
+ministro de Salud de la Nación.
+
+116
+00:06:20,235 --> 00:06:22,005
+El cierre recién llegó en mayo.
+
+117
+00:06:22,335 --> 00:06:24,305
+Para entonces, ya había muertos.
+
+118
+00:06:26,424 --> 00:06:28,734
+La novena barrera es la trazabilidad:
+
+119
+00:06:28,964 --> 00:06:31,694
+poder saber en qué paciente
+terminó cada ampolla.
+
+120
+00:06:32,244 --> 00:06:35,374
+En la Argentina, para muchos
+remedios es obligatoria.
+
+121
+00:06:35,684 --> 00:06:38,094
+El fentanilo no estaba en esa lista.
+
+122
+00:06:38,864 --> 00:06:41,314
+Así que las ampollas salieron
+hacia droguerías,
+
+123
+00:06:41,384 --> 00:06:44,134
+clínicas y hospitales de
+Buenos Aires, Santa Fe,
+
+124
+00:06:44,264 --> 00:06:49,244
+Córdoba, la Ciudad, Neuquén, Formosa y
+Jujuy, y nadie podía seguirles el rastro
+
+125
+00:06:49,264 --> 00:06:50,094
+una por una.
+
+126
+00:06:50,464 --> 00:06:52,614
+Las nueve fetas estaban alineadas.
+
+127
+00:06:56,084 --> 00:06:59,794
+Y entonces apareció una barrera que
+no figuraba en ningún organigrama.
+
+128
+00:07:01,622 --> 00:07:05,092
+En abril de 2025, en el Hospital
+Italiano de La Plata,
+
+129
+00:07:05,142 --> 00:07:06,812
+empezó un brote extraño.
+
+130
+00:07:06,922 --> 00:07:07,852
+Dos bacterias:
+
+131
+00:07:08,302 --> 00:07:11,492
+Klebsiella pneumoniae, resistente
+a muchos antibióticos,
+
+132
+00:07:11,622 --> 00:07:13,872
+y Ralstonia, que suele vivir en el agua.
+
+133
+00:07:13,982 --> 00:07:15,612
+No eran bacterias de ese hospital.
+
+134
+00:07:16,062 --> 00:07:18,272
+Los pacientes infectados
+tenían algo en común:
+
+135
+00:07:18,502 --> 00:07:21,812
+a todos les habían aplicado
+fentanilo de HLB.
+
+136
+00:07:22,022 --> 00:07:24,492
+En el hospital analizaron 12 ampollas.
+
+137
+00:07:24,682 --> 00:07:26,212
+10 tenían las bacterias.
+
+138
+00:07:26,322 --> 00:07:27,772
+Las de otra marca, ninguna.
+
+139
+00:07:28,422 --> 00:07:31,482
+El 2 de mayo, la jefa de
+Farmacia, Daiana Martínez,
+
+140
+00:07:31,502 --> 00:07:32,972
+mandó un correo a la ANMAT.
+
+141
+00:07:33,542 --> 00:07:37,782
+Tiempo después, el Instituto Malbrán confirmó
+la coincidencia genómica entre las
+
+142
+00:07:37,802 --> 00:07:40,172
+bacterias de los pacientes
+y las de las ampollas.
+
+143
+00:07:40,362 --> 00:07:43,232
+La barrera que funcionó no
+fue un organismo de control.
+
+144
+00:07:43,362 --> 00:07:45,552
+Fue un equipo de hospital
+que se dio cuenta.
+
+145
+00:07:47,825 --> 00:07:50,355
+Lo que pasó después parece de película.
+
+146
+00:07:50,465 --> 00:07:54,835
+Entre el 7 y el 9 de mayo, cuando ya sabían
+que el fentanilo estaba contaminado,
+
+147
+00:07:54,965 --> 00:07:59,515
+en Ramallo se esterilizaron en autoclave
+al menos 100 ampollas de fentanilo.
+
+148
+00:07:59,605 --> 00:08:02,665
+El domingo 11 hubo un acto
+de vandalismo en HLB.
+
+149
+00:08:02,685 --> 00:08:05,455
+En esos días se destruyeron
+información digital,
+
+150
+00:08:05,665 --> 00:08:08,255
+documentación y el citrato de fentanilo.
+
+151
+00:08:08,305 --> 00:08:11,415
+El 14 de mayo, un empleado
+le escribe a una compañera:
+
+152
+00:08:11,485 --> 00:08:12,675
+hoy quemamos todo.
+
+153
+00:08:13,885 --> 00:08:18,525
+Casi 5 kilos de citrato de fentanilo que
+figuraban en una inspección anterior no
+
+154
+00:08:18,545 --> 00:08:20,275
+aparecieron en los allanamientos:
+
+155
+00:08:20,365 --> 00:08:24,095
+la empresa dice que los destruyó, y
+el juez investiga si se desviaron.
+
+156
+00:08:24,665 --> 00:08:28,815
+En agosto de 2025 detuvieron al
+dueño, Ariel García Furfaro,
+
+157
+00:08:29,105 --> 00:08:32,875
+que en 2002 había sido condenado
+por intentar matar a un empleado.
+
+158
+00:08:32,925 --> 00:08:34,535
+Hoy hay 13 procesados:
+
+159
+00:08:34,785 --> 00:08:37,235
+dueños, gerentes y directores técnicos.
+
+160
+00:08:37,425 --> 00:08:41,485
+Sus defensas piden anular las pericias y
+sostienen que los pacientes murieron por
+
+161
+00:08:41,505 --> 00:08:42,635
+sus enfermedades.
+
+162
+00:08:43,085 --> 00:08:47,355
+Y en agosto de 2026 pasó
+algo que casi nunca pasa:
+
+163
+00:08:47,845 --> 00:08:51,705
+detuvieron a la extitular de la ANMAT
+y a la exdirectora del INAME.
+
+164
+00:08:51,725 --> 00:08:54,465
+En septiembre las procesaron,
+aunque siguen en libertad.
+
+165
+00:08:54,485 --> 00:08:56,765
+Al ministro Lugones, el juez no lo imputó:
+
+166
+00:08:56,785 --> 00:08:59,185
+consideró que conocía las
+generalidades del caso,
+
+167
+00:08:59,205 --> 00:09:01,675
+pero que su intervención
+iba en otro sentido.
+
+168
+00:09:03,624 --> 00:09:09,754
+Hoy, la Justicia le atribuye a este fentanilo
+90 muertes y 44 pacientes con secuelas.
+
+169
+00:09:10,704 --> 00:09:14,094
+Otros relevamientos hablan
+de más de 100 muertes.
+
+170
+00:09:14,264 --> 00:09:16,194
+La causa todavía no llegó a juicio:
+
+171
+00:09:16,404 --> 00:09:19,574
+la Cámara Federal de La Plata tiene
+las apelaciones sin resolver.
+
+172
+00:09:19,884 --> 00:09:25,344
+Y en octubre de 2026, la Provincia de Buenos
+Aires autorizó a sus hospitales a descartar
+
+173
+00:09:25,364 --> 00:09:29,194
+más de 4 millones de unidades de
+remedios de estos laboratorios,
+
+174
+00:09:29,344 --> 00:09:30,934
+que seguían en sus depósitos.
+
+175
+00:09:31,384 --> 00:09:34,054
+Las nueve barreras existían.
+
+176
+00:09:34,164 --> 00:09:37,594
+Estaban en las leyes, en los
+manuales, en los organigramas.
+
+177
+00:09:37,844 --> 00:09:39,634
+Fallaron una por una.
+
+178
+00:09:39,944 --> 00:09:42,754
+Y en esta historia, cada
+agujero tiene una fecha.
+
+179
+00:09:51,964 --> 00:09:52,994
+¿Quién tiene más culpa:
+
+180
+00:09:53,324 --> 00:09:56,534
+el laboratorio que lo fabricó,
+o el Estado que no lo detuvo?
+
+181
+00:09:57,424 --> 00:09:58,614
+Te leo en los comentarios.
+
+182
+00:09:58,964 --> 00:10:01,434
+Y si este video te sirvió
+para entender lo que pasó,
+
+183
+00:10:01,664 --> 00:10:02,354
+compartilo:
+
+184
+00:10:02,464 --> 00:10:04,354
+es la mejor forma de que no se olvide.

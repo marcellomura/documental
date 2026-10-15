@@ -81,6 +81,18 @@ NUM_EP = {
              ("veintiséis meses", "26 meses"), ("treinta y tres tareas", "33 tareas"), ("tres años", "3 años"), ("ocho y cuarenta y cinco", "8:45"),
              ("diez y cincuenta y uno", "10:51"), ("dos mil trescientas toneladas", "2.300 toneladas"), ("siete y media", "7:30"), ("ocho años", "8 años"),
              ("ocho días", "8 días"), ("seis años", "6 años"), ("cuatro meses", "4 meses")],
+    "ep13": [("veintisiete de noviembre de dos mil veinticuatro", "27 de noviembre de 2024"), ("veintisiete de noviembre", "27 de noviembre"),
+             ("treinta y un mil doscientos cuarenta y cuatro", "31.244"), ("treinta y un mil doscientos dos", "31.202"),
+             ("entre cincuenta y cien veces", "entre 50 y 100 veces"), ("dos o tres horas", "2 o 3 horas"), ("seis a siete veces", "6 a 7 veces"),
+             ("dos mil dieciocho", "2018"), ("dos mil diecinueve", "2019"), ("dos mil veintitrés", "2023"), ("dos mil veinticuatro", "2024"),
+             ("dos mil veinticinco", "2025"), ("dos mil veintiséis", "2026"), ("dos mil dos", "2002"), ("ciento dieciocho", "118"),
+             ("treinta y ocho", "38"), ("veintitrés ampollas", "23 ampollas"), ("dieciocho tareas", "18 tareas"), ("dieciséis de diciembre", "16 de diciembre"),
+             ("diez de febrero", "10 de febrero"), ("catorce de enero", "14 de enero"), ("treinta de enero", "30 de enero"), ("ocho de febrero", "8 de febrero"),
+             ("cincuenta años", "50 años"), ("doce de febrero", "12 de febrero"), ("veintiséis de febrero", "26 de febrero"), ("catorce de marzo", "14 de marzo"),
+             ("ciento veinte mil", "120.000"), ("veintiséis de marzo", "26 de marzo"), ("doce ampollas", "12 ampollas"), ("Diez tenían", "10 tenían"),
+             ("dos de mayo", "2 de mayo"), ("siete y el nueve de mayo", "7 y el 9 de mayo"), ("cien ampollas", "100 ampollas"), ("domingo once", "domingo 11"),
+             ("catorce de mayo", "14 de mayo"), ("cinco kilos", "5 kilos"), ("trece procesados", "13 procesados"), ("noventa muertes", "90 muertes"),
+             ("cuarenta y cuatro", "44"), ("más de cien muertes", "más de 100 muertes"), ("cuatro millones", "4 millones"), ("HLB Farma", "HLB Pharma")],
 }
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):

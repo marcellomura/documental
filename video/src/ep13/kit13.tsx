@@ -59,7 +59,7 @@ export const driftT = (t: number, t0: number, k = 0.012) => `scale(${1 + k * Mat
 
 /* ================================================================== FONDOS */
 /** quirófano a oscuras: degradé grafito, retícula de azulejos muy tenue, polvo en suspensión y viñeta */
-export const ClinicBg: React.FC<{t: number; grid?: number; light?: number; alarm?: number; dust?: number; x?: number}> = ({t, grid = 1, light = 1, alarm = 0, dust = 1, x = 50}) => (
+export const ClinicBg: React.FC<{t: number; grid?: number; light?: number; alarm?: number; dust?: number; x?: number; w?: number; h?: number}> = ({t, grid = 1, light = 1, alarm = 0, dust = 1, x = 50, w = 1920, h = 1080}) => (
   <AbsoluteFill style={{background: K.void}}>
     <AbsoluteFill style={{background: `radial-gradient(ellipse 70% 60% at ${x}% 30%, rgba(34,90,86,${0.42 * light}) 0%, rgba(10,24,26,${0.6 * light}) 45%, rgba(4,10,11,1) 100%)`}} />
     {grid > 0 ? (
@@ -77,19 +77,19 @@ export const ClinicBg: React.FC<{t: number; grid?: number; light?: number; alarm
     {alarm > 0 ? (
       <AbsoluteFill style={{background: `radial-gradient(ellipse 80% 70% at 50% 50%, rgba(255,59,48,${0.16 * alarm * (0.75 + 0.25 * Math.sin(t * 3.2))}) 0%, rgba(120,0,8,${0.22 * alarm}) 70%, rgba(0,0,0,0) 100%)`}} />
     ) : null}
-    {dust > 0 ? <Dust t={t} o={dust} /> : null}
+    {dust > 0 ? <Dust t={t} o={dust} w={w} h={h} /> : null}
     <Vignette k={0.6} />
   </AbsoluteFill>
 );
 
 /** partículas de polvo en suspensión iluminadas (aire de sala) */
-export const Dust: React.FC<{t: number; n?: number; o?: number; color?: string}> = ({t, n = 70, o = 1, color = '#CFF5EE'}) => (
-  <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, pointerEvents: 'none'}}>
+export const Dust: React.FC<{t: number; n?: number; o?: number; color?: string; w?: number; h?: number}> = ({t, n = 70, o = 1, color = '#CFF5EE', w = 1920, h = 1080}) => (
+  <svg width={w} height={h} style={{position: 'absolute', left: 0, top: 0, pointerEvents: 'none'}}>
     {Array.from({length: n}, (_, i) => {
       const layer = i % 3;
       const sp = 0.006 + layer * 0.008 + rnd(i) * 0.006;
-      const yy = ((rnd(i + 3) - t * sp) % 1 + 1) % 1 * 1140 - 30;
-      const xx = rnd(i + 7) * 1920 + Math.sin(t * (0.2 + rnd(i) * 0.3) + i) * (14 + layer * 10);
+      const yy = ((rnd(i + 3) - t * sp) % 1 + 1) % 1 * (h + 60) - 30;
+      const xx = rnd(i + 7) * w + Math.sin(t * (0.2 + rnd(i) * 0.3) + i) * (14 + layer * 10);
       const r = 0.8 + layer * 0.9 + rnd(i + 11) * 1.1;
       return <circle key={i} cx={xx} cy={yy} r={r} fill={color} opacity={(0.05 + 0.07 * layer + rnd(i + 5) * 0.12) * o} />;
     })}
@@ -148,8 +148,8 @@ export const Defs13: React.FC = () => (
 
 /* ================================================================== TIPOGRAFÍA */
 /** rótulo chico: punto + línea + texto mono en mayúsculas */
-export const Kicker: React.FC<{t: number; t0: number; t1?: number; text: string; x: number; y: number; color?: string; size?: number; align?: 'left' | 'center' | 'right'}> = ({
-  t, t0, t1 = Infinity, text, x, y, color = K.teal, size = 22, align = 'left',
+export const Kicker: React.FC<{t: number; t0: number; t1?: number; text: string; x: number; y: number; color?: string; size?: number; align?: 'left' | 'center' | 'right'; shadow?: boolean; plate?: boolean}> = ({
+  t, t0, t1 = Infinity, text, x, y, color = K.teal, size = 22, align = 'left', shadow = false, plate = false,
 }) => {
   const o = fadeIO(t, t0, t1, 0.3);
   if (o <= 0) return null;
@@ -157,10 +157,15 @@ export const Kicker: React.FC<{t: number; t0: number; t1?: number; text: string;
   const n = Math.floor(clamp((t - t0) * 55, 0, text.length));
   const tx = align === 'center' ? '-50%' : align === 'right' ? '-100%' : '0';
   return (
-    <div style={{position: 'absolute', left: x, top: y, transform: `translate(${tx}, -50%)`, display: 'flex', alignItems: 'center', gap: 14, opacity: o, whiteSpace: 'nowrap'}}>
+    <div
+      style={{
+        position: 'absolute', left: x, top: y, transform: `translate(${tx}, -50%)`, display: 'flex', alignItems: 'center', gap: 14, opacity: o, whiteSpace: 'nowrap',
+        ...(plate ? {background: 'rgba(4,10,11,0.78)', padding: '10px 18px', borderRadius: 4, backdropFilter: 'blur(6px)'} : {}),
+      }}
+    >
       <span style={{width: 9, height: 9, borderRadius: 5, background: color, boxShadow: `0 0 10px ${color}`}} />
       <span style={{width: 34 * p, height: 2, background: color}} />
-      <span style={{...gm(size, color, 600, 0.22), textTransform: 'uppercase'}}>{text.slice(0, n)}</span>
+      <span style={{...gm(size, color, 600, 0.22), textTransform: 'uppercase', textShadow: shadow ? '0 2px 10px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.8)' : undefined}}>{text.slice(0, n)}</span>
     </div>
   );
 };
@@ -252,7 +257,7 @@ export const Quote13: React.FC<{t: number; t0: number; t1?: number; text: string
         {words.map((wd, i) => {
           const p = prog(t, t0 + 0.1 + i * 0.07, 0.5);
           return (
-            <span key={i} style={{display: 'inline-block', marginRight: size * 0.22, opacity: p, filter: `blur(${(1 - p) * 8}px)`, transform: `translateY(${(1 - p) * 16}px)`}}>
+            <span key={i} style={{display: 'inline-block', marginRight: i < words.length - 1 ? size * 0.22 : 0, opacity: p, filter: `blur(${(1 - p) * 8}px)`, transform: `translateY(${(1 - p) * 16}px)`}}>
               {wd}
             </span>
           );
@@ -346,13 +351,62 @@ export const DateRoll: React.FC<{t: number; t0: number; t1?: number; text: strin
   );
 };
 
+/** papel que se quema: frente irregular (ruido + gradiente) que sube desde abajo con borde incandescente y brasas; k 0–1 */
+export const BurnAway: React.FC<{k: number; t: number; id?: string; w?: number; h?: number}> = ({k, t, id = 'burnaway', w = 1920, h = 1080}) => {
+  if (k <= 0) return null;
+  const thr = 0.98 - k * 1.08; // umbral: cuanto más bajo, más superficie quemada (sube desde abajo)
+  const s = 16;
+  const a = (o: number) => `0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  ${s} 0 0 0 ${-s * (thr - o)}`;
+  return (
+    <svg width={w} height={h} style={{position: 'absolute', inset: 0}}>
+      <defs>
+        <linearGradient id={id + 'g'} x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="1" stopColor="#000" />
+        </linearGradient>
+        <filter id={id} x="0" y="0" width="100%" height="100%" colorInterpolationFilters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.0042 0.0058" numOctaves={4} seed={11} result="n0" />
+          <feColorMatrix in="n0" type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1" result="n" />
+          <feComposite in="SourceGraphic" in2="n" operator="arithmetic" k1={0} k2={0.74} k3={0.42} k4={-0.1} result="v" />
+          <feColorMatrix in="v" type="matrix" values={a(0)} result="burnt" />
+          <feColorMatrix in="v" type="matrix" values={a(0.035)} result="char" />
+          <feColorMatrix in="v" type="matrix" values={a(0.075)} result="edge" />
+          <feFlood floodColor="#FF8A2A" result="orange" />
+          <feComposite in="orange" in2="edge" operator="in" result="edgeC" />
+          <feGaussianBlur in="edgeC" stdDeviation="6" result="edgeB" />
+          <feFlood floodColor="#3A1206" result="brown" />
+          <feComposite in="brown" in2="char" operator="in" result="charC" />
+          <feFlood floodColor="#030607" result="black" />
+          <feComposite in="black" in2="burnt" operator="in" result="blackC" />
+          <feMerge>
+            <feMergeNode in="edgeB" />
+            <feMergeNode in="edgeC" />
+            <feMergeNode in="charC" />
+            <feMergeNode in="blackC" />
+          </feMerge>
+        </filter>
+      </defs>
+      <rect width={w} height={h} fill={`url(#${id}g)`} filter={`url(#${id})`} />
+      {/* brasas que suben */}
+      {Array.from({length: 26}, (_, i) => {
+        const life = 1.6 + rnd(i * 7) * 1.4;
+        const ph = ((t + rnd(i * 3) * life) % life) / life;
+        const x = rnd(i * 11) * w + Math.sin(t * 2 + i) * 30;
+        const y = h - (0.15 + k * 0.85) * h * 0.83 * (0.3 + rnd(i * 5) * 0.7) - ph * 260;
+        return <circle key={i} cx={x} cy={y} r={1.5 + rnd(i) * 2.5} fill="#FFB25A" opacity={(1 - ph) * Math.min(1, k * 4) * 0.9} />;
+      })}
+    </svg>
+  );
+};
+
 /* ================================================================== BARRERAS */
 export const BARRERAS = ['LA FÁBRICA', 'EL ENSAYO', 'LA LIBERACIÓN', 'EL HISTORIAL', 'LA CLAUSURA', 'LA INSPECCIÓN', 'LA SANCIÓN', 'LA ALARMA INTERNA', 'LA TRAZABILIDAD'];
 
 /** feta en miniatura (rectángulo redondeado con agujeros; el agujero de la falla en rojo) */
-export const SliceGlyph: React.FC<{x: number; y: number; w?: number; h?: number; state: 'idle' | 'now' | 'failed' | 'hospital'; k?: number}> = ({x, y, w = 20, h = 30, state, k = 1}) => {
-  const fill = state === 'hospital' ? K.teal : state === 'idle' ? 'rgba(242,193,78,0.22)' : K.cheese;
-  const stroke = state === 'now' ? '#FFF2C4' : 'rgba(0,0,0,0)';
+export const SliceGlyph: React.FC<{x: number; y: number; w?: number; h?: number; state: 'idle' | 'now' | 'failed' | 'hospital'; k?: number; light?: number}> = ({x, y, w = 20, h = 30, state, k = 1, light = 0}) => {
+  // sobre papel: las fetas inactivas en ocre visible y el borde de la actual en tinta
+  const fill = state === 'hospital' ? K.teal : state === 'idle' ? `rgba(${Math.round(242 - 50 * light)},${Math.round(193 - 55 * light)},${Math.round(78 - 40 * light)},${0.22 + 0.2 * light})` : K.cheese;
+  const stroke = state === 'now' ? lerpHex('#FFF2C4', K.ink, light) : 'rgba(0,0,0,0)';
   return (
     <g transform={`translate(${x},${y})`}>
       <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={4} fill={fill} stroke={stroke} strokeWidth={2} opacity={state === 'idle' ? 0.9 : 1} />
@@ -362,8 +416,16 @@ export const SliceGlyph: React.FC<{x: number; y: number; w?: number; h?: number;
   );
 };
 
+/** interpola dos colores #RRGGBB */
+export const lerpHex = (a: string, b: string, k: number) => {
+  const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16));
+  const pb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  const kk = clamp(k);
+  return `rgb(${pa.map((v, i) => Math.round(v + (pb[i] - v) * kk)).join(',')})`;
+};
+
 /** contador de barreras (arriba a la izquierda): nueve fetas, la actual resaltada y las caídas con su agujero rojo */
-export const BarrierHUD: React.FC<{t: number; t0: number; t1?: number; n: number; failedUpTo: number; x?: number; y?: number; hospital?: number}> = ({t, t0, t1 = Infinity, n, failedUpTo, x = 72, y = 70, hospital = 0}) => {
+export const BarrierHUD: React.FC<{t: number; t0: number; t1?: number; n: number; failedUpTo: number; x?: number; y?: number; hospital?: number; light?: number}> = ({t, t0, t1 = Infinity, n, failedUpTo, x = 72, y = 70, hospital = 0, light = 0}) => {
   const o = fadeIO(t, t0, t1, 0.4);
   if (o <= 0) return null;
   const p = prog(t, t0, 0.7);
@@ -371,10 +433,10 @@ export const BarrierHUD: React.FC<{t: number; t0: number; t1?: number; n: number
   return (
     <div style={{position: 'absolute', left: x, top: y, opacity: o, transform: `translateX(${(1 - p) * -40}px)`}}>
       <div style={{display: 'flex', alignItems: 'center', gap: 18}}>
-        <div style={{...gm(20, K.cheese, 600, 0.24)}}>BARRERA</div>
-        <div style={{...gm(20, K.bone, 600, 0.12)}}>
+        <div style={{...gm(20, lerpHex(K.cheese, '#9A6510', light), 600, 0.24)}}>BARRERA</div>
+        <div style={{...gm(20, lerpHex(K.bone, K.ink, light), 600, 0.12)}}>
           {String(n).padStart(2, '0')}
-          <span style={{color: K.dim}}> / 09</span>
+          <span style={{color: lerpHex(K.dim, '#7A8A8B', light)}}> / 09</span>
         </div>
       </div>
       <svg width={hospital > 0 ? 300 : 270} height={44} style={{marginTop: 10, overflow: 'visible'}}>
@@ -384,7 +446,7 @@ export const BarrierHUD: React.FC<{t: number; t0: number; t1?: number; n: number
           const pp = prog(t, t0 + i * 0.04, 0.4);
           return (
             <g key={i} opacity={pp}>
-              <SliceGlyph x={14 + i * 29} y={22} state={state} k={idx <= failedUpTo ? 1 : 0} />
+              <SliceGlyph x={14 + i * 29} y={22} state={state} k={idx <= failedUpTo ? 1 : 0} light={light} />
             </g>
           );
         })}
@@ -394,7 +456,7 @@ export const BarrierHUD: React.FC<{t: number; t0: number; t1?: number; n: number
           </g>
         ) : null}
       </svg>
-      {title ? <div style={{...gs(30, 700, K.bone, 0.01), marginTop: 8}}>{title}</div> : null}
+      {title ? <div style={{...gs(30, 700, lerpHex(K.bone, K.ink, light), 0.01), marginTop: 8}}>{title}</div> : null}
     </div>
   );
 };
@@ -403,7 +465,7 @@ export const BarrierHUD: React.FC<{t: number; t0: number; t1?: number; n: number
 export const BarrierCard: React.FC<{t: number; t0: number; dur: number; n: number; sub?: string}> = ({t, t0, dur, n, sub}) => {
   const a = t - t0;
   if (a < -0.05 || a > dur + 0.05) return null;
-  const inP = prog(t, t0, 0.5);
+  const inP = prog(t, t0, 0.25);
   const outP = prog(t, t0 + dur - 0.35, 0.35, easeIn);
   const slideP = prog(t, t0 + 0.05, 0.75);
   const hole = prog(t, t0 + 0.55, 0.45, easeOut);
@@ -438,8 +500,8 @@ export const BarrierCard: React.FC<{t: number; t0: number; dur: number; n: numbe
         <div style={{...gm(28, K.cheese, 600, 0.3), opacity: prog(t, t0 + 0.1, 0.4)}}>BARRERA</div>
         <div
           style={{
-            fontFamily: F.mono, fontWeight: 300, fontSize: 300, lineHeight: 0.9, color: 'transparent', WebkitTextStroke: `3px ${K.cheese}`,
-            letterSpacing: '-0.04em', transform: `translateY(${(1 - prog(t, t0 + 0.05, 0.6)) * 60}px)`, opacity: prog(t, t0 + 0.05, 0.5),
+            fontFamily: F.sans, fontWeight: 200, fontSize: 320, lineHeight: 0.9, color: 'transparent', WebkitTextStroke: `3px ${K.cheese}`,
+            letterSpacing: '-0.05em', transform: `translateY(${(1 - prog(t, t0 + 0.05, 0.6)) * 60}px)`, opacity: prog(t, t0 + 0.05, 0.5),
           }}
         >
           {String(n).padStart(2, '0')}
@@ -476,7 +538,7 @@ export const Stamp13: React.FC<{t: number; t0: number; t1?: number; text: string
 };
 
 /** rótulo "RECREACIÓN" para documentos y chats reconstruidos a partir de la causa */
-export const Recreation: React.FC<{x?: number; y?: number; dark?: boolean; text?: string; o?: number}> = ({x = 1848, y = 52, dark = true, text = 'RECREACIÓN', o = 1}) => (
+export const Recreation: React.FC<{x?: number; y?: number; dark?: boolean; text?: string; o?: number}> = ({x = 1848, y = 994, dark = true, text = 'RECREACIÓN', o = 1}) => (
   <div style={{position: 'absolute', right: 1920 - x, top: y, ...gm(17, dark ? 'rgba(236,243,241,0.75)' : 'rgba(11,20,22,0.7)', 600, 0.24), border: `1px solid ${dark ? 'rgba(236,243,241,0.4)' : 'rgba(11,20,22,0.35)'}`, padding: '6px 12px', borderRadius: 4, opacity: o}}>
     {text}
   </div>
@@ -631,8 +693,8 @@ export const NameCard13: React.FC<{t: number; t0: number; t1?: number; name: str
   return (
     <div style={{position: 'absolute', left: x, top: y, opacity: o, transform: align === 'center' ? 'translateX(-50%)' : undefined, textAlign: align}}>
       <div style={{width: 80 * p, height: 3, background: statusColor, marginBottom: 14, marginLeft: align === 'center' ? 'auto' : 0, marginRight: align === 'center' ? 'auto' : 0}} />
-      <div style={{fontFamily: F.serif, fontSize: size, color: K.bone, lineHeight: 1, filter: `blur(${(1 - p) * 6}px)`, textShadow: '0 4px 20px rgba(0,0,0,0.7)'}}>{name}</div>
-      <div style={{...gm(22, K.bone, 500, 0.14), textTransform: 'uppercase', marginTop: 12, opacity: prog(t, t0 + 0.3, 0.5)}}>{role}</div>
+      <div style={{fontFamily: F.serif, fontSize: size, color: K.bone, lineHeight: 1, whiteSpace: 'nowrap', filter: `blur(${(1 - p) * 6}px)`, textShadow: '0 4px 20px rgba(0,0,0,0.7)'}}>{name}</div>
+      <div style={{...gm(22, K.bone, 500, 0.14), textTransform: 'uppercase', whiteSpace: 'nowrap', marginTop: 12, opacity: prog(t, t0 + 0.3, 0.5)}}>{role}</div>
       {status ? (
         <div style={{display: 'inline-flex', alignItems: 'center', gap: 10, marginTop: 12, padding: '6px 14px', border: `1.5px solid ${statusColor}`, borderRadius: 6, opacity: prog(t, t0 + 0.55, 0.5)}}>
           <span style={{width: 9, height: 9, borderRadius: 5, background: statusColor}} />
@@ -666,7 +728,7 @@ export const Photo13: React.FC<{
     <AbsoluteFill style={{opacity: o, overflow: 'hidden', background: K.void}}>
       <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: fit, objectPosition: focus, transform: `translate(${xx}px, ${yy}px) scale(${s})`, filter: GRADES[grade]}} />
       {tint ? <AbsoluteFill style={{background: `linear-gradient(180deg, rgba(10,60,56,${tint}) 0%, rgba(2,10,10,${tint * 0.7}) 100%)`, mixBlendMode: 'multiply'}} /> : null}
-      {dim ? <AbsoluteFill style={{background: `linear-gradient(180deg, rgba(0,0,0,${dim * 0.5}) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,${dim * 1.6}) 100%)`}} /> : null}
+      {dim ? <AbsoluteFill style={{background: `linear-gradient(180deg, rgba(0,0,0,${Math.min(0.85, dim * 1.5)}) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 55%, rgba(0,0,0,${dim * 1.6}) 100%)`}} /> : null}
       {credit ? <Credit13 text={credit} /> : null}
     </AbsoluteFill>
   );

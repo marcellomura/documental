@@ -6,6 +6,7 @@ import React, {useMemo} from 'react';
 import {ThreeCanvas} from '@remotion/three';
 import {useThree} from '@react-three/fiber';
 import * as THREE from 'three';
+import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
 import {clamp, easeInOut, rnd} from '../lib/anim';
 import type {Cam, V3} from '../ep06/three6';
 export {project, camPath, lerpCam} from '../ep06/three6';
@@ -27,11 +28,41 @@ const Rig: React.FC<{cam: Cam; aspect: number}> = ({cam, aspect}) => {
   c.updateMatrixWorld();
   return null;
 };
-export const Stage13: React.FC<{cam: Cam; bg?: string; fog?: [string, number, number]; exposure?: number; children: React.ReactNode; style?: React.CSSProperties; w?: number; h?: number}> = ({
-  cam, bg, fog, exposure = 1, children, style, w = 1920, h = 1080,
+/** estudio de producto: fondo negro con cajas de luz (cenital, dos tiras laterales y un contraluz cálido); en el vidrio
+ *  deja reflejos nítidos sobre negro en vez del velo gris parejo de la habitación */
+const studioScene = () => {
+  const sc = new THREE.Scene();
+  sc.background = new THREE.Color('#030607');
+  const panel = (w: number, h: number, pos: V3, rot: V3, k: number, color = '#FFFFFF') => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({color: new THREE.Color(color).multiplyScalar(k), side: THREE.DoubleSide}));
+    m.position.set(...pos);
+    m.rotation.set(...rot);
+    sc.add(m);
+  };
+  panel(5, 5, [0, 7, 0], [Math.PI / 2, 0, 0], 2.4);
+  panel(1.1, 9, [-5.5, 0.5, 2.0], [0, Math.PI / 2, 0], 5.0);
+  panel(0.7, 9, [5.5, 0.5, -0.5], [0, -Math.PI / 2, 0], 3.2, '#DDF4FF');
+  panel(7, 0.7, [0, 1.6, -6.5], [0, 0, 0], 2.4, '#FFE1B5');
+  panel(16, 16, [0, -5, 0], [-Math.PI / 2, 0, 0], 0.08);
+  return sc;
+};
+/** entorno de reflejos (vidrio y acrílico): se arma una sola vez por lienzo */
+const EnvSetup: React.FC<{k: number; kind: 'room' | 'studio'}> = ({k, kind}) => {
+  const {gl, scene} = useThree();
+  useMemo(() => {
+    const pm = new THREE.PMREMGenerator(gl);
+    scene.environment = pm.fromScene(kind === 'studio' ? studioScene() : new RoomEnvironment(), 0.04).texture;
+    pm.dispose();
+  }, [gl, scene, kind]);
+  (scene as unknown as {environmentIntensity: number}).environmentIntensity = k;
+  return null;
+};
+export const Stage13: React.FC<{cam: Cam; bg?: string; fog?: [string, number, number]; exposure?: number; children: React.ReactNode; style?: React.CSSProperties; w?: number; h?: number; env?: number; envKind?: 'room' | 'studio'}> = ({
+  cam, bg, fog, exposure = 1, children, style, w = 1920, h = 1080, env = 0.6, envKind = 'room',
 }) => (
   <ThreeCanvas width={w} height={h} gl={{antialias: true, alpha: !bg, toneMappingExposure: exposure, preserveDrawingBuffer: true}} style={{position: 'absolute', left: 0, top: 0, ...style}}>
     <Rig cam={cam} aspect={w / h} />
+    {env > 0 ? <EnvSetup k={env} kind={envKind} /> : null}
     {bg ? <color attach="background" args={[bg]} /> : null}
     {fog ? <fog attach="fog" args={fog} /> : null}
     {children}
@@ -115,23 +146,33 @@ const roundedRect = (w: number, h: number, r: number) => {
   s.quadraticCurveTo(x, y, x + r, y);
   return s;
 };
-/** agujeros fijos de cada feta (deterministas por índice), lejos del camino */
-export const sliceHoles = (i: number): [number, number, number][] => {
-  const out: [number, number, number][] = [];
-  for (let k = 0; out.length < 5 && k < 40; k++) {
-    const x = (rnd(i * 31 + k * 7) - 0.5) * (SLICE_W - 0.7);
-    const y = (rnd(i * 17 + k * 13 + 5) - 0.5) * (SLICE_H - 0.6);
-    const r = 0.1 + rnd(i * 5 + k) * 0.17;
-    if (Math.hypot(x - PATH_XY[0], y - PATH_XY[1]) < 0.75) continue;
-    if (out.some(([a, b, c]) => Math.hypot(a - x, b - y) < c + r + 0.12)) continue;
-    out.push([x, y, r]);
-  }
-  return out;
-};
 /** posición del agujero de la falla cuando NO está alineado (cada feta lo tiene en otro lugar) */
 export const missPos = (i: number): [number, number] => {
   const a = rnd(i * 3 + 101) * Math.PI * 2;
   return [PATH_XY[0] + Math.cos(a) * 0.85 - 0.25, PATH_XY[1] + Math.sin(a) * 0.55];
+};
+/** distancia de un punto al segmento a–b */
+const segDist = (x: number, y: number, a: [number, number], b: [number, number]) => {
+  const dx = b[0] - a[0], dy = b[1] - a[1];
+  const t = clamp(((x - a[0]) * dx + (y - a[1]) * dy) / (dx * dx + dy * dy || 1));
+  return Math.hypot(x - (a[0] + dx * t), y - (a[1] + dy * t));
+};
+/** agujeros fijos de cada feta (deterministas por índice), lejos del recorrido del agujero de la falla:
+ *  si se tocan, la triangulación del ExtrudeGeometry deja triángulos sueltos */
+export const sliceHoles = (i: number): [number, number, number][] => {
+  const out: [number, number, number][] = [];
+  const mp = missPos(i);
+  for (let k = 0; out.length < 5 && k < 80; k++) {
+    const x = (rnd(i * 31 + k * 7) - 0.5) * (SLICE_W - 0.7);
+    const y = (rnd(i * 17 + k * 13 + 5) - 0.5) * (SLICE_H - 0.6);
+    const r = 0.1 + rnd(i * 5 + k) * 0.17;
+    if (Math.abs(x) + r > SLICE_W / 2 - 0.12 || Math.abs(y) + r > SLICE_H / 2 - 0.12) continue;
+    if (Math.hypot(x - PATH_XY[0], y - PATH_XY[1]) < 0.75) continue;
+    if (segDist(x, y, mp, PATH_XY) < 0.3 + r + 0.1) continue;
+    if (out.some(([a, b, c]) => Math.hypot(a - x, b - y) < c + r + 0.12)) continue;
+    out.push([x, y, r]);
+  }
+  return out;
 };
 
 export type SliceProps = {
@@ -195,17 +236,23 @@ const LIQ_PROFILE: [number, number][] = [[0.0, 0.015], [0.17, 0.015], [0.185, 0.
 const lathe = (pts: [number, number][], seg = 48) => new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(r, y)), seg);
 
 /** ampolla de vidrio (altura 1): líquido, etiqueta del lote y anillo de corte rojo; cloud = turbidez/contaminación */
-export const Ampoule: React.FC<{pos?: V3; rot?: V3; s?: number; lot?: string; cloud?: number; glow?: number; o?: number; label?: boolean}> = ({pos = [0, 0, 0], rot = [0, 0, 0], s = 1, lot = '31202', cloud = 0, glow = 0, o = 1, label = true}) => {
+export const Ampoule: React.FC<{pos?: V3; rot?: V3; s?: number; lot?: string; cloud?: number; glow?: number; o?: number; label?: boolean; studio?: boolean}> = ({pos = [0, 0, 0], rot = [0, 0, 0], s = 1, lot = '31202', cloud = 0, glow = 0, o = 1, label = true, studio = false}) => {
   const glass = useMemo(() => lathe(AMP_PROFILE), []);
   const liq = useMemo(() => lathe(LIQ_PROFILE), []);
   return (
     <group position={pos} rotation={rot} scale={s}>
       <mesh geometry={glass} renderOrder={5}>
-        <meshPhysicalMaterial color="#F2FFFC" roughness={0.04} metalness={0} transmission={0} transparent opacity={0.28 * o} clearcoat={1} clearcoatRoughness={0.05} specularIntensity={1} side={THREE.DoubleSide} depthWrite={false} />
+        <meshPhysicalMaterial color="#F2FFFC" roughness={0.02} metalness={0} transparent opacity={(studio ? 0.1 : 0.2) * o} clearcoat={1} clearcoatRoughness={0.03} specularIntensity={1} envMapIntensity={1.6} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
       <mesh geometry={glass} scale={[1.004, 1, 1.004]} renderOrder={6}>
-        <meshBasicMaterial color="#E9FFFA" transparent opacity={0.08 * o} side={THREE.BackSide} depthWrite={false} />
+        <meshBasicMaterial color="#E9FFFA" transparent opacity={(studio ? 0.025 : 0.08) * o} side={THREE.BackSide} depthWrite={false} />
       </mesh>
+      {studio ? (
+        // reflejos puros del estudio sumados encima: el negro no suma nada y las cajas de luz dibujan el vidrio
+        <mesh geometry={glass} scale={[1.006, 1.001, 1.006]} renderOrder={10}>
+          <meshStandardMaterial color="#FFFFFF" metalness={1} roughness={0.07} envMapIntensity={1.15} transparent opacity={0.95 * o} blending={THREE.AdditiveBlending} depthWrite={false} />
+        </mesh>
+      ) : null}
       <mesh geometry={liq} renderOrder={4}>
         <meshPhysicalMaterial
           color={new THREE.Color('#CFF3EC').lerp(new THREE.Color('#E8B3A8'), clamp(cloud))}
