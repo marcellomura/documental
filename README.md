@@ -347,3 +347,91 @@ python3 tools/short_ep12.py                                       # línea de ti
 tools/cola_ep12.sh   # render por tramos (tools/render_ep12.sh), master 1440p, short y control de congelados
 rclone copy video/out/907_metros_1440p.mp4 "gdrive:CONTEXTO/Ep12 · 907 metros (ARA San Juan)"
 ```
+
+# Episodio 13 · "EL LOTE 31.202" (edición especial: el fentanilo contaminado)
+
+En el repo figura como `ep13`. Es la primera **edición especial** del canal y dura 10:20. La historia del fentanilo contaminado de HLB Pharma y Laboratorios Ramallo, al que la Justicia le atribuye 90 muertes, contada con el **modelo del queso suizo**: nueve barreras que tenían que frenar un remedio contaminado antes de llegar a la vena de un paciente, y cómo falló cada una:
+
+- la fábrica, el ensayo de esterilidad y la liberación
+- el historial de reportes y la clausura de 2019 que nunca se ejecutó
+- la inspección avisada el día anterior
+- la carta de advertencia que nunca se firmó
+- la alarma interna ("Sí, lo sé")
+- la trazabilidad que no existía
+
+Después vienen la barrera que sí funcionó (el equipo del Hospital Italiano de La Plata), lo que pasó después ("hoy quemamos todo", el autoclave, los 5 kilos que faltan, los 13 procesados, las exfuncionarias, Lugones no imputado) y el estado de la causa. Cierra con un homenaje a las víctimas.
+
+| Archivo | Qué es |
+|---|---|
+| `el_lote_31202_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep13 · El lote 31.202 (fentanilo contaminado)` (carpeta `1EjWkitY8xLsjo7Dpg1IaWdIST8Uc4DOF`) |
+| `entrega/el_lote_31202_short.mp4` | Short vertical para YouTube y TikTok (1:18, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive |
+| `entrega/el_lote_31202_subtitulos_es.srt` | Subtítulos en español, con las cifras y los nombres bien escritos (HLB Pharma, aunque la voz dice "Farma") |
+| `entrega/el_lote_31202_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos, configuración de subida, cuidados legales y fecha sugerida |
+| `entrega/el_lote_31202_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B |
+| `entrega/el_lote_31202_short_publicacion.md` | Cómo publicar el short (YouTube y TikTok) y enlazarlo al video |
+
+## Investigación y guion
+
+- Dossier con la cronología verificada, los cuidados legales y las fuentes: `guion/ep13_investigacion.md`.
+- **Cuidados legales:**
+  - los procesados no están condenados
+  - 90 muertes "según la Justicia" (otros relevamientos dicen más de 100)
+  - los chats salen del expediente publicado y se muestran como recreación
+  - el desvío del fentanilo es una hipótesis
+  - Lugones no está imputado
+  - no se nombra ni se muestra a ningún paciente
+- Guion: `guion/ep13_fentanilo.json` (12 segmentos + el cierre del short). El mapa `display` devuelve las grafías reales: Klebsiella pneumoniae, Tchukrán, etc.
+
+## Voz y audio
+
+- Voz eleven_v4. `tools/proc_audio.py` con `PAUSAS=respirar` alarga un poco las pausas naturales en lugar de comprimirlas.
+- `tools/check_voz.py` ahora convierte cifras a palabras (con apócope: "treinta y un mil") y con `PROMPT=0` transcribe sin pista, para no esconder errores.
+- Una frase que la voz decía mal ("otras ciento veinte mil" sonaba "320.000") se regeneró sola y se empalmó en `s08_raw.wav`.
+- `tools/timeline_ep13.py` abre silencios después de frases exactas (por ejemplo, 3 s después de "Las nueve fetas estaban alineadas." y 9 s para el montaje de fechas) y reserva el homenaje y la placa final.
+
+## Qué mejora respecto del Ep12
+
+- **Un recurso narrativo central en 3D:** las nueve fetas de acrílico ámbar.
+  - Cada una tiene sus agujeros fijos y un agujero de la falla que se abre y se corre hasta alinearse con los demás.
+  - La ampolla las atraviesa.
+  - Al final aparece la décima barrera, verde quirófano, que la frena.
+- **Vidrio creíble:** la ampolla está torneada (LatheGeometry), con líquido, etiqueta del lote y anillo de corte, en un entorno de estudio con cajas de luz (PMREM) y una capa de reflejos aditiva.
+- **Sistema visual clínico y forense nuevo** (`kit13.tsx`):
+  - Geist y Geist Mono para la interfaz y los datos, Instrument Serif para lo humano, Tinos y Arimo para los documentos
+  - el contador de barreras arriba (con modo tinta sobre papel) y una placa a pantalla completa por barrera
+  - chats con "escribiendo…", documentos con sellos de tinta y la marca RECREACIÓN
+  - riel de fechas, papel que se quema con un filtro SVG (ruido + gradiente) y un montaje final con la fecha de cada agujero
+- **Música:** ocho temas que comparten el mismo leitmotiv (Eleven Music v2.5 con el tema principal como referencia de audio), con unos 35 efectos sincronizados.
+- **Mezcla:** silencios buscados en la muerte del 12 de febrero, el "Sí, lo sé", las fetas alineadas y el homenaje.
+
+## Escenas (`video/src/ep13/`, composición `Lote`)
+
+- `kit13.tsx`: paleta, tipografía, fondos, el contador de barreras y las placas, chats, documentos, sellos, nombres, fotos, fechas que ruedan y el quemado.
+- `three13.tsx`: escenario con entorno de reflejos (habitación o estudio), fetas, ampolla, bacterias y sala limpia con línea de llenado.
+- `stack13.tsx`: la pila de fetas con el viajero (ampolla o falla) y la décima barrera. Sirve para 16:9 y para el vertical.
+- `viz13a.tsx` y `viz13b.tsx`: gráficos:
+  - potencia, gotero, defensas, microscopio
+  - el ensayo con ocho lotes mezclados, los 118 reportes, las 23 ampollas, el candado, las 18 tareas, el acta abierta, los seis lotes
+  - el riel de fechas, las 120.000 ampollas, la lista de trazabilidad, el mapa de distribución
+  - las 12 ampollas del hospital, el correo, la coincidencia genómica, el autoclave, lo destruido, los 5 kilos
+  - los 13 procesados, el estado de la causa, los 4 millones de unidades
+- `scenes13a.tsx` (S01–S06), `scenes13b.tsx` (S07–S12, el homenaje y la placa final) y `Lote.tsx` (transiciones).
+- `short13.tsx`: el short vertical (entrada `src/index13s.tsx`).
+
+## Archivo y créditos
+
+- Fotos de Wikimedia Commons (`video/public/ep13/img/creditos.json`): ANMAT, Ramallo, Hospital Italiano de La Plata, Instituto Malbrán, Ministerio de Salud y bacterias (CDC).
+- Mapa de Natural Earth.
+
+## Comandos
+
+```bash
+EP=ep13 NSEG=12 TEMPO=1.0 PAUSAS=respirar python3 tools/proc_audio.py
+EP=ep13 GUION=ep13_fentanilo.json python3 tools/align.py
+EP=ep13 GUION=ep13_fentanilo.json PROMPT=0 python3 tools/check_voz.py   # verificar la pronunciación (sin pista)
+python3 tools/timeline_ep13.py && python3 tools/mix_ep13.py               # -> audio/mix/mezcla_ep13.wav
+EP=ep13 OUT=el_lote_31202_subtitulos_es.srt python3 tools/srt.py
+python3 tools/short_ep13.py                                                # línea de tiempo y mezcla del short
+tools/cola_ep13.sh   # render por tramos (tools/render_ep13.sh), master 1440p, short y control de congelados
+rclone copy video/out/el_lote_31202_1440p.mp4 "gdrive:CONTEXTO/Ep13 · El lote 31.202 (fentanilo contaminado)"
+```
