@@ -6,7 +6,7 @@ Estado: investigación cerrada al 9/10/2026. Próximo paso: el guion.
 
 - **Es la peor tragedia sanitaria de la historia argentina.** Un anestésico que se usa en terapia intensiva salió de fábrica con bacterias y se aplicó a pacientes internados en todo el país. La Justicia le atribuye **90 muertes y 44 personas con secuelas**, y otros relevamientos (auditorías epidemiológicas, comisiones del Congreso) hablan de entre 121 y 173 víctimas.
 - **La bronca no es de un solo lado.** El laboratorio creció vendiéndole al Estado durante varios gobiernos; la directora del INAME fue designada en 2022 (Alberto Fernández) y la titular de la ANMAT en diciembre de 2023 (Milei). Las dos fueron detenidas en agosto de 2026 y procesadas en septiembre. Nadie puede usarlo para pegarle solo "al otro", y por eso genera comentarios de todos lados.
-- **Tiene escenas que nadie olvida:** la inspección avisada el día anterior, el fentanilo fabricado mientras la inspección seguía abierta, el chat "si alguien se muere es nuestra responsabilidad" con la respuesta "Sí, lo sé", el "hoy quemamos todo", el dueño que en 2002 había sido condenado por prenderle fuego a un empleado.
+- **Tiene escenas que nadie olvida:** la inspección avisada el día anterior, el fentanilo fabricado mientras la inspección seguía abierta, el chat "si alguien se muere es nuestra responsabilidad" con la respuesta "Sí, lo sé", el "hoy quemamos todo", el dueño que en 2002 había sido condenado por intentar matar a un empleado.
 - **Se explica fácil y es visual:** cómo se fabrica un inyectable estéril, por qué un test de esterilidad "trucado" da negativo, cómo dos bacterias de agua terminan en la sangre de un paciente intubado, cómo funciona (o no) el control del Estado.
 - **Está vivo:** la causa no llegó a juicio. La Cámara Federal de La Plata tiene pendientes las apelaciones, y el 6/10/2026 la Provincia de Buenos Aires ordenó descartar **4.463.951 unidades** de remedios de esos laboratorios que todavía estaban en 98 hospitales.
 
@@ -61,7 +61,7 @@ Fuente principal: línea de tiempo oficial de la Fiscalía Federal N.° 1 de La 
 | Abril 2026 | La ANMAT da de baja a HLB y Ramallo (Disposición 1848/2026). |
 | 13/05/2026 | Kreplak amplía la acusación: **90 muertes** y 44 pacientes con secuelas. |
 | 04/08/2026 | **Detienen a la extitular de la ANMAT (Bisio) y a la exdirectora del INAME (Mantecón Fumadó).** La Fiscalía habla de "cobertura estatal" a laboratorios que no cumplían. |
-| 01/09/2026 | Las procesan como partícipes necesarias, sin prisión preventiva, con embargos de $500.000 millones cada una. El juez no imputa a Lugones, pero escribe que "diversos elementos de convicción permiten poner en escena al Dr. Lugones". |
+| 01/09/2026 | Las procesan como partícipes necesarias, sin prisión preventiva, con embargos de $500.000 millones cada una. El juez no imputa a Lugones: considera que conocía al menos las generalidades relevantes del caso, pero que su intervención iba en otro sentido. |
 | 05/10/2026 | Casación deja afuera a una familia: su paciente había recibido fentanilo de otro laboratorio. |
 | 06/10/2026 | La Provincia de Buenos Aires autoriza a descartar 4.463.951 unidades de productos de HLB y Ramallo en 98 establecimientos. |
 | Pendiente | La Cámara Federal de La Plata no resolvió las apelaciones de los 13 procesados. No hay fecha de juicio. |
@@ -98,7 +98,7 @@ Fuente principal: línea de tiempo oficial de la Fiscalía Federal N.° 1 de La 
 - **Procesados no son condenados.** Siempre "procesado", "según la Justicia", "según la Fiscalía", "la Fiscalía sostiene". No hay juicio todavía.
 - **Cifras:** usar **90 muertes según la Justicia** y aclarar que otros relevamientos hablan de más de 100. No decir 114 ni 170 como dato firme.
 - **Chats:** son prueba aportada por la Fiscalía y publicada por la prensa. Citarlos textuales, con fecha y "según el expediente".
-- **Lugones:** no está imputado; el juez dice que hay elementos que lo "ponen en escena". Decirlo exactamente así.
+- **Lugones:** no está imputado. El juez consideró que conocía al menos las generalidades relevantes del caso, pero que su intervención iba en otro sentido. Decirlo así, sin citas que no estén verificadas.
 - **Vínculos políticos:** el Gobierno nacional vinculó a García Furfaro con el kirchnerismo y con Lázaro Báez; el intendente de Rosario habló de vínculos narco. Son acusaciones políticas, no hechos probados. Si se usan, como "lo acusaron de", nunca como afirmación del canal.
 - **Desvío de fentanilo:** hipótesis de la investigación.
 - **Víctimas:** no usar nombres ni fotos de pacientes sin permiso. Hablar de "una mujer de 50 años", "un bebé en Córdoba". Respeto total; nada de morbo.
@@ -114,7 +114,7 @@ Fuente principal: línea de tiempo oficial de la Fiscalía Federal N.° 1 de La 
 6. **"Sí, lo sé"**: la primera víctima (8/2), la carta tardía (10/2), el chat del 26/2 y las 120.000 ampollas del 14/3.
 7. **La farmacéutica que se dio cuenta**: el brote en La Plata, las bacterias que no eran del hospital, las ampollas positivas.
 8. **"Hoy quemamos todo"**: los servidores borrados, el vandalismo del domingo, los 5 kilos que faltan.
-9. **La Justicia**: los 13 procesados, la detención de las dos funcionarias, Lugones "en escena", las apelaciones sin resolver.
+9. **La Justicia**: los 13 procesados, la detención de las dos funcionarias, Lugones no imputado, las apelaciones sin resolver.
 10. **Cierre**: 90 muertos, 4,4 millones de remedios de esa fábrica todavía en hospitales en 2026, y la pregunta: ¿quién controla al que controla? Encuesta y pedido de comentario.
 
 Preguntas para los comentarios: *¿Quién tiene más culpa: el laboratorio o el Estado que no lo frenó?* / *¿Tienen que ir presos los funcionarios que no controlaron?*

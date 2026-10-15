@@ -1,5 +1,7 @@
 """Procesa la narración: recorta silencios de borde, compacta pausas y acelera.
-Salida: audio/final/sXX.wav (44.1 kHz mono) listo para Remotion."""
+Salida: audio/final/sXX.wav (44.1 kHz mono) listo para Remotion.
+PAUSAS=respirar (voces que ya vienen con buen ritmo, p. ej. eleven_v4): no compacta; alarga un poco las pausas
+de fin de frase (las de 0,22 s o más, x1,4 con tope de 0,65 s) para que el relato respire."""
 import subprocess, numpy as np, json, os, sys
 SR = 44100
 TEMPO = float(os.environ.get("TEMPO", "1.10"))
@@ -8,6 +10,7 @@ EP = os.environ.get("EP", "")
 A = os.path.join(ROOT, "audio", EP) if EP else os.path.join(ROOT, "audio")
 OUT = os.path.join(A, "final"); os.makedirs(OUT, exist_ok=True)
 NSEG = int(os.environ.get("NSEG", "12"))
+RESPIRAR = os.environ.get("PAUSAS", "compactar") == "respirar"
 
 def decode(p):
     raw = subprocess.run(["ffmpeg","-v","error","-i",p,"-ac","1","-ar",str(SR),"-f","f32le","-"],
@@ -29,7 +32,17 @@ def compact(x):
             j = i
             while j < end and not voiced[j]: j += 1
             p = (j-i)*0.01
-            if p > 0.26:
+            if RESPIRAR:
+                seg = x[i*hop:j*hop].copy()
+                if p >= 0.22:
+                    extra = int((min(p*1.4, 0.65) - p)*SR)
+                    if extra > 0:
+                        h = len(seg)//2; f = min(int(SR*0.005), h)
+                        a1, a2 = seg[:h].copy(), seg[h:].copy()
+                        if f: a1[-f:] *= np.linspace(1,0,f); a2[:f] *= np.linspace(0,1,f)
+                        seg = np.concatenate([a1, np.zeros(extra, dtype=np.float32), a2])
+                out.append(seg)
+            elif p > 0.26:
                 newp = 0.26 + 0.35*(p-0.26)
                 keep = int(newp*100)
                 half = keep//2
@@ -50,7 +63,8 @@ def compact(x):
 info = {}
 for k in range(1, NSEG + 1):
     sid = f"s{k:02d}"
-    x = decode(os.path.join(A, f"{sid}_raw.mp3"))
+    wav = os.path.join(A, f"{sid}_raw.wav")   # toma corregida (empalme sin recomprimir) si existe
+    x = decode(wav if os.path.exists(wav) else os.path.join(A, f"{sid}_raw.mp3"))
     y = compact(x)
     tmp = os.path.join(OUT, f"{sid}_c.f32")
     y.astype(np.float32).tofile(tmp)

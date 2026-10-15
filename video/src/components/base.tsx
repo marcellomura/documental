@@ -24,6 +24,13 @@ const FONTS: [string, string, FontFaceDescriptors][] = [
   ['IBM Plex Mono', 'IBMPlexMono-Regular.ttf', {weight: '400'}],
   ['IBM Plex Mono', 'IBMPlexMono-Medium.ttf', {weight: '500'}],
   ['IBM Plex Mono', 'IBMPlexMono-SemiBold.ttf', {weight: '600'}],
+  // Ep13: grotesca clínica y su mono (Geist), y las tipografías de los documentos oficiales (Tinos ≈ Times, Arimo ≈ Arial)
+  ['Geist', 'Geist-normal-100_900.woff2', {weight: '100 900'}],
+  ['Geist Mono', 'GeistMono-normal-100_900.woff2', {weight: '100 900'}],
+  ['Tinos', 'Tinos-normal-400.woff2', {weight: '400'}],
+  ['Tinos', 'Tinos-normal-700.woff2', {weight: '700'}],
+  ['Tinos', 'Tinos-italic-400.woff2', {weight: '400', style: 'italic'}],
+  ['Arimo', 'Arimo-normal-400_700.woff2', {weight: '400 700'}],
 ];
 if (typeof document !== 'undefined' && !(window as any).__fontsLoading) {
   (window as any).__fontsLoading = true;
