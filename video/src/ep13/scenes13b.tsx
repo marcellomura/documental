@@ -485,6 +485,8 @@ export const S12: React.FC<{t: number}> = ({t}) => {
         <CasePipeline t={t} t0={tCausa} tPend={tCam} y={600} />
       </Layer>
       <Layer t={t} a={tOct - 0.2} b={tNueve - 0.1}>
+        {/* «Y en octubre de 2026, la Provincia…»: la fecha llena los 3 segundos hasta «autorizó» */}
+        <DateRoll t={t} t0={tOct} t1={tAut - 0.3} text="10.2026" label="Provincia de Buenos Aires" x={960} y={500} size={120} labelColor={K.amber} />
         <Boxes4M t={t} t0={tAut - 0.3} />
       </Layer>
       <Layer t={t} a={tNueve - 0.3} b={tQuien - 0.1}>
