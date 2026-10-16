@@ -17,7 +17,7 @@ for i in "${!B[@]}"; do
   f=$(printf "out/ep13/c%02d.mp4" $n)
   [ -s "$f" ] && { echo "ya está $f"; continue; }
   echo "== tramo $n: cuadros $a-$b ($(date +%H:%M))"
-  npx remotion render Lote "$f.tmp.mp4" --muted --gl=swangle --scale=1.3333333333333333 --frames=$a-$b --crf=15 --concurrency=4 --log=error
+  npx remotion render Lote "$f.tmp.mp4" --muted --gl=swangle --scale=1.3333333333333333 --frames=$a-$b --crf=15 --concurrency=${CONC:-4} --timeout=240000 --log=error
   mv "$f.tmp.mp4" "$f"
   rm -rf /tmp/remotion-webpack-bundle-*
 done
