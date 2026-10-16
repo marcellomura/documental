@@ -7,6 +7,7 @@ import {cue, cueE, TL, CARD_LEAD} from './lib';
 import {
   K, F, gs, gm, mix, clamp, easeIn, easeInOut, easeOut, pop, prog, rnd, fadeIO, ClinicBg, PaperBg, Letterbox, Kicker, Title13, SyncWords, Quote13, Stat13, DateRoll,
   BarrierHUD, BarrierCard, Stamp13, Recreation, DocSheet, ChatPanel, NameCard13, Photo13, PhotoCard13, Source13, Odo13, ramp, Poll13, Dust, Vignette, BARRERAS, BurnAway,
+  SliceGlyph,
 } from './kit13';
 import {DatesRail, Ampoules120k, TraceList, ArgMap13, TwelveAmpoules, EmailCard, GenomeMatch, PatientsLink, Autoclave2D, Destroyed, MissingKilos, Procesados13, CasePipeline, Boxes4M} from './viz13b';
 import {StackView, travelZ, passed} from './stack13';
@@ -454,6 +455,7 @@ export const S12: React.FC<{t: number}> = ({t}) => {
   const tMont = insM[0] + 0.15;
   const tQuien = cue('s12', '¿Quién tiene más culpa');
   const tLeo = cue('s12', 'Te leo en los comentarios');
+  const tSirv = cue('s12', 'Y si este video');
   const tComp = cue('s12', 'compartilo');
   const N = 9;
   const step = (insM[1] - 0.4) / N;
@@ -553,12 +555,26 @@ export const S12: React.FC<{t: number}> = ({t}) => {
           )}
         />
       </Layer>
-      <Layer t={t} a={tQuien - 0.3} b={tLeo + 0.2}>
+      {/* la encuesta sigue mientras se dice «Te leo en los comentarios» (antes la pantalla quedaba casi vacía casi 4 s) */}
+      <Layer t={t} a={tQuien - 0.3} b={tLeo + 1.35}>
         <Poll13 t={t} t0={tQuien - 0.2} q="¿Quién tiene más culpa?" a="El laboratorio que lo fabricó" b="El Estado que no lo detuvo" />
       </Layer>
-      <Layer t={t} a={tLeo - 0.1} b={D.s12 + 0.9}>
+      <Layer t={t} a={tLeo + 1.0} b={D.s12 + 0.9}>
+        {/* «Y si este video te sirvió…»: las nueve fetas agujereadas y la décima, la del hospital, como resumen */}
+        <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+          {Array.from({length: 10}, (_, i) => {
+            const hosp = i === 9;
+            const p = prog(t, tSirv + i * 0.09 + (hosp ? 0.3 : 0), 0.4, easeOut);
+            return (
+              <g key={i} opacity={p} transform={`translate(${625 + i * 70 + (hosp ? 40 : 0)},${300 + (1 - p) * 26}) scale(2.6)`}>
+                {hosp ? <rect x={-14} y={-19} width={28} height={38} rx={7} fill={K.teal} opacity={0.22} /> : null}
+                <SliceGlyph x={0} y={0} state={hosp ? 'hospital' : 'failed'} k={1} />
+              </g>
+            );
+          })}
+        </svg>
         <div style={{position: 'absolute', left: 960, top: 420, transform: 'translateX(-50%)', textAlign: 'center'}}>
-          <div style={{...gm(26, K.teal, 600, 0.3), opacity: prog(t, tLeo, 0.5)}}>TE LEO EN LOS COMENTARIOS</div>
+          <div style={{...gm(26, K.teal, 600, 0.3), opacity: prog(t, tLeo + 1.35, 0.45)}}>TE LEO EN LOS COMENTARIOS</div>
           <div style={{...gs(110, 800, K.bone, -0.04), marginTop: 30, opacity: prog(t, tComp - 0.2, 0.5), transform: `scale(${0.95 + 0.05 * pop(t, tComp - 0.2)})`}}>Compartilo.</div>
           <div style={{fontFamily: F.serif, fontStyle: 'italic', fontSize: 52, color: K.mute, marginTop: 20, opacity: prog(t, tComp + 0.6, 0.6)}}>es la mejor forma de que no se olvide</div>
         </div>
