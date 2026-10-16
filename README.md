@@ -399,7 +399,7 @@ Después vienen la barrera que sí funcionó (el equipo del Hospital Italiano de
 
 | Archivo | Qué es |
 |---|---|
-| `el_lote_31202_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep13 · El lote 31.202 (fentanilo contaminado)` (carpeta `1EjWkitY8xLsjo7Dpg1IaWdIST8Uc4DOF`) |
+| `el_lote_31202_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, 10:20, −14 LUFS, pico −1,3 dBTP). No va en git: está en Drive, en `CONTEXTO/Ep13 · El lote 31.202 (fentanilo contaminado)` (carpeta `1EjWkitY8xLsjo7Dpg1IaWdIST8Uc4DOF`; archivo `1-_g9BGDN9XsCKkDA-omdA2FUOBKUn27B`, md5 `7202acaffbc187e13908836aaf17dc5a`) |
 | `entrega/el_lote_31202_short.mp4` | Short vertical para YouTube y TikTok (1:18, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive (archivo `183muIQ_8atIYPs_SEDkQBAiZgBKTZpU6`, md5 `f9b6c3b9b2ef3de3b4e227ab71a88712`) |
 | `entrega/el_lote_31202_subtitulos_es.srt` | Subtítulos en español, con las cifras y los nombres bien escritos (HLB Pharma, aunque la voz dice "Farma") |
 | `entrega/el_lote_31202_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos, configuración de subida, cuidados legales y fecha sugerida |
