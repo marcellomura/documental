@@ -47,7 +47,7 @@ master_figs = "".join(
     f'<figure class="frame"><img src="{img(f"{PREV}/m{i + 1:02d}.jpg")}" alt="{html.escape(CHAPTERS[c][1])}, en el minuto {t}" loading="lazy" width="640" height="360">'
     f'<figcaption><span class="tc">{t}</span>{html.escape(CHAPTERS[c][1])}</figcaption></figure>'
     for i, (t, c) in enumerate(MASTER))
-SHORT = [("0:03", "El chat de la noche anterior"), ("0:15", "La pila de nueve fetas"), ("0:27", "«Sí, lo sé»"), ("0:43", "Hoy quemamos todo"), ("0:58", "La barrera que funcionó"), ("1:12", "El cierre con la flecha")]
+SHORT = [("0:08", "El chat de la noche anterior"), ("0:32", "«Las atravesó todas»"), ("0:53", "«Sí, lo sé»"), ("0:59", "Hoy quemamos todo"), ("1:04", "La barrera que funcionó"), ("1:15", "El cierre: tocá el enlace")]
 short_figs = "".join(
     f'<figure class="frame tall"><img src="{img(f"{PREV}/s{i + 1:02d}.jpg")}" alt="{html.escape(c)}, en el segundo {t}" loading="lazy" width="360" height="640">'
     f'<figcaption><span class="tc">{t}</span>{html.escape(c)}</figcaption></figure>'
@@ -116,6 +116,7 @@ nav.sections {{ position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5
 nav.sections a {{ flex: none; font: 600 13px/1 var(--body); color: var(--ink); text-decoration: none; padding: 9px 12px; border-radius: 999px; border: 1px solid var(--line); }}
 nav.sections a:hover, nav.sections a:focus-visible {{ border-color: var(--teal); color: var(--teal); outline: none; }}
 section {{ padding-block: 34px 6px; scroll-margin-top: 64px; display: grid; gap: 16px; }}
+section > *, header.top > * {{ min-width: 0; }} /* sin esto, la tabla (min-width 520 px) ensancha toda la página en el celular */
 h2 {{ font: 800 clamp(28px, 5.4vw, 38px)/1.05 var(--display); letter-spacing: -0.03em; margin: 0; text-wrap: balance; }}
 h2 small {{ display: block; font: 600 12px/1.4 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); margin-top: 8px; }}
 h3 {{ font: 700 17px/1.3 var(--body); margin: 14px 0 0; }}

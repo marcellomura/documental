@@ -489,9 +489,11 @@ export const MissingKilos: React.FC<{t: number; t0: number; t1?: number; tA: num
 };
 
 /** trece procesados: dueños, gerentes y directores técnicos (siluetas, sin nombres ni reparto inventado) */
-export const Procesados13: React.FC<{t: number; t0: number; t1?: number; tRoles: number}> = ({t, t0, t1 = Infinity, tRoles}) => {
+export const Procesados13: React.FC<{t: number; t0: number; t1?: number; tRoles: number; tDim?: number}> = ({t, t0, t1 = Infinity, tRoles, tDim}) => {
   const o = fadeIO(t, t0, t1, 0.4);
   if (o <= 0) return null;
+  // cuando hablan las defensas, las 13 figuras pasan a segundo plano
+  const dim = tDim === undefined ? 0 : prog(t, tDim, 0.8) * 0.5;
   const roles = ['DUEÑOS', 'GERENTES', 'DIRECTORES TÉCNICOS'];
   return (
     <AbsoluteFill style={{opacity: o}}>
@@ -504,7 +506,7 @@ export const Procesados13: React.FC<{t: number; t0: number; t1?: number; tRoles:
           const x = 960 + (i - 6) * 118;
           const p = prog(t, t0 + 0.1 + i * 0.06, 0.4);
           return (
-            <g key={i} opacity={p} transform={`translate(${x},${640 + (1 - p) * 30})`}>
+            <g key={i} opacity={p * (1 - dim)} transform={`translate(${x},${640 + (1 - p) * 30})`}>
               <circle cx={0} cy={-60} r={30} fill="none" stroke={K.amber} strokeWidth={4} />
               <path d="M-52 40 q0 -62 52 -62 q52 0 52 62" fill="none" stroke={K.amber} strokeWidth={4} />
             </g>

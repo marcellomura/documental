@@ -98,6 +98,7 @@ export const S08: React.FC<{t: number}> = ({t}) => {
   const tPel = cue('s08', 'es peligroso');
   const tPers = cue('s08', 'Una persona que reporte');
   const tExp = cue('s08', 'Según el expediente');
+  const tResp = cue('s08', 'la respuesta');
   const tGuita = cue('s08', 'es un montón de guita');
   const tSe = cue('s08', 'sí, lo sé');
   const tDos = cue('s08', 'Dos semanas más tarde');
@@ -118,10 +119,12 @@ export const S08: React.FC<{t: number}> = ({t}) => {
         <div style={{position: 'absolute', inset: 0, opacity: 1 - prog(t, tSe + 1.0, 0.5) * 0.8}}>
           <ChatPanel
             t={t} t0={t26 - 0.2} x={1250} y={560} w={820} h={700} title="Gabriela Mantecón Fumadó" sub="Directora del INAME · chat incorporado a la causa" avatar="G" date="26 de febrero de 2025"
+            // empuje lento hacia el chat mientras se espera la respuesta, que se escribe desde «la respuesta de Mantecón» (antes quedaban 8 s casi quietos)
+            scale={1 + 0.18 * ((u) => (u < 0.06 ? (u * u) / 0.12 : u - 0.03))(clamp((t - (tPers + 0.2)) / (tSe + 1.0 - (tPers + 0.2))))}
             msgs={[
               {side: 'out', text: 'Es peligroso.', at: tPel},
               {side: 'out', text: 'Una persona que reporte evento adverso o se muera, es nuestra responsabilidad.', at: tPers},
-              {side: 'in', text: 'Es un montón de guita que está en la calle.', at: tGuita},
+              {side: 'in', text: 'Es un montón de guita que está en la calle.', at: tGuita, lead: tGuita - tResp},
               {side: 'in', text: 'Sí, lo sé.', at: tSe},
             ]}
             focus={t > tSe + 0.3 ? 3 : -1}
@@ -394,8 +397,9 @@ export const S11: React.FC<{t: number}> = ({t}) => {
         <NameCard13 t={t} t0={tAriel - 0.3} name="Ariel García Furfaro" role="Dueño de HLB Pharma y Laboratorios Ramallo" status="Detenido · agosto 2025" statusColor={K.red} x={110} y={330} size={96} />
         <DateRoll t={t} t0={t2002} text="2002" label="ANTECEDENTE" x={1500} y={430} size={120} labelColor={K.amber} sub="condenado por intentar matar a un empleado" />
       </Layer>
-      <Layer t={t} a={tHoy - 0.2} b={tCasi - 0.1}>
-        <Procesados13 t={t} t0={tHoy} tRoles={tRoles} />
+      <Layer t={t} a={tHoy - 0.2} b={tCasi - 0.1} style={{transform: `scale(${1 + 0.07 * easeInOut(clamp((t - (tDef - 0.3)) / (tCasi - tDef + 0.2)))})`}}>
+        {/* «Sus defensas…»: empuje lento y las figuras atrás (antes la placa quedaba 6,5 s quieta) */}
+        <Procesados13 t={t} t0={tHoy} tRoles={tRoles} tDim={tDef} />
         <div style={{position: 'absolute', left: 960, top: 880, transform: 'translateX(-50%)', width: 1300, textAlign: 'center', opacity: prog(t, tDef, 0.5)}}>
           <div style={{...gm(21, K.blue, 600, 0.2)}}>LAS DEFENSAS</div>
           <div style={{...gs(36, 560, K.bone, -0.01), marginTop: 8}}>piden anular las pericias y sostienen que los pacientes murieron por sus enfermedades</div>

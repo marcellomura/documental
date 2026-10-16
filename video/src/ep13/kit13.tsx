@@ -610,7 +610,7 @@ export const DocSheet: React.FC<{
 };
 
 /* ================================================================== CHAT */
-export type Msg = {side: 'in' | 'out'; text: string; at: number; time?: string; author?: string; quote?: boolean};
+export type Msg = {side: 'in' | 'out'; text: string; at: number; time?: string; author?: string; quote?: boolean; lead?: number}; // lead: segundos de «escribiendo…» (0,7 por defecto)
 /** conversación de mensajería (modo oscuro, genérica): mensajes que entran sincronizados con la locución, con "escribiendo…" antes */
 export const ChatPanel: React.FC<{
   t: number; t0: number; t1?: number; x?: number; y?: number; w?: number; h?: number; title: string; sub?: string; date?: string; msgs: Msg[]; scale?: number; avatar?: string; group?: boolean; o?: number; focus?: number;
@@ -620,7 +620,7 @@ export const ChatPanel: React.FC<{
   const p = pop(t, t0, 0.9);
   const fs = 30;
   // altura acumulada para desplazar hacia arriba cuando no entra
-  const shown = msgs.filter((m) => t >= m.at - 0.7);
+  const shown = msgs.filter((m) => t >= m.at - (m.lead ?? 0.7));
   const estH = (m: Msg) => 64 + Math.ceil((m.text.length * fs * 0.52) / (w * 0.68)) * fs * 1.28 + (m.author ? 30 : 0);
   const total = shown.reduce((a, m) => a + estH(m) + 16, 0) + 90;
   const avail = h - 120;
@@ -645,8 +645,9 @@ export const ChatPanel: React.FC<{
               </div>
             ) : null}
             {msgs.map((m, i) => {
-              const typing = t >= m.at - 0.7 && t < m.at;
-              if (t < m.at - 0.7) return null;
+              const lead = m.lead ?? 0.7;
+              const typing = t >= m.at - lead && t < m.at;
+              if (t < m.at - lead) return null;
               const pp = prog(t, m.at, 0.35);
               const isOut = m.side === 'out';
               const dimmed = focus >= 0 && focus !== i;
