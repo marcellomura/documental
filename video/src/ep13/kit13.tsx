@@ -470,6 +470,8 @@ export const BarrierCard: React.FC<{t: number; t0: number; dur: number; n: numbe
   const slideP = prog(t, t0 + 0.05, 0.75);
   const hole = prog(t, t0 + 0.55, 0.45, easeOut);
   const title = BARRERAS[n - 1];
+  // «LA TRAZABILIDAD» no tiene dónde cortar en dos líneas y a 104 px la última letra pisa la feta
+  const tSize = n === 9 ? 90 : 104;
   return (
     <AbsoluteFill style={{opacity: 1 - outP}}>
       <AbsoluteFill style={{background: `rgba(4,10,11,${0.92 * inP})`}} />
@@ -507,7 +509,7 @@ export const BarrierCard: React.FC<{t: number; t0: number; dur: number; n: numbe
           {String(n).padStart(2, '0')}
         </div>
       </div>
-      <Title13 t={t} t0={t0 + 0.2} text={title} size={104} x={150} y={720} align="left" g0={250} g1={800} stagger={0.022} maxW={1100} />
+      <Title13 t={t} t0={t0 + 0.2} text={title} size={tSize} x={150} y={720} align="left" g0={250} g1={800} stagger={0.022} maxW={1100} />
       {sub ? (
         <div style={{position: 'absolute', left: 154, top: 800, fontFamily: F.serif, fontStyle: 'italic', fontSize: 44, color: K.mute, opacity: prog(t, t0 + 0.6, 0.5)}}>{sub}</div>
       ) : null}

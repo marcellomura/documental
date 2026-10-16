@@ -388,6 +388,8 @@ export const S11: React.FC<{t: number}> = ({t}) => {
         <Source13 t={t} t0={tKilos + 1} text="JUZGADO FEDERAL DE LA PLATA · HIPÓTESIS EN INVESTIGACIÓN" />
       </Layer>
       <Layer t={t} a={tAgo - 0.2} b={tHoy - 0.1}>
+        {/* «En agosto de 2025 detuvieron al dueño»: la fecha llena el silencio visual y deja lugar a la ficha cuando se dice el nombre */}
+        <DateRoll t={t} t0={tAgo} t1={tAriel - 0.3} text="08.2025" label="Detención del dueño" x={960} y={500} size={120} labelColor={K.red} />
         <NameCard13 t={t} t0={tAriel - 0.3} name="Ariel García Furfaro" role="Dueño de HLB Pharma y Laboratorios Ramallo" status="Detenido · agosto 2025" statusColor={K.red} x={110} y={330} size={96} />
         <DateRoll t={t} t0={t2002} text="2002" label="ANTECEDENTE" x={1500} y={430} size={120} labelColor={K.amber} sub="condenado por intentar matar a un empleado" />
       </Layer>
