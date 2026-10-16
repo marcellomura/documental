@@ -400,11 +400,12 @@ Después vienen la barrera que sí funcionó (el equipo del Hospital Italiano de
 | Archivo | Qué es |
 |---|---|
 | `el_lote_31202_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep13 · El lote 31.202 (fentanilo contaminado)` (carpeta `1EjWkitY8xLsjo7Dpg1IaWdIST8Uc4DOF`) |
-| `entrega/el_lote_31202_short.mp4` | Short vertical para YouTube y TikTok (1:18, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive |
+| `entrega/el_lote_31202_short.mp4` | Short vertical para YouTube y TikTok (1:18, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive (archivo `183muIQ_8atIYPs_SEDkQBAiZgBKTZpU6`, md5 `f9b6c3b9b2ef3de3b4e227ab71a88712`) |
 | `entrega/el_lote_31202_subtitulos_es.srt` | Subtítulos en español, con las cifras y los nombres bien escritos (HLB Pharma, aunque la voz dice "Farma") |
 | `entrega/el_lote_31202_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos, configuración de subida, cuidados legales y fecha sugerida |
 | `entrega/el_lote_31202_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B |
 | `entrega/el_lote_31202_short_publicacion.md` | Cómo publicar el short (YouTube y TikTok) y enlazarlo al video |
+| Página de publicación | https://claude.ai/artifact/4kvxapoNEM5j6RREj7i2XA (privada): los archivos en Drive, un cuadro por capítulo, títulos y miniaturas A/B, descripción, short, TikTok y cuidados, con botones para copiar. Se arma con `tools/pagina_publicacion_ep13.py` a partir de los .md de `entrega/` |
 
 ## Investigación y guion
 
@@ -458,6 +459,30 @@ Después vienen la barrera que sí funcionó (el equipo del Hospital Italiano de
 
 - Fotos de Wikimedia Commons (`video/public/ep13/img/creditos.json`): ANMAT, Ramallo, Hospital Italiano de La Plata, Instituto Malbrán, Ministerio de Salud y bacterias (CDC).
 - Mapa de Natural Earth.
+
+## Control del render
+
+Cada tramo se revisa con una hoja de contacto, y el máster con `tools/check_congelados.py`, que marca los lapsos de 6 s o más casi sin cambios. Lo que se corrigió con parches (fragmentos re-renderizados y empalmados en su tramo por cuadro exacto, sin volver a renderizar el tramo entero):
+
+- la placa de la barrera 9: «LA TRAZABILIDAD» pisaba la feta y ahora va a 90 px;
+- tres huecos sin nada en pantalla mientras sigue la voz:
+  - la fecha 08.2025 antes de la ficha de García Furfaro;
+  - la fecha 10.2026 antes de los 4 millones de unidades;
+  - el cierre: la encuesta sigue durante «Te leo en los comentarios» y después entran las nueve fetas agujereadas y la del hospital, antes de «Compartilo»;
+- dos tramos quietos de más de 6 s:
+  - el chat de la técnica del INAME: se acerca de a poco y la respuesta de Mantecón se escribe desde «la respuesta…»;
+  - los 13 procesados: las figuras pasan atrás cuando hablan las defensas y la placa se acerca.
+
+Cómo se hace un parche:
+
+```bash
+# public reducida con enlaces duros (no ocupa disco) y bundle propio fuera de /tmp/remotion-webpack-bundle-*,
+# porque render_ep13.sh borra esos bundles entre tramo y tramo. ep05/globe hace falta porque three6 precarga esa textura.
+mkdir -p $PUB/ep05 && for d in fonts brand tex ep13; do cp -rl video/public/$d $PUB/$d; done && cp -rl video/public/ep05/globe $PUB/ep05/
+cd video && npx remotion bundle src/index13.tsx --public-dir=$PUB --out-dir=$BUNDLE
+npx remotion render $BUNDLE Lote parche.mp4 --frames=A-B --scale=1.3333333333333333 --gl=swangle --crf=15 --muted --timeout=240000
+# empalme por cuadro exacto (trim + concat, recodificado con crf 12) y después el máster con tools/final_tramos.sh
+```
 
 ## Comandos
 
