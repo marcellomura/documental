@@ -86,7 +86,7 @@ export const Defs14: React.FC = () => (
       </filter>
       {/* trazo de pluma: borde apenas irregular */}
       <filter id="quill14">
-        <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves={2} seed={2} result="n" />
+        <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves={1} seed={2} result="n" />
         <feDisplacementMap in="SourceGraphic" in2="n" scale={2.2} />
       </filter>
       <filter id="parch14" x="0" y="0" width="100%" height="100%">
@@ -140,7 +140,6 @@ export const NightSky: React.FC<{t: number; o?: number; milky?: number; horizon?
           opacity: 0.55 * milky,
           background: 'radial-gradient(ellipse 70% 16% at 50% 50%, rgba(190,200,255,0.34) 0%, rgba(120,110,170,0.16) 45%, rgba(0,0,0,0) 100%)',
           transform: `translate(${dx * 0.3}px, ${dy * 0.3}px) rotate(-28deg) scale(1.6)`,
-          filter: 'blur(2px)',
         }}
       />
     ) : null}
@@ -160,7 +159,8 @@ export const NightSky: React.FC<{t: number; o?: number; milky?: number; horizon?
 export const Parchment: React.FC<{o?: number; tint?: string; edge?: number; children?: React.ReactNode}> = ({o = 1, tint = K.parch, edge = 1, children}) => (
   <AbsoluteFill style={{opacity: o, background: tint}}>
     <Img src={staticFile('tex/paper.png')} style={{position: 'absolute', width: '100%', height: '100%', mixBlendMode: 'multiply', opacity: 0.6}} />
-    <AbsoluteFill style={{filter: 'url(#parch14)', opacity: 0.9}} />
+    {/* manchas y fibras: el filtro parch14 horneado (bake14.mjs), porque calcularlo en cada cuadro cuesta segundos */}
+    <Img src={staticFile('ep14/tex/parch14.webp')} style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, opacity: 0.9}} />
     <AbsoluteFill style={{background: `radial-gradient(ellipse 72% 70% at 50% 48%, rgba(255,250,235,0.35) 0%, rgba(0,0,0,0) 55%, rgba(92,58,22,${0.42 * edge}) 100%)`}} />
     {children}
   </AbsoluteFill>
@@ -285,7 +285,7 @@ export const SyncWords14: React.FC<{t: number; words: WordCue[]; size?: number; 
             key={i}
             style={{
               position: 'relative', display: 'inline-block', marginRight: size * 0.24, ...fr(c.big ? size * 1.25 : size, c.big ? 700 : weight, c.color ?? color, 144, 0, -0.015),
-              fontStyle: c.italic ? 'italic' : 'normal', opacity: p, filter: `blur(${(1 - p) * 10}px)`, transform: `translateY(${(1 - p) * 26}px)`, textShadow: '0 4px 24px rgba(0,0,0,0.55)',
+              fontStyle: c.italic ? 'italic' : 'normal', opacity: p, filter: p < 0.99 ? `blur(${(1 - p) * 10}px)` : undefined, transform: `translateY(${(1 - p) * 26}px)`, textShadow: '0 4px 24px rgba(0,0,0,0.55)',
             }}
           >
             {c.w}
@@ -311,7 +311,7 @@ export const Quote14: React.FC<{t: number; t0: number; t1?: number; text: string
         {words.map((wd, i) => {
           const p = prog(t, t0 + 0.1 + i * 0.07, 0.5);
           return (
-            <span key={i} style={{display: 'inline-block', marginRight: i < words.length - 1 ? size * 0.22 : 0, opacity: p, filter: `blur(${(1 - p) * 8}px)`, transform: `translateY(${(1 - p) * 16}px)`}}>
+            <span key={i} style={{display: 'inline-block', marginRight: i < words.length - 1 ? size * 0.22 : 0, opacity: p, filter: p < 0.99 ? `blur(${(1 - p) * 8}px)` : undefined, transform: `translateY(${(1 - p) * 16}px)`}}>
               {wd}
             </span>
           );
@@ -441,7 +441,7 @@ export const NameCard14: React.FC<{t: number; t0: number; t1?: number; name: str
   return (
     <div style={{position: 'absolute', left: x, top: y, opacity: o, transform: align === 'center' ? 'translateX(-50%)' : undefined, textAlign: align}}>
       <div style={{width: 80 * p, height: 3, background: noteColor, marginBottom: 14, marginLeft: align === 'center' ? 'auto' : 0, marginRight: align === 'center' ? 'auto' : 0}} />
-      <div style={{...fr(size, 380, color, 144, 50), fontStyle: 'italic', lineHeight: 1, whiteSpace: 'nowrap', filter: `blur(${(1 - p) * 6}px)`, textShadow: '0 4px 20px rgba(0,0,0,0.7)'}}>{name}</div>
+      <div style={{...fr(size, 380, color, 144, 50), fontStyle: 'italic', lineHeight: 1, whiteSpace: 'nowrap', filter: p < 0.99 ? `blur(${(1 - p) * 6}px)` : undefined, textShadow: '0 4px 20px rgba(0,0,0,0.7)'}}>{name}</div>
       <div style={{...ar(23, 600, roleColor, 82, 0.2), textTransform: 'uppercase', whiteSpace: 'nowrap', marginTop: 14, opacity: prog(t, t0 + 0.3, 0.5), textShadow: '0 2px 10px rgba(0,0,0,0.8)'}}>{role}</div>
       {note ? (
         <div style={{display: 'inline-flex', alignItems: 'center', gap: 10, marginTop: 12, padding: '6px 14px', border: `1.5px solid ${noteColor}`, borderRadius: 4, opacity: prog(t, t0 + 0.55, 0.5)}}>
@@ -485,7 +485,8 @@ export const OldSheet: React.FC<{t: number; t0: number; t1?: number; x: number; 
     <div style={{position: 'absolute', left: x, top: y, width: w, height: h, transform: `translate(-50%,-50%) rotate(${rot}deg) scale(${scale * (0.94 + 0.06 * p)}) translateY(${(1 - p) * 40}px)`, opacity: oo}}>
       <div style={{position: 'absolute', inset: 0, background: K.parch, boxShadow: '0 30px 80px rgba(0,0,0,0.55)', overflow: 'hidden', borderRadius: 3}}>
         <Img src={staticFile('tex/paper.png')} style={{position: 'absolute', width: '100%', height: '100%', mixBlendMode: 'multiply', opacity: 0.65}} />
-        <AbsoluteFill style={{filter: 'url(#parch14)', opacity: 0.85}} />
+        {/* el ruido del pergamino es el mismo en cualquier tamaño: la hoja usa el recorte de arriba a la izquierda */}
+        <Img src={staticFile('ep14/tex/parch14.webp')} style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, maxWidth: 'none', opacity: 0.85}} />
         <AbsoluteFill style={{background: 'radial-gradient(ellipse 80% 80% at 50% 45%, rgba(0,0,0,0) 55%, rgba(92,58,22,0.35) 100%)'}} />
         {children}
       </div>

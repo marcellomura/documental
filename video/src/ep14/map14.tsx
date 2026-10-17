@@ -100,14 +100,24 @@ export const Map14: React.FC<{
   }
   return (
     <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, overflow: 'hidden'}}>
+      {old ? (
+        <defs>
+          {/* trazo de pluma de las provincias: un solo filtro para todas y recortado a la pantalla (con zoom, cada
+              provincia por separado calculaba el ruido sobre miles de píxeles fuera de cuadro) */}
+          <filter id="quillMap14" filterUnits="userSpaceOnUse" x={-10} y={-10} width={1940} height={1100}>
+            <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves={1} seed={2} result="n" />
+            <feDisplacementMap in="SourceGraphic" in2="n" scale={2.2} />
+          </filter>
+        </defs>
+      ) : null}
       <g opacity={gridO}>{grid}</g>
       {/* provincias */}
-      <g opacity={provO}>
+      <g opacity={provO} style={old ? {filter: 'url(#quillMap14)'} : undefined}>
         {names.map((n) => {
           const polys = G.provincias[n];
           if (!polys) return null;
           const d = path({type: 'MultiPolygon', coordinates: polys} as any) ?? '';
-          return <path key={n} d={d} fill={fills[n] ?? 'none'} stroke={inkC} strokeWidth={old ? 1.6 : 1.1} strokeLinejoin="round" style={old ? {filter: 'url(#quill14)'} : undefined} />;
+          return <path key={n} d={d} fill={fills[n] ?? 'none'} stroke={inkC} strokeWidth={old ? 1.6 : 1.1} strokeLinejoin="round" />;
         })}
       </g>
       {/* frontera Chaco - Santiago del Estero (línea recta de 61° 43') */}

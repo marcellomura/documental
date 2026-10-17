@@ -93,6 +93,16 @@ NUM_EP = {
              ("dos de mayo", "2 de mayo"), ("siete y el nueve de mayo", "7 y el 9 de mayo"), ("cien ampollas", "100 ampollas"), ("domingo once", "domingo 11"),
              ("catorce de mayo", "14 de mayo"), ("cinco kilos", "5 kilos"), ("trece procesados", "13 procesados"), ("noventa muertes", "90 muertes"),
              ("cuarenta y cuatro", "44"), ("más de cien muertes", "más de 100 muertes"), ("cuatro millones", "4 millones"), ("HLB Farma", "HLB Pharma")],
+    "ep14": [("Veintiuno de enero de mil novecientos noventa", "21 de enero de 1990"), ("mil novecientos noventa y dos", "1992"),
+             ("mil setecientos ochenta y tres", "1783"), ("Mil quinientos setenta y seis", "1576"), ("mil ochocientos dieciséis", "1816"),
+             ("mil ochocientos tres", "1803"), ("mil novecientos sesenta y nueve", "1969"), ("mil novecientos ochenta", "1980"),
+             ("dos mil dieciséis", "2016"), ("dos mil doce", "2012"), ("dos metros y medio", "2,5 metros"),
+             ("treinta toneladas y ochocientos kilos", "30 toneladas y 800 kilos"), ("treinta y siete toneladas", "37 toneladas"),
+             ("unas catorce toneladas", "unas 14 toneladas"), ("Catorce toneladas", "14 toneladas"), ("diez toneladas", "10 toneladas"),
+             ("doscientos cuarenta años", "240 años"), ("Doscientos años", "200 años"), ("cuatro mil años", "4.000 años"),
+             ("cuarenta mil kilómetros por hora", "40.000 kilómetros por hora"), ("casi veinte kilómetros", "casi 20 kilómetros"),
+             ("cien metros", "100 metros"), ("setenta cinceles", "70 cinceles"), ("doce kilos", "12 kilos"), ("cinco metros", "5 metros"),
+             ("cien días", "100 días"), ("siglo veinte", "siglo XX"), ("siglo diecinueve", "siglo XIX")],
 }
 NUM = NUM_EP.get(os.environ.get("EP", ""), [])
 def merge_numbers(ws):

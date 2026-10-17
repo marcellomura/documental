@@ -2,7 +2,7 @@
    copa ancha y chata), con cuatro climas de luz; y piezas dibujadas para las escenas (grúa y patrullero de 1990,
    pistola de chispa, cincel, volcán, corte del suelo). */
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
+import {AbsoluteFill, Img, staticFile} from 'remotion';
 import {clamp, rnd} from '../lib/anim';
 import {K, NightSky} from './kit14';
 
@@ -39,10 +39,74 @@ const LAYERS: Tree[][] = [0, 1, 2, 3].map((L) => {
   });
 });
 
+/** contorno ondulado de arbustos bajos a lo largo de una línea de árboles (base en y = 0) */
+// la capa cercana tiene solo cuatro árboles: sus arbustos se estiran hasta ±2600 px para que el borde no aparezca en los
+// giros grandes de cámara
+const bushX = (L: number, trees: Tree[]) => [Math.min(Math.min(...trees.map((t) => t.x)) - 400, L === 3 ? -2600 : 0), Math.max(Math.max(...trees.map((t) => t.x)) + 400, L === 3 ? 2600 : 0)];
+const bushLine = (L: number, trees: Tree[]) => {
+  const [x0, x1] = bushX(L, trees);
+  const amp = [10, 16, 26, 40][L];
+  let d = `M${x0} 400 L${x0} 0`;
+  for (let x = x0; x <= x1; x += 24) d += ` L${x} ${-amp * (0.4 + 0.6 * Math.abs(Math.sin(x * 0.013 + L) * Math.sin(x * 0.031 + L * 2)))}`;
+  return d + ` L${x1} 400 Z`;
+};
+/** caja de cada capa (coordenadas locales: x relativa al centro, y relativa a la base), con margen para el filtro */
+export const LAYER_BOX = LAYERS.map((trees, L) => {
+  let [x0, x1] = bushX(L, trees), y0 = -[10, 16, 26, 40][L];
+  for (const tr of trees) {
+    const tx = tr.x + tr.lean * tr.th, top = -tr.th;
+    for (const lb of tr.lobes) {
+      x0 = Math.min(x0, tx + lb.dx - lb.r);
+      x1 = Math.max(x1, tx + lb.dx + lb.r);
+      y0 = Math.min(y0, top + lb.dy - lb.r);
+    }
+    for (const [bx, by] of tr.branches) y0 = Math.min(y0, top + by - 4);
+    y0 = Math.min(y0, top);
+  }
+  const m = 50;
+  return {x0: Math.floor(x0 - m), y0: Math.floor(y0 - m), w: Math.ceil(x1 - x0 + 2 * m), h: Math.ceil(400 - y0 + 2 * m)};
+});
+/** una línea de árboles como dibujo fijo, con el filtro de follaje (ruido + desplazamiento). Ese filtro es carísimo con
+    WebGL por software (varios segundos por cuadro), así que no se dibuja en el render: se hornea una vez a PNG
+    (bake_monte14.mjs → public/ep14/monte/) y el monte usa las imágenes */
+export const LayerArt = React.memo<{L: number; color: string}>(({L, color}) => {
+  const trees = LAYERS[L], B = LAYER_BOX[L];
+  return (
+    <svg width={B.w} height={B.h} viewBox={`${B.x0} ${B.y0} ${B.w} ${B.h}`} style={{position: 'absolute', left: B.x0, top: B.y0}}>
+      <defs>
+        <filter id={`leaf14_${L}`} filterUnits="userSpaceOnUse" x={B.x0} y={B.y0} width={B.w} height={B.h}>
+          <feTurbulence type="fractalNoise" baseFrequency={[0.09, 0.06, 0.04, 0.025][L]} numOctaves={3} seed={L * 7 + 3} result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale={[5, 9, 16, 30][L]} xChannelSelector="R" yChannelSelector="G" result="d" />
+          {L === 0 ? <feGaussianBlur in="d" stdDeviation="1" /> : null}
+        </filter>
+      </defs>
+      <g fill={color} filter={`url(#leaf14_${L})`}>
+        {/* masa de arbustos al pie */}
+        <path d={bushLine(L, trees)} />
+        {trees.map((tr, i) => {
+          const top = -tr.th;
+          const tx = tr.x + tr.lean * tr.th;
+          const tw = tr.w * 0.035;
+          return (
+            <g key={i}>
+              <path d={`M${tr.x - tw} 0 Q${tr.x + tr.lean * tr.th * 0.4} ${-tr.th * 0.5} ${tx - tw * 0.6} ${top} L${tx + tw * 0.6} ${top} Q${tr.x + tr.lean * tr.th * 0.4 + tw} ${-tr.th * 0.5} ${tr.x + tw} 0 Z`} />
+              {tr.branches.map(([bx, by], k) => (
+                <path key={k} d={`M${tx - tw * 0.5} ${top + 4} Q${tx + bx * 0.4} ${top + by * 0.3} ${tx + bx} ${top + by} L${tx + bx + 3} ${top + by + 2} Q${tx + bx * 0.4 + 4} ${top + by * 0.3 + 6} ${tx + tw * 0.5} ${top + 6} Z`} />
+              ))}
+              {tr.lobes.map((lb, k) => (
+                <circle key={k} cx={tx + lb.dx} cy={top + lb.dy} r={lb.r} />
+              ))}
+            </g>
+          );
+        })}
+      </g>
+    </svg>
+  );
+});
 /** monte en capas: cielo, estrellas, resplandor del horizonte y cuatro líneas de árboles con paralaje.
     pan: desplazamiento horizontal de cámara (px de la capa cercana), tilt: vertical; horizon: altura del horizonte */
 export const MonteBackdrop: React.FC<{t: number; mood?: Mood; pan?: number; tilt?: number; horizon?: number; o?: number; mist?: number; groundO?: number}> = ({
-  t, mood = 'dusk', pan = 0, tilt = 0, horizon = 560, o = 1, mist = 0.6, groundO = 1,
+  t, mood = 'dusk', pan = 0, tilt = 0, horizon = 560, o = 1, mist = 0.6,
 }) => {
   const M = MOODS[mood];
   const par = [0.12, 0.25, 0.5, 1];
@@ -55,61 +119,18 @@ export const MonteBackdrop: React.FC<{t: number; mood?: Mood; pan?: number; tilt
         </AbsoluteFill>
       ) : null}
       <div style={{position: 'absolute', left: 0, top: horizon + tilt - 260, width: 1920, height: 420, background: `radial-gradient(ellipse 60% 50% at ${50 - pan * 0.004}% 70%, ${M.glow} 0%, rgba(0,0,0,0) 70%)`}} />
-      <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0}}>
-        <defs>
-          {[0, 1, 2, 3].map((L) => (
-            <filter key={L} id={`leaf14_${L}`} x="-10%" y="-20%" width="120%" height="140%">
-              <feTurbulence type="fractalNoise" baseFrequency={[0.09, 0.06, 0.04, 0.025][L]} numOctaves={3} seed={L * 7 + 3} result="n" />
-              <feDisplacementMap in="SourceGraphic" in2="n" scale={[5, 9, 16, 30][L]} xChannelSelector="R" yChannelSelector="G" result="d" />
-              {L === 0 ? <feGaussianBlur in="d" stdDeviation="1" /> : null}
-            </filter>
-          ))}
-        </defs>
-        {LAYERS.map((trees, L) => {
-          const base = horizon + tilt * (0.6 + 0.4 * par[L]) + [6, 16, 40, 110][L];
-          const ox = 960 - pan * par[L];
-          return (
-            <g key={L} fill={M.layers[L]} transform={`translate(${ox},0)`} filter={`url(#leaf14_${L})`}>
-              {/* masa de arbustos al pie */}
-              <path d={bushLine(L, base, trees)} />
-              {trees.map((tr, i) => {
-                const sway = Math.sin(t * 0.6 + i + L) * 0.8 * (L + 1) * 0.3;
-                const top = base - tr.th;
-                const tx = tr.x + tr.lean * tr.th + sway * 0.5;
-                const tw = tr.w * 0.035;
-                return (
-                  <g key={i}>
-                    <path d={`M${tr.x - tw} ${base} Q${tr.x + tr.lean * tr.th * 0.4} ${base - tr.th * 0.5} ${tx - tw * 0.6} ${top} L${tx + tw * 0.6} ${top} Q${tr.x + tr.lean * tr.th * 0.4 + tw} ${base - tr.th * 0.5} ${tr.x + tw} ${base} Z`} />
-                    {tr.branches.map(([bx, by], k) => (
-                      <path key={k} d={`M${tx - tw * 0.5} ${top + 4} Q${tx + bx * 0.4} ${top + by * 0.3} ${tx + bx + sway} ${top + by} L${tx + bx + sway + 3} ${top + by + 2} Q${tx + bx * 0.4 + 4} ${top + by * 0.3 + 6} ${tx + tw * 0.5} ${top + 6} Z`} />
-                    ))}
-                    {tr.lobes.map((lb, k) => (
-                      <circle key={k} cx={tx + lb.dx + sway} cy={top + lb.dy} r={lb.r} />
-                    ))}
-                  </g>
-                );
-              })}
-            </g>
-          );
-        })}
-      </svg>
+      {LAYERS.map((_, L) => {
+        const base = horizon + tilt * (0.6 + 0.4 * par[L]) + [6, 16, 40, 110][L];
+        const ox = 960 - pan * par[L];
+        return (
+          <div key={L} style={{position: 'absolute', left: 0, top: 0, transform: `translate(${ox.toFixed(2)}px, ${base.toFixed(2)}px)`}}>
+            <Img src={staticFile(`ep14/monte/${mood}_${L}.png`)} style={{position: 'absolute', left: LAYER_BOX[L].x0, top: LAYER_BOX[L].y0, width: LAYER_BOX[L].w, height: LAYER_BOX[L].h}} />
+          </div>
+        );
+      })}
       {mist > 0 ? <div style={{position: 'absolute', left: 0, top: horizon + tilt - 40, width: 1920, height: 160, background: `linear-gradient(180deg, rgba(0,0,0,0) 0%, ${M.glow.replace(/[\d.]+\)$/, `${0.35 * mist})`)} 45%, rgba(0,0,0,0) 100%)`}} /> : null}
-      {groundO < 1 ? null : null}
     </AbsoluteFill>
   );
-};
-/** contorno ondulado de arbustos bajos a lo largo de una línea de árboles */
-const BUSH: Record<number, string> = {};
-const bushLine = (L: number, base: number, trees: Tree[]) => {
-  const key = L * 10000 + Math.round(base);
-  if (BUSH[key]) return BUSH[key];
-  const x0 = Math.min(...trees.map((t) => t.x)) - 400, x1 = Math.max(...trees.map((t) => t.x)) + 400;
-  const amp = [10, 16, 26, 40][L];
-  let d = `M${x0} ${base + 400} L${x0} ${base}`;
-  for (let x = x0; x <= x1; x += 24) d += ` L${x} ${base - amp * (0.4 + 0.6 * Math.abs(Math.sin(x * 0.013 + L) * Math.sin(x * 0.031 + L * 2)))}`;
-  d += ` L${x1} ${base + 400} Z`;
-  BUSH[key] = d;
-  return d;
 };
 
 /** pasto alto en primer plano (silueta oscura que se mece), delante del 3D: da profundidad y escala */

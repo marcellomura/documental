@@ -4,7 +4,6 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {TL, TITLE} from './lib';
-import {Grain} from '../components/base';
 import {Bug} from '../ep04/kit';
 import {K, Defs14, clamp, easeInOut, easeOut} from './kit14';
 import {S01, Titulo, S02, S03, S04} from './scenes14a';
@@ -41,7 +40,7 @@ const enterStyle = (tr: Trans, p: number): React.CSSProperties => {
     case 'ink':
       return {clipPath: `circle(${e * 1250}px at 38% 52%)`};
     case 'dissolve':
-      return {opacity: easeOut(clamp(p)), transform: `scale(${1.04 - 0.04 * e})`, filter: `blur(${(1 - e) * 8}px)`};
+      return {opacity: easeOut(clamp(p)), transform: `scale(${1.04 - 0.04 * e})`, filter: e < 0.99 ? `blur(${(1 - e) * 8}px)` : undefined};
     case 'flash':
       return {opacity: p >= 0.5 ? 1 : 0};
     default:
@@ -102,7 +101,6 @@ export const Cielo: React.FC = () => {
       {nodes}
       {overlays}
       <Bug o={bug} />
-      <Grain opacity={0.04} />
     </AbsoluteFill>
   );
 };
