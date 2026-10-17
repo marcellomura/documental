@@ -11,7 +11,7 @@ import {
 } from './kit14';
 import {CraneTruck, PoliceCar, Truck, FlintlockPistol, MonteBackdrop} from './art14';
 import {LogoMark} from '../ep04/kit';
-import {SlabShot, BuriedSection, WorldArc, Listings} from './shots14';
+import {SlabShot, Streak, BuriedSection, WorldArc, Listings} from './shots14';
 import {Map14, PT, viewPath, smoothRoute, craterField, searchTrack, type View} from './map14';
 import {IronMass, BLOQUE, ContactShadow, camPath, type Cam} from './three14';
 import geo from '../data/ep14/geo.json';
@@ -50,6 +50,8 @@ export const S05: React.FC<P> = ({t}) => {
       {t > tConv - 0.4 && t < tBloq + 0.2 ? (
         <AbsoluteFill style={{opacity: prog(t, tConv - 0.4, 0.5) * (1 - prog(t, tBloq - 0.2, 0.4))}}>
           <AbsoluteFill style={{background: 'radial-gradient(ellipse 60% 70% at 50% 50%, #241A12 0%, #050403 100%)'}} />
+          {/* «convencido de que había caído del cielo»: el bólido cae donde después aparece la imagen */}
+          <Streak t={t} t0={tConv - 0.05} dur={1.6} x0={260} y0={40} x1={960} y1={420} w={1.2} flash />
           <SaintFigure t={t} t0={c('manda hacer')} lost={prog(t, tImg + 0.3, 1.6)} />
           <Kicker14 t={t} t0={c('una imagen')} text="Una imagen del apóstol Santiago" x={130} y={150} />
           <div style={{position: 'absolute', left: 134, top: 196, ...fr(30, 380, K.mute, 72, 50), fontStyle: 'italic', opacity: prog(t, c('una imagen') + 0.4, 0.5)}}>hecha con el hierro del bloque</div>
