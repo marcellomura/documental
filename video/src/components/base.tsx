@@ -31,6 +31,14 @@ const FONTS: [string, string, FontFaceDescriptors][] = [
   ['Tinos', 'Tinos-normal-700.woff2', {weight: '700'}],
   ['Tinos', 'Tinos-italic-400.woff2', {weight: '400', style: 'italic'}],
   ['Arimo', 'Arimo-normal-400_700.woff2', {weight: '400 700'}],
+  // Ep14: serif de titulares con óptica y suavidad variables (Fraunces), la imprenta del siglo XVIII (IM Fell English),
+  // letra manuscrita (Pinyon Script) y capitales lapidarias (Cinzel); todas SIL OFL
+  ['Fraunces', 'Fraunces-VF.ttf', {weight: '100 900'}],
+  ['Fraunces', 'Fraunces-Italic-VF.ttf', {weight: '100 900', style: 'italic'}],
+  ['IM Fell English', 'IMFellEnglish-Regular.ttf', {}],
+  ['IM Fell English', 'IMFellEnglish-Italic.ttf', {style: 'italic'}],
+  ['Pinyon Script', 'PinyonScript-Regular.ttf', {}],
+  ['Cinzel', 'Cinzel-VF.ttf', {weight: '400 900'}],
 ];
 if (typeof document !== 'undefined' && !(window as any).__fontsLoading) {
   (window as any).__fontsLoading = true;
