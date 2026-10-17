@@ -1,5 +1,5 @@
 """Arma la página de publicación de "Tu reloj está mal" (video largo, Short, Reel y TikTok) a partir de los .md de
-entrega/, para que la página y el repo digan exactamente lo mismo. Uso: python3 tools/pagina_publicacion_ep05.py ids.json salida.html (ids.json: IDs de Drive de master, yt, ig y tt)"""
+entrega/, para que la página y el repo digan exactamente lo mismo. Uso: python3 tools/pagina_publicacion_ep05.py ids.json salida.html (ids.json: IDs de Drive de master, yt, ig, tt y srt)"""
 import html, json, re, sys
 
 import os
@@ -29,7 +29,8 @@ titles_yt = ["Tu reloj está mal (y el de toda la Argentina)", "Por qué en la A
 thumbs = [("A", "El reloj roto", "TU RELOJ ESTÁ MAL", A[0]), ("B", "El globo con la franja equivocada", "+1 HORA · VIVIMOS ADELANTADOS", A[1]), ("C", "La escuela a oscuras", "07:30 · ¿Y ES DE NOCHE?", A[2])]
 
 files = [
-    ("Video largo", "tu_reloj_esta_mal_4k_master.mp4", "3840×2160 · 4:40", "master", "YouTube"),
+    ("Video largo", "tu_reloj_esta_mal_4k_master.mp4", "3840×2160 · 4:40 · 964 MB", "master", "YouTube"),
+    ("Subtítulos", "tu_reloj_esta_mal_subtitulos_es.srt", "Español · con tiempos", "srt", "YouTube"),
     ("Short", "tu_reloj_esta_mal_short_youtube.mp4", "1080×1920 · 1:15", "yt", "YouTube Shorts"),
     ("Reel", "tu_reloj_esta_mal_reel_instagram.mp4", "1080×1920 · 1:16", "ig", "Instagram"),
     ("TikTok", "tu_reloj_esta_mal_tiktok.mp4", "1080×1920 · 1:16", "tt", "TikTok"),
@@ -111,8 +112,9 @@ td.time {{ font: 600 14px/1.4 var(--mono); font-variant-numeric: tabular-nums; w
 .thumb-text {{ font: 500 13px/1.3 var(--mono); color: var(--mute); }}
 .note {{ font-size: 15px; color: var(--mute); border-left: 3px solid var(--sun); padding-left: 12px; max-width: 66ch; }}
 .steps {{ counter-reset: s; list-style: none; padding: 0; }}
-.steps li {{ counter-increment: s; position: relative; padding-left: 34px; }}
-.steps li::before {{ content: counter(s); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--chip); color: var(--chip-ink); font: 600 13px/24px var(--mono); text-align: center; }}
+.steps > li {{ counter-increment: s; position: relative; padding-left: 34px; }}
+.steps > li::before {{ content: counter(s); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: var(--chip); color: var(--chip-ink); font: 600 13px/24px var(--mono); text-align: center; }}
+.steps ul {{ list-style: disc; margin-top: 6px; }}
 footer {{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--mute); display: grid; gap: 6px; }}
 @media (prefers-reduced-motion: no-preference) {{ html {{ scroll-behavior: smooth; }} }}
 </style>
@@ -124,34 +126,80 @@ footer {{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line)
     <div class="flap-digits" aria-label="07:30"><span>0</span><span>7</span><span class="colon">:</span><span>3</span><span>0</span></div>
     <div class="zones">Usamos <b>UTC−3</b> (la hora de Brasilia).<br>Por geografía nos toca <i>UTC−4</i>, y a la cordillera <i>UTC−5</i>.</div>
   </div>
-  <p class="lede">Todo para subir el video largo y los tres cortos verticales: archivos en Drive, títulos y miniaturas para la prueba A/B de YouTube, textos listos para pegar en Shorts, Reels y TikTok, portadas y calendario.</p>
+  <p class="lede">Todo para subir el video largo y los tres cortos verticales: archivos en Drive, calendario, la subida paso a paso, títulos y miniaturas para la prueba A/B de YouTube, textos listos para pegar en Shorts, Reels y TikTok, y portadas.</p>
 </header>
 <nav class="sections" aria-label="Secciones">
-  <a href="#archivos">Archivos</a><a href="#calendario">Calendario</a><a href="#youtube">YouTube</a><a href="#shorts">Shorts</a><a href="#reels">Reels</a><a href="#tiktok">TikTok</a><a href="#portadas">Portadas</a>
+  <a href="#archivos">Archivos</a><a href="#calendario">Calendario</a><a href="#subida">Paso a paso</a><a href="#youtube">YouTube</a><a href="#shorts">Shorts</a><a href="#reels">Reels</a><a href="#tiktok">TikTok</a><a href="#portadas">Portadas</a>
 </nav>
 
 <section id="archivos">
   <h2>Archivos<small>Google Drive · CONTEXTO / Ep5 · Tu reloj está mal</small></h2>
   <div class="files">{file_cards}</div>
-  <p class="note">Los tres cortos tienen el mismo cuerpo y cambian el cierre: el Short manda a «Video relacionado», el Reel dice «el link está en la bio» y el TikTok dice «buscá CONTEXTO en YouTube». Subtítulos incrustados, sonido a −14 LUFS.</p>
+  <p class="note">Bajá el video largo y los subtítulos de Drive a tu compu antes de empezar. Los tres cortos tienen el mismo cuerpo y cambian el cierre: el Short manda a «Video relacionado», el Reel dice «el link está en la bio» y el TikTok dice «buscá CONTEXTO en YouTube». Subtítulos incrustados, sonido a −14 LUFS.</p>
 </section>
 
 <section id="calendario">
   <h2>Calendario<small>Los cortos van después del video largo, porque lo enlazan</small></h2>
   <div class="table-wrap"><table>
-    <thead><tr><th>Pieza</th><th>Si el largo ya salió (jue 15/10)</th><th>Si todavía no salió</th></tr></thead>
+    <thead><tr><th>Pieza</th><th>Dónde</th><th>Cuándo</th></tr></thead>
     <tbody>
-      <tr><td>Video largo · YouTube</td><td>listo</td><td class="time">vie 16/10 · 19:00</td></tr>
-      <tr><td>Short · YouTube</td><td class="time">vie 16/10 · 13:00</td><td class="time">sáb 17/10 · 13:00</td></tr>
-      <tr><td>Reel · Instagram</td><td class="time">vie 16/10 · 19:00</td><td class="time">sáb 17/10 · 19:00</td></tr>
-      <tr><td>TikTok</td><td class="time">sáb 17/10 · 19:00</td><td class="time">dom 18/10 · 19:00</td></tr>
+      <tr><td>Video largo</td><td>YouTube</td><td class="time">dom 18/10 · 19:00</td></tr>
+      <tr><td>Short</td><td>YouTube Shorts</td><td class="time">lun 19/10 · 13:00</td></tr>
+      <tr><td>Reel</td><td>Instagram</td><td class="time">lun 19/10 · 19:00</td></tr>
+      <tr><td>TikTok</td><td>TikTok</td><td class="time">mar 20/10 · 19:00</td></tr>
     </tbody>
   </table></div>
-  <p class="note">El jueves 22/10 sale La paradoja de la carne, así que esta semana queda libre para los cortos.</p>
+  <p class="note">El jueves 22/10 sale La paradoja de la carne: así los cortos del reloj terminan antes. Si subís el largo otro día, mantené la distancia: el Short y el Reel al día siguiente, el TikTok dos días después.</p>
+</section>
+
+<section id="subida">
+  <h2>Subida paso a paso<small>YouTube Studio · los textos para copiar están en la sección siguiente</small></h2>
+  <h3>Una sola vez (si ya lo hiciste con los episodios anteriores, saltealo)</h3>
+  <ul>
+    <li>Canal verificado con el teléfono (youtube.com/verify): sin eso no te deja subir miniaturas.</li>
+    <li>Canal marcado como <b>no dirigido a niños</b>: Configuración → Canal → Configuración avanzada → Público.</li>
+  </ul>
+  <h3>La subida</h3>
+  <ol class="steps">
+    <li><b>Subir:</b> Crear → Subir videos → elegí <code>tu_reloj_esta_mal_4k_master.mp4</code>. Es 4K: YouTube le da su mejor códec, aunque tu público lo mire en 1080p.</li>
+    <li><b>Título:</b> pegá el <b>título A</b> (abajo).</li>
+    <li><b>Descripción:</b> pegala entera, con capítulos, fuentes y créditos.</li>
+    <li><b>Miniatura:</b> elegí <b>Probar y comparar</b> y subí las miniaturas A, B y C (si te deja, también los títulos A, B y C, emparejados).</li>
+    <li><b>Lista de reproducción:</b> «CONTEXTO · Argentina explicada».</li>
+    <li><b>Público:</b> «No, no es contenido creado para niños». <b>Restricción de edad:</b> no.</li>
+    <li><b>Mostrar más:</b> completalo con la tabla de abajo.</li>
+    <li><b>Elementos del video:</b>
+      <ul>
+        <li>Subtítulos: Agregar → Subir archivo → <b>Con tiempos</b> → <code>tu_reloj_esta_mal_subtitulos_es.srt</code>.</li>
+        <li>Pantalla final desde <b>4:27</b>: Video → «Súper Niño» en el recuadro de arriba, Video → «El robo del siglo» en el de abajo, y <b>Suscribirse</b> sobre el logo CONTEXTO.</li>
+        <li>Tarjeta en <b>3:41</b>: encuesta «¿Qué preferís? Luz a la mañana / Luz a la tarde».</li>
+      </ul>
+    </li>
+    <li><b>Comprobaciones:</b> esperá la revisión de derechos de autor. La música y los efectos son de ElevenLabs: no debería haber reclamos (si aparece uno, disputalo con tu licencia de ElevenLabs).</li>
+    <li><b>Visibilidad:</b> guardalo como <b>Privado</b> hasta que YouTube termine de procesar el 4K (puede tardar una o dos horas) y después <b>Programar</b> para el domingo 18/10 a las 19:00.</li>
+    <li><b>Apenas sale:</b> fijá el comentario de la encuesta, respondé los comentarios de la primera hora y dejá programados los cortos.</li>
+  </ol>
+  <h3>«Mostrar más»</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Campo</th><th>Qué poner</th></tr></thead>
+    <tbody>
+      <tr><td>Promoción pagada</td><td>No</td></tr>
+      <tr><td>Contenido alterado o sintético</td><td><b>Sí</b>: la voz es generada por IA</td></tr>
+      <tr><td>Etiquetas</td><td>Las de abajo (botón Copiar)</td></tr>
+      <tr><td>Idioma del video</td><td>Español (Latinoamérica)</td></tr>
+      <tr><td>Certificación de subtítulos</td><td>«Este contenido nunca se emitió en la televisión de EE.UU.»</td></tr>
+      <tr><td>Ubicación del video</td><td>Argentina</td></tr>
+      <tr><td>Licencia</td><td>Licencia estándar de YouTube · permitir insertar: Sí</td></tr>
+      <tr><td>Feed de suscripciones</td><td>Publicar y notificar: Sí</td></tr>
+      <tr><td>Remixes de Shorts</td><td>Permitir remixes de video y audio</td></tr>
+      <tr><td>Categoría</td><td>Educación</td></tr>
+      <tr><td>Comentarios</td><td>Activados · moderación básica · ordenar por principales</td></tr>
+    </tbody>
+  </table></div>
 </section>
 
 <section id="youtube">
-  <h2>YouTube · video largo<small>4:40 · subí el master 4K de Drive</small></h2>
+  <h2>YouTube · textos para copiar<small>Video largo · 4:40</small></h2>
   <h3>Títulos para la prueba A/B</h3>
   {copy(titles_yt[0], "Título A · la acusación")}
   {copy(titles_yt[1], "Título B · el dato")}
@@ -173,13 +221,6 @@ footer {{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line)
   {copy(TAGS)}
   <h3>Comentario para fijar</h3>
   {copy("¿Qué preferís: luz a la mañana o luz a la tarde? ☀️ Respondé A (mañana) o B (tarde) 👇")}
-  <h3>Configuración</h3>
-  <ul>
-    <li><b>Subtítulos:</b> subí <code>tu_reloj_esta_mal_subtitulos_es.srt</code> (Español, con sincronización).</li>
-    <li><b>Pantalla final</b> desde <b>4:27</b>: dos recuadros a la derecha con «Súper Niño» arriba y «El robo del siglo» abajo, y Suscribirse sobre el logo.</li>
-    <li><b>Tarjeta</b> en <b>3:41</b>: encuesta «¿Qué preferís? Luz a la mañana / Luz a la tarde».</li>
-    <li>No es contenido para niños, categoría Educación, idioma Español (Latinoamérica), contenido alterado o sintético: Sí (voz IA).</li>
-  </ul>
 </section>
 
 <section id="shorts">
