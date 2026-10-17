@@ -1,0 +1,58 @@
+{
+  "titulo": "CAMPO DEL CIELO",
+  "subtitulo": "LA MESA DE HIERRO QUE NADIE ENCUENTRA",
+  "episodio": 14,
+  "nota_voz": "El texto usa grafía fonética para los nombres extranjeros (Kladni, Jag, Mádison) y la grafía que suena bien para Mexía (Mejía); DISPLAY devuelve la ortografía real para subtítulos. Las cifras van en palabras.",
+  "nota_legal": "Haag y los otros detenidos de 1990 fueron procesados, nunca condenados: la causa quedó en nada. Las pistolas del James Monroe Museum no están comprobadas como de hierro meteórico: va como misterio. El peso del Mesón es el que calculó Rubín de Celis (más de 300 quintales). Fuentes en guion/ep14_investigacion.md.",
+  "display": {
+    "Mejía de Miraval": "Mexía de Miraval",
+    "Kladni": "Chladni",
+    "Jag": "Haag",
+    "Mádison": "Madison"
+  },
+  "segmentos": [
+    {
+      "id": "s01",
+      "texto": "En mil setecientos ochenta y tres, en el medio del monte, un oficial español encontró algo imposible: una mesa de hierro macizo, de dos metros y medio de largo, tirada sobre la llanura. Pesaba unas catorce toneladas. Nadie la había fabricado. Esa mesa había caído del cielo. El oficial le cavó alrededor, la dio vuelta con palancas, y le puso pólvora. Después se fue. Y desde ese día, nadie la volvió a ver. En esta historia hay una promesa de plata, unas pistolas para el presidente de Estados Unidos, una grúa en un camino de tierra y dos de los meteoritos más grandes del planeta. Pero la mesa, no. Hace más de doscientos cuarenta años que la buscan."
+    },
+    {
+      "id": "s02",
+      "texto": "Para entender qué es esa mesa, hay que ir cuatro mil años atrás. Un bloque de hierro y níquel, tan viejo como el sistema solar, choca contra la atmósfera a más de cuarenta mil kilómetros por hora. Pesa cientos de toneladas. El aire lo frena, lo calienta y lo parte. Y una lluvia de hierro cae sobre la llanura. Deja una franja de casi veinte kilómetros llena de cráteres. El más grande mide más de cien metros. Miles de años después, los pueblos de la región todavía decían que ese hierro había caído del cielo. Por eso el lugar se llama así: Campo del Cielo."
+    },
+    {
+      "id": "s03",
+      "texto": "Mil quinientos setenta y seis. El gobernador del Tucumán manda a un capitán, Hernán Mejía de Miraval, a buscar el metal de hierro del que se tiene noticia, y a traer todo el que pueda. Lo encuentra: un grandísimo pedazo de hierro limpio. Pero marca el camino con referencias del monte. Y nadie puede volver. Doscientos años después, otra expedición da con la masa y manda muestras a España. Y ahí llega el análisis que lo cambia todo: una quinta parte de plata. ¿Plata? Si esa mesa era la punta de algo más grande, abajo podía haber una mina. Y el virrey manda a buscarla."
+    },
+    {
+      "id": "s04",
+      "texto": "Febrero de mil setecientos ochenta y tres. El teniente de fragata Miguel Rubín de Celis llega hasta una masa que conocían los meleros, los que juntaban miel en el monte. Y la ve: una inmensa mesa de fierro que sobresalía de la llanura. El Mesón de Fierro. Para sacarle muestras rompe setenta cinceles, y consigue apenas doce kilos. En la superficie ve marcas que parecen pisadas de aves y huellas de pies y manos humanas. Pero él busca la mina. Hace cavar alrededor, la da vuelta con palancas, y anota: construí dos hornillos, que volé. Pólvora. Abajo no hay ninguna veta. Solo tierra. Su conclusión: habrá sido arrojada por algún volcán. Se equivocaba. Sus muestras viajan a Londres, y un físico alemán, Ernst Kladni, usa ese hierro como prueba de una idea que entonces sonaba ridícula: que del cielo caen piedras. El Mesón de Fierro se queda en el monte. Es la última vez que alguien lo ve."
+    },
+    {
+      "id": "s05",
+      "texto": "Pero la mesa no estaba sola. En mil ochocientos tres, buscándola, un militar santiagueño, Diego Bravo de Rueda, encuentra otro bloque: una tonelada de hierro. Convencido de que había caído del cielo, manda hacer con ese metal una imagen del apóstol Santiago. La imagen también se perdió. El bloque llega a la fábrica de armas de Buenos Aires. Y con ese hierro se forjan fusiles y pistolas. Según las crónicas, un par viaja como regalo al presidente de Estados Unidos, James Mádison. Hoy, un museo de Virginia guarda un par de pistolas que Buenos Aires le regaló a Mádison en mil ochocientos dieciséis. ¿Están hechas de cielo? Nadie lo pudo comprobar. Y el pedazo más grande que quedaba se lo regalaron a un cónsul británico. Hoy está en Londres."
+    },
+    {
+      "id": "s06",
+      "texto": "En el siglo veinte, la tierra empieza a devolver gigantes. En mil novecientos sesenta y nueve, con detectores de metales, encuentran una masa enterrada a cinco metros. En mil novecientos ochenta la sacan: El Chaco: treinta y siete toneladas, según la balanza de la época. Y alguien la quiere. Veintiuno de enero de mil novecientos noventa. Paraje La Tota, en el límite con Santiago del Estero. La policía del Chaco frena una grúa con patente de Tucumán, un camión y un auto. En el camión va el meteorito. Los detenidos: un coleccionista de meteoritos de Arizona, Robert Jag, un periodista estadounidense y un hombre de Buenos Aires. Seis días después, El Chaco vuelve a su lugar. Jag queda procesado. En mil novecientos noventa y dos lo declaran en rebeldía. La causa quedó en nada."
+    },
+    {
+      "id": "s07",
+      "texto": "Ese mismo año, el Chaco prohibió por ley sacar meteoritos de la provincia. Pero las ganas siguieron. En dos mil doce, una de las muestras de arte más importantes del mundo pidió llevarse El Chaco a Alemania por cien días. La Legislatura lo aprobó. Las comunidades moqoit, para las que ese lugar es parte central de su cosmovisión, se opusieron, y el viaje se canceló. Hoy cualquiera compra por internet un pedacito del cielo chaqueño: un astrónomo del Chaco calcula que ya se vendieron al menos diez toneladas sacadas de forma ilegal. Y bajo la tierra todavía queda mucho. En septiembre de dos mil dieciséis, cavando en el barro, con el agua brotando a cada palada, apareció otro gigante: treinta toneladas y ochocientos kilos. Lo llamaron Gancedo. Pesado en la misma balanza, es más grande que El Chaco."
+    },
+    {
+      "id": "s08",
+      "texto": "Pero de la mesa, nada. La buscaron expediciones del siglo diecinueve, con los mapas viejos. La buscaron científicos con magnetómetros en los años sesenta. La buscan aficionados con detectores de metales. Y no aparece. Durante un tiempo, su ubicación hasta sirvió de referencia para marcar el límite entre Santiago del Estero y el Chaco: una frontera trazada a partir de un punto que nadie sabía dónde estaba. ¿Por qué es tan difícil? Porque las referencias del monte desaparecieron. Porque el río Salado, que guiaba a todas las expediciones, cambió de cauce. Y porque en mil setecientos ochenta y tres, medir la longitud era casi adivinar. Puede estar enterrada justo donde la volaron, bajo dos siglos y medio de tierra y monte."
+    },
+    {
+      "id": "s09",
+      "texto": "Catorce toneladas de un hierro más viejo que cualquier roca de la Tierra, perdidas en el monte chaqueño. Ahora, una pregunta. Si mañana alguien encuentra el Mesón de Fierro, ¿de quién es? ¿Del que lo encuentra, del Estado, o de los pueblos que cuidan ese cielo desde hace siglos? Te leo en los comentarios. Y si te gustó, suscribite: la próxima historia también está escondida en algún lugar de la Argentina."
+    }
+  ],
+  "extra_short": [
+    {
+      "id": "x01",
+      "texto": "Dónde puede estar hoy el Mesón de Fierro, y quién más quiso llevarse un pedazo del cielo, te lo cuento en el video completo del canal. Tocá el enlace de acá abajo."
+    }
+  ],
+  "modelo_voz": "eleven_v4"
+}
