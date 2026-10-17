@@ -237,6 +237,8 @@ const Grua: React.FC<{s: number}> = ({s}) => {
             <Map14 t={s} view={{lon: -61.74, lat: -27.57, scale: 70000}} style="modern" gridO={0.6} provO={0.8} riverO={0.4} border={{o: 0.9, p: prog(s, c('Paraje La Tota') + 0.5, 1.2), color: K.ember}}
               marks={[{at: PT['La Tota'], label: 'Paraje La Tota', o: prog(s, c('Paraje La Tota'), 0.5), kind: 'pin', pulse: 1, color: K.red}, {at: PT.Gancedo, label: 'Gancedo', o: prog(s, c('Paraje La Tota') - 0.2, 0.5), kind: 'dot'}]} />
           </Cover>
+          {/* el límite cruza toda la pantalla: abajo se oscurece para que no pase por encima de los subtítulos */}
+          <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(3,5,10,0) 58%, rgba(3,5,10,0.9) 78%)'}} />
           <YearRoll t={s} t0={tVein - 0.1} text="21.01.1990" x={540} y={380} size={120} mono />
         </AbsoluteFill>
       ) : null}
