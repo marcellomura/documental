@@ -496,3 +496,100 @@ python3 tools/short_ep13.py                                                # lí
 tools/cola_ep13.sh   # render por tramos (tools/render_ep13.sh), master 1440p, short y control de congelados
 rclone copy video/out/el_lote_31202_1440p.mp4 "gdrive:CONTEXTO/Ep13 · El lote 31.202 (fentanilo contaminado)"
 ```
+
+# Episodio 14 · "CAMPO DEL CIELO" (la mesa de hierro que nadie encuentra)
+
+En el repo figura como `ep14` (composición `Cielo`, con entrada propia `video/src/index14.tsx`). Dura 6:58. Es la historia de la lluvia de meteoritos de hierro que cayó en el Chaco hace unos 4.000 años y del **Mesón de Fierro**: la masa de unas 14 toneladas que el teniente de fragata Miguel Rubín de Celis vio en 1783, hizo cavar, dio vuelta con palancas y voló con pólvora, y que nadie volvió a ver. En el camino aparecen:
+
+- la expedición de 1576 que no pudo volver y el análisis de 1774 que prometía una mina de plata
+- Chladni, que usó ese hierro para probar que caen piedras del cielo
+- el bloque de 1803, la imagen del apóstol Santiago y las pistolas para Madison (un misterio abierto)
+- El Chaco, el intento de llevárselo en 1990 (procesados, sin condena), la documenta de 2012 y Gancedo (2016)
+- por qué nadie encuentra la mesa, y la pregunta del cierre: si aparece, ¿de quién es?
+
+| Archivo | Qué es |
+|---|---|
+| `campo_del_cielo_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, 6:58, −14 LUFS). No va en git: está en Drive, en `CONTEXTO/Ep14 · Campo del Cielo` (carpeta `1mG8-ezBvqAExnI5IQxM8xtrRd4XFUgMT`; archivo y md5: se completan al terminar el render) |
+| `entrega/campo_del_cielo_short.mp4` | Short vertical para YouTube y TikTok (1:16, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive (archivo y md5: se completan al terminar el render) |
+| `entrega/campo_del_cielo_subtitulos_es.srt` | Subtítulos en español, con las cifras en números y los nombres bien escritos (la voz usa grafías fonéticas: Kladni, Jag, Mádison) |
+| `entrega/campo_del_cielo_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos, configuración de subida, cuidados y fecha sugerida |
+| `entrega/campo_del_cielo_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B |
+| `entrega/campo_del_cielo_short_publicacion.md` | Cómo publicar el short (YouTube y TikTok) y enlazarlo al video |
+| Página de publicación | Se publica al terminar el render (privada): los archivos en Drive, un cuadro por capítulo, títulos y miniaturas A/B, descripción, short, TikTok y cuidados, con botones para copiar. Se arma con `tools/pagina_publicacion_ep14.py` a partir de los .md de `entrega/` |
+
+## Investigación y guion
+
+- Dossier con la cronología verificada, los cuidados y las fuentes: `guion/ep14_investigacion.md`.
+- **Cuidados:**
+  - el peso del Mesón varía entre fuentes (13,5 a 45 t): se usa el de Rubín de Celis, «más de trescientos quintales», unas 14 t
+  - El Chaco: 37 t es la cifra de la balanza de 1980; con la de 2016 dio 28,84 t. No se dice que sea «el segundo más grande del mundo»
+  - las pistolas de Madison van como misterio: el museo no dice que sean de hierro meteórico, y la pistola que se ve es ilustrativa
+  - Haag y los otros dos detenidos de 1990 fueron procesados; la causa quedó en nada
+  - no se le atribuyen leyendas a ningún pueblo sin fuente; los moqoit se opusieron al traslado de 2012
+- Guion: `guion/ep14_cielo.json` (9 segmentos + el cierre del short). El mapa `display` devuelve las grafías reales.
+
+## Voz y audio
+
+- Voz eleven_v4. `tools/proc_audio.py` con `TEMPO=1.03 PAUSAS=respirar`; `tools/check_voz.py` sin pista (`PROMPT=0`) para verificar cifras y nombres.
+- `tools/timeline_ep14.py` abre silencios internos (el golpe del impacto, la voladura, «Después se fue») y reserva la placa final.
+- Ocho temas con el mismo leitmotiv (Eleven Music, el tema principal como referencia) y 18 efectos. `tools/mix_ep14.py` ata los golpes musicales al impacto, a la voladura, al corte de 1990 y a Gancedo, y controla que la música no tape la voz (informe de enmascaramiento).
+
+## Qué mejora respecto del Ep13
+
+- **3D propio del tema** (`three14.tsx`):
+  - la masa de hierro es procedural: un superelipsoide con regmagliptos (los huecos ovalados de los meteoritos), óxido por vértice y relieve fino, sin costuras de textura
+  - la Tierra desde el espacio con atmósfera, el bólido que se parte en fragmentos, la lluvia de hierro con ondas de choque y la voladura con humo, chispas y destello
+- **El monte chaqueño** en cuatro capas con paralaje alineado al horizonte de la cámara 3D, en cuatro climas (atardecer, noche, sol bajo, día), con pasto en primer plano.
+- **Mapas con datos reales** (`map14.tsx`, `tools/geo_ep14.py`): provincias, los ríos Salado, Dulce, Bermejo y Paraná (Natural Earth 10m), el límite recto Chaco–Santiago del Estero y el campo de cráteres a escala (18,5 × 3 km). Estilo antiguo (pluma sobre pergamino) y moderno.
+- **Sistema visual «cielo y hierro»** (`kit14.tsx`): Fraunces con peso y óptica animables, IM Fell English para los papeles del siglo XVIII y Pinyon Script para la letra de Rubín de Celis; pergamino, sellos de tinta, la cinta de los años y el rótulo «paradero desconocido».
+- **Transiciones propias:** el bólido (una estela incandescente barre la pantalla), la tinta (el pergamino se abre en un círculo), la disolvencia y el destello.
+
+## Render: qué es caro con WebGL por software
+
+Con `--gl=swangle`, Chrome hace **todo** el dibujo en SwiftShader (una GPU emulada en la CPU), no solo el 3D. Un desenfoque grande o un filtro SVG con `feTurbulence` cuesta segundos por cuadro, y se recalcula en cada cuadro: Chrome no reutiliza las capas entre un cuadro y otro, ni siquiera con `will-change`.
+
+El primer intento de render iba a tardar unas 10 h. Medido con `video/medir_cuadros.mjs` (costo por cuadro en frío y en caliente, con variantes que apagan capas):
+
+| Qué | Costo por cuadro | Solución |
+|---|---|---|
+| La Vía Láctea: un degradé rotado con `blur(2px)` | 8 s | Sin desenfoque (el degradé ya es suave) |
+| El follaje del monte (ruido + desplazamiento en cuatro capas) | 3,5–4 s | Horneado a PNG (`video/bake14.mjs` → `public/ep14/monte/`) |
+| El pergamino (manchas y fibras con `feTurbulence`) | 2–3 s | Horneado a WebP con transparencia (`public/ep14/tex/parch14.webp`); las hojas usan el recorte de arriba a la izquierda, que es el mismo ruido |
+| La pluma en los mapas antiguos (un filtro por provincia) | 1–2 s | Un solo filtro para todas, recortado a la pantalla, y una octava |
+| El grano global al 4 % | 0,3–0,6 s | Fuera (después de la compresión de YouTube no se ve) |
+| El 3D (masa, suelo, luces) | ~1 s | Se deja |
+
+Quedó en 1,8 s por cuadro en promedio (los planos del monte bajaron de 8 a 3,5 s y los del pergamino de 6 a 2 s): unas 6 h para los 12.530 cuadros. Con cuatro pestañas no se gana nada en los planos pesados porque la CPU ya está saturada con una sola.
+
+Si se cambia el dibujo del monte o el filtro del pergamino, hay que volver a hornear: `cd video && node bake14.mjs`.
+
+## Escenas (`video/src/ep14/`, composición `Cielo`)
+
+- `kit14.tsx`: paleta, tipografía, cielo nocturno, pergamino, hojas, sellos, nombres, citas, la letra manuscrita, fotos con grado de color, la cinta de años y el radar de búsqueda.
+- `three14.tsx`: escenario, masas de hierro, Tierra, bólido, fragmentos, lluvia de hierro, voladura, suelo y sombras de contacto.
+- `art14.tsx`: el monte en capas (horneado), el pasto, la grúa, el camión, el patrullero, la pistola de chispa y el volcán.
+- `map14.tsx`: el mapa (antiguo y moderno), la brújula y el campo de cráteres.
+- `shots14.tsx`: el plano de la mesa en el monte, el bólido 2D, los cortes del suelo y del pozo, el arco del mundo y los avisos de venta.
+- `scenes14a.tsx` (S01–S04), `scenes14b.tsx` (S05–S09 y la placa final) y `Cielo.tsx` (transiciones).
+- `short14.tsx`: el short vertical (entrada `src/index14s.tsx`, composición `ShortCielo`).
+
+## Archivo y créditos
+
+- Fotos con licencia (`video/public/ep14/img/creditos.json`): El Chaco (Edgardo Scheihing), el cartel del parque Pigüen N'onaxa, el trozo del Museo de Historia Natural de Londres, Chladni, Madison (National Gallery of Art), Woodbine Parish y una pistola de chispa ilustrativa (Metropolitan Museum).
+- La Tierra: NASA Blue Marble y Black Marble. Mapas: Natural Earth.
+
+## Comandos
+
+```bash
+EP=ep14 NSEG=9 TEMPO=1.03 PAUSAS=respirar python3 tools/proc_audio.py
+EP=ep14 GUION=ep14_cielo.json python3 tools/align.py
+EP=ep14 GUION=ep14_cielo.json PROMPT=0 python3 tools/check_voz.py   # verificar cifras y nombres (sin pista)
+python3 tools/timeline_ep14.py && python3 tools/mix_ep14.py         # -> audio/mix/mezcla_ep14.wav
+python3 tools/geo_ep14.py                                            # provincias, ríos y puntos del mapa
+EP=ep14 OUT=campo_del_cielo_subtitulos_es.srt python3 tools/srt.py
+python3 tools/short_ep14.py                                          # línea de tiempo y mezcla del short
+cd video && node bake14.mjs && cd ..                                 # monte y pergamino horneados
+tools/cola_ep14.sh     # render por tramos (tools/render_ep14.sh), master 1440p y control de congelados
+tools/cola_short14.sh  # espera a la cola del episodio y hace el short
+rclone copy video/out/campo_del_cielo_1440p.mp4 "gdrive:CONTEXTO/Ep14 · Campo del Cielo"
+```
