@@ -12,9 +12,11 @@ import {
 import {CraneTruck, PoliceCar, Truck, FlintlockPistol, MonteBackdrop} from './art14';
 import {LogoMark} from '../ep04/kit';
 import {SlabShot, Streak, BuriedSection, WorldArc, Listings} from './shots14';
-import {Map14, PT, viewPath, smoothRoute, craterField, searchTrack, type View} from './map14';
+import {Map14, PT, viewPath, smoothRoute, craterField, searchTrack, mercator, type View} from './map14';
 import {IronMass, BLOQUE, ContactShadow, camPath, type Cam} from './three14';
 import geo from '../data/ep14/geo.json';
+import arg from '../data/ep04/arg_provincias.json';
+import {geoPath} from 'd3-geo';
 
 type P = {t: number};
 
@@ -573,14 +575,14 @@ const Reason: React.FC<{t: number; t0: number; t1: number; n: string; text: stri
 /* ================================================================== S09 · EL CIERRE */
 export const S09: React.FC<P> = ({t}) => {
   const c = (p: string, n = 0) => cue('s09', p, n);
-  const tAh = c('Ahora, una pregunta'), tSi = c('Si mañana'), tTe = c('Te leo');
+  const tAh = c('Ahora, una pregunta'), tSi = c('Si mañana'), tTe = c('Te leo'), tY = c('Y si te gustó'), tProx = c('la próxima historia');
   return (
     <AbsoluteFill style={{background: K.void}}>
       <BuriedSection t={t} dy={mix(420, -300, prog(t, -0.5, 6.5, easeInOut))} strata={0.8} years={1}
         masses={[{x: 960, y: 1060, w: 360, h: 120, o: 1, glow: 0.6 + 0.3 * Math.sin(t * 2.4)}]} o={1 - prog(t, tAh - 0.5, 0.8)} />
       <Stat14 t={t} t0={c('más viejo') - 0.2} t1={tAh - 0.4} x={130} y={160} value={4500} label="Un hierro más viejo que cualquier roca de la Tierra" suffix="millones de años" size={120} dur={1.6} w={1400} />
-      {t > tAh - 0.8 ? (
-        <AbsoluteFill style={{opacity: prog(t, tAh - 0.8, 0.8)}}>
+      {t > tAh - 0.8 && t < tY + 0.6 ? (
+        <AbsoluteFill style={{opacity: prog(t, tAh - 0.8, 0.8) * (1 - prog(t, tY - 0.2, 0.7))}}>
           <NightSky t={t} milky={1.4} horizon={0.7} hColor="#22305A" dy={-(t - tAh) * 6} />
           <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0}}>
             <path d={Array.from({length: 97}, (_, i) => `${i ? 'L' : 'M'}${i * 20} ${960 - Math.abs(Math.sin(i * 0.37) * Math.sin(i * 0.13)) * 90 - rnd(i) * 30}`).join(' ') + ' L1920 1080 L0 1080 Z'} fill="#03040A" style={{filter: 'url(#quill14)'}} />
@@ -590,6 +592,52 @@ export const S09: React.FC<P> = ({t}) => {
           <Kicker14 t={t} t0={tTe} t1={TL.durations.s09 + 0.3} text="Te leo en los comentarios" x={960} y={960} align="center" />
         </AbsoluteFill>
       ) : null}
+      {/* «la próxima historia también está escondida en algún lugar de la Argentina» */}
+      {t > tY - 0.6 ? (
+        <AbsoluteFill style={{opacity: prog(t, tY - 0.6, 0.7)}}>
+          <NextStory t={t} t0={tY - 0.6} tProx={tProx} qs={[[c('escondida'), [-66.7, -24.3]], [c('algún lugar'), [-69.9, -44.6]], [c('Argentina.'), [-59.2, -36.4]]]} />
+        </AbsoluteFill>
+      ) : null}
+    </AbsoluteFill>
+  );
+};
+
+/** el cierre: la cámara se aleja de Campo del Cielo hasta la Argentina entera y aparecen signos de pregunta en lugares
+    que no se nombran (la próxima historia puede estar en cualquiera) */
+const ARG = (arg as {features: {properties: {n: string}}[]}).features;
+const NextStory: React.FC<{t: number; t0: number; tProx: number; qs: [number, [number, number]][]}> = ({t, t0, tProx, qs}) => {
+  const v = viewPath(t, [[t0, {lon: -61.6, lat: -27.6, scale: 5200}], [t0 + 0.5, {lon: -64.4, lat: -39.6, scale: 1180}]], 4.4);
+  const proj = mercator(v);
+  const path = geoPath(proj);
+  const cc = proj([-61.62, -27.55]) as [number, number];
+  const ccO = 1 - prog(t, tProx + 0.4, 0.8);
+  return (
+    <AbsoluteFill style={{background: 'radial-gradient(ellipse 70% 80% at 50% 50%, #0E1526 0%, #03050A 100%)'}}>
+      <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0}}>
+        {ARG.map((f, i) => (
+          <path key={i} d={path(f as never) ?? ''} fill="rgba(20,30,54,0.6)" stroke="rgba(170,190,235,0.36)" strokeWidth={1.2} strokeLinejoin="round" />
+        ))}
+        {ccO > 0 ? (
+          <g transform={`translate(${cc[0]},${cc[1]})`} opacity={ccO}>
+            <circle r={9} fill={K.ember} />
+            <circle r={22 + 6 * Math.sin(t * 4)} fill="none" stroke={K.ember} strokeWidth={2} opacity={0.5} />
+            <text x={20} y={-16} style={{...ar(22, 650, K.bone, 85, 0.12), fill: K.bone, textTransform: 'uppercase'}}>Campo del Cielo</text>
+          </g>
+        ) : null}
+        {qs.map(([tq, ll], i) => {
+          const p = proj(ll) as [number, number];
+          const k = pop(t, tq - 0.1, 1);
+          if (t < tq - 0.1) return null;
+          const ring = ((t - tq) * 0.8) % 1;
+          return (
+            <g key={i} transform={`translate(${p[0]},${p[1]})`}>
+              <circle r={18 + ring * 46} fill="none" stroke={K.ember} strokeWidth={2} opacity={0.6 * (1 - ring)} />
+              <text textAnchor="middle" y={22} style={{fontFamily: F.display, fontSize: 70 * k, fontWeight: 600, fill: K.ember}}>?</text>
+            </g>
+          );
+        })}
+      </svg>
+      <Kicker14 t={t} t0={tProx - 0.1} text="La próxima historia" x={960} y={990} align="center" />
     </AbsoluteFill>
   );
 };
