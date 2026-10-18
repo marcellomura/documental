@@ -264,6 +264,8 @@ export const S02: React.FC<P> = ({t}) => {
           <NightSky t={t} milky={1.3} horizon={0.6} dy={(t - tMiles) * -8} />
           <MonteSilhouette />
           <Constellation t={t} t0={tMiles + 0.8} />
+          {/* «ese hierro había caído del cielo»: una estrella fugaz cruza el cielo (y el plano no queda quieto) */}
+          <Streak t={t} t0={c('había caído') - 0.36} dur={1.2} x0={1780} y0={40} x1={1300} y1={420} w={1.0} />
           <div style={{position: 'absolute', left: 960, top: 420, transform: 'translate(-50%,-50%)', textAlign: 'center', opacity: prog(t, tPor + 0.9, 0.8)}}>
             <div style={{...fr(150, 420, K.bone, 144, 50, -0.02), fontStyle: 'italic', lineHeight: 1}}>Pigüen N'onaxa</div>
             <div style={{...ar(24, 650, K.ember, 82, 0.3), marginTop: 22}}>EN LENGUA QOM: «CAMPO DEL CIELO»</div>
