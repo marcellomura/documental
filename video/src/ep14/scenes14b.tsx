@@ -578,7 +578,7 @@ export const S09: React.FC<P> = ({t}) => {
     <AbsoluteFill style={{background: K.void}}>
       <BuriedSection t={t} dy={mix(420, -300, prog(t, -0.5, 6.5, easeInOut))} strata={0.8} years={1}
         masses={[{x: 960, y: 1060, w: 360, h: 120, o: 1, glow: 0.6 + 0.3 * Math.sin(t * 2.4)}]} o={1 - prog(t, tAh - 0.5, 0.8)} />
-      <Stat14 t={t} t0={c('más viejo') - 0.2} t1={tAh - 0.4} x={130} y={160} value={4500} label="Un hierro más viejo que cualquier roca de la Tierra" suffix="millones de años" size={120} dur={1.6} />
+      <Stat14 t={t} t0={c('más viejo') - 0.2} t1={tAh - 0.4} x={130} y={160} value={4500} label="Un hierro más viejo que cualquier roca de la Tierra" suffix="millones de años" size={120} dur={1.6} w={1400} />
       {t > tAh - 0.8 ? (
         <AbsoluteFill style={{opacity: prog(t, tAh - 0.8, 0.8)}}>
           <NightSky t={t} milky={1.4} horizon={0.7} hColor="#22305A" dy={-(t - tAh) * 6} />
