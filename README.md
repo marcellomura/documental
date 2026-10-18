@@ -578,6 +578,29 @@ Si se cambia el dibujo del monte o el filtro del pergamino, hay que volver a hor
 - Fotos con licencia (`video/public/ep14/img/creditos.json`): El Chaco (Edgardo Scheihing), el cartel del parque Pigüen N'onaxa, el trozo del Museo de Historia Natural de Londres, Chladni, Madison (National Gallery of Art), Woodbine Parish y una pistola de chispa ilustrativa (Metropolitan Museum).
 - La Tierra: NASA Blue Marble y Black Marble. Mapas: Natural Earth.
 
+## Control del render
+
+Cada tramo se revisó con una hoja de contacto (un cuadro cada 1,5 s) y con `tools/check_congelados.py`. Lo que se corrigió con parches (fragmentos re-renderizados y empalmados en su tramo por cuadro exacto):
+
+- **Tramo 3** (cuadros 2620-2699): el cielo con la constelación de Pigüen N'onaxa quedaba 6,5 s casi quieto; ahora cruza una estrella fugaz en «había caído del cielo».
+- **Tramo 7** (cuadros 6030-6119): 2 s de pantalla vacía en «Convencido de que había caído del cielo»; ahora un bólido cae justo donde aparece la imagen del apóstol Santiago.
+- **Tramo 13** (cuadros 11455-11649): el rótulo «Un hierro más viejo que cualquier roca de la Tierra» se partía y dejaba «TIERRA» sola; ahora entra en una línea.
+- **Tramo 14** (cuadros 12040-12289): la encuesta quedaba 11 s quieta. Después de «Te leo en los comentarios», la cámara se aleja de Campo del Cielo hasta la Argentina entera y aparecen tres signos de pregunta al ritmo de «escondida… en algún lugar… de la Argentina», con «La próxima historia».
+
+El contenedor se reinició una vez durante el tramo 5: `tools/cola_ep14.sh` retoma desde el primer tramo que falta.
+
+Cómo se hace un parche (igual que en el Ep13, con la entrada del episodio 14):
+
+```bash
+# public reducida con enlaces duros y bundle propio fuera de /tmp/remotion-webpack-bundle-* (render_ep14.sh los borra)
+mkdir -p $PUB/ep05 && for d in fonts brand tex ep14; do cp -rl video/public/$d $PUB/$d; done && cp -rl video/public/ep05/globe $PUB/ep05/
+cd video && npx remotion bundle src/index14.tsx --public-dir=$PUB --out-dir=$BUNDLE
+npx remotion render $BUNDLE Cielo parche.mp4 --frames=A-B --scale=1.3333333333333333 --gl=swangle --crf=15 --muted --timeout=240000
+# empalme por cuadro exacto: trim + concat del tramo y el parche, recodificado con crf 12. Los tramos salen en rango
+# completo (yuvj420p) y el empalme en rango limitado: final_tramos.sh normaliza todo. Comparando cuadros que no se tocaron
+# (PSNR de 47 a 49 dB) se confirma que no hay corrimiento de color. Después, el máster con tools/final_tramos.sh.
+```
+
 ## Comandos
 
 ```bash
