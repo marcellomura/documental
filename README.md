@@ -510,12 +510,12 @@ En el repo figura como `ep14` (composición `Cielo`, con entrada propia `video/s
 | Archivo | Qué es |
 |---|---|
 | `campo_del_cielo_1440p.mp4` | Master final en 2560×1440 (H.264 + AAC, 6:58, −14 LUFS, LRA 3,2). No va en git: está en Drive, en `CONTEXTO/Ep14 · Campo del Cielo` (carpeta `1mG8-ezBvqAExnI5IQxM8xtrRd4XFUgMT`; archivo `1DgwT8yMR5Tp1QQQ5NvS05cz_tU7VjIAw`, md5 `4e0d9042ae65b9f20b108a0905209186`) |
-| `entrega/campo_del_cielo_short.mp4` | Short vertical para YouTube y TikTok (1:16, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive (archivo y md5: se completan al terminar el render) |
+| `entrega/campo_del_cielo_short.mp4` | Short vertical para YouTube y TikTok (1:16, 1080×1920, subtítulos incrustados, −14 LUFS) que manda al video largo; también en Drive (archivo `1c17qV4AtZN0rlSrvqWsiz9YLHw6nAviG`, md5 `8756c7e773604f73823c5ffce4577b46`) |
 | `entrega/campo_del_cielo_subtitulos_es.srt` | Subtítulos en español, con las cifras en números y los nombres bien escritos (la voz usa grafías fonéticas: Kladni, Jag, Mádison) |
 | `entrega/campo_del_cielo_descripcion_youtube.md` | Títulos, descripción, capítulos, datos, fuentes, créditos, configuración de subida, cuidados y fecha sugerida |
 | `entrega/campo_del_cielo_ab_miniaturas.md` | 3 títulos y 3 prompts de miniatura (GPT Image 2.1) para A/B |
 | `entrega/campo_del_cielo_short_publicacion.md` | Cómo publicar el short (YouTube y TikTok) y enlazarlo al video |
-| Página de publicación | Se publica al terminar el render (privada): los archivos en Drive, un cuadro por capítulo, títulos y miniaturas A/B, descripción, short, TikTok y cuidados, con botones para copiar. Se arma con `tools/pagina_publicacion_ep14.py` a partir de los .md de `entrega/` |
+| Página de publicación | https://claude.ai/artifact/UTfnkxACxvcb3JoEnJvWN8 (privada): los archivos en Drive, un cuadro por capítulo, títulos y miniaturas A/B, descripción, short, TikTok y cuidados, con botones para copiar. Se arma con `tools/pagina_publicacion_ep14.py` a partir de los .md de `entrega/` |
 
 ## Investigación y guion
 
