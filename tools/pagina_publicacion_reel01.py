@@ -56,7 +56,7 @@ file_cards = "".join(
     for t, f, m, k, p in files)
 
 # la cinta de fechas del caso (octubre de 2026): la escala es la de los días
-DATES = [(7, "último audio"), (9, "debía volver"), (15, "la denuncia"), (21, "detenciones"), (28, "el hallazgo"), (29, "paro docente")]
+DATES = [(7, "último audio"), (9, "debía volver"), (15, "la denuncia"), (21, "detienen al capataz"), (28, "el hallazgo"), (29, "paro docente")]
 X0, X1 = 24, 696
 def xd(d): return X0 + (d - 6) / (29 - 6) * (X1 - X0)
 ribbon = f'<line x1="{X0}" y1="44" x2="{X1}" y2="44" class="rb-line" />'
@@ -68,8 +68,10 @@ for i, (d, lab) in enumerate(DATES):
     up = i % 2 == 0
     ribbon += (f'<circle cx="{xd(d):.1f}" cy="44" r="{7 if key else 4.5}" class="{"rb-key" if key else "rb-dot"}" />'
                f'<text x="{xd(d):.1f}" y="{24 if up else 72}" text-anchor="middle" class="rb-day">{d}</text>'
-               f'<text x="{xd(d):.1f}" y="{12 if up else 86}" text-anchor="middle" class="rb-lab">{html.escape(lab.upper())}</text>')
-ribbon += f'<text x="{(xd(7) + xd(28)) / 2:.1f}" y="104" text-anchor="middle" class="rb-note">21 DÍAS DE BÚSQUEDA</text>'
+               # la última etiqueta se alinea a la derecha para no salirse de la cinta
+               f'<text x="{xd(d) + (8 if d == DATES[-1][0] else 0):.1f}" y="{12 if up else 86}" '
+               f'text-anchor="{"end" if d == DATES[-1][0] else "middle"}" class="rb-lab">{html.escape(lab.upper())}</text>')
+ribbon += f'<text x="{(xd(7) + xd(28)) / 2:.1f}" y="104" text-anchor="middle" class="rb-note">21 DÍAS DESDE SU ÚLTIMO MENSAJE</text>'
 
 covers = [("1", "Iba a caballo a dar clases", "el amanecer en el bañado"), ("2", "¿Quién la dejó sola?", "la escuela vacía"), ("3", "¿Crimen o abandono?", "el país partido")]
 cover_cards = "".join(
@@ -129,7 +131,7 @@ h3 {{ font: 700 17px/1.3 var(--display); margin: 14px 0 0; }}
 p {{ margin: 0; max-width: 66ch; }}
 ul, ol {{ margin: 0; padding-left: 1.2em; display: grid; gap: 6px; max-width: 66ch; }}
 a {{ color: var(--amber); }}
-code {{ font: 500 0.86em/1 var(--mono); }}
+code {{ font: 500 0.86em/1 var(--mono); overflow-wrap: anywhere; }}
 .files {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }}
 .file {{ display: grid; gap: 4px; align-content: start; padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--ink); text-decoration: none; min-width: 0; }}
 .file:hover, .file:focus-visible {{ border-color: var(--amber); outline: none; }}
@@ -170,7 +172,8 @@ tr:last-child td {{ border-bottom: 0; }}
 .side.a .who {{ color: var(--amber); }}
 .side.b .who {{ color: var(--celeste); }}
 .side q {{ font: 400 22px/1.2 var(--serif); }}
-footer {{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--mute); display: grid; gap: 6px; }}
+footer {{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--mute); display: grid; gap: 6px; min-width: 0; }}
+footer > span {{ min-width: 0; overflow-wrap: anywhere; }}
 @media (max-width: 620px) {{ .frames {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} .both {{ grid-template-columns: minmax(0, 1fr); }} }}
 @media (prefers-reduced-motion: no-preference) {{ html {{ scroll-behavior: smooth; }} }}
 </style>
@@ -179,7 +182,7 @@ footer {{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line)
   <div class="eyebrow">CONTEXTO · Reel 01 · edición especial vertical</div>
   <h1>La maestra que iba <em>a caballo</em></h1>
   <p class="sub">El caso Nanci Godoy, en 2:42, con el debate que divide al país.</p>
-  <div class="ribbon"><svg viewBox="0 0 720 112" role="img" aria-label="Cinta de fechas de octubre de 2026: el 7, último audio; el 9 debía volver; el 15, la denuncia; el 21, las detenciones; el 28, el hallazgo; el 29, el paro docente">{ribbon}</svg></div>
+  <div class="ribbon"><svg viewBox="0 0 720 112" role="img" aria-label="Cinta de fechas de octubre de 2026: el 7, último audio; el 9, debía volver; el 15, la denuncia; el 21, detienen al capataz; el 28, el hallazgo; el 29, el paro docente">{ribbon}</svg></div>
   <p class="lede">Todo para publicar el reel en Instagram, TikTok y Facebook: el archivo en Drive, un cuadro de cada parte, los textos listos para copiar, el comentario para fijar, cómo moderar y tres portadas para GPT Image.</p>
 </header>
 <nav class="sections" aria-label="Secciones">
