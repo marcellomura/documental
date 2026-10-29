@@ -101,6 +101,7 @@ const T = {
   fiscalia: at('r08', 'La fiscalía'),
   pero: at('r08', 'Pero la discusión'),
   familia: at('r08', 'Su familia y los gremios'),
+  estadoFam: at('r08', 'el Estado'),
   sola: at('r08', 'dejó sola:'),
   horas: at('r08', 'a horas de caballo'),
   sinSenal: at('r08', 'sin señal,'),
@@ -133,7 +134,8 @@ const C = {
 };
 /* los subtítulos se esconden cuando el texto grande en pantalla ya dice lo mismo */
 const NO_CAPS: [number, number][] = [
-  [0, C.s2], [T.title - 0.3, TL.starts.r02], [T.fantasma - 0.1, C.s17], [T.quoteHijo - 0.1, C.s28], [T.operativo - 0.1, T.leo - 0.05], [T.end, 999],
+  [0, C.s2], [T.title - 0.3, TL.starts.r02], [T.fantasma - 0.1, C.s17], [T.noVolvio - 0.05, C.s19],
+  [C.s25, C.s26], [T.estadoFam - 0.15, C.s28], [T.operativo - 0.1, T.leo - 0.05], [T.end, 999],
 ];
 const capsHidden = (t: number) => NO_CAPS.some(([a, b]) => t >= a && t < b);
 
@@ -786,7 +788,7 @@ const Familia: React.FC<{t: number}> = ({t}) => {
       <Slate t={t} glow="rgba(240,168,90,0.16)" y={25} />
       <div style={{position: 'absolute', left: 80, right: 80, top: 270}}>
         <div style={{...mn(30, K.amber, 600, 0.2), opacity: prog(t, C.s26 + 0.1, 0.4)}}>SU FAMILIA Y LOS GREMIOS DICEN QUE</div>
-        <div style={{...hd(118, 900, K.chalk, 70, 0), marginTop: 18, opacity: prog(t, T.sola - 0.5, 0.4), lineHeight: 0.92}}>
+        <div style={{...hd(118, 900, K.chalk, 70, 0), marginTop: 18, opacity: prog(t, T.estadoFam - 0.1, 0.4), lineHeight: 0.92}}>
           El Estado
           <br />
           la dejó <span style={{color: K.amber}}>sola</span>
