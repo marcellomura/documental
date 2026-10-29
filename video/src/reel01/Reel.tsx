@@ -133,7 +133,7 @@ const C = {
 };
 /* los subtítulos se esconden cuando el texto grande en pantalla ya dice lo mismo */
 const NO_CAPS: [number, number][] = [
-  [0, C.s2], [T.title - 0.3, TL.starts.r02], [T.fantasma - 0.1, C.s17], [T.quoteHijo - 0.1, C.s28], [T.operativo - 0.1, C.s31], [T.crimen - 0.1, T.leo - 0.05], [T.end, 999],
+  [0, C.s2], [T.title - 0.3, TL.starts.r02], [T.fantasma - 0.1, C.s17], [T.quoteHijo - 0.1, C.s28], [T.operativo - 0.1, T.leo - 0.05], [T.end, 999],
 ];
 const capsHidden = (t: number) => NO_CAPS.some(([a, b]) => t >= a && t < b);
 
@@ -905,7 +905,7 @@ const Final: React.FC<{t: number}> = ({t}) => {
       <Scrims top={0.6} bottom={0.6} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 330, textAlign: 'center', opacity: prog(t, C.s32 + 0.3, 0.8)}}>
         <div style={{...sr(110, K.chalk), textShadow: '0 6px 40px rgba(0,0,0,0.6)'}}>Nanci Estela Godoy</div>
-        <div style={{...mn(30, K.amber, 600, 0.22), marginTop: 18}}>MAESTRA RURAL · ESCUELA N.º 626</div>
+        <div style={{...mn(30, K.amber, 600, 0.22), marginTop: 18, textShadow: '0 2px 0 #05080B, 0 0 18px rgba(5,8,11,0.7)'}}>MAESTRA RURAL · ESCUELA N.º 626</div>
       </div>
       <div style={{position: 'absolute', left: (VW - 92) / 2, top: 560}}>
         <Logo size={92} t={t} t0={C.s32 + 1.2} />
