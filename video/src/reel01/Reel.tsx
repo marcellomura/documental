@@ -135,7 +135,7 @@ const C = {
 };
 /* los subtítulos se esconden cuando el texto grande en pantalla ya dice lo mismo */
 const NO_CAPS: [number, number][] = [
-  [0, T.suUltimo - 0.05], [T.title - 0.3, TL.starts.r02], [T.fantasma - 0.1, C.s17], [T.noVolvio - 0.05, C.s19],
+  [0, T.suUltimo - 0.05], [T.title - 0.3, TL.starts.r02], [T.consejo - 0.2, C.s16], [T.fantasma - 0.1, C.s17], [T.noVolvio - 0.05, C.s19],
   [C.s25, C.s26], [T.estadoFam - 0.15, C.s28], [T.operativo - 0.1, T.leo - 0.05], [T.end, 999],
 ];
 const capsHidden = (t: number) => NO_CAPS.some(([a, b]) => t >= a && t < b);
@@ -570,7 +570,7 @@ const Expediente: React.FC<{t: number}> = ({t}) => {
         <div style={{position: 'absolute', left: -2, top: -36, width: 200, height: 50, background: '#C9B48A', borderRadius: '10px 10px 0 0'}} />
         <div style={{position: 'absolute', left: 40, right: 40, top: 60, ...mn(26, '#3A2C1C', 600, 0.1)}}>RECLAMO</div>
         <div style={{position: 'absolute', left: 40, right: 40, top: 110, ...hd(56, 900, '#2A1E12', 78)}}>Escuela Rural N.º 626</div>
-        <div style={{position: 'absolute', left: 40, right: 40, top: 200, ...mn(22, '#3A2C1C', 500, 0.06)}}>Paraje El Malezal · Esquina</div>
+        <div style={{position: 'absolute', left: 40, right: 40, top: 236, ...mn(22, '#3A2C1C', 500, 0.06)}}>Paraje El Malezal · Esquina</div>
         {[0, 1, 2, 3].map((i) => (
           <div key={i} style={{position: 'absolute', left: 40, right: 60 + i * 30, top: 290 + i * 46, height: 10, background: 'rgba(58,44,28,0.25)', borderRadius: 4}} />
         ))}
