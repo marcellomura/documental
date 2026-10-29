@@ -20,6 +20,7 @@ export const REEL_TOTAL = TL.total;
 const T = {
   clases: atE('r01', 'clases.'),
   dias21: at('r01', '21 días'),
+  suUltimo: at('r01', 'su último mensaje'),
   policia: at('r01', 'un policía'),
   encontro: at('r01', 'encontró'),
   km: at('r01', '2,5 kilómetros'),
@@ -134,7 +135,7 @@ const C = {
 };
 /* los subtítulos se esconden cuando el texto grande en pantalla ya dice lo mismo */
 const NO_CAPS: [number, number][] = [
-  [0, C.s2], [T.title - 0.3, TL.starts.r02], [T.fantasma - 0.1, C.s17], [T.noVolvio - 0.05, C.s19],
+  [0, T.suUltimo - 0.05], [T.title - 0.3, TL.starts.r02], [T.fantasma - 0.1, C.s17], [T.noVolvio - 0.05, C.s19],
   [C.s25, C.s26], [T.estadoFam - 0.15, C.s28], [T.operativo - 0.1, T.leo - 0.05], [T.end, 999],
 ];
 const capsHidden = (t: number) => NO_CAPS.some(([a, b]) => t >= a && t < b);
