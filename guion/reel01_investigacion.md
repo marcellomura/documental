@@ -26,6 +26,13 @@ Edición especial solo vertical (Reels, TikTok y Facebook), escrita el 29 de oct
 | 28 de octubre, ~9:30 | Un policía que recorría a caballo un sector todavía no rastrillado encuentra el cuerpo en un bañado (Laguna Yacaré), a unos 2,5 km de la escuela según Infobae (más de 2 km según la Policía) y a unos 5 km del casco. Sin señal: sale a caballo para avisar. El bolso y el celular, a pocos metros | Chequeado, Infobae |
 | 29 de octubre | Autopsia en el Instituto Médico Forense. Paro docente nacional de CTERA, con marchas en todo el país | Infobae, Chequeado |
 
+## Novedades de la noche del 29 de octubre (después de cerrar el guion)
+
+- Resultados **preliminares** de la autopsia, extraoficiales (A24, Sitio Andino): signos compatibles con abuso sexual y lesiones de defensa; la muerte coincidiría con el 7 de octubre. No hay informe oficial: el decano del Instituto Médico Forense se los iba a comunicar primero a la familia. El reel no los usa.
+- El abogado de la familia que habló con A24 esa noche es Ariel Medina («el cuerpo va a hablar»; cree que no la mataron en el lugar del hallazgo).
+- Siguen los cinco detenidos con prisión preventiva y las mismas imputaciones.
+- Si se confirma el informe oficial, conviene sumar una línea al cierre (segmento r08) antes de publicar.
+
 ## Detenidos (no se nombran en el reel)
 
 - El capataz de la estancia y dos trabajadores rurales: coautores de femicidio.
@@ -35,7 +42,7 @@ Edición especial solo vertical (Reels, TikTok y Facebook), escrita el 29 de oct
 
 ## El debate (las dos posturas van atribuidas)
 
-- **Familia y gremios:** el Estado la dejó sola. Su hijo Sebastián: «Que el Estado esté presente, hoy no lo está» (El Destape). El abogado de la familia, Matías Rojo, no descarta que el crimen tenga que ver con lo que ella denunció (A24, citado por El Destape). CTERA pide que los gobiernos de Corrientes y de la Nación «asuman las responsabilidades» y llamó al paro.
+- **Familia y gremios:** el Estado la dejó sola. Su hijo Sebastián: «Que el Estado esté presente, hoy no lo está» (El Destape). El abogado de la familia no descarta que el crimen tenga que ver con lo que ella denunció: «No descartamos que el crimen tenga que ver con eso» (A24, citado por El Destape, que lo nombra como Matías Rojo; A24 nombra después a Ariel Medina como abogado de la familia, así que en el reel va sin nombre). CTERA pide que los gobiernos de Corrientes y de la Nación «asuman las responsabilidades» y llamó al paro.
 - **Gobierno de Corrientes:** durante la búsqueda, el gobernador destacó que había «un operativo muy fuerte» y que había detenidos.
 - La pregunta del cierre: ¿fue un crimen que nadie podía evitar, o el Estado también es responsable?
 
@@ -68,6 +75,7 @@ Edición especial solo vertical (Reels, TikTok y Facebook), escrita el 29 de oct
 - El Destape (el gobernador, 19/10): http://www.eldestapeweb.com/sociedad/gobernador-corrientes-nancy-godoy-maestra-desaparecida-hay-hipotesis-hay-detenidos-20261019133259
 - Momarandu (el gobernador, «Hay un operativo muy fuerte»): https://www.momarandu.com/notix/noticia/69272_juan-pablo-valds-confirm-que-hay-detenidos-por-el-caso-nancy-godoy-hay-un-operativo-muy-fuerte.htm
 - Perfil (la defensa denuncia golpes): https://www.perfil.com/noticias/sociedad/desaparicion-de-nancy-godoy-el-abogado-de-un-detenido-denuncio-torturas-durante-los-interrogatorios.phtml
+- A24 (resultados preliminares de la autopsia y el abogado Ariel Medina, 29/10 a la noche): https://www.a24.com/policiales/el-abogado-la-familia-nancy-godoy-confirmo-los-resultados-preliminares-la-autopsia-y-afirmo-el-cuerpo-va-hablar-n1611502
 - Infoeme (Suteba, las tareas de la maestra): https://www.infoeme.com/informacion-general/2026-10-29-9-58-4-nancy-fue-una-maestra-rural-disruptiva-para-la-epoca-porque-exigio-condiciones-dignas-de-trabajo
 - La Izquierda Diario (el reclamo y la estancia; su lectura política no se usa): https://laizquierdadiario.com/Peleo-por-su-escuela-hasta-el-final-justicia-por-Nancy-Godoy
 - La Nueva Poesía (la escuela adentro del campo; su lectura política no se usa): https://lanuevapoesia.substack.com/p/nancy-godoy-una-escuela-adentro-de

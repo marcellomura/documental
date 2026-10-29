@@ -829,7 +829,7 @@ const Hipotesis: React.FC<{t: number}> = ({t}) => {
       <div style={{position: 'absolute', left: 80, right: 80, top: 1000, opacity: prog(t, T.noDescarta, 0.4)}}>
         <div style={{...mn(26, K.mute, 600, 0.16)}}>HIPÓTESIS DE LA FAMILIA</div>
         <div style={{...sr(64, K.chalk), marginTop: 14}}>«No descartamos que el crimen tenga que ver con eso»</div>
-        <div style={{...mn(24, K.dim, 600, 0.1), marginTop: 14}}>MATÍAS ROJO, ABOGADO DE LA FAMILIA</div>
+        <div style={{...mn(24, K.dim, 600, 0.1), marginTop: 14}}>ABOGADO DE LA FAMILIA, A A24</div>
       </div>
     </>
   );

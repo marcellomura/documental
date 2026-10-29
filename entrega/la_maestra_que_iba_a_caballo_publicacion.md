@@ -6,7 +6,7 @@ Archivo: **`la_maestra_que_iba_a_caballo_reel.mp4`** (1080×1920, 2:42, subtítu
 
 ## Antes de publicar (la causa está abierta)
 
-1. **Revisá las novedades del caso.** El reel está cerrado con lo que se sabía el 29 de octubre de 2026. Si hay resultados de la autopsia, más detenidos o cambios en las imputaciones, avisame y actualizo el tramo que corresponda.
+1. **Revisá las novedades del caso.** El reel está cerrado con lo que se sabía el 29 de octubre de 2026. Esa noche circularon resultados preliminares y extraoficiales de la autopsia; el reel no los usa. Si sale el informe oficial, hay más detenidos o cambian las imputaciones, avisame y actualizo el tramo que corresponda.
 2. **Publicalo cuanto antes.** Es el tema del momento: hoy o mañana, entre las 19:30 y las 22:00 (o entre las 12:30 y las 14:00).
 3. **Subilo a las tres redes a la misma hora.**
 

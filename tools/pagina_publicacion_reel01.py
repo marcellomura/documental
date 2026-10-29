@@ -200,7 +200,7 @@ footer {{ margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line)
 <section id="antes">
   <h2>Antes de publicar<small>La causa está abierta</small></h2>
   <ol class="steps">
-    <li><b>Revisá las novedades.</b> El reel está cerrado con lo que se sabía el 29 de octubre de 2026. Si hay resultados de la autopsia, más detenidos o cambios en las imputaciones, avisame y actualizo ese tramo.</li>
+    <li><b>Revisá las novedades.</b> El reel está cerrado con lo que se sabía el 29 de octubre de 2026. Esa noche circularon resultados preliminares y extraoficiales de la autopsia, que el reel no usa. Si sale el informe oficial, hay más detenidos o cambian las imputaciones, avisame y actualizo ese tramo.</li>
     <li><b>Publicalo cuanto antes:</b> hoy o mañana, entre las 19:30 y las 22:00, o entre las 12:30 y las 14:00.</li>
     <li><b>Subilo a las tres redes a la misma hora</b> y fijá el comentario apenas sale.</li>
   </ol>
