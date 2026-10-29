@@ -259,7 +259,7 @@ const KmSat: React.FC<{t: number}> = ({t}) => {
             </svg>
             <div style={{position: 'absolute', left: x + (r * zz) / 2 - 140, top: y - 92, width: 280, textAlign: 'center', ...hd(78, 900, K.chalk, 74), opacity: k, textShadow: '0 4px 0 #05080B, 0 0 24px rgba(0,0,0,0.8)'}}>2,5 km</div>
             <Pin x={x} y={y} t={t} t0={C.s4 + 0.3} label="La escuela" sub="Paraje El Malezal (zona)" side="left" ring={false} />
-            <div style={{position: 'absolute', left: 60, bottom: 560, ...mn(22, K.mute, 500, 0.06), opacity: 0.85}}>{SAT_CREDIT} · ubicación aproximada</div>
+            <div style={{position: 'absolute', left: 60, bottom: 650, ...mn(22, K.mute, 500, 0.06), opacity: 0.85}}>{SAT_CREDIT} · ubicación aproximada</div>
           </>
         );
       }}
@@ -358,7 +358,7 @@ const WhereMap: React.FC<{t: number}> = ({t}) => {
                     <span style={{...hd(46, 800, K.chalk, 76), textShadow: '0 3px 0 #05080B'}}>Esquina</span>
                   </div>
                   <Pin x={x2} y={y2} t={t} t0={C.s8b + 0.2} label="Escuela N.º 626" sub="Paraje El Malezal" side="left" />
-                  <div style={{position: 'absolute', left: 60, bottom: 560, ...mn(22, K.mute, 500, 0.06)}}>{SAT_CREDIT}</div>
+                  <div style={{position: 'absolute', left: 60, bottom: 650, ...mn(22, K.mute, 500, 0.06)}}>{SAT_CREDIT}</div>
                 </>
               );
             }}
@@ -424,7 +424,7 @@ const Estancia: React.FC<{t: number}> = ({t}) => {
             <div style={{position: 'absolute', left: x - 330, top: y - 330, width: 660, height: 660, borderRadius: 999, background: 'radial-gradient(circle, rgba(240,168,90,0.22) 0%, rgba(240,168,90,0.08) 55%, rgba(240,168,90,0) 72%)', opacity: k}} />
             <Pin x={x} y={y} t={t} t0={T.curupi} label="Estancia El Curupí" sub="campo privado · coto de caza" side={x > VW / 2 ? 'left' : 'right'} />
             <Chip t={t} t0={T.privada - 0.3} x={80} y={270} icon={<IconDoc s={34} />} text="La escuela funciona adentro" />
-            <div style={{position: 'absolute', left: 60, bottom: 560, ...mn(22, K.mute, 500, 0.06)}}>{SAT_CREDIT} · ubicación aproximada</div>
+            <div style={{position: 'absolute', left: 60, bottom: 650, ...mn(22, K.mute, 500, 0.06)}}>{SAT_CREDIT} · ubicación aproximada</div>
           </>
         );
       }}
@@ -456,7 +456,7 @@ const Route: React.FC<{t: number}> = ({t}) => {
             </svg>
             <Pin x={x1} y={y1} t={t} t0={T.ciudad - 0.1} label="La ciudad" sub="Esquina" color={K.celeste} side="right" ring={false} />
             <Pin x={x2} y={y2} t={t} t0={T.campo} label="El campo" sub="El Curupí" side="left" ring={false} />
-            <div style={{position: 'absolute', left: 60, bottom: 560, ...mn(22, K.mute, 500, 0.06)}}>{SAT_CREDIT} · recorrido ilustrativo</div>
+            <div style={{position: 'absolute', left: 60, bottom: 650, ...mn(22, K.mute, 500, 0.06)}}>{SAT_CREDIT} · recorrido ilustrativo</div>
           </>
         );
       }}
@@ -674,7 +674,7 @@ const Busqueda: React.FC<{t: number}> = ({t}) => {
             {items.map(([txt, t0, ic], i) => (
               <Chip key={i} t={t} t0={t0} x={80} y={360 + i * 96} icon={ic} text={txt} size={32} />
             ))}
-            <div style={{position: 'absolute', left: 60, bottom: 560, ...mn(22, K.mute, 500, 0.06)}}>Copernicus Sentinel-2 · zona aproximada</div>
+            <div style={{position: 'absolute', left: 60, bottom: 650, ...mn(22, K.mute, 500, 0.06)}}>Copernicus Sentinel-2 · zona aproximada</div>
           </>
         );
       }}

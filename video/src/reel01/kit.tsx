@@ -407,7 +407,9 @@ export const SatView: React.FC<{name: SatName; cx: number; cy: number; z: number
 }) => {
   const c = SAT.crops[name];
   z = Math.max(z, 1920 / c.h, VW / c.w);
-  const left = VW / 2 - cx * z, top = cy0 - cy * z;
+  // el foco va en (VW/2, cy0), pero sin destapar los bordes de la imagen: si el foco está cerca de un borde, el encuadre
+  // se corre lo justo para que el satélite cubra todo el cuadro
+  const left = clamp(VW / 2 - cx * z, VW - c.w * z, 0), top = clamp(cy0 - cy * z, 1920 - c.h * z, 0);
   const P = (x: number, y: number): [number, number] => [left + x * z, top + y * z];
   return (
     <AbsoluteFill style={{background: K.deep, opacity: o, overflow: 'hidden'}}>

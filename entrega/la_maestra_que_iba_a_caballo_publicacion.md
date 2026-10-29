@@ -26,7 +26,7 @@ A: fue un crimen que nadie podía evitar.
 B: el Estado también es responsable.
 Te leo en los comentarios.
 
-Fuentes: Chequeado, Infobae, El Destape, Diario UNO, Perfil. Recreación en 3D. Imagen satelital: Copernicus Sentinel-2 (19/10/2026). Voz IA, música y efectos: ElevenLabs.
+Fuentes: Chequeado, Infobae, El Destape, Diario UNO, Perfil. Recreación en 3D. Imagen satelital del 19/10/2026: contiene datos modificados de Copernicus Sentinel (2026). Voz IA, música y efectos: ElevenLabs.
 
 #NanciGodoy #NancyGodoy #Corrientes #EscuelaRural #Docentes
 ```
