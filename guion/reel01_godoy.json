@@ -1,0 +1,66 @@
+{
+  "titulo": "LA MAESTRA QUE IBA A CABALLO",
+  "subtitulo": "EL CASO NANCI GODOY",
+  "episodio": "reel01",
+  "formato": "Edición especial solo vertical (Reels, TikTok y Facebook). No va a YouTube.",
+  "nota_voz": "Las cifras van en palabras; DISPLAY devuelve las cifras y las comillas para los subtítulos. Tono sobrio, sin dramatizar: es un caso real con una víctima y una causa abierta.",
+  "nota_legal": "Los cinco detenidos tienen presunción de inocencia y no se nombran: solo su rol. No se muestran el cuerpo ni la violencia, ni se dan detalles de la autopsia o de las hipótesis de la fiscalía sobre cómo murió. Las dos posturas del debate van atribuidas (familia y gremios; gobernador de Corrientes). Las recreaciones 3D van rotuladas. Fuentes en guion/reel01_investigacion.md.",
+  "modelo_voz": "eleven_v4",
+  "display": {
+    "Veintiún días": "21 días",
+    "dos kilómetros y medio": "2,5 kilómetros",
+    "cincuenta y dos años": "52 años",
+    "Escuela Rural seiscientos veintiséis": "Escuela Rural N.º 626",
+    "ocho chicos": "8 chicos",
+    "dos mil veinticuatro": "2024",
+    "totalmente abandonada": "«totalmente abandonada»",
+    "una escuela fantasma, alumnos fantasmas.": "«Una escuela fantasma, alumnos fantasmas».",
+    "siete de octubre": "7 de octubre",
+    "nueve de la noche": "9 de la noche",
+    "el nueve.": "el 9.",
+    "el quince.": "el 15.",
+    "unos cien policías": "unos 100 policías",
+    "cinco detenidos": "5 detenidos",
+    "veintiocho de octubre": "28 de octubre",
+    "un operativo muy fuerte.": "«un operativo muy fuerte».",
+    "que el Estado esté presente, hoy no lo está.": "«Que el Estado esté presente, hoy no lo está»."
+  },
+  "segmentos": [
+    {
+      "id": "r01",
+      "texto": "Iba a caballo a dar clases. Veintiún días después de su último mensaje, un policía, también a caballo, encontró su cuerpo a dos kilómetros y medio de la escuela. Y su muerte abrió una pregunta que divide al país."
+    },
+    {
+      "id": "r02",
+      "texto": "Se llamaba Nanci Godoy, tenía cincuenta y dos años, y en agosto se había hecho cargo de la Escuela Rural seiscientos veintiséis, en Esquina, Corrientes. Era la única docente: directora, maestra y cocinera de ocho chicos, hijos de peones."
+    },
+    {
+      "id": "r03",
+      "texto": "La escuela está adentro de una estancia privada, El Curupí, que también es coto de caza. Nanci viajaba desde la ciudad hasta el campo, y de ahí seguía casi dos horas a caballo, con una baqueana, entre bañados y juncos. Sin señal. Se quedaba toda la semana."
+    },
+    {
+      "id": "r04",
+      "texto": "Apenas llegó, denunció lo que encontró. En una carta escrita a mano contó que la escuela estaba totalmente abandonada: sin agua potable, con ratas y murciélagos, y sin registros desde dos mil veinticuatro. El reclamo llegó al Consejo General de Educación. Y en un audio lo resumió así: una escuela fantasma, alumnos fantasmas."
+    },
+    {
+      "id": "r05",
+      "texto": "El siete de octubre, cerca de las nueve de la noche, mandó su último audio. Tenía que volver el nueve. No volvió. Por las tormentas, los caminos anegados y la falta de señal, la denuncia recién se hizo el quince."
+    },
+    {
+      "id": "r06",
+      "texto": "La buscaron unos cien policías, con caballos, perros, drones y helicópteros. Antes de encontrarla ya había cinco detenidos: el capataz de la estancia y dos trabajadores rurales, imputados por femicidio; la baqueana que la acompañaba, por homicidio simple; y otro hombre, por falso testimonio. Todos tienen presunción de inocencia. Y la defensa de uno denunció que lo golpearon para que hablara."
+    },
+    {
+      "id": "r07",
+      "texto": "El policía que la encontró, el veintiocho de octubre, recorría un bañado que todavía no se había rastrillado. Como no había señal, para avisar tuvo que salir cabalgando."
+    },
+    {
+      "id": "r08",
+      "texto": "La fiscalía investiga un femicidio. Pero la discusión ya no es solo judicial. Su familia y los gremios dicen que el Estado la dejó sola: una maestra a horas de caballo, sin señal, en una escuela que ella misma había denunciado. Su hijo lo dijo así: que el Estado esté presente, hoy no lo está. Su familia no descarta que el crimen tenga que ver con lo que ella denunció. Y los gremios hicieron paro docente en todo el país."
+    },
+    {
+      "id": "r09",
+      "texto": "El gobernador de Corrientes, en cambio, destacó durante la búsqueda que había un operativo muy fuerte. ¿Vos qué pensás? ¿Fue un crimen que nadie podía evitar, o el Estado también es responsable? Te leo en los comentarios."
+    }
+  ]
+}

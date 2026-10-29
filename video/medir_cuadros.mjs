@@ -9,7 +9,7 @@ import {renderFrames, selectComposition, openBrowser} from '@remotion/renderer';
 import path from 'path';
 import fs from 'fs';
 const [,, entry, comp, nth, scale, outDir, from, to] = process.argv;
-const browserExecutable = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+const browserExecutable = process.env.BROWSER || ['/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell', '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell'].find((p) => fs.existsSync(p));
 const serveUrl = await bundle({entryPoint: path.resolve(entry), onProgress: () => {}, publicDir: path.resolve(process.env.PUBDIR), outDir: path.resolve(outDir, 'bundle')});
 const chromiumOptions = {gl: 'swangle'};
 const browser = await openBrowser('chrome', {browserExecutable, chromiumOptions});

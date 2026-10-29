@@ -1,0 +1,45 @@
+{
+ "scene": "S2A_T21JTG_20261019T140304_L2A",
+ "date": "2026-10-19",
+ "credit": "Contiene datos modificados de Copernicus Sentinel (2026)",
+ "crops": {
+  "region": {
+   "w": 2925,
+   "h": 1610,
+   "m_per_px": 20,
+   "points": {
+    "esquina": [
+     432.7,
+     808.7
+    ],
+    "malezal": [
+     2285.3,
+     788.5
+    ],
+    "curupi": [
+     2292.7,
+     788.1
+    ]
+   }
+  },
+  "zona": {
+   "w": 2164,
+   "h": 2257,
+   "m_per_px": 10,
+   "points": {
+    "esquina": [
+     -2621.7,
+     1170.4
+    ],
+    "malezal": [
+     1083.5,
+     1130.1
+    ],
+    "curupi": [
+     1098.3,
+     1129.2
+    ]
+   }
+  }
+ }
+}

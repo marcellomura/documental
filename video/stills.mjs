@@ -4,7 +4,9 @@ import {renderStill, selectComposition} from '@remotion/renderer';
 import fs from 'fs';
 import path from 'path';
 const [,, list, outDir] = process.argv;
-const browserExecutable = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+import fs0 from 'fs';
+// Chromium headless del contenedor (la versión cambia con la imagen): el primero que exista
+const browserExecutable = process.env.BROWSER || ['/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell', '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell'].find((p) => fs0.existsSync(p));
 // PUBDIR: carpeta public reducida (bundle chico); BUNDLE_OUT: bundle fuera de /tmp/remotion-webpack-bundle-* (los
 // scripts de render por tramos borran esos bundles entre tramo y tramo)
 const serveUrl = await bundle({

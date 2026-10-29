@@ -11,6 +11,7 @@ A = os.path.join(ROOT, "audio", EP) if EP else os.path.join(ROOT, "audio")
 OUT = os.path.join(A, "final"); os.makedirs(OUT, exist_ok=True)
 NSEG = int(os.environ.get("NSEG", "12"))
 RESPIRAR = os.environ.get("PAUSAS", "compactar") == "respirar"
+PREF = os.environ.get("PREF", "s")   # prefijo de los segmentos (r01, r02… en el reel)
 
 def decode(p):
     raw = subprocess.run(["ffmpeg","-v","error","-i",p,"-ac","1","-ar",str(SR),"-f","f32le","-"],
@@ -62,7 +63,7 @@ def compact(x):
 
 info = {}
 for k in range(1, NSEG + 1):
-    sid = f"s{k:02d}"
+    sid = f"{PREF}{k:02d}"
     wav = os.path.join(A, f"{sid}_raw.wav")   # toma corregida (empalme sin recomprimir) si existe
     x = decode(wav if os.path.exists(wav) else os.path.join(A, f"{sid}_raw.mp3"))
     y = compact(x)

@@ -616,3 +616,69 @@ tools/cola_ep14.sh     # render por tramos (tools/render_ep14.sh), master 1440p 
 tools/cola_short14.sh  # espera a la cola del episodio y hace el short
 rclone copy video/out/campo_del_cielo_1440p.mp4 "gdrive:CONTEXTO/Ep14 · Campo del Cielo"
 ```
+
+# Reel 01 · "LA MAESTRA QUE IBA A CABALLO" (el caso Nanci Godoy)
+
+Edición especial **solo vertical** (Reels, TikTok y Facebook; no va a YouTube), hecha el 29 de octubre de 2026, el día del paro docente nacional. En el repo figura como `reel01` (composición `ReelGodoy`, con entrada propia `video/src/indexR01.tsx`). Dura 2:42. Es el caso de Nanci Godoy, la maestra rural de 52 años que cruzaba los bañados de Esquina (Corrientes) a caballo para dar clases en la Escuela Rural N.º 626, adentro de la estancia El Curupí:
+
+- el gancho: iba a caballo a dar clases y la encontraron 21 días después de su último mensaje, a 2,5 km de su escuela
+- quién era (la única docente: directora, maestra y cocinera de ocho chicos) y el camino por el bañado, sin señal
+- la carta de agosto («totalmente abandonada») y el audio de la «escuela fantasma»
+- el último audio del 7 de octubre, el 9 que no volvió, las tormentas y la denuncia del 15
+- la búsqueda, los cinco detenidos (sin nombres, con presunción de inocencia) y el hallazgo
+- el debate con las dos posturas atribuidas (su familia y los gremios; el gobernador de Corrientes) y la encuesta A/B del cierre
+
+| Archivo | Qué es |
+|---|---|
+| `entrega/la_maestra_que_iba_a_caballo_reel.mp4` | El reel (1080×1920, 2:42, subtítulos incrustados, −14 LUFS, menos de 100 MB); también en Drive, en `CONTEXTO/Reel · La maestra que iba a caballo` (DRIVE_REEL) |
+| `entrega/la_maestra_que_iba_a_caballo_subtitulos_es.srt` | Subtítulos en español, con cifras y comillas (opcional: el video ya los tiene) |
+| `entrega/la_maestra_que_iba_a_caballo_publicacion.md` | Textos para Instagram, TikTok y Facebook, comentario fijado con la encuesta A/B, moderación y tres prompts de portada (GPT Image 2.1, 9:16) |
+| Página de publicación | PAGINA_URL (privada). Se arma con `tools/pagina_publicacion_reel01.py` a partir del .md de `entrega/` |
+
+## Investigación y guion
+
+- Dossier con la cronología verificada, las fuentes y lo que se dejó afuera: `guion/reel01_investigacion.md`.
+- **Cuidados:**
+  - la causa está abierta: antes de publicar hay que revisar si hubo novedades (autopsia, más detenidos, imputaciones)
+  - los detenidos no se nombran y tienen presunción de inocencia; no se muestra el cuerpo, la violencia ni la autopsia
+  - las dos posturas del debate van atribuidas, con sus citas textuales
+  - el nombre: Chequeado escribe «Nanci»; casi todos los medios, «Nancy». En pantalla va «Nanci» y en los hashtags las dos
+  - la ubicación exacta de la escuela no se marca: OpenStreetMap la cargó el mismo 29 de octubre y no coincide con las distancias de la Policía. El satélite muestra solo la zona
+  - el 7 de octubre de 2026 fue miércoles
+- Guion: `guion/reel01_godoy.json` (9 segmentos). El mapa `display` pone cifras y comillas en los subtítulos.
+
+## Voz y audio
+
+- Voz eleven_v4 (Carlos Pro), dos tomas por segmento. `tools/proc_audio.py` con `PREF=r TEMPO=1.03 PAUSAS=respirar`. Las tomas se eligieron transcribiéndolas con whisper (las dudas se revisaron con el modelo medium): `audio/reel01/takes/evaluacion.json`.
+- `tools/timeline_reel01.py` abre silencios internos («No volvió.», la cita del hijo, la pregunta final) y reserva la placa final.
+- Tres temas originales (Eleven Music: el tema del litoral con acordeón y guitarra, la búsqueda y el cierre) y seis efectos nuevos (cascos en el agua, el bañado, el galope, la campana de la escuela, la marcha docente y el helicóptero), más efectos de episodios anteriores. Las versiones se eligieron midiendo la curva de energía de cada una (`video/public/reel01/audio_elegido.json` guarda los ids de ElevenLabs).
+- `tools/mix_reel01.py`: el pico de «búsqueda» cae en «tuvo que salir cabalgando» y la noche del último audio queda sin música, solo con el bañado. La música va 15 dB debajo de la voz.
+
+## Qué tiene de nuevo
+
+- **El primer reel con 3D propio de la historia** (`video/src/reel01/three.tsx`): el bañado de Esquina con agua que refleja el cielo, juncales que se mecen, matas de malezal, islas de monte, bruma y garzas; cinco climas (amanecer en contraluz, mañana fría, noche, tormenta con lluvia y relámpagos, atardecer).
+- **Un caballo animado de verdad**: modelo CC0 de Quaternius («Ultimate Animated Animals») con paso, galope y reposo; el jinete es propio (cápsulas unidas punto a punto, sentado sobre el hueso del lomo) en tres versiones: la maestra, la baqueana con sombrero y el policía. El reflejo en el agua es una copia invertida bajo la superficie, y las ondas siguen el ritmo de las patas.
+- **La escuela rural** (ladrillo encalado, techo de chapa, galería, mástil con la bandera que flamea, tanque de agua) y **el aula** con los ocho bancos que se vuelven fantasmas.
+- **Imagen satelital real del 19 de octubre**, en plena búsqueda (Copernicus Sentinel-2, `tools/sat_reel01.py`, leída por ventanas del COG público de Earth Search).
+- Sistema visual «agua, tiza y expediente» (`video/src/reel01/kit.tsx`): subtítulos palabra por palabra, el audio de WhatsApp genérico, el calendario de octubre, la carta manuscrita (Caveat), el expediente, las cinco figuras sin rostro, los sellos, las citas y la encuesta A/B.
+
+## Escenas (`video/src/reel01/`, composición `ReelGodoy`)
+
+- `Reel.tsx`: los 32 planos atados a la locución y los cortes (`REEL_CUTS`); `lib.ts`: tiempos por frase; `assets.ts`: espera al caballo antes del primer cuadro.
+- `test.tsx` (entrada `src/indexR01t.tsx`): stills de prueba del 3D (cada 30 cuadros cambia de plano).
+
+## Render
+
+Con `--gl=swangle` el 3D cuesta ~1 s por cuadro y el 2D ~0,3 s (medido con `video/medir_cuadros.mjs`): unos 30 minutos para los 4.863 cuadros. Los scripts `stills.mjs`, `medir_cuadros.mjs` y `remotion.config.ts` ahora eligen el Chromium headless que exista en el contenedor (la versión cambió con la imagen).
+
+## Comandos
+
+```bash
+EP=reel01 NSEG=9 PREF=r TEMPO=1.03 PAUSAS=respirar python3 tools/proc_audio.py
+EP=reel01 GUION=reel01_godoy.json python3 tools/align.py
+python3 tools/timeline_reel01.py && python3 tools/mix_reel01.py      # -> audio/mix/mezcla_reel01.wav
+python3 -I tools/sat_reel01.py                                       # recortes satelitales (rasterio, pyproj)
+EP=reel01 OUT=la_maestra_que_iba_a_caballo_subtitulos_es.srt python3 tools/srt.py
+tools/cola_reel01.sh   # render por tramos (tools/render_reel01.sh), codificación final y control de congelados
+rclone copy entrega/la_maestra_que_iba_a_caballo_reel.mp4 "gdrive:CONTEXTO/Reel · La maestra que iba a caballo"
+```

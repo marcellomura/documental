@@ -1,0 +1,297 @@
+{
+ "r01_a": {
+  "ratio": 0.974,
+  "diffs": [
+   [
+    "replace",
+    "veintiun",
+    "21"
+   ]
+  ],
+  "wps": 3.12,
+  "gaps": []
+ },
+ "r01_b": {
+  "ratio": 1.0,
+  "diffs": [],
+  "wps": 3.05,
+  "gaps": []
+ },
+ "r02_a": {
+  "ratio": 0.853,
+  "diffs": [
+   [
+    "replace",
+    "nanci",
+    "nancy"
+   ],
+   [
+    "replace",
+    "cincuenta y dos",
+    "52"
+   ],
+   [
+    "replace",
+    "seiscientos veintiseis",
+    "626"
+   ],
+   [
+    "replace",
+    "ocho",
+    "8"
+   ]
+  ],
+  "wps": 2.67,
+  "gaps": []
+ },
+ "r02_b": {
+  "ratio": 0.853,
+  "diffs": [
+   [
+    "replace",
+    "nanci",
+    "nancy"
+   ],
+   [
+    "replace",
+    "cincuenta y dos",
+    "52"
+   ],
+   [
+    "replace",
+    "seiscientos veintiseis",
+    "626"
+   ],
+   [
+    "replace",
+    "ocho",
+    "8"
+   ]
+  ],
+  "wps": 2.77,
+  "gaps": []
+ },
+ "r03_a": {
+  "ratio": 0.872,
+  "diffs": [
+   [
+    "replace",
+    "esta adentro",
+    "estaba dentro"
+   ],
+   [
+    "replace",
+    "curupi",
+    "kurupi"
+   ],
+   [
+    "replace",
+    "caza nanci",
+    "casa nancy"
+   ],
+   [
+    "replace",
+    "baqueana",
+    "baquiana"
+   ]
+  ],
+  "wps": 3.02,
+  "gaps": []
+ },
+ "r03_b": {
+  "ratio": 0.872,
+  "diffs": [
+   [
+    "replace",
+    "esta adentro",
+    "estaba dentro"
+   ],
+   [
+    "replace",
+    "curupi",
+    "kurupi"
+   ],
+   [
+    "replace",
+    "caza nanci",
+    "casa nancy"
+   ],
+   [
+    "replace",
+    "baqueana",
+    "vaquiana"
+   ]
+  ],
+  "wps": 2.96,
+  "gaps": [
+   0.62
+  ]
+ },
+ "r04_a": {
+  "ratio": 0.962,
+  "diffs": [
+   [
+    "replace",
+    "dos mil veinticuatro",
+    "2024"
+   ]
+  ],
+  "wps": 2.67,
+  "gaps": [
+   1.04
+  ]
+ },
+ "r04_b": {
+  "ratio": 0.942,
+  "diffs": [
+   [
+    "replace",
+    "sin",
+    "100"
+   ],
+   [
+    "replace",
+    "dos mil veinticuatro",
+    "2024"
+   ]
+  ],
+  "wps": 2.66,
+  "gaps": [
+   0.8
+  ]
+ },
+ "r05_a": {
+  "ratio": 0.9,
+  "diffs": [
+   [
+    "replace",
+    "siete",
+    "7"
+   ],
+   [
+    "replace",
+    "nueve",
+    "9"
+   ],
+   [
+    "replace",
+    "nueve",
+    "9"
+   ],
+   [
+    "replace",
+    "quince",
+    "15"
+   ]
+  ],
+  "wps": 3.22,
+  "gaps": [
+   0.62
+  ]
+ },
+ "r05_b": {
+  "ratio": 0.9,
+  "diffs": [
+   [
+    "replace",
+    "siete",
+    "7"
+   ],
+   [
+    "replace",
+    "nueve",
+    "9"
+   ],
+   [
+    "replace",
+    "nueve",
+    "9"
+   ],
+   [
+    "replace",
+    "quince",
+    "15"
+   ]
+  ],
+  "wps": 3.18,
+  "gaps": [
+   0.62
+  ]
+ },
+ "r06_a": {
+  "ratio": 1.0,
+  "diffs": [],
+  "wps": 2.6,
+  "gaps": []
+ },
+ "r06_b": {
+  "ratio": 1.0,
+  "diffs": [],
+  "wps": 2.65,
+  "gaps": []
+ },
+ "r07_a": {
+  "ratio": 0.964,
+  "diffs": [
+   [
+    "replace",
+    "veintiocho",
+    "28"
+   ]
+  ],
+  "wps": 2.97,
+  "gaps": []
+ },
+ "r07_b": {
+  "ratio": 0.964,
+  "diffs": [
+   [
+    "replace",
+    "veintiocho",
+    "28"
+   ]
+  ],
+  "wps": 2.97,
+  "gaps": []
+ },
+ "r08_a": {
+  "ratio": 0.988,
+  "diffs": [
+   [
+    "replace",
+    "femicidio",
+    "femisibio"
+   ]
+  ],
+  "wps": 3.18,
+  "gaps": [
+   0.66
+  ]
+ },
+ "r08_b": {
+  "ratio": 0.988,
+  "diffs": [
+   [
+    "replace",
+    "femicidio",
+    "femisibio"
+   ]
+  ],
+  "wps": 3.17,
+  "gaps": [
+   0.62
+  ]
+ },
+ "r09_a": {
+  "ratio": 1.0,
+  "diffs": [],
+  "wps": 3.1,
+  "gaps": []
+ },
+ "r09_b": {
+  "ratio": 1.0,
+  "diffs": [],
+  "wps": 3.11,
+  "gaps": []
+ }
+}

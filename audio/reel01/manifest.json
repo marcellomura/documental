@@ -1,0 +1,182 @@
+{
+ "jkmQVdnRCy2wImKQf9LE": {
+  "name": "m1",
+  "file": "music/m1_a.mp3",
+  "dur": 70
+ },
+ "zidqXyr5FdSZcvvAW5yo": {
+  "name": "m1",
+  "file": "music/m1_b.mp3",
+  "dur": 70
+ },
+ "xEm4MR8GtuoXQW2w6phE": {
+  "name": "m1",
+  "file": "music/m1_c.mp3",
+  "dur": 70
+ },
+ "6sUz1ptyVMkjNYbWsYyZ": {
+  "name": "m1",
+  "file": "music/m1_d.mp3",
+  "dur": 70
+ },
+ "kdpWOPOVhijbo65e1sEe": {
+  "name": "m2",
+  "file": "music/m2_a.mp3",
+  "dur": 52
+ },
+ "2ylNk9o70kZjtZBGeOXH": {
+  "name": "m2",
+  "file": "music/m2_b.mp3",
+  "dur": 52
+ },
+ "qgLY8gsO0nd4dSZiWFIF": {
+  "name": "m2",
+  "file": "music/m2_c.mp3",
+  "dur": 52
+ },
+ "yJulTJhvZSEFwmJdQJmg": {
+  "name": "m2",
+  "file": "music/m2_d.mp3",
+  "dur": 52
+ },
+ "e4Dg41FUUNHVmyCe5WgK": {
+  "name": "m3",
+  "file": "music/m3_a.mp3",
+  "dur": 46
+ },
+ "ld1qZCecWEECozQEdgRa": {
+  "name": "m3",
+  "file": "music/m3_b.mp3",
+  "dur": 46
+ },
+ "kTs7gvOqq5fetxPEOkbA": {
+  "name": "m3",
+  "file": "music/m3_c.mp3",
+  "dur": 46
+ },
+ "lZdBM3hmAQnvhCFUeXCh": {
+  "name": "m3",
+  "file": "music/m3_d.mp3",
+  "dur": 46
+ },
+ "14tMJ1LntCDaGwtErPaT": {
+  "name": "cascos_agua",
+  "file": "sfx/cascos_agua_a.mp3",
+  "dur": 10
+ },
+ "ILCAKSu4xuyX0YfvA9mR": {
+  "name": "cascos_agua",
+  "file": "sfx/cascos_agua_b.mp3",
+  "dur": 10
+ },
+ "HckkMVMw6aaGsm1qvx1R": {
+  "name": "cascos_agua",
+  "file": "sfx/cascos_agua_c.mp3",
+  "dur": 10
+ },
+ "eiv6JDtdrAlb9amkupTi": {
+  "name": "cascos_agua",
+  "file": "sfx/cascos_agua_d.mp3",
+  "dur": 10
+ },
+ "JAnwJ5HMBu820wrIEQvn": {
+  "name": "banado",
+  "file": "sfx/banado_a.mp3",
+  "dur": 22
+ },
+ "7l6TgFPStoEQNXBEHU2J": {
+  "name": "banado",
+  "file": "sfx/banado_b.mp3",
+  "dur": 22
+ },
+ "YO3DJwRTtjelx4WIl23s": {
+  "name": "banado",
+  "file": "sfx/banado_c.mp3",
+  "dur": 22
+ },
+ "ieikiZHMyS0I5hoQz2jl": {
+  "name": "banado",
+  "file": "sfx/banado_d.mp3",
+  "dur": 22
+ },
+ "aIBI7NotUVajFQXl6dQi": {
+  "name": "galope_agua",
+  "file": "sfx/galope_agua_a.mp3",
+  "dur": 6
+ },
+ "4cYJEFt4AMHfUFe4eOTE": {
+  "name": "galope_agua",
+  "file": "sfx/galope_agua_b.mp3",
+  "dur": 6
+ },
+ "VXdpd8X2oT9eKfzh644X": {
+  "name": "galope_agua",
+  "file": "sfx/galope_agua_c.mp3",
+  "dur": 6
+ },
+ "DlmAckJK7VUrlOeOBw0R": {
+  "name": "galope_agua",
+  "file": "sfx/galope_agua_d.mp3",
+  "dur": 6
+ },
+ "FVK3I2xMuD8tGP6SmsUf": {
+  "name": "campana",
+  "file": "sfx/campana_a.mp3",
+  "dur": 5
+ },
+ "BU8VvnjsVFeVZrK1MriU": {
+  "name": "campana",
+  "file": "sfx/campana_b.mp3",
+  "dur": 5
+ },
+ "P8iw8KIzOtooxSOQEgeT": {
+  "name": "campana",
+  "file": "sfx/campana_c.mp3",
+  "dur": 5
+ },
+ "K1SKAPsPsqjYDmDOJ2hO": {
+  "name": "campana",
+  "file": "sfx/campana_d.mp3",
+  "dur": 5
+ },
+ "hu1EvoLlPGR9qN1pSoEi": {
+  "name": "marcha",
+  "file": "sfx/marcha_a.mp3",
+  "dur": 10
+ },
+ "IvhkaOWOHSHirMsHYxzT": {
+  "name": "marcha",
+  "file": "sfx/marcha_b.mp3",
+  "dur": 10
+ },
+ "e8WfzocNlb3pVDceHUre": {
+  "name": "marcha",
+  "file": "sfx/marcha_c.mp3",
+  "dur": 10
+ },
+ "KiVMKjBX0cUxWShq9fZY": {
+  "name": "marcha",
+  "file": "sfx/marcha_d.mp3",
+  "dur": 10
+ },
+ "rWyWWHTud6rX0JjV13Fc": {
+  "name": "helicoptero",
+  "file": "sfx/helicoptero_a.mp3",
+  "dur": 8
+ },
+ "vz7QsjOiMqyrGdUs6AbY": {
+  "name": "helicoptero",
+  "file": "sfx/helicoptero_b.mp3",
+  "dur": 8
+ },
+ "mWIHmBYkcWueAFnTwb3s": {
+  "name": "helicoptero",
+  "file": "sfx/helicoptero_c.mp3",
+  "dur": 8
+ },
+ "plozR5yHqM7Aks9gTbzk": {
+  "name": "helicoptero",
+  "file": "sfx/helicoptero_d.mp3",
+  "dur": 8
+ }
+}

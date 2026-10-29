@@ -1,0 +1,41 @@
+{
+ "flow": "hdXMAKXa1AZL2pQQaLPr",
+ "elegidas": {
+  "tema": {
+   "generation_id": "zidqXyr5FdSZcvvAW5yo",
+   "origen": "music/m1_b.mp3"
+  },
+  "busqueda": {
+   "generation_id": "yJulTJhvZSEFwmJdQJmg",
+   "origen": "music/m2_d.mp3"
+  },
+  "cierre": {
+   "generation_id": "e4Dg41FUUNHVmyCe5WgK",
+   "origen": "music/m3_a.mp3"
+  },
+  "cascos": {
+   "generation_id": "HckkMVMw6aaGsm1qvx1R",
+   "origen": "sfx/cascos_agua_c.mp3"
+  },
+  "banado": {
+   "generation_id": "YO3DJwRTtjelx4WIl23s",
+   "origen": "sfx/banado_c.mp3"
+  },
+  "galope": {
+   "generation_id": "aIBI7NotUVajFQXl6dQi",
+   "origen": "sfx/galope_agua_a.mp3"
+  },
+  "campana": {
+   "generation_id": "BU8VvnjsVFeVZrK1MriU",
+   "origen": "sfx/campana_b.mp3"
+  },
+  "marcha": {
+   "generation_id": "hu1EvoLlPGR9qN1pSoEi",
+   "origen": "sfx/marcha_a.mp3"
+  },
+  "helicoptero": {
+   "generation_id": "vz7QsjOiMqyrGdUs6AbY",
+   "origen": "sfx/helicoptero_b.mp3"
+  }
+ }
+}
