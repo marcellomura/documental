@@ -630,10 +630,10 @@ Edición especial **solo vertical** (Reels, TikTok y Facebook; no va a YouTube),
 
 | Archivo | Qué es |
 |---|---|
-| `entrega/la_maestra_que_iba_a_caballo_reel.mp4` | El reel (1080×1920, 2:42, subtítulos incrustados, −14 LUFS, menos de 100 MB); también en Drive, en `CONTEXTO/Reel · La maestra que iba a caballo` (DRIVE_REEL) |
+| `entrega/la_maestra_que_iba_a_caballo_reel.mp4` | El reel (1080×1920, 2:42, subtítulos incrustados, −14 LUFS, pico −1,4 dBTP, 97 MB); también en Drive, en `CONTEXTO/Reel · La maestra que iba a caballo` (carpeta `1EMKAA5mXYwF7Sm3hUkGv8mKnZnSgwXxM`; archivo `10IMY06mNGKeBWIxdJVr_JaMyTK1dIiqu`, md5 `e8b35ca1d9e8357f1c80a2b8cd072649`) |
 | `entrega/la_maestra_que_iba_a_caballo_subtitulos_es.srt` | Subtítulos en español, con cifras y comillas (opcional: el video ya los tiene) |
 | `entrega/la_maestra_que_iba_a_caballo_publicacion.md` | Textos para Instagram, TikTok y Facebook, comentario fijado con la encuesta A/B, moderación y tres prompts de portada (GPT Image 2.1, 9:16) |
-| Página de publicación | PAGINA_URL (privada). Se arma con `tools/pagina_publicacion_reel01.py` a partir del .md de `entrega/` |
+| Página de publicación | https://claude.ai/artifact/79H5PurqSNGKDtdUqsPdAc (privada): el archivo en Drive, ocho cuadros del reel, los textos para Instagram, TikTok y Facebook con botones para copiar, el debate, la moderación y las portadas. Se arma con `tools/pagina_publicacion_reel01.py` a partir del .md de `entrega/` |
 
 ## Investigación y guion
 
@@ -669,7 +669,9 @@ Edición especial **solo vertical** (Reels, TikTok y Facebook; no va a YouTube),
 
 ## Render
 
-Con `--gl=swangle` el 3D cuesta ~1 s por cuadro y el 2D ~0,3 s (medido con `video/medir_cuadros.mjs`): unos 30 minutos para los 4.863 cuadros. Los scripts `stills.mjs`, `medir_cuadros.mjs` y `remotion.config.ts` ahora eligen el Chromium headless que exista en el contenedor (la versión cambió con la imagen).
+Con `--gl=swangle` el 3D cuesta ~1 s por cuadro y el 2D ~0,3 s (medido con `video/medir_cuadros.mjs`): unos 30 minutos para los 4.863 cuadros.
+
+Control final (30/10, 00:01): 2:42 (4.862 cuadros), 97 MB, −14,0 LUFS, LRA 2,4, pico −1,4 dBTP. `check_congelados.py` solo marca tres esperas de lectura de 2 s (2:05, 2:10 y 2:15: el Estado la dejó sola, la lista y la cita del hijo), con la voz andando y el polvo de tiza en movimiento. En la última pasada se corrigieron: el satélite que no cubría el borde de abajo, el crédito de Copernicus tapado por los subtítulos, los subtítulos que repetían el texto grande (el gancho, el Consejo, «No volvió», la fiscalía, la familia y la encuesta) y la carpeta del reclamo con el texto pisado. El final del tramo 2 (cuadros 1770-1799) se volvió a renderizar y se empalmó con ffmpeg en vez de rehacer el tramo entero. Los scripts `stills.mjs`, `medir_cuadros.mjs` y `remotion.config.ts` ahora eligen el Chromium headless que exista en el contenedor (la versión cambió con la imagen).
 
 ## Comandos
 
