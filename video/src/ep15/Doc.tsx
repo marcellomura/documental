@@ -378,13 +378,16 @@ function fioP(t: number, a: number, b: number) { return Math.min(prog(t, a, 0.4)
 
 const EndCard: React.FC<{t: number; t0: number}> = ({t, t0}) => {
   if (t < t0) return null;
-  const o = prog(t, t0, 0.8) * (1 - prog(t, L.TOTAL - 1.2, 1.0));
+  // al final se apaga el texto y el fondo termina en negro (antes se apagaba todo y volvía a verse el satélite)
+  const fin = prog(t, L.TOTAL - 1.2, 1.0);
   return (
-    <AbsoluteFill style={{background: `rgba(4,5,6,${0.82 * prog(t, t0, 1.2)})`, alignItems: 'center', justifyContent: 'center', flexDirection: 'column', opacity: o}}>
-      <Logo t={t} t0={t0 + 0.3} size={150} />
-      <div style={{fontFamily: F.title, fontSize: 64, letterSpacing: 18, color: K.bone, marginTop: 26, opacity: prog(t, t0 + 0.6, 0.6)}}>CONTEXTO</div>
-      <div style={{fontFamily: F.mono, fontSize: 22, letterSpacing: 5, color: K.ash, marginTop: 36, opacity: prog(t, t0 + 1.2, 0.6), textAlign: 'center', lineHeight: 1.8}}>
-        FUENTES Y CRÉDITOS DE CADA IMAGEN EN LA DESCRIPCIÓN<br />IMAGEN SATELITAL: COPERNICUS SENTINEL-2 (2026) · MAPAS: NATURAL EARTH, OPENSTREETMAP
+    <AbsoluteFill style={{background: `rgba(0,0,0,${mix(0.82 * prog(t, t0, 1.2), 1, fin)})`, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: prog(t, t0, 0.8) * (1 - fin)}}>
+        <Logo t={t} t0={t0 + 0.3} size={150} />
+        <div style={{fontFamily: F.title, fontSize: 64, letterSpacing: 18, color: K.bone, marginTop: 26, opacity: prog(t, t0 + 0.6, 0.6)}}>CONTEXTO</div>
+        <div style={{fontFamily: F.mono, fontSize: 22, letterSpacing: 5, color: K.ash, marginTop: 36, opacity: prog(t, t0 + 1.2, 0.6), textAlign: 'center', lineHeight: 1.8}}>
+          FUENTES Y CRÉDITOS DE CADA IMAGEN EN LA DESCRIPCIÓN<br />IMAGEN SATELITAL: COPERNICUS SENTINEL-2 (2026) · MAPAS: NATURAL EARTH, OPENSTREETMAP
+        </div>
       </div>
     </AbsoluteFill>
   );
@@ -405,7 +408,7 @@ export const Doc: React.FC = () => {
     nodes.push(<AbsoluteFill key={i} style={{opacity: o}}>{s.el(t)}</AbsoluteFill>);
   });
   const cur = SHOTS.reduce((k, s, i) => (t >= s.a ? i : k), 0);
-  const satO = SHOTS[cur].sat ? Math.min(1, (t - SHOTS[cur].a) / 0.5) : 0;
+  const satO = SHOTS[cur].sat ? Math.min(1, (t - SHOTS[cur].a) / 0.5) * (1 - prog(t, L.TOTAL - 1.2, 1.0)) : 0;
   const bug = t > S('s02') && t < L.TL.end - 0.5 ? Math.min(1, (t - S('s02')) / 0.6, (L.TL.end - 0.5 - t) / 0.4) : 0;
   return (
     <AbsoluteFill style={{background: '#000'}}>
