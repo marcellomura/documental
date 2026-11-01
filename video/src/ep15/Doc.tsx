@@ -154,7 +154,9 @@ const SHOTS: Shot[] = [
 
   /* ---------- IV · CALLE ESPAÑA ---------- */
   {a: S('s07') + 0.5, fi: 0.6, el: (t) => <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, #1A1E22 0%, #07090B 75%)'}} />},
-  {a: A('s07', 'en diciembre') - 0.1, fi: 0.4, el: (t) => <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, #1C1712 0%, #070605 75%)'}} />},
+  /* «Menocchio asegura que le compró el campo»: la cabeza con sus nombres, antes de la cifra */
+  {a: A('s07', 'en diciembre') - 0.1, fi: 0.4, el: (t) => <CabezaShot t={t} cam={dolly(t, A('s07', 'en diciembre') - 0.5, A('s07', '40 millones') + 0.2, {pos: [3.0, 0.2, 4.6], look: [-0.35, -0.08, 0], fov: 30}, {pos: [2.6, 0.12, 3.9], look: [-0.3, -0.08, 0], fov: 29}, true)} red={0.4} proj={{k: 0.8, mode: 'nombres', off: t * 0.012}} rotY={0.3 - (t - A('s07', 'en diciembre')) * 0.025} />},
+  {a: A('s07', '40 millones') - 0.15, fi: 0.35, el: (t) => <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, #1C1712 0%, #070605 75%)'}} />},
   {a: A('s07', 'el 6 de enero') - 0.1, fi: 0.5, el: (t) => <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, #1E1A15 0%, #080706 75%)'}} />},
   {a: A('s07', 'siete dias') - 0.1, fi: 0.4, el: (t) => <PuebloShot t={t} cam={dolly(t, A('s07', 'siete dias') - 0.5, A('s07', 'roseo y su'), {pos: [7, 1.5, 19], look: [-0.6, 1.4, 4], fov: 34}, {pos: [2.8, 1.45, 12.5], look: [-0.6, 1.3, 4], fov: 32}, true)} door={prog(t, A('s07', 'entran'), 1.4)} jeep />},
   {a: A('s07', 'roseo y su') - 0.1, fi: 0.5, el: (t) => <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, #15110E 0%, #050404 80%)'}} />},
@@ -300,6 +302,7 @@ const Overlays: React.FC<{t: number}> = ({t}) => {
       <Paper t={t} t0={S('s07') + 0.7} x={360} y={130} w={760} h={820} rot={-1.6} head="BOLETO DE COMPRAVENTA" lines={[{text: 'Vendedor: Manuel Roseo', at: A('s07', 'le inicio')}, {text: 'Juicio en Santa Fe · 2010', at: A('s07', 'en santa fe')}, {text: '\nFirma: _______________', at: A('s07', 'con un boleto'), big: true}]} o={1 - prog(t, A('s07', 'en diciembre') - 0.3, 0.3)} />
       <NameCard t={t} t0={A('s07', 'claudio gomez')} name="Claudio Gómez" role="vendedor de autos usados" x={1200} y={300} out={A('s07', 'en diciembre') - 0.3} />
       <Stamp t={t} t0={A('s07', 'nego')} text="FIRMA NEGADA" x={760} y={760} rot={-9} size={80} out={A('s07', 'en diciembre') - 0.3} />
+      <Tag t={t} t0={A('s07', 'asegura')} text="Su versión" out={A('s07', '40 millones') - 0.25} />
       <BigNumber t={t} t0={A('s07', '40 millones')} to={40000000} pre="US$" label="lo que Menocchio dice que pagó" out={A('s07', 'el 6 de enero') - 0.2} />
       <Stamp t={t} t0={A('s07', 'probar')} text="NUNCA SE PROBÓ" x={960} y={760} rot={-6} size={90} out={A('s07', 'el 6 de enero') - 0.2} />
       <Polaroid t={t} t0={A('s07', 'el 6 de enero')} file="castelli_plaza.jpg" caption="Castelli · 6/1/2011" flashAt={A('s07', 'foto')} rot={-4} out={A('s07', 'siete dias') - 0.25} />
