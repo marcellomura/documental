@@ -134,7 +134,7 @@ export const Stage15: React.FC<{cam: Cam; atm: keyof typeof ATM; w: number; h: n
     const l = new THREE.DirectionalLight(a.key[0], a.key[1]);
     if (shadow) {
       l.castShadow = true;
-      l.shadow.mapSize.set(shadow.map ?? 2048, shadow.map ?? 2048);
+      l.shadow.mapSize.set(shadow.map ?? 1536, shadow.map ?? 1536);
       l.shadow.bias = -0.0004; l.shadow.normalBias = 0.03;
       const cam = l.shadow.camera as THREE.OrthographicCamera;
       cam.left = -shadow.size; cam.right = shadow.size; cam.top = shadow.size; cam.bottom = -shadow.size; cam.near = 1; cam.far = dist * 2.2;
@@ -146,7 +146,7 @@ export const Stage15: React.FC<{cam: Cam; atm: keyof typeof ATM; w: number; h: n
   sun.target.position.set(c[0], c[1], c[2]);
   sun.intensity = a.key[1] * key;
   return (
-    <ThreeCanvas width={w} height={h} shadows={!!shadow} gl={{antialias: true, alpha: false, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: exposure, preserveDrawingBuffer: true}} style={{position: 'absolute', left: 0, top: 0}}>
+    <ThreeCanvas width={w} height={h} shadows={shadow ? 'percentage' : false} gl={{antialias: false, alpha: false, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: exposure, preserveDrawingBuffer: true}} style={{position: 'absolute', left: 0, top: 0}}>
       <Rig cam={cam} aspect={w / h} near={near} />
       <Env name={atm as string} k={env} />
       <color attach="background" args={[a.zen]} />
@@ -629,7 +629,7 @@ const treeCardTex = (v: number) => canvasTex('treecard15_' + v, 256, 256, (g) =>
   branch(128, 256, Math.PI / 2 + (r() - 0.5) * 0.15, 62 + r() * 18, 9, 4);
 }, true, false);
 /** el monte detrás de las casas: tarjetas de siluetas de árboles, oscuras y con la bruma del amanecer */
-const TreeCards: React.FC<{n?: number; area?: [number, number, number, number]; size?: [number, number]; color?: string}> = ({n = 1500, area = [-240, 240, -170, -26], size = [9, 16], color = '#3A4130'}) => {
+const TreeCards: React.FC<{n?: number; area?: [number, number, number, number]; size?: [number, number]; color?: string}> = ({n = 750, area = [-240, 240, -170, -26], size = [9, 16], color = '#3A4130'}) => {
   const meshes = useMemo(() => [0, 1, 2].map((v) => {
     const geo = new THREE.PlaneGeometry(1, 1); geo.translate(0, 0.5, 0);
     const mat = new THREE.MeshStandardMaterial({map: treeCardTex(v), color, transparent: true, alphaTest: 0.45, roughness: 1, side: THREE.DoubleSide});

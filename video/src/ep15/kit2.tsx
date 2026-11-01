@@ -231,7 +231,7 @@ export const TitleCard: React.FC<{t: number; t0: number; dur: number}> = ({t, t0
   const fs = v ? 132 : 150;
   return (
     <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', flexDirection: 'column', opacity: o}}>
-      <div style={{fontFamily: F.mono, fontSize: v ? 26 : 22, letterSpacing: 14, color: K.blood, opacity: prog(t, t0 + 0.1, 0.5), marginBottom: 26}}>CONTEXTO PRESENTA</div>
+      <div style={{fontFamily: F.mono, fontWeight: 500, fontSize: v ? 28 : 24, letterSpacing: 14, color: K.ash, opacity: 0.85 * prog(t, t0 + 0.1, 0.5), marginBottom: 26}}>CONTEXTO PRESENTA</div>
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', maxWidth: v ? W - 80 : W - 200, columnGap: fs * 0.28, rowGap: 0}}>
         {words.map((wd, i) => {
           const ti = t0 + 0.25 + i * 0.12;

@@ -18,8 +18,9 @@ const composition = await selectComposition({serveUrl, id: process.env.COMP || '
 fs.mkdirSync(outDir, {recursive: true});
 for (const line of fs.readFileSync(list, 'utf8').trim().split('\n')) {
   const [name, frame] = line.split(/\s+/);
+  const t0 = Date.now();
   await renderStill({serveUrl, composition, frame: Number(frame), output: path.join(outDir, name + '.jpg'), imageFormat: 'jpeg', jpegQuality: 80, browserExecutable, chromiumOptions: {gl: process.env.GL || null}, scale: Number(process.env.SCALE || 0.5), inputProps, onBrowserLog: process.env.LOG ? (l) => console.log('[browser]', l.type, l.text) : undefined});
-  console.log('ok', name, frame);
+  console.log('ok', name, frame, ((Date.now() - t0) / 1000).toFixed(1) + 's');
 }
 // el bundle copia public/ entero (~1 GB): se borra al terminar para no llenar el disco
 fs.rmSync(serveUrl, {recursive: true, force: true});

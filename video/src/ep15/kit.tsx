@@ -169,7 +169,7 @@ export const NameCard: React.FC<{t: number; t0: number; name: string; role: stri
   return (
     <div style={{position: 'absolute', left: x ?? (v ? 70 : 110), top: y ?? (v ? 1180 : 780), opacity: o}}>
       <div style={{width: 70 * a, height: 4, background: color, marginBottom: 16}} />
-      <div style={{fontFamily: F.title, fontSize: v ? 84 : 76, color: K.bone, lineHeight: 1, letterSpacing: 1, textTransform: 'uppercase', clipPath: `inset(0 ${100 - a * 100}% 0 0)`, textShadow: '0 4px 24px rgba(0,0,0,0.6)'}}>{name}</div>
+      <div style={{fontFamily: F.title, fontSize: v ? 84 : 76, color: K.bone, lineHeight: 1, letterSpacing: 1, textTransform: 'uppercase', clipPath: `inset(-35% ${100 - a * 100}% -15% 0)`, textShadow: '0 4px 24px rgba(0,0,0,0.6)'}}>{name}</div>
       <div style={{fontFamily: F.mono, fontSize: v ? 26 : 23, letterSpacing: 3, color: K.ash, marginTop: 14, opacity: prog(t, t0 + 0.25, 0.4), textTransform: 'uppercase'}}>{role}</div>
     </div>
   );

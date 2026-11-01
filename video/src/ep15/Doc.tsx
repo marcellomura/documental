@@ -21,7 +21,7 @@ const HEAD_34: Cam = {pos: [3.2, 0.3, 4.2], look: [0, -0.1, 0], fov: 30};
 const HEAD_CLOSE: Cam = {pos: [0.9, 0.15, 3.1], look: [0, 0.0, 0.2], fov: 28};
 const HEAD_PROF: Cam = {pos: [5.4, 0.05, 0.5], look: [0, -0.1, 0.15], fov: 28};
 const V_NE: View = {lon: -58.6, lat: -26.6, scale: 5600};
-const V_MIS: View = {lon: -55.6, lat: -27.25, scale: 21000};
+const V_MIS: View = {lon: -55.7, lat: -27.2, scale: 14000};
 const V_PY: View = {lon: -56.8, lat: -26.2, scale: 9500};
 const V_ASU: View = {lon: -57.66, lat: -25.3, scale: 80000};
 const V_CHACO: View = {lon: -60.45, lat: -26.05, scale: 26000};
@@ -73,7 +73,7 @@ const SHOTS: Shot[] = [
   {a: A('s02', 'su padre') - 0.1, fi: 0.4, el: (t) => <Photo file="yerba_secado.jpg" t={t} t0={A('s02', 'su padre') - 0.5} dur={8} from={[60, 50, 1.08]} to={[40, 52, 1.2]} grade="warm" shade={0.6} />},
   {a: A('s02', 'tan grande') - 0.1, fi: 0.4, el: (t) => <Photo file="yerba_canchada.jpg" t={t} t0={A('s02', 'tan grande') - 0.5} dur={4} from={[50, 50, 1.12]} to={[50, 45, 1.02]} grade="warm" />},
   {a: A('s02', 'puerto menocchio') - 0.6, fi: 0.4, el: (t) => (
-    <Map15 t={t} view={viewPath(t, [[0, V_MIS], [A('s02', 'puerto menocchio') - 0.5, {lon: -55.5, lat: -27.12, scale: 52000}]], 2.0)} hi={['ARG']} hiProv={['Misiones']}
+    <Map15 t={t} view={viewPath(t, [[0, V_MIS], [A('s02', 'puerto menocchio') - 0.5, {lon: -55.55, lat: -27.15, scale: 26000}]], 2.0)} hi={['ARG']} hiProv={['Misiones']}
       pins={[{at: PT['Posadas'], label: 'POSADAS', o: 0.5, size: 0.8, pulse: false}, {at: PT['Puerto Menocchio'], label: 'PUERTO MENOCCHIO', sub: 'UN PUEBLO CON SU APELLIDO', o: prog(t, A('s02', 'puerto menocchio'), 0.4), color: K.ember}]} />
   )},
   {a: A('s02', 'a luis') - 0.1, fi: 0.5, el: (t) => (
@@ -148,7 +148,7 @@ const SHOTS: Shot[] = [
   {a: A('s06', 'manuel roseo') + 0.1, fi: 0.5, el: (t) => <GlobeArc t={t} t0={A('s06', 'roma') - 0.6} from={PT['Roma']} to={PT['Buenos Aires']} dur={4.8} label={['ROMA · 1935', 'ARGENTINA · 1956']} />},
   {a: A('s06', 'a principios') - 0.1, fi: 0.5, el: (t) => <Photo file="bermejo_norte.jpg" t={t} t0={A('s06', 'a principios') - 0.6} dur={5.5} from={[50, 55, 1.05]} to={[52, 48, 1.16]} grade="warm" shade={0.6} />},
   {a: A('s06', '250000') - 0.15, fi: 0.5, sat: true, el: (t) => <TierraShot t={t} crop="region" cam={dolly(t, A('s06', '250000') - 0.6, A('s06', 'mientras'), {pos: [PK[0] - 40, 330, PK[2] + 300], look: [PK[0] + 20, 0, PK[2] - 60], fov: 46}, {pos: [PK[0] + 60, 120, PK[2] + 40], look: [PK[0] + 40, 0, PK[2] - 200], fov: 46}, true)} />},
-  {a: A('s06', 'mientras') - 0.1, fi: 0.5, sat: true, el: (t) => <TierraShot t={t} crop="region" cam={dolly(t, A('s06', 'mientras') - 0.5, A('s06', 'y manuel'), {pos: [PK[0] + 180, 160, PK[2] - 40], look: [PK[0] + 330, 0, PK[2] - 280], fov: 44}, {pos: [PK[0] + 220, 140, PK[2] - 90], look: [PK[0] + 340, 0, PK[2] - 300], fov: 42}, true)} />},
+  {a: A('s06', 'mientras') - 0.1, fi: 0.5, sat: true, el: (t) => <TierraShot t={t} crop="region" cam={dolly(t, A('s06', 'mientras') - 0.5, A('s06', 'y manuel'), {pos: [PK[0] + 210, 135, PK[2] - 60], look: [PK[0] + 280, 0, PK[2] - 150], fov: 44}, {pos: [PK[0] + 225, 118, PK[2] - 85], look: [PK[0] + 285, 0, PK[2] - 165], fov: 42}, true)} />},
   {a: A('s06', 'y manuel') - 0.1, fi: 0.5, el: (t) => <Photo file="bermejo_chaco.jpg" t={t} t0={A('s06', 'y manuel') - 0.6} dur={12} from={[50, 55, 1.04]} to={[50, 50, 1.2]} grade="warm" shade={0.7} />},
   {a: A('s06', 'un campo asi') - 0.1, fi: 0.6, sat: true, el: (t) => <TierraShot t={t} crop="rio" cam={dolly(t, A('s06', 'un campo asi') - 0.6, E('s06', 'custodia') + 1.6, {pos: [60, 60, 130], look: [0, 0, -20], fov: 46}, {pos: [10, 34, 70], look: [-20, 0, -40], fov: 46}, true)} />},
 
@@ -244,7 +244,7 @@ const Overlays: React.FC<{t: number}> = ({t}) => {
       <Neon t={t} t0={A('s03', 'el puerto madero')} text="PUERTO MADERO" sub="BOLICHE · ASUNCIÓN" out={A('s03', 'con su dueno') + 0.6} />
       <NameCard t={t} t0={A('s03', 'eduardo maciel')} name="Eduardo Maciel" role="dueño del boliche" x={180} y={720} out={A('s03', 'a la madrugada') - 0.3} />
       <NameCard t={t} t0={A('s03', 'graciela mendez')} name="Graciela Méndez" role="19 años" x={1100} y={720} out={A('s03', 'a la madrugada') - 0.3} />
-      <Slate t={t} t0={A('s03', 'a la madrugada')} lines={['16 DE AGOSTO DE 2004 · MADRUGADA']} out={A('s03', 'es la ultima') + 0.4} />
+      <Slate t={t} t0={A('s03', 'a la madrugada')} lines={['ESA MADRUGADA']} out={A('s03', 'es la ultima') + 0.4} />
       <BigWord t={t} t0={A('s03', 'es la ultima') + 0.2} text="LA ÚLTIMA VEZ QUE LOS VEN CON VIDA" size={64} y={860} spacing={3} out={A('s03', 'once dias') - 0.3} />
       <BigWord t={t} t0={A('s03', 'once dias')} text="+11 DÍAS" size={110} y={120} color={K.ember} out={A('s03', 'en una laguna') + 0.5} />
       <Slate t={t} t0={A('s03', 'en una laguna')} lines={['FERNANDO DE LA MORA, PARAGUAY', 'UNA LAGUNA · AGOSTO DE 2004']} out={A('s03', 'adentro') - 0.3} />
@@ -322,7 +322,7 @@ const Overlays: React.FC<{t: number}> = ({t}) => {
       <Stutter t={t} t0={A('s08', 'tartamudeo') - 0.5} word="TARTAMUDEO" out={A('s08', 'once dias') - 0.3} />
       <Slate t={t} t0={A('s08', 'once dias')} lines={['CORRIENTES', '24 DE ENERO DE 2011']} out={A('s08', 'dijo que') - 0.2} />
       <Stamp t={t} t0={A('s08', 'encontro')} text="DETENIDO" x={1420} y={300} rot={-8} size={90} out={A('s08', 'dijo que') + 0.2} />
-      <BigWord t={t} t0={A('s08', 'dijo que') + 0.2} text="«ESTABA DE VACACIONES»" size={100} y={780} out={S('s09') - 2.6} />
+      <BigWord t={t} t0={A('s08', 'dijo que') + 0.2} text="DE VACACIONES" sub="Su explicación" size={110} y={760} out={S('s09') - 2.6} />
       <Chapter t={t} t0={E('s08', 'vacaciones') + 0.35} n="V" title="DOS PERPETUAS" sub="Corrientes, 2012 · Sáenz Peña, 2013" dur={2.2} />
       {/* s09 */}
       <Paper t={t} t0={S('s09') + 0.1} x={150} y={150} w={760} h={700} rot={-1.4} head="TRIBUNAL ORAL EN LO CRIMINAL N.º 1 · CORRIENTES" lines={[{text: '30 de mayo de 2012', at: A('s09', 'en mayo')}, {text: 'Víctima: Claudio Nozzi', at: A('s09', 'por el asesinato')}, {text: 'PRISIÓN PERPETUA', at: A('s09', 'prision'), big: true, red: true}]} out={A('s09', 'menocchio nego') - 0.4} />
@@ -355,7 +355,7 @@ const Overlays: React.FC<{t: number}> = ({t}) => {
       <Tag t={t} t0={A('s11', 'y su abogado')} text="Según su abogado" out={A('s11', 'luis raul') - 0.4} />
       <BigWord t={t} t0={A('s11', 'netflix')} text="NETFLIX QUIERE CONTAR SU VIDA" size={80} y={420} spacing={3} out={A('s11', 'luis raul') - 0.4} />
       <Stamp t={t} t0={A('s11', 'no lo confirmo')} text="NO CONFIRMADO" sub="NETFLIX NO LO CONFIRMÓ" x={960} y={760} rot={-5} size={84} out={A('s11', 'luis raul') - 0.4} />
-      <Lines t={t} x={110} y={760} items={[{text: '2 perpetuas · 3 asesinatos', at: A('s11', 'tiene dos'), red: true}, {text: 'Paraguay lo busca por otros 2', at: A('s11', 'y paraguay')}]} out={A('s11', 'y el campo') - 0.2} size={38} />
+      <Lines t={t} x={110} y={560} w={540} items={[{text: '2 perpetuas', at: A('s11', 'tiene dos'), red: true}, {text: '3 asesinatos', at: A('s11', 'tres asesinatos'), red: true}, {text: 'Paraguay todavía', at: A('s11', 'y paraguay')}, {text: 'lo busca por otros 2', at: A('s11', 'y paraguay') + 0.5}]} out={A('s11', 'y el campo') - 0.2} size={34} />
       {/* final */}
       <EndCard t={t} t0={L.TL.end + 0.4} />
     </>

@@ -2,7 +2,7 @@
    Paraguay va trazado a mano sobre la frontera porque NE no lo trae) y el contorno del Parque Nacional El
    Impenetrable (OpenStreetMap). Estilo «tablero de investigación»: tierra casi negra, ríos de acero, rutas rojas o
    ámbar que se dibujan, pines que laten. La vista (centro y escala de una Mercator) se anima con viewPath. */
-import React from 'react';
+import React, {useLayoutEffect, useRef} from 'react';
 import {useVideoConfig} from 'remotion';
 import {geoMercator, geoOrthographic, geoPath, geoInterpolate, geoGraticule10, type GeoProjection} from 'd3-geo';
 import {clamp, easeInOut, prog, rnd} from '../lib/anim';
@@ -84,7 +84,8 @@ export const Map15: React.FC<{
   hi?: string[]; hiProv?: string[]; routes?: Route[]; pins?: Pin[]; areas?: Area[]; labels?: MapLabel[]; children?: (proj: GeoProjection) => React.ReactNode;
 }> = ({t, view, countriesO = 1, provO = 0.5, riversO = 1, gridO = 0.5, labelsO = 1, riverLabelsO = 0.8, hi = [], hiProv = [], routes = [], pins = [], areas = [], labels = [], children}) => {
   const {width: W, height: H} = useVideoConfig();
-  const proj = geoMercator().center([view.lon, view.lat]).scale(view.scale).translate([W / 2, H / 2]);
+  // precision(0): sin remuestreo adaptativo (con zoom grande generaba millones de puntos); clipExtent: sólo lo visible
+  const proj = geoMercator().center([view.lon, view.lat]).scale(view.scale).translate([W / 2, H / 2]).precision(0).clipExtent([[-60, -60], [W + 60, H + 60]]);
   const path = geoPath(proj);
   const v = H > W;
   const line = (pts: LonLat[]) => pts.map((p, i) => { const q = proj(p) as [number, number]; return `${i ? 'L' : 'M'}${q[0].toFixed(1)} ${q[1].toFixed(1)}`; }).join(' ');
@@ -98,35 +99,9 @@ export const Map15: React.FC<{
   };
   const fs = (s: number) => s * (v ? 1.25 : 1);
   return (
+    <>
+    <BaseLayer proj={proj} zoom={view.scale} W={W} H={H} countriesO={countriesO} provO={provO} riversO={riversO} gridO={gridO} hi={hi} hiProv={hiProv} />
     <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'hidden'}}>
-      <defs>
-        <radialGradient id="mapVig15" cx="50%" cy="50%" r="70%"><stop offset="55%" stopColor="#000" stopOpacity={0} /><stop offset="100%" stopColor="#000" stopOpacity={0.7} /></radialGradient>
-        <filter id="glow15" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
-        <pattern id="dots15" width={7} height={7} patternUnits="userSpaceOnUse"><circle cx={3.5} cy={3.5} r={0.9} fill="rgba(238,231,217,0.10)" /></pattern>
-        <pattern id="dotsHi15" width={7} height={7} patternUnits="userSpaceOnUse"><circle cx={3.5} cy={3.5} r={1.1} fill="rgba(227,155,71,0.22)" /></pattern>
-      </defs>
-      <rect width={W} height={H} fill="#070A0D" />
-      {/* retícula */}
-      {gridO > 0 ? <path d={path(geoGraticule10()) ?? ''} fill="none" stroke="rgba(141,176,195,0.08)" strokeWidth={1} opacity={gridO} /> : null}
-      {/* países */}
-      <g opacity={countriesO}>
-        {Object.entries(G.paises).filter(([k]) => k !== 'LUX' && k !== 'ITA').map(([k, polys]) => (
-          <g key={k}>
-            <path d={path({type: 'MultiPolygon', coordinates: polys} as never) ?? ''} fill={hi.includes(k) ? '#1A2228' : k === 'ARG' ? '#11171C' : '#0D1216'} stroke={hi.includes(k) ? 'rgba(238,231,217,0.65)' : 'rgba(163,168,170,0.38)'} strokeWidth={hi.includes(k) ? 1.8 : 1.2} strokeLinejoin="round" />
-            <path d={path({type: 'MultiPolygon', coordinates: polys} as never) ?? ''} fill="url(#dots15)" />
-          </g>
-        ))}
-      </g>
-      {/* provincias argentinas */}
-      <g opacity={provO}>
-        {(provs as unknown as {features: {properties: {n: string}; geometry: never}[]}).features.map((f) => (
-          <path key={f.properties.n} d={path(f.geometry) ?? ''} fill={hiProv.includes(f.properties.n) ? 'url(#dotsHi15)' : 'none'} stroke={hiProv.includes(f.properties.n) ? 'rgba(227,155,71,0.7)' : 'rgba(163,168,170,0.28)'} strokeWidth={hiProv.includes(f.properties.n) ? 1.6 : 0.8} strokeDasharray={hiProv.includes(f.properties.n) ? undefined : '3 4'} />
-        ))}
-      </g>
-      {/* ríos */}
-      <g opacity={riversO} fill="none" strokeLinecap="round" strokeLinejoin="round">
-        {Object.entries(G.rios).map(([n, ls]) => ls.map((l, i) => <path key={n + i} d={line(l)} stroke="#4F86A8" strokeWidth={n === 'Paraná' || n === 'Paraguay' ? 3.2 : 2.2} opacity={0.85} />))}
-      </g>
       {riverLabelsO > 0 && riversO > 0.05
         ? RIVER_LABELS.map(([n, at, rot]) => {
             const p = proj(at) as [number, number];
@@ -151,8 +126,9 @@ export const Map15: React.FC<{
         return (
           <g key={'a' + i} opacity={a.o}>
             <path d={d} fill={a.fill ?? 'rgba(227,155,71,0.18)'} opacity={prog(p, 0.7, 0.3)} />
-            <path d={d} fill="none" stroke={a.stroke ?? K.ember} strokeWidth={a.width ?? 2.6} strokeDasharray={a.dash ? '8 6' : `${L} ${L}`} strokeDashoffset={a.dash ? 0 : L * (1 - clamp(p))} strokeLinejoin="round" filter="url(#glow15)" />
-            {lp && a.label ? <text x={lp[0]} y={lp[1]} textAnchor="middle" style={{fontFamily: F.mono, fontWeight: 500, fontSize: fs(17), letterSpacing: 3, fill: a.stroke ?? K.ember}} opacity={prog(p, 0.6, 0.4)}>{a.label}</text> : null}
+            <path d={d} fill="none" stroke={a.stroke ?? K.ember} strokeWidth={(a.width ?? 2.6) * 4} strokeOpacity={0.18} strokeDasharray={a.dash ? '8 6' : `${L} ${L}`} strokeDashoffset={a.dash ? 0 : L * (1 - clamp(p))} strokeLinejoin="round" />
+            <path d={d} fill="none" stroke={a.stroke ?? K.ember} strokeWidth={a.width ?? 2.6} strokeDasharray={a.dash ? '8 6' : `${L} ${L}`} strokeDashoffset={a.dash ? 0 : L * (1 - clamp(p))} strokeLinejoin="round" />
+            {lp && a.label ? <text x={lp[0]} y={lp[1]} textAnchor="middle" style={{fontFamily: F.mono, fontWeight: 500, fontSize: fs(22), letterSpacing: 3, paintOrder: 'stroke', stroke: '#070A0D', strokeWidth: 5, fill: a.stroke ?? K.ember}} opacity={prog(p, 0.6, 0.4)}>{a.label}</text> : null}
           </g>
         );
       })}
@@ -177,14 +153,15 @@ export const Map15: React.FC<{
         const lab = r.label ? along(r.pts, r.labelAt ?? 0.5) : null;
         return (
           <g key={'r' + i} opacity={r.o ?? 1}>
-            <path d={d} fill="none" stroke={c} strokeWidth={r.width ?? 4} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={r.dash ? '3 11' : undefined} filter="url(#glow15)" />
+            {r.dash ? null : <path d={d} fill="none" stroke={c} strokeWidth={(r.width ?? 4) * 3.5} strokeOpacity={0.2} strokeLinecap="round" strokeLinejoin="round" />}
+            <path d={d} fill="none" stroke={c} strokeWidth={r.width ?? 4} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={r.dash ? '3 11' : undefined} />
             {r.head !== false && r.p < 0.999 ? (
               <g transform={`translate(${hx} ${hy}) rotate(${(ha * 180) / Math.PI})`}>
                 <circle r={9} fill={c} opacity={0.35} />
                 <path d="M -7 -6 L 7 0 L -7 6 Z" fill={c} />
               </g>
             ) : null}
-            {lab && r.label ? <text x={lab[0]} y={lab[1] - 16} textAnchor="middle" style={{fontFamily: F.mono, fontWeight: 500, fontSize: fs(16), letterSpacing: 2.5, fill: c, paintOrder: 'stroke', stroke: '#070A0D', strokeWidth: 5}} opacity={prog(r.p, 0.25, 0.3)}>{r.label}</text> : null}
+            {lab && r.label ? <text x={lab[0]} y={lab[1] - 16} textAnchor="middle" style={{fontFamily: F.mono, fontWeight: 500, fontSize: fs(19), letterSpacing: 2.5, fill: c, paintOrder: 'stroke', stroke: '#070A0D', strokeWidth: 5}} opacity={prog(r.p, 0.25, 0.3)}>{r.label}</text> : null}
           </g>
         );
       })}
@@ -215,11 +192,68 @@ export const Map15: React.FC<{
         );
       })}
       {children ? children(proj) : null}
-      <rect width={W} height={H} fill="url(#mapVig15)" />
       <Inset view={view} proj={proj} W={W} H={H} v={v} />
       <text x={v ? 60 : 64} y={H - (v ? 330 : 58)} style={{fontFamily: F.mono, fontSize: v ? 20 : 16, letterSpacing: 3, fill: 'rgba(163,168,170,0.75)'}}>{dms(view.lat, 'S', 'N')} · {dms(view.lon, 'O', 'E')}</text>
     </svg>
+    <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.7) 100%)'}} />
+    </>
   );
+};
+let DOTS: HTMLCanvasElement | null = null;
+const dotsCanvas = (hiC: boolean) => {
+  const c = document.createElement('canvas'); c.width = 7; c.height = 7;
+  const g = c.getContext('2d')!;
+  g.fillStyle = hiC ? 'rgba(227,155,71,0.24)' : 'rgba(238,231,217,0.10)';
+  g.beginPath(); g.arc(3.5, 3.5, hiC ? 1.1 : 0.9, 0, Math.PI * 2); g.fill();
+  return c;
+};
+let DOTS_HI: HTMLCanvasElement | null = null;
+/** capa fija del mapa (retícula, países, provincias, ríos) dibujada en un canvas: mucho más rápido que el SVG */
+const BaseLayer: React.FC<{proj: GeoProjection; zoom: number; W: number; H: number; countriesO: number; provO: number; riversO: number; gridO: number; hi: string[]; hiProv: string[]}> = ({proj, zoom, W, H, countriesO, provO, riversO, gridO, hi, hiProv}) => {
+  const ref = useRef<HTMLCanvasElement>(null);
+  const dpr = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
+  useLayoutEffect(() => {
+    const c = ref.current; if (!c) return;
+    const g = c.getContext('2d')!;
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.globalAlpha = 1; g.fillStyle = '#070A0D'; g.fillRect(0, 0, W, H);
+    DOTS = DOTS ?? dotsCanvas(false); DOTS_HI = DOTS_HI ?? dotsCanvas(true);
+    const dots = g.createPattern(DOTS, 'repeat')!, dotsHi = g.createPattern(DOTS_HI, 'repeat')!;
+    const path = geoPath(proj, g);
+    if (gridO > 0) { g.globalAlpha = gridO; g.beginPath(); path(geoGraticule10()); g.strokeStyle = 'rgba(141,176,195,0.08)'; g.lineWidth = 1; g.stroke(); }
+    g.globalAlpha = countriesO;
+    Object.entries(G.paises).forEach(([k, polys]) => {
+      if (k === 'LUX' || k === 'ITA') return;
+      g.beginPath(); path({type: 'MultiPolygon', coordinates: polys} as never);
+      g.fillStyle = hi.includes(k) ? '#1A2228' : k === 'ARG' ? '#11171C' : '#0D1216'; g.fill();
+      g.fillStyle = dots; g.fill();
+      // con mucho zoom la frontera de 1:50 m no coincide con los ríos de 1:10 m: se atenúa
+      const za = zoom > 15000 ? 0.35 : zoom > 9000 ? 0.65 : 1;
+      g.strokeStyle = hi.includes(k) ? `rgba(238,231,217,${0.65 * za})` : `rgba(163,168,170,${0.38 * za})`; g.lineWidth = hi.includes(k) ? 1.8 : 1.2; g.lineJoin = 'round'; g.stroke();
+    });
+    if (provO > 0) {
+      g.globalAlpha = provO;
+      (provs as unknown as {features: {properties: {n: string}; geometry: never}[]}).features.forEach((f) => {
+        const h = hiProv.includes(f.properties.n);
+        g.beginPath(); path(f.geometry);
+        if (h) { g.fillStyle = dotsHi; g.fill(); }
+        g.strokeStyle = h ? 'rgba(227,155,71,0.7)' : 'rgba(163,168,170,0.28)'; g.lineWidth = h ? 1.6 : 0.8; g.stroke();
+      });
+    }
+    if (riversO > 0) {
+      g.globalAlpha = riversO * 0.85; g.strokeStyle = '#4F86A8'; g.lineCap = 'round'; g.lineJoin = 'round';
+      Object.entries(G.rios).forEach(([n, ls]) => {
+        g.lineWidth = n === 'Paraná' || n === 'Paraguay' ? 3.2 : 2.2;
+        ls.forEach((l) => {
+          g.beginPath();
+          l.forEach((p, i) => { const q = proj(p) as [number, number]; if (i) g.lineTo(q[0], q[1]); else g.moveTo(q[0], q[1]); });
+          g.stroke();
+        });
+      });
+    }
+    g.globalAlpha = 1;
+  });
+  return <canvas ref={ref} width={Math.round(W * dpr)} height={Math.round(H * dpr)} style={{position: 'absolute', left: 0, top: 0, width: W, height: H}} />;
 };
 const dms = (x: number, neg: string, pos: string) => {
   const a = Math.abs(x), d = Math.floor(a), m = Math.floor((a - d) * 60);
@@ -229,7 +263,7 @@ const dms = (x: number, neg: string, pos: string) => {
 const Inset: React.FC<{view: View; proj: GeoProjection; W: number; H: number; v: boolean}> = ({view, proj, W, H, v}) => {
   if (view.scale < 2500) return null;
   const w = v ? 200 : 170, h = v ? 240 : 205, x0 = v ? W - w - 50 : W - w - 56, y0 = v ? H - h - 420 : H - h - 60;
-  const ip = geoMercator().center([-62, -32]).scale(v ? 300 : 255).translate([x0 + w / 2, y0 + h / 2]);
+  const ip = geoMercator().center([-62, -32]).scale(v ? 300 : 255).translate([x0 + w / 2, y0 + h / 2]).precision(0);
   const ipath = geoPath(ip);
   const a = proj.invert ? proj.invert([0, 0]) : null, b = proj.invert ? proj.invert([W, H]) : null;
   const pa = a ? (ip(a as [number, number]) as [number, number]) : null, pb = b ? (ip(b as [number, number]) as [number, number]) : null;
@@ -274,7 +308,8 @@ export const GlobeArc: React.FC<{t: number; t0: number; from: LonLat; to: LonLat
         const hiC = a3 === 'ITA' || a3 === 'ARG';
         return <path key={i} d={path(f.geometry) ?? ''} fill={hiC ? '#4A4F52' : '#262E35'} stroke={hiC ? K.bone : 'rgba(163,168,170,0.45)'} strokeWidth={hiC ? 1.8 : 0.6} />;
       })}
-      <path d={path(arc as never) ?? ''} fill="none" stroke={K.ember} strokeWidth={4} filter="url(#glowG15)" strokeLinecap="round" />
+      <path d={path(arc as never) ?? ''} fill="none" stroke={K.ember} strokeWidth={14} strokeOpacity={0.22} strokeLinecap="round" />
+      <path d={path(arc as never) ?? ''} fill="none" stroke={K.ember} strokeWidth={4} strokeLinecap="round" />
       {pf ? <circle cx={pf[0]} cy={pf[1]} r={7} fill={K.bone} /> : null}
       {pt && k > 0.95 ? <circle cx={pt[0]} cy={pt[1]} r={7 + 5 * Math.sin(t * 6)} fill={K.ember} /> : null}
       {label && pf ? <text x={pf[0] + 14} y={pf[1] - 12} style={{fontFamily: F.title, fontSize: v ? 40 : 34, fill: K.bone, paintOrder: 'stroke', stroke: '#050709', strokeWidth: 6}} opacity={1 - prog(t, t0 + dur * 0.6, 0.5)}>{label[0]}</text> : null}
