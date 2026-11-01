@@ -13,13 +13,16 @@ def norm(w):
     return re.sub(r"[^a-z0-9]", "", w)
 
 out = {}
-for s in G["segmentos"]:
+# SEGKEY elige la lista del guion (p. ej. "vertical" en el ep15); las etiquetas de eleven_v4 ([pause], [softly]) no se
+# dicen: se sacan antes de alinear para que no lleguen a los subtítulos
+for s in G[os.environ.get("SEGKEY", "segmentos")]:
     sid = s["id"]
     wav = os.path.join(AUD, f"{sid}.wav")
-    script = s["texto"].split()
+    texto = re.sub(r"\[[^\]]+\]\s*", "", s["texto"])
+    script = texto.split()
     a = [norm(w) for w in script]
     best = None
-    for prompt in (s["texto"], None):
+    for prompt in (texto, None):
         # con el guion como prompt whisper a veces se saltea tramos: probar sin prompt y quedarse con el mejor
         segs, _ = model.transcribe(wav, language="es", word_timestamps=True, initial_prompt=prompt, beam_size=5)
         rec_try = [w for seg in segs for w in seg.words]

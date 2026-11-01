@@ -20,3 +20,7 @@ entrega/previews/
 raw/ep09/
 raw/ep11/
 raw/ep12/
+
+# ep15: tomas descartadas y audición de voces (los ids quedan en manifest.json, evaluacion.json y voces.json)
+audio/ep15/takes/*.mp3
+audio/ep15/audicion/*.mp3

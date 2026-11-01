@@ -1,0 +1,67 @@
+[
+ {
+  "voz": "carlos",
+  "dur": 21.68,
+  "palabras": 59,
+  "pal_s": 2.75,
+  "pausas": 7,
+  "pausa_media": 0.53,
+  "f0_med": 129.0,
+  "f0_rango_st": 13.8,
+  "f0_sd_st": 4.56,
+  "piso_db": -87.7,
+  "texto": "El 13 de enero de 2011, poco después de las 7 de la mañana, tres hombres entraron a una casa humilde de Juan José Castelli, en el Chaco. Adentro estaba Manuel Roseo, el dueño de 250.000 hectáreas de monte. Uno de esos hombres había cambiado de nombre, de país y hasta de cara. país y hasta de cara."
+ },
+ {
+  "voz": "ciro",
+  "dur": 21.6,
+  "palabras": 54,
+  "pal_s": 2.53,
+  "pausas": 7,
+  "pausa_media": 0.55,
+  "f0_med": 104.6,
+  "f0_rango_st": 11.4,
+  "f0_sd_st": 3.91,
+  "piso_db": -85.6,
+  "texto": "El 13 de enero de 2011, poco después de las 7 de la mañana, tres hombres entraron a una casa humilde de Juan José Castelli, en el Chaco. Adentro estaba Manuel Roseo, el dueño de 250.000 hectáreas de monte. Uno de esos hombres había cambiado de nombre, de país y hasta de cara."
+ },
+ {
+  "voz": "juanma",
+  "dur": 21.04,
+  "palabras": 54,
+  "pal_s": 2.6,
+  "pausas": 7,
+  "pausa_media": 0.5,
+  "f0_med": 134.5,
+  "f0_rango_st": 12.4,
+  "f0_sd_st": 4.1,
+  "piso_db": -88.3,
+  "texto": "El 13 de enero de 2011, poco después de las 7 de la mañana, tres hombres entraron a una casa humilde de Juan José Castelli, en el Chaco. Adentro estaba Manuel Roseo, el dueño de 250.000 hectáreas de monte. Uno de esos hombres había cambiado de nombre, de país y hasta de cara."
+ },
+ {
+  "voz": "kadrath",
+  "dur": 20.88,
+  "palabras": 84,
+  "pal_s": 4.05,
+  "pausas": 7,
+  "pausa_media": 0.5,
+  "f0_med": 139.1,
+  "f0_rango_st": 15.9,
+  "f0_sd_st": 5.14,
+  "piso_db": -59.9,
+  "texto": "El 13 de enero de 2011, poco después de las 7 de la mañana, tres hombres entraron a una casa humilde de Juan José Castelli, en el Chaco. Adentro estaba Manuel Roseo, el dueño de 250.000 hectáreas de monte. Uno de esos hombres había cambiado de nombre, de país y hasta de cara. casa humilde de Juan José Castelli, en el Chaco. Adentro estaba Manuel Roseo, el dueño de 250.000 hectáreas de monte. Uno de esos hombres había cambiado de nombre, de"
+ },
+ {
+  "voz": "octavio",
+  "dur": 23.2,
+  "palabras": 54,
+  "pal_s": 2.35,
+  "pausas": 7,
+  "pausa_media": 0.59,
+  "f0_med": 111.9,
+  "f0_rango_st": 18.2,
+  "f0_sd_st": 5.0,
+  "piso_db": -88.3,
+  "texto": "El 13 de enero de 2011, poco después de las 7 de la mañana, tres hombres entraron a una casa humilde de Juan José Castelli, en el Chaco. Adentro estaba Manuel Roseo, el dueño de 250.000 hectáreas de monte. Uno de esos hombres había cambiado de nombre, de país y hasta de cara."
+ }
+]

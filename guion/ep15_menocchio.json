@@ -1,0 +1,88 @@
+{
+  "titulo": "EL HOMBRE DE LAS MIL CARAS",
+  "subtitulo": "EL GUSANO MENOCCHIO Y EL CRIMEN DE LA FIDELIDAD",
+  "episodio": 15,
+  "modelo_voz": "eleven_v4",
+  "voz": {
+    "nombre": "Octavio - Calm Narrator",
+    "voice_id": "YmwwQQdY9i3i0hBWn1SD",
+    "por_que": "audición del 1/11/2026 contra Juanma, Ciro, Carlos y Kadrath: la de más variación natural de tono (18 semitonos), ritmo pausado, graves cálidos y sibilantes suaves (audio/ep15/audicion/medidas.json)"
+  },
+  "nota_voz": "Grafía fonética para que eleven_v4 pronuncie bien: Menoquio (Menocchio, la cch italiana suena k), Ráuson (Rawson), Tómkins (Tompkins), Caramta (Qaramta), Trasulag Dos (Trasulag II). DISPLAY devuelve la ortografía real para los subtítulos. Las cifras van en número, como pide la guía de eleven_v4.",
+  "nota_legal": "Menocchio tiene dos condenas firmes a prisión perpetua: por Claudio Nozzi (Tribunal Oral en lo Criminal N.º 1 de Corrientes, 30/5/2012) y por Manuel Roseo y Nélida Bartolomé (Cámara Segunda en lo Criminal de Presidencia Roque Sáenz Peña, 7/10/2013). Por Maciel y Méndez (Paraguay, 2004) nunca fue juzgado: va como sospechoso, con su versión. Las huellas quemadas con ácido van atribuidas a un abogado; la cirugía y el pelo teñido son de su propio relato. La red narco de 2026 va como acusación del gobierno del Chubut, con su negativa. Netflix: lo dice su abogado, Netflix no lo confirmó. No se nombra a nadie sin condena como autor (Berg es testigo; Capitanich no aparece: las acusaciones nunca se probaron). Fuentes en guion/ep15_investigacion.md.",
+  "display": {
+    "Menoquio": "Menocchio",
+    "Ráuson": "Rawson",
+    "Tómkins": "Tompkins",
+    "Caramta": "Qaramta",
+    "Trasulag Dos": "Trasulag II"
+  },
+  "segmentos": [
+    {
+      "id": "s01",
+      "texto": "El 13 de enero de 2011, poco después de las siete de la mañana, tres hombres entraron a una casa humilde de Juan José Castelli, en el Chaco. Adentro estaba Manuel Roseo. Tenía 75 años, dormía en una cama de hierro oxidada y andaba en un jeep tapado con bolsas de arpillera. [pause] Y era dueño de 250.000 hectáreas de monte: un campo del tamaño de Luxemburgo. Uno de los hombres que entraron esa mañana ya había cambiado de nombre, de país… y hasta de cara. Sus amigos le decían el Gusano. La prensa lo bautizó de otra manera: el hombre de las mil caras."
+    },
+    {
+      "id": "s02",
+      "texto": "Luis Raúl Menoquio nació en Posadas, Misiones, en 1959, en una de las familias más ricas de la provincia. Su padre había sido diputado, presidente del Banco de Misiones y dueño de una gran empresa de yerba mate. Tan grande, que levantó un pueblo con su apellido: Puerto Menoquio. A Luis le decían el Niño Raúl. Después le quedó otro apodo: el Gusano. Era muy alto, muy flaco… y cuando se ponía nervioso, tartamudeaba. En 1982, la empresa quebró en medio de una denuncia de fraude. Y los Menoquio se fueron del país. Terminaron en Paraguay."
+    },
+    {
+      "id": "s03",
+      "texto": "En Asunción, Menoquio arma negocios: televisión por cable, seguridad privada. Y acumula denuncias. La noche del 15 de agosto de 2004 está en un boliche de la ciudad, el Puerto Madero, con su dueño, Eduardo Maciel, y la novia de Maciel, Graciela Méndez, de 19 años. A la madrugada, los tres se suben a su camioneta. Es la última vez que alguien los ve con vida. Once días después, en una laguna de Fernando de la Mora, aparecen dos tambores de 200 litros, sellados con cemento. [pause] Adentro estaban los dos. Para la Policía paraguaya, Menoquio fue el principal sospechoso desde el primer día. Él siempre dijo que los dejó cerca de un hotel. Nunca lo juzgaron. Cuando allanaron su mansión, ya se había ido."
+    },
+    {
+      "id": "s04",
+      "texto": "Cómo salió de Paraguay es un misterio con dos versiones. Una dice que en avión. La otra, que cruzó el río Pilcomayo hasta Clorinda en una balsa cargada de verduras, con una mochila llena de dólares. Lo cierto es que reapareció en la Argentina con otro nombre: Hugo Jara. Se operó la cara, se tiñó el pelo de blanco… y según contó un abogado que lo conocía, se quemó las huellas digitales con ácido. Como Hugo Jara, se hizo amigo de Claudio Nozzi, un productor de cine y televisión. Le hablaba de una película de 10 millones de dólares. Vivía en su casa. Navegaba en su yate."
+    },
+    {
+      "id": "s05",
+      "texto": "En marzo de 2005, los dos navegan por el Paraná en un yate, el Trasulag Dos, y paran en Corrientes, en el Hotel de Turismo. Después, cerca de Itatí, Claudio Nozzi desaparece. A los pocos días, el río devuelve un cuerpo atado con cadenas a dos anclas viejas. Era Nozzi. La Prefectura detiene al hombre del yate, que dice llamarse Hugo Jara. Pero el nombre falso se cae: es Luis Raúl Menoquio, buscado por Interpol. Paraguay pide que se lo entreguen. La Argentina responde que primero lo tiene que juzgar. Y el juicio no llega. En mayo de 2009, después de cuatro años preso sin condena, Menoquio sale en libertad. Y se va a vivir… al Hotel de Turismo de Corrientes."
+    },
+    {
+      "id": "s06",
+      "texto": "Ahí entra en escena el otro protagonista. Manuel Roseo había nacido en Roma en 1935 y llegó a la Argentina a los 21 años. A principios de los 70, con su hermano Luis, compró La Fidelidad: 250.000 hectáreas en el Impenetrable, uno de los últimos montes intactos del Gran Chaco, partidas al medio por el río Bermejo. Mientras alrededor el monte se convertía en soja, los Roseo casi no lo tocaron. Y Manuel vivía como un peón. [softly] «Yo, como no tengo hijos, me puedo dar el lujo de vivir mal», le dijo en el año 2000 al Diario Norte. Un campo así podía valer cientos de millones de dólares. Y su dueño tenía 75 años, ningún hijo con su apellido… y ninguna custodia."
+    },
+    {
+      "id": "s07",
+      "texto": "En 2010, un vendedor de autos usados, Claudio Gómez, le inició un juicio a Roseo en Santa Fe con un boleto de compraventa que Roseo negó haber firmado. En diciembre, Menoquio asegura que le compró el campo por 40 millones de dólares. Ese pago nunca se pudo probar. El 6 de enero de 2011 lo visita en Castelli y se saca una foto abrazado con él. Siete días después entran a la casa de la calle España. Roseo y su cuñada, Nélida Bartolomé, una maestra jubilada de 73 años, son atados y golpeados durante más de una hora. Buscaban una firma, una huella, el lugar de las escrituras. Los dos murieron asfixiados. Después, los asesinos limpiaron la casa con solvente y simularon un robo."
+    },
+    {
+      "id": "s08",
+      "texto": "Pero cometieron un error. Un empleado de Roseo, Sergio Berg, llegó en medio del ataque. Lo golpearon, le ataron una bolsa en la cabeza y lo metieron en el baúl de su propio auto. Escuchó una frase: «Tenemos que hacer desaparecer a este». Lo dejaron cerca de Tres Isletas, junto a un pozo recién cavado, creyendo que estaba muerto. [pause] Berg rompió la bolsa con los dientes. Y sobrevivió. Había escuchado un nombre: Raúl. Y una forma de hablar inconfundible: un tartamudeo. Once días después, la Policía del Chaco encontró a Menoquio en el centro de Corrientes. Dijo que estaba de vacaciones."
+    },
+    {
+      "id": "s09",
+      "texto": "En mayo de 2012, un tribunal de Corrientes lo condenó a prisión perpetua por el asesinato de Claudio Nozzi. En octubre de 2013, la Justicia del Chaco le dio la segunda perpetua por los crímenes de Manuel Roseo y Nélida Bartolomé, junto con Claudio Gómez y Salvador Borda. Menoquio negó todo. Dice que compró el campo de verdad, que lo eligieron como culpable por su pasado… y que a Nozzi no lo mató. [softly] «Era mi amigo», repite."
+    },
+    {
+      "id": "s10",
+      "texto": "Pero la historia de La Fidelidad no terminó en los tribunales. Ese mismo año, el gobierno del Chaco decidió expropiar su parte del campo, y el ambientalista estadounidense Douglas Tómkins puso casi todo el dinero. En 2014, una ley del Congreso creó ahí el Parque Nacional El Impenetrable: unas 128.000 hectáreas de monte nativo sobre el Bermejo, el parque más grande del norte argentino. En 2019, una cámara trampa filmó en la orilla del río a un yaguareté silvestre. Le pusieron Caramta. El campo por el que mataron a Manuel Roseo hoy es un santuario. Y la pelea por su herencia… sigue en la Justicia."
+    },
+    {
+      "id": "s11",
+      "texto": "¿Y el hombre de las mil caras? En 2014, después de un intento de fuga, lo mandaron a la cárcel de máxima seguridad de Ráuson, en Chubut. Ahí pasó doce años. En agosto de 2026, el gobierno del Chubut lo señaló como jefe de una red narco que, según la investigación, manejaba desde su celda: hubo 40 allanamientos y 17 detenidos, entre ellos familiares suyos. Él lo niega. Un fin de semana, sin aviso, lo trasladaron al pabellón de alto riesgo de Ezeiza. Y su abogado dice que Netflix quiere contar su vida. Netflix no lo confirmó. [pause] Luis Raúl Menoquio cambió de nombre, de país y de cara. Tiene dos perpetuas por tres asesinatos, y Paraguay todavía lo busca por otros dos. Y el campo que, según la Justicia, quiso quedarse a cualquier precio… hoy es de todos."
+    }
+  ],
+  "vertical": [
+    {
+      "id": "v01",
+      "texto": "Se operó la cara. Se tiñó el pelo de blanco. Dicen que se quemó las huellas con ácido. Cambió de nombre, de país… y aun así terminó con dos perpetuas. Esta es la historia del Gusano Menoquio, el hombre de las mil caras. Y del crimen que terminó en un parque nacional."
+    },
+    {
+      "id": "v02",
+      "texto": "Nació en Posadas, en 1959, en una de las familias más ricas de la yerba mate: su empresa hasta levantó un pueblo con su apellido. Le decían el Gusano. Alto, flaco… y tartamudo cuando se ponía nervioso. En 2004, en Paraguay, un empresario y su novia de 19 años se subieron a su camioneta. Once días después aparecieron en dos tambores sellados con cemento. Él siempre lo negó, y nunca lo juzgaron. Cuando la Policía fue a buscarlo, ya no estaba."
+    },
+    {
+      "id": "v03",
+      "texto": "Reapareció en la Argentina como Hugo Jara. Se hizo amigo de un productor de cine, Claudio Nozzi, y se subió a su yate. En marzo de 2005, el Paraná devolvió el cuerpo de Nozzi, atado con cadenas a dos anclas. La Prefectura detuvo a Hugo Jara… que era Menoquio, buscado por Interpol. Pero el juicio no llegaba. En 2009, después de cuatro años preso sin condena, salió libre."
+    },
+    {
+      "id": "v04",
+      "texto": "Ya libre, se acercó a Manuel Roseo: un hombre de 75 años que vivía como un peón y era dueño de 250.000 hectáreas en el Impenetrable. Un campo del tamaño de Luxemburgo. El 6 de enero de 2011 se sacó una foto abrazado con él. Siete días después, tres hombres entraron a su casa, en el Chaco. Buscaban una firma, una huella, las escrituras. Roseo y su cuñada murieron torturados. Un empleado al que dieron por muerto sobrevivió… y recordó un tartamudeo."
+    },
+    {
+      "id": "v05",
+      "texto": "Menoquio tiene dos perpetuas por tres asesinatos, y jura que es inocente. El campo por el que mataron a Roseo hoy es el Parque Nacional El Impenetrable. En agosto lo trasladaron en secreto a Ezeiza, y su abogado dice que Netflix quiere contar su vida. Pero hay mucho más: la fuga, el yate, la herencia que todavía se disputa. La historia completa está en nuestro canal de YouTube. Buscá CONTEXTO."
+    }
+  ]
+}
