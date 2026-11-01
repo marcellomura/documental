@@ -262,7 +262,7 @@ const dms = (x: number, neg: string, pos: string) => {
 /** minimapa de ubicación (Sudamérica austral) con el recuadro de lo que se ve */
 const Inset: React.FC<{view: View; proj: GeoProjection; W: number; H: number; v: boolean}> = ({view, proj, W, H, v}) => {
   if (view.scale < 2500) return null;
-  const w = v ? 200 : 170, h = v ? 240 : 205, x0 = v ? W - w - 50 : W - w - 56, y0 = v ? H - h - 420 : H - h - 60;
+  const w = v ? 200 : 170, h = v ? 240 : 205, x0 = v ? W - w - 50 : W - w - 56, y0 = v ? 250 : H - h - 60;
   const ip = geoMercator().center([-62, -32]).scale(v ? 300 : 255).translate([x0 + w / 2, y0 + h / 2]).precision(0);
   const ipath = geoPath(ip);
   const a = proj.invert ? proj.invert([0, 0]) : null, b = proj.invert ? proj.invert([W, H]) : null;
