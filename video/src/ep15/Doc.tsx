@@ -119,6 +119,15 @@ const SHOTS: Shot[] = [
       proj={{k: t > A('s04', 'segun conto') ? 1.5 : 1.1, mode: t > A('s04', 'segun conto') ? 'huella' : 'jara', off: t > A('s04', 'segun conto') ? 0 : t * 0.01, color: t > A('s04', 'segun conto') ? '#FF6A50' : '#FFE3C4'}}
       id={mix(0, 1, prog(t, A('s04', 'se opero'), 1.2))} scatter={0.25 * Math.sin(Math.PI * clamp((t - A('s04', 'se opero')) / 1.6))} rotY={0.1 - (t - S('s04')) * 0.01} />
   )},
+  /* sombra a la izquierda mientras aparecen «se operó la cara…»: el texto rojo no se pierde sobre la huella roja */
+  {a: A('s04', 'se opero') - 0.4, el: (t) => (
+    <>
+      <CabezaShot t={t} cam={dolly(t, A('s04', 'lo cierto'), A('s04', 'como hugo'), HEAD_FRONT, HEAD_CLOSE)} red={0.4}
+        proj={{k: t > A('s04', 'segun conto') ? 1.5 : 1.1, mode: t > A('s04', 'segun conto') ? 'huella' : 'jara', off: t > A('s04', 'segun conto') ? 0 : t * 0.01, color: t > A('s04', 'segun conto') ? '#FF6A50' : '#FFE3C4'}}
+        id={mix(0, 1, prog(t, A('s04', 'se opero'), 1.2))} scatter={0.25 * Math.sin(Math.PI * clamp((t - A('s04', 'se opero')) / 1.6))} rotY={0.1 - (t - S('s04')) * 0.01} />
+      <AbsoluteFill style={{background: 'linear-gradient(90deg, rgba(4,5,6,0.86) 0%, rgba(4,5,6,0.74) 38%, rgba(4,5,6,0.28) 55%, rgba(4,5,6,0) 70%)', opacity: prog(t, A('s04', 'se opero') - 0.4, 0.6)}} />
+    </>
+  )},
   {a: A('s04', 'como hugo') - 0.1, fi: 0.5, el: (t) => <FilmBeam t={t} />},
   {a: A('s04', 'vivia') - 0.1, fi: 0.6, el: (t) => <YateShot t={t} cam={dolly(t, A('s04', 'vivia') - 0.7, A('s05', 'y paran'), {pos: [-20, 2.6, 24], look: [0, 1.4, -2], fov: 34}, {pos: [-12, 1.8, 14], look: [0, 1.6, -2], fov: 34}, true)} />},
 
