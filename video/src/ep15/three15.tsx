@@ -541,24 +541,191 @@ const burlapTex = () => canvasTex('burlap15', 256, 256, (g) => {
   for (let i = 0; i < 1500; i++) { g.fillStyle = rnd(i) > 0.5 ? 'rgba(220,200,160,0.12)' : 'rgba(60,45,25,0.14)'; g.fillRect(rnd(i * 2.3) * 256, rnd(i * 4.1) * 256, 2, 2); }
   for (let i = 0; i < 5; i++) { const x = rnd(i * 7) * 256, y = rnd(i * 9) * 256; const gr = g.createRadialGradient(x, y, 0, x, y, 50); gr.addColorStop(0, 'rgba(60,45,30,0.3)'); gr.addColorStop(1, 'rgba(60,45,30,0)'); g.fillStyle = gr; g.fillRect(x - 50, y - 50, 100, 100); }
 });
-/** el jeep viejo tapado con bolsas de arpillera */
+/** la lona hecha con bolsas de arpillera cosidas: trama gruesa, costuras, manchas y un «50 KG» desteñido */
+const coverTex = () => canvasTex('arpillera15', 1024, 512, (g) => {
+  g.fillStyle = '#AD9165'; g.fillRect(0, 0, 1024, 512);
+  for (let i = 0; i < 1024; i += 5) {
+    g.fillStyle = `rgba(78,58,34,${0.2 + rnd(i * 1.7) * 0.16})`; g.fillRect(i, 0, 2, 512);
+    if (i < 512) { g.fillStyle = `rgba(78,58,34,${0.18 + rnd(i * 2.9) * 0.16})`; g.fillRect(0, i, 1024, 2); }
+  }
+  for (let i = 0; i < 6000; i++) { g.fillStyle = rnd(i * 1.1) > 0.5 ? 'rgba(225,205,165,0.13)' : 'rgba(55,40,22,0.15)'; g.fillRect(rnd(i * 2.3) * 1024, rnd(i * 4.1) * 512, 2, 2); }
+  // bolsas de tonos distintos
+  for (let k = 0; k < 4; k++) { g.fillStyle = `rgba(${rnd(k) > 0.5 ? '90,70,40' : '200,180,140'},${0.06 + rnd(k * 3) * 0.08})`; g.fillRect(k * 256, 0, 256, 512); }
+  // costuras entre bolsa y bolsa
+  g.strokeStyle = 'rgba(60,44,26,0.75)'; g.lineWidth = 3;
+  [256, 512, 768].forEach((x, k) => { g.beginPath(); g.moveTo(x, 0); for (let y = 0; y <= 512; y += 16) g.lineTo(x + Math.sin(y * 0.03 + k) * 4, y); g.stroke(); });
+  g.strokeStyle = 'rgba(225,210,175,0.55)'; g.lineWidth = 2;
+  [256, 512, 768].forEach((x, k) => { for (let y = 6; y < 512; y += 14) { const xx = x + Math.sin(y * 0.03 + k) * 4; g.beginPath(); g.moveTo(xx - 5, y); g.lineTo(xx + 5, y + 6); g.stroke(); } });
+  // manchas de barro y de humedad
+  for (let i = 0; i < 14; i++) { const x = rnd(i * 7.3) * 1024, y = rnd(i * 9.1) * 512, r = 30 + rnd(i * 3.7) * 70; const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, 'rgba(70,50,30,0.35)'); gr.addColorStop(1, 'rgba(70,50,30,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); }
+  // estampa desteñida de una bolsa
+  g.save(); g.translate(640, 250); g.rotate(-0.05); g.font = '900 64px Anton, Impact, sans-serif'; g.textAlign = 'center';
+  g.fillStyle = 'rgba(70,52,40,0.32)'; g.fillText('50 KG', 0, 0); g.font = '700 26px Anton, Impact, sans-serif'; g.fillText('INDUSTRIA ARGENTINA', 0, 40); g.restore();
+  // polvo en el ruedo
+  const d = g.createLinearGradient(0, 300, 0, 512); d.addColorStop(0, 'rgba(165,130,90,0)'); d.addColorStop(1, 'rgba(165,130,90,0.4)'); g.fillStyle = d; g.fillRect(0, 0, 1024, 512);
+});
+/** pintura verde oliva gastada: óxido en manchones irregulares (más abajo y en los bordes), chorreaduras y el polvo
+ *  de la calle que sube desde abajo */
+const jeepPaintTex = () => canvasTex('jeeppaint15', 512, 256, (g) => {
+  g.fillStyle = '#5E6C52'; g.fillRect(0, 0, 512, 256);
+  for (let i = 0; i < 5000; i++) { g.fillStyle = rnd(i * 1.3) > 0.5 ? 'rgba(170,175,140,0.08)' : 'rgba(30,36,24,0.12)'; g.fillRect(rnd(i * 2.3) * 512, rnd(i * 4.1) * 256, 2 + rnd(i * 7) * 5, 1 + rnd(i * 9) * 3); }
+  // pintura saltada: zonas más claras y gastadas
+  for (let i = 0; i < 9; i++) { const x = rnd(i * 3.7) * 512, y = rnd(i * 6.1) * 256, r = 20 + rnd(i * 2.9) * 40; const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, 'rgba(150,150,118,0.28)'); gr.addColorStop(1, 'rgba(150,150,118,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); }
+  // óxido: cada manchón son muchas manchitas amontonadas, más cerca de los bordes y de abajo
+  for (let c = 0; c < 7; c++) {
+    const cx = rnd(c * 11.7) * 512, cy = 120 + rnd(c * 5.9) * 140, R = 14 + rnd(c * 3.3) * 30;
+    for (let k = 0; k < 26; k++) {
+      const a = rnd(c * 50 + k * 1.7) * Math.PI * 2, d = Math.sqrt(rnd(c * 50 + k * 2.3)) * R;
+      const x = cx + Math.cos(a) * d * 1.5, y = cy + Math.sin(a) * d, r = 2 + rnd(c * 50 + k * 3.1) * 7;
+      g.fillStyle = `rgba(${Math.round(mix(95, 150, rnd(c + k * 0.37)))},${Math.round(mix(48, 80, rnd(c * 2 + k)))},24,${0.45 + rnd(k * 4.1 + c) * 0.4})`;
+      g.beginPath(); g.ellipse(x, y, r * 1.4, r, rnd(k + c) * 3, 0, Math.PI * 2); g.fill();
+    }
+  }
+  g.strokeStyle = 'rgba(105,58,28,0.28)'; g.lineWidth = 1.6;
+  for (let i = 0; i < 18; i++) { const x = rnd(i * 13.3) * 512, y = rnd(i * 17.1) * 110; g.beginPath(); g.moveTo(x, y); g.lineTo(x + (rnd(i * 1.9) - 0.5) * 6, y + 30 + rnd(i * 2.7) * 70); g.stroke(); }
+  const d = g.createLinearGradient(0, 150, 0, 256); d.addColorStop(0, 'rgba(165,128,88,0)'); d.addColorStop(1, 'rgba(165,128,88,0.55)');
+  g.fillStyle = d; g.fillRect(0, 0, 512, 256);
+});
+/** la trompa: nueve ranuras verticales y los faros redondos metidos en la parrilla */
+const grilleTex = () => canvasTex('jeepgrille15', 512, 288, (g) => {
+  g.fillStyle = '#676B53'; g.fillRect(0, 0, 512, 288);
+  for (let i = 0; i < 9; i++) {
+    const x = 118 + i * 31;
+    g.fillStyle = '#0B0C09'; g.fillRect(x, 64, 15, 170);
+    g.beginPath(); g.arc(x + 7.5, 64, 7.5, Math.PI, 0); g.arc(x + 7.5, 234, 7.5, 0, Math.PI); g.fill();
+  }
+  [[58, 104], [454, 104]].forEach(([x, y]) => {
+    g.fillStyle = '#2B2C24'; g.beginPath(); g.arc(x, y, 40, 0, Math.PI * 2); g.fill();
+    const gr = g.createRadialGradient(x - 9, y - 9, 3, x, y, 33); gr.addColorStop(0, '#F3EEDD'); gr.addColorStop(0.45, '#A9A796'); gr.addColorStop(1, '#3B3B32');
+    g.fillStyle = gr; g.beginPath(); g.arc(x, y, 33, 0, Math.PI * 2); g.fill();
+  });
+  for (let i = 0; i < 10; i++) { const x = rnd(i * 5.7) * 512, y = rnd(i * 8.3) * 288, r = 6 + rnd(i * 2.1) * 18; const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, 'rgba(112,58,26,0.7)'); gr.addColorStop(1, 'rgba(112,58,26,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); }
+  const d = g.createLinearGradient(0, 150, 0, 288); d.addColorStop(0, 'rgba(165,128,88,0)'); d.addColorStop(1, 'rgba(165,128,88,0.7)'); g.fillStyle = d; g.fillRect(0, 0, 512, 288);
+});
+/** cubierta con tacos gastados y polvo */
+const tireTex = () => canvasTex('jeeptire15', 512, 64, (g) => {
+  g.fillStyle = '#1C1B18'; g.fillRect(0, 0, 512, 64);
+  for (let i = 0; i < 48; i++) { g.fillStyle = '#2E2C27'; g.fillRect(i * (512 / 48), 4, 5, 26); g.fillRect(i * (512 / 48) + 5, 34, 5, 26); }
+  g.fillStyle = 'rgba(150,118,82,0.28)'; g.fillRect(0, 0, 512, 64);
+});
+/** lo que hay abajo de la lona: [z, x, altura, radio] */
+const COVER_BUMPS: [number, number, number, number][] = [[-1.3, -0.22, 0.26, 0.42], [-0.75, 0.25, 0.2, 0.4], [-0.3, -0.18, 0.17, 0.36], [-1.5, 0.32, 0.14, 0.3], [-0.05, 0.3, 0.1, 0.28]];
+const coverBump = (x: number, z: number) => COVER_BUMPS.reduce((acc, [bz, bx, bh, br]) => acc + bh * Math.exp(-((x - bx) ** 2 + (z - bz) ** 2) / (br * br)), 0);
+/** altura de la lona arriba de la caja, en (x, z) del jeep */
+const coverY = (x: number, z: number) => 0.99 + 0.03 + coverBump(x, z);
+/** la lona de arpillera: cae por los costados de la caja con pliegues, se apoya sobre lo que hay abajo y termina en
+ *  un ruedo desparejo */
+const drapeGeo = () => {
+  const NU = 44, NV = 34;
+  const g = new THREE.PlaneGeometry(1, 1, NU, NV);
+  const p = g.attributes.position, uv = g.attributes.uv;
+  const top = 0.99, half = 0.66, drop = 0.44, TOPF = 0.6;
+  for (let i = 0; i < p.count; i++) {
+    const u = uv.getX(i), v = uv.getY(i);
+    const z = mix(-1.82, 0.22, u);
+    const s = v * 2 - 1, as = Math.abs(s), sg = Math.sign(s) || 1;
+    let x: number, y: number;
+    if (as <= TOPF) {
+      x = (s / TOPF) * half;
+      y = top + 0.03 + coverBump(x, z) * (1 - (as / TOPF) ** 6);
+    } else {
+      const k = (as - TOPF) / (1 - TOPF);
+      x = sg * (half + 0.055 * Math.sin(Math.min(1, k * 2.2) * Math.PI / 2) + 0.03 * k);
+      y = top + 0.03 - drop * Math.pow(k, 1.15);
+      // pliegues verticales que se abren hacia el ruedo y un ruedo desparejo
+      x += sg * k * (0.022 * Math.sin(z * 13 + 0.7) + 0.012 * Math.sin(z * 31 + 2.1));
+      y += k * k * (0.045 * Math.sin(z * 7.3 + 0.4) + 0.025 * Math.sin(z * 19 + 1.7) + 0.02 * (rnd(Math.round(z * 40)) - 0.5));
+    }
+    // cae también por atrás de la caja y se recoge contra el parabrisas
+    const back = clamp((0.07 - u) / 0.07), front = clamp((u - 0.93) / 0.07);
+    y -= back * back * 0.38 + front * front * 0.12;
+    p.setXYZ(i, x, y, z - back * 0.05);
+  }
+  g.computeVertexNormals();
+  return g;
+};
+/** bolsa de arpillera llena, acostada: un almohadón irregular, más chato abajo, con las dos esquinas de la boca */
+const sackGeo = (seed: number) => {
+  const g = new THREE.SphereGeometry(1, 26, 18);
+  const p = g.attributes.position, v = new THREE.Vector3();
+  const sq = (a: number, e: number) => Math.sign(a) * Math.pow(Math.abs(a), e);
+  for (let i = 0; i < p.count; i++) {
+    v.fromBufferAttribute(p, i);
+    const lump = 1 + 0.06 * Math.sin(v.x * 6 + seed) * Math.sin(v.z * 5 + seed * 2) + 0.04 * Math.sin(v.y * 9 + seed * 3);
+    let x = sq(v.x, 0.5) * lump, y = sq(v.y, 0.85) * lump, z = sq(v.z, 0.55) * lump;
+    if (y < 0) y *= 0.5;
+    // la boca atada: el extremo se achica y le quedan dos orejas
+    const end = clamp((x - 0.72) / 0.28);
+    y *= 1 - end * 0.55; z *= 1 + end * 0.12 * Math.abs(Math.sin(v.z * 3));
+    p.setXYZ(i, x, y, z);
+  }
+  g.computeVertexNormals();
+  return g;
+};
+/** bolsas sueltas arriba de la lona: [x, z, giro, tamaño, variante] */
+const SACKS: [number, number, number, number, number][] = [[0.18, -1.32, 0.25, 1.0, 0], [-0.24, -0.82, -0.35, 0.95, 1], [0.12, -0.52, 1.45, 0.85, 2], [-0.05, -1.62, 1.7, 0.8, 1]];
+/** el jeep viejo (tipo IKA o Willys) de Roseo, gastado y tapado con bolsas de arpillera */
 export const JeepTapado: React.FC<{pos: V3; yaw?: number}> = ({pos, yaw = 0}) => {
-  const tx = burlapTex();
-  const bags: [V3, V3, V3, string][] = useMemo(() => Array.from({length: 9}, (_, i) => [
-    [(rnd(i * 2.1) - 0.5) * 1.2, 1.45 + rnd(i * 3.3) * 0.25, -1.6 + i * 0.4] as V3,
-    [rnd(i) * 0.3 - 0.15, rnd(i * 5) * 0.6, rnd(i * 7) * 0.3 - 0.15] as V3,
-    [1.0 + rnd(i * 4) * 0.5, 0.18 + rnd(i * 6) * 0.1, 0.7 + rnd(i * 8) * 0.3] as V3,
-    ['#B0946A', '#9E8259', '#A68A60', '#8F7650'][i % 4],
-  ]), []);
+  const r = useMemo(() => {
+    const paint = new THREE.MeshStandardMaterial({map: jeepPaintTex(), roughness: 0.72, metalness: 0.3});
+    const dark = new THREE.MeshStandardMaterial({color: '#191915', roughness: 0.85, metalness: 0.2});
+    const tire = new THREE.MeshStandardMaterial({map: tireTex(), roughness: 0.95});
+    const rim = new THREE.MeshStandardMaterial({color: '#5E624C', roughness: 0.6, metalness: 0.45});
+    const grille = new THREE.MeshStandardMaterial({map: grilleTex(), roughness: 0.7, metalness: 0.3});
+    const glass = new THREE.MeshStandardMaterial({color: '#28363A', roughness: 0.12, metalness: 0.7, transparent: true, opacity: 0.62});
+    const cover = new THREE.MeshStandardMaterial({map: coverTex(), roughness: 1, side: THREE.DoubleSide});
+    const sackTex = burlapTex();
+    const sacks = [0, 1, 2].map((i) => new THREE.MeshStandardMaterial({map: sackTex, color: ['#D8C4A0', '#C9B28A', '#E0CFAE'][i], roughness: 1}));
+    return {paint, dark, tire, rim, grille, glass, cover, sacks, drape: drapeGeo(), sackG: [sackGeo(1.3), sackGeo(4.1), sackGeo(7.7)]};
+  }, []);
+  const box = (key: string, p: V3, s: V3, m: THREE.Material, rot: V3 = [0, 0, 0]) => (
+    <mesh key={key} position={p} rotation={rot} material={m} castShadow receiveShadow><boxGeometry args={s} /></mesh>
+  );
   return (
     <group position={pos} rotation={[0, yaw, 0]}>
-      <mesh position={[0, 0.95, -0.2]} castShadow receiveShadow><boxGeometry args={[1.75, 1.1, 3.0]} /><meshStandardMaterial map={tx} color="#B39669" roughness={1} /></mesh>
-      <mesh position={[0, 0.72, 1.55]} castShadow receiveShadow><boxGeometry args={[1.6, 0.62, 1.2]} /><meshStandardMaterial map={tx} color="#A88D63" roughness={1} /></mesh>
-      {bags.map(([p, r, s, c], i) => (
-        <mesh key={i} position={p} rotation={r} scale={s} castShadow><sphereGeometry args={[1, 12, 8]} /><meshStandardMaterial map={tx} color={c} roughness={1} /></mesh>
+      {/* chasis, caja de atrás (con los pasaruedas) y capot */}
+      {box('chasis', [0, 0.4, -0.15], [1.05, 0.14, 3.2], r.dark)}
+      {box('caja', [0, 0.8, -0.72], [1.32, 0.36, 2.0], r.paint)}
+      {box('faldon', [0, 0.53, -0.3], [1.3, 0.2, 0.6], r.paint)}
+      {box('faldon2', [0, 0.53, -1.62], [1.3, 0.2, 0.28], r.paint)}
+      {box('torpedo', [0, 0.8, 0.27], [1.3, 0.38, 0.1], r.paint)}
+      {box('capot', [0, 0.83, 0.92], [1.0, 0.4, 1.3], r.paint)}
+      <mesh position={[0, 0.745, 1.575]} material={r.grille} castShadow receiveShadow><boxGeometry args={[1.02, 0.56, 0.04]} /></mesh>
+      {/* guardabarros chatos sobre las ruedas de adelante, con la punta que baja */}
+      {[-1, 1].map((sd) => (
+        <group key={'gb' + sd}>
+          {box('gbt' + sd, [sd * 0.665, 0.81, 0.93], [0.33, 0.035, 1.22], r.paint)}
+          {box('gbf' + sd, [sd * 0.665, 0.715, 1.6], [0.33, 0.035, 0.26], r.paint, [0.75, 0, 0])}
+          {box('gbi' + sd, [sd * 0.51, 0.7, 0.93], [0.02, 0.2, 1.22], r.dark)}
+        </group>
       ))}
-      {[[-0.86, -1.2], [0.86, -1.2], [-0.86, 1.4], [0.86, 1.4]].map(([x, z], i) => (
-        <mesh key={'w' + i} position={[x, 0.38, z]} rotation={[0, 0, Math.PI / 2]} castShadow><cylinderGeometry args={[0.38, 0.38, 0.26, 18]} /><meshStandardMaterial color="#141414" roughness={0.9} /></mesh>
+      {/* paragolpes */}
+      {box('pgd', [0, 0.47, 1.7], [1.62, 0.12, 0.08], r.dark)}
+      {[-1, 1].map((sd) => box('pgt' + sd, [sd * 0.52, 0.5, -1.76], [0.26, 0.1, 0.08], r.dark))}
+      {/* parabrisas partido, apenas inclinado */}
+      <group position={[0, 0.99, 0.3]} rotation={[-0.14, 0, 0]}>
+        {box('pb1', [0, 0.025, 0], [1.3, 0.05, 0.05], r.paint)}
+        {box('pb2', [0, 0.45, 0], [1.3, 0.05, 0.05], r.paint)}
+        {[-1, 0, 1].map((k) => box('pb3' + k, [k * 0.625, 0.235, 0], [k === 0 ? 0.035 : 0.05, 0.42, 0.05], r.paint))}
+        <mesh position={[0, 0.235, 0]} material={r.glass}><planeGeometry args={[1.22, 0.4]} /></mesh>
+      </group>
+      {/* ruedas: cubierta con tacos, llanta pintada y maza */}
+      {[[-0.63, 1.0], [0.63, 1.0], [-0.63, -1.03], [0.63, -1.03]].map(([x, z], i) => (
+        <group key={'w' + i} position={[x, 0.36, z]} rotation={[0, 0, Math.PI / 2]}>
+          <mesh material={r.tire} castShadow receiveShadow><cylinderGeometry args={[0.36, 0.36, 0.22, 32]} /></mesh>
+          <mesh material={r.rim} castShadow><cylinderGeometry args={[0.2, 0.2, 0.226, 24]} /></mesh>
+          <mesh material={r.dark}><cylinderGeometry args={[0.07, 0.07, 0.24, 12]} /></mesh>
+        </group>
+      ))}
+      {/* auxilio atrás */}
+      <group position={[0.34, 0.8, -1.86]} rotation={[Math.PI / 2, 0, 0]}>
+        <mesh material={r.tire} castShadow receiveShadow><cylinderGeometry args={[0.33, 0.33, 0.2, 32]} /></mesh>
+        <mesh material={r.rim}><cylinderGeometry args={[0.18, 0.18, 0.205, 24]} /></mesh>
+      </group>
+      {/* la lona de arpillera y las bolsas encima */}
+      <mesh geometry={r.drape} material={r.cover} castShadow receiveShadow />
+      {SACKS.map(([x, z, ry, sc, k], i) => (
+        <mesh key={'b' + i} geometry={r.sackG[k]} material={r.sacks[k]} position={[x, coverY(x, z) + 0.17 * sc * 0.5 - 0.015, z]} rotation={[0, ry, (rnd(i * 3.3) - 0.5) * 0.12]} scale={[0.46 * sc, 0.17 * sc, 0.29 * sc]} castShadow receiveShadow />
       ))}
     </group>
   );
@@ -594,17 +761,31 @@ const House: React.FC<{pos: V3; w?: number; h?: number; d?: number; color?: stri
     </group>
   );
 };
-/** silueta humana sin rostro: cápsula y cabeza, con un balanceo de caminata */
+/** silueta humana sin rostro: hombros más anchos que la cadera, cuello, cabeza y brazos que se balancean contra las piernas */
 export const Figure: React.FC<{pos: V3; t: number; walk?: number; color?: string; yaw?: number; scale?: number}> = ({pos, t, walk = 1, color = '#0A0B0C', yaw = 0, scale = 1}) => {
   const ph = t * 5.6;
+  const sw = (sd: number) => Math.sin(ph + (sd > 0 ? 0 : Math.PI));
+  const mat = <meshStandardMaterial color={color} roughness={0.9} />;
   return (
-    <group position={[pos[0], pos[1] + Math.abs(Math.sin(ph)) * 0.05 * walk, pos[2]]} rotation={[0, yaw, Math.sin(ph) * 0.02 * walk]} scale={scale}>
-      <mesh position={[0, 1.1, 0]} castShadow><capsuleGeometry args={[0.27, 0.95, 4, 10]} /><meshStandardMaterial color={color} roughness={0.9} /></mesh>
-      <mesh position={[0, 1.95, 0]} castShadow><sphereGeometry args={[0.17, 12, 10]} /><meshStandardMaterial color={color} roughness={0.9} /></mesh>
+    <group position={[pos[0], pos[1] + Math.abs(Math.sin(ph)) * 0.04 * walk, pos[2]]} rotation={[0, yaw, Math.sin(ph) * 0.015 * walk]} scale={scale}>
+      {/* pecho achatado que se angosta en la cintura, cadera apenas más ancha y hombros redondeados */}
+      <mesh position={[0, 1.25, 0]} scale={[1, 1, 0.6]} castShadow><capsuleGeometry args={[0.17, 0.3, 6, 16]} />{mat}</mesh>
+      <mesh position={[0, 0.97, 0]} scale={[1.05, 0.8, 0.7]} castShadow><sphereGeometry args={[0.15, 16, 12]} />{mat}</mesh>
+      <mesh position={[0, 1.47, 0]} rotation={[0, 0, Math.PI / 2]} scale={[1, 1, 0.72]} castShadow><capsuleGeometry args={[0.07, 0.29, 4, 12]} />{mat}</mesh>
+      {/* cuello y cabeza, apenas adelantada */}
+      <mesh position={[0, 1.57, 0.01]} castShadow><cylinderGeometry args={[0.048, 0.058, 0.12, 10]} />{mat}</mesh>
+      <mesh position={[0, 1.695, 0.02]} scale={[0.88, 1.08, 1]} castShadow><sphereGeometry args={[0.108, 16, 12]} />{mat}</mesh>
+      {/* brazos pegados al cuerpo desde los hombros, contra el paso de las piernas */}
       {[-1, 1].map((sd) => (
-        <mesh key={sd} position={[sd * 0.12, 0.38, Math.sin(ph + (sd > 0 ? 0 : Math.PI)) * 0.18 * walk]} rotation={[Math.sin(ph + (sd > 0 ? 0 : Math.PI)) * 0.45 * walk, 0, 0]} castShadow>
-          <capsuleGeometry args={[0.1, 0.6, 3, 8]} /><meshStandardMaterial color={color} roughness={0.9} />
-        </mesh>
+        <group key={'b' + sd} position={[sd * 0.2, 1.46, 0]} rotation={[-sw(sd) * 0.42 * walk, 0, sd * 0.035]}>
+          <mesh position={[0, -0.3, 0]} castShadow><capsuleGeometry args={[0.05, 0.55, 3, 10]} />{mat}</mesh>
+        </group>
+      ))}
+      {/* piernas desde la cadera */}
+      {[-1, 1].map((sd) => (
+        <group key={'p' + sd} position={[sd * 0.088, 0.93, 0]} rotation={[sw(sd) * 0.45 * walk, 0, 0]}>
+          <mesh position={[0, -0.465, 0]} castShadow><capsuleGeometry args={[0.072, 0.79, 3, 10]} />{mat}</mesh>
+        </group>
       ))}
     </group>
   );
@@ -649,35 +830,73 @@ const TreeCards: React.FC<{n?: number; area?: [number, number, number, number]; 
   }), [n, color]);
   return <>{meshes.map((m, i) => <primitive key={i} object={m} />)}</>;
 };
-/** copa de árbol en lienzo: cientos de hojas en verdes distintos, más claras arriba a la derecha (el sol) */
+/** copa de árbol en lienzo: racimos de hojas en verdes distintos, ralos en el borde (la silueta queda desflecada) y más
+ *  oscuros abajo de cada racimo. La luz general la pone la escena: la copa tiene normales esféricas. */
 const canopyTex = () => canvasTex('canopy15', 512, 512, (g) => {
   g.clearRect(0, 0, 512, 512);
-  for (let i = 0; i < 2600; i++) {
-    const a = rnd(i * 1.3) * Math.PI * 2, r = Math.sqrt(rnd(i * 2.7)) * 230;
-    const x = 256 + Math.cos(a) * r * 1.05, y = 250 + Math.sin(a) * r * 0.82;
-    const lit = clamp(0.5 + (x - 256) / 600 - (y - 250) / 500 + (rnd(i * 5.1) - 0.5) * 0.5);
-    const c = [Math.round(mix(38, 120, lit)), Math.round(mix(52, 140, lit)), Math.round(mix(26, 60, lit))];
-    g.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`;
-    g.beginPath(); g.ellipse(x, y, 5 + rnd(i * 3.3) * 7, 3 + rnd(i * 4.4) * 4, rnd(i) * Math.PI, 0, Math.PI * 2); g.fill();
-  }
+  const clumps = Array.from({length: 8}, (_, c) => {
+    const a = rnd(c * 4.3) * Math.PI * 2, d = c === 0 ? 0 : 70 + rnd(c * 2.9) * 95;
+    return {x: 256 + Math.cos(a) * d * 1.05, y: 262 + Math.sin(a) * d * 0.8, r: c === 0 ? 135 : 62 + rnd(c * 6.1) * 52};
+  });
+  clumps.forEach((cl, c) => {
+    for (let k = 0; k < 520; k++) {
+      const i = c * 1000 + k;
+      const a = rnd(i * 1.3) * Math.PI * 2, d = Math.sqrt(rnd(i * 2.7)), x = cl.x + Math.cos(a) * d * cl.r, y = cl.y + Math.sin(a) * d * cl.r * 0.85;
+      if (rnd(i * 6.7) < d ** 4 * 0.75) continue;   // borde ralo
+      if (x < 8 || x > 504 || y < 8 || y > 504) continue;
+      const lit = clamp(0.58 - (y - cl.y) / (cl.r * 2.2) + (x - cl.x) / (cl.r * 4) + (rnd(i * 5.1) - 0.5) * 0.6);
+      g.fillStyle = `rgb(${Math.round(mix(40, 130, lit))},${Math.round(mix(56, 148, lit))},${Math.round(mix(26, 62, lit))})`;
+      g.beginPath(); g.ellipse(x, y, 4.5 + rnd(i * 3.3) * 6.5, 2.8 + rnd(i * 4.4) * 3.6, rnd(i) * Math.PI, 0, Math.PI * 2); g.fill();
+    }
+  });
 }, true, false);
-/** el paraíso de la vereda: tronco y tres tarjetas cruzadas con la copa (con sombra recortada por las hojas) */
+const barkTex = () => canvasTex('bark15', 64, 256, (g) => {
+  g.fillStyle = '#4A3A2C'; g.fillRect(0, 0, 64, 256);
+  for (let i = 0; i < 40; i++) { g.strokeStyle = rnd(i) > 0.5 ? 'rgba(25,18,12,0.55)' : 'rgba(120,100,80,0.3)'; g.lineWidth = 1 + rnd(i * 2) * 2; const x = rnd(i * 3.1) * 64; g.beginPath(); g.moveTo(x, 0); for (let y = 0; y <= 256; y += 16) g.lineTo(x + Math.sin(y * 0.05 + i) * 2, y); g.stroke(); }
+});
+/** el paraíso de la vereda: tronco con ramas que entran en la copa y once tarjetas de hojas cruzadas en distintos ángulos.
+ *  Las normales salen del centro de la copa: se ilumina como un volumen y el revés de una tarjeta no se oscurece. */
 const Paraiso: React.FC<{pos: V3}> = ({pos}) => {
   const res = useMemo(() => {
     const map = canopyTex();
-    const mat = new THREE.MeshStandardMaterial({map, alphaTest: 0.5, transparent: false, side: THREE.DoubleSide, roughness: 0.95});
+    const mat = new THREE.MeshStandardMaterial({map, alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.9});
+    mat.onBeforeCompile = (sh) => {
+      sh.fragmentShader = sh.fragmentShader.replace('#include <normal_fragment_begin>', THREE.ShaderChunk.normal_fragment_begin.replace('normal *= faceDirection;', ''));
+    };
+    mat.customProgramCacheKey = () => 'copa15';
     const depth = new THREE.MeshDepthMaterial({depthPacking: THREE.RGBADepthPacking, map, alphaTest: 0.5});
-    return {mat, depth};
+    const C = new THREE.Vector3(0, 4.55, 0);
+    const NC = 19;
+    const cards = Array.from({length: NC}, (_, i) => {
+      const w = 2.1 + rnd(i * 3.1) * 1.3, h = w * (0.74 + rnd(i * 4.7) * 0.16);
+      const g = new THREE.PlaneGeometry(w, h, 5, 5);
+      g.applyMatrix4(new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler((rnd(i * 5.3) - 0.5) * 0.7, (i / NC) * Math.PI * 2.6 + rnd(i * 6.1) * 0.6, (rnd(i * 7.9) - 0.5) * 0.5)));
+      // repartidas en un elipsoide: la copa redondeada y ancha del paraíso
+      const a = rnd(i * 8.3) * Math.PI * 2, rr = Math.sqrt(rnd(i * 9.7)) * 1.35;
+      g.translate(C.x + Math.cos(a) * rr, C.y + (rnd(i * 2.2) - 0.42) * 1.2 * (1 - rr / 2.2), C.z + Math.sin(a) * rr * 0.85);
+      const p = g.attributes.position, n = g.attributes.normal, v = new THREE.Vector3();
+      for (let k = 0; k < p.count; k++) { v.set(p.getX(k) - C.x, (p.getY(k) - C.y) * 1.35 + 0.35, p.getZ(k) - C.z).normalize(); n.setXYZ(k, v.x, v.y, v.z); }
+      n.needsUpdate = true;
+      return g;
+    });
+    // ramas: del tronco hacia la copa
+    const up = new THREE.Vector3(0, 1, 0);
+    const branches = Array.from({length: 5}, (_, i) => {
+      const ang = i * 1.257 + rnd(i * 4.4) * 0.6, tilt = 0.55 + rnd(i * 6.6) * 0.35, len = 1.3 + rnd(i * 2.8) * 0.7;
+      const dir = new THREE.Vector3(Math.sin(tilt) * Math.cos(ang), Math.cos(tilt), Math.sin(tilt) * Math.sin(ang));
+      const start = new THREE.Vector3(0, 3.0 + rnd(i * 3.9) * 0.4, 0);
+      return {pos: start.clone().addScaledVector(dir, len / 2), q: new THREE.Quaternion().setFromUnitVectors(up, dir), len};
+    });
+    const bark = new THREE.MeshStandardMaterial({map: barkTex(), roughness: 1});
+    return {mat, depth, cards, branches, bark};
   }, []);
   return (
     <group position={pos}>
-      <mesh position={[0, 1.7, 0]} castShadow><cylinderGeometry args={[0.15, 0.24, 3.4, 8]} /><meshStandardMaterial color="#3A2C21" roughness={1} /></mesh>
-      {[0, 1, 2].map((i) => (
-        <mesh key={i} position={[0, 4.4, 0]} rotation={[0, (i * Math.PI) / 3, 0]} material={res.mat} customDepthMaterial={res.depth} castShadow receiveShadow>
-          <planeGeometry args={[5.6, 4.6]} />
-        </mesh>
+      <mesh position={[0, 1.7, 0]} material={res.bark} castShadow receiveShadow><cylinderGeometry args={[0.13, 0.23, 3.4, 12]} /></mesh>
+      {res.branches.map((b, i) => (
+        <mesh key={'r' + i} position={b.pos} quaternion={b.q} material={res.bark} castShadow><cylinderGeometry args={[0.035, 0.09, b.len, 7]} /></mesh>
       ))}
-      <mesh position={[0, 4.6, 0]} rotation={[-Math.PI / 2, 0, 0.4]} material={res.mat} customDepthMaterial={res.depth} castShadow><planeGeometry args={[5.0, 4.4]} /></mesh>
+      {res.cards.map((g, i) => <mesh key={i} geometry={g} material={res.mat} customDepthMaterial={res.depth} castShadow receiveShadow />)}
     </group>
   );
 };
