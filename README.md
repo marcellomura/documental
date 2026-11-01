@@ -684,3 +684,71 @@ EP=reel01 OUT=la_maestra_que_iba_a_caballo_subtitulos_es.srt python3 tools/srt.p
 tools/cola_reel01.sh   # render por tramos (tools/render_reel01.sh), codificación final y control de congelados
 rclone copy entrega/la_maestra_que_iba_a_caballo_reel.mp4 "gdrive:CONTEXTO/Reel · La maestra que iba a caballo"
 ```
+
+# Episodio 15 · "EL HOMBRE DE LAS MIL CARAS" (el Gusano Menocchio y el crimen de La Fidelidad)
+
+Primer episodio con **dos formatos pensados juntos**: el documental para YouTube (9:22, 2560×1440, sin subtítulos incrustados) y un vertical de 2:46 para Reels, TikTok, Shorts y Facebook, con subtítulos palabra por palabra y una placa final que manda al documental. Cuenta la historia de Luis Raúl Menocchio, que cambió de nombre, de país y de cara:
+
+- la familia yerbatera de Posadas, «el Niño Raúl» y «el Gusano», y la quiebra de 1982
+- Asunción en 2004: el boliche Puerto Madero y los dos tambores sellados con cemento (principal sospechoso, nunca juzgado)
+- la fuga en dos versiones, «Hugo Jara», Claudio Nozzi, el Trasulag II y las dos anclas, y los cuatro años sin condena
+- Manuel Roseo y La Fidelidad (250.000 ha sobre el Bermejo), el boleto que Roseo negó, la foto del 6 de enero y la calle España
+- Sergio Berg, el baúl, el pozo, «Raúl» y el tartamudeo, y las dos perpetuas (2012 y 2013)
+- el campo que se volvió el Parque Nacional El Impenetrable, Qaramta, Rawson, la acusación narco de 2026 (él lo niega), Ezeiza y Netflix (no confirmado)
+
+| Archivo | Qué es |
+|---|---|
+| `video/out/el_hombre_de_las_mil_caras_1440p.mp4` | El documental (2560×1440, 9:22). No va al repo: está en Drive, en `CONTEXTO/Ep15 · El hombre de las mil caras` (carpeta `1xWJv-wtZDUdY_MO-a2cqoq_U6vLFyeT8`) |
+| `entrega/el_hombre_de_las_mil_caras_vertical.mp4` | El vertical (1080×1920, 2:46, subtítulos incrustados); también en Drive |
+| `entrega/el_hombre_de_las_mil_caras_subtitulos_es.srt` y `..._vertical_subtitulos_es.srt` | Subtítulos en español (el del largo, para subir a YouTube) |
+| `entrega/el_hombre_de_las_mil_caras_descripcion_youtube.md` | Títulos, descripción con capítulos, datos, fuentes y créditos, comentario fijado, etiquetas y configuración |
+| `entrega/el_hombre_de_las_mil_caras_vertical_publicacion.md` | Textos para Instagram, TikTok, Shorts y Facebook, comentarios fijados y cómo enlazar al documental |
+| `entrega/el_hombre_de_las_mil_caras_ab_miniaturas.md` | Tres miniaturas (16:9) y tres portadas (9:16) como prompts para GPT Image 2.1 |
+
+## Investigación y guion
+
+- Dossier con la cronología verificada, los cuidados legales, las discrepancias, lo que quedó afuera, los créditos y las fuentes con enlaces: `guion/ep15_investigacion.md`.
+- **Cuidados:** condenado solo por tres asesinatos (Nozzi; Roseo y Bartolomé). Por Paraguay va como sospechoso, con su versión. Las huellas con ácido van atribuidas a un abogado, y la cirugía y el pelo, a su propio relato. La red narco de 2026 es una acusación del Chubut, con su negativa. Lo de Netflix lo dice su abogado. Capitanich no se nombra y Berg es solo testigo. En pantalla aparecen «Según un abogado», «Su versión», «Él lo niega», «No confirmado», «Ilustración» e «Imagen ilustrativa».
+- Guion: `guion/ep15_menocchio.json`, con 11 segmentos del largo y 5 del vertical. Tiene grafías fonéticas para eleven_v4 (Menoquio, Ráuson, Tómkins, Caramta, Trasulag Dos), y el mapa `display` devuelve la ortografía real en los subtítulos.
+
+## Voz y audio
+
+- **Perfil nuevo de ElevenLabs.** Se probaron cinco voces y se eligió **Octavio** (`YmwwQQdY9i3i0hBWn1SD`, eleven_v4), que tiene el rango de F0 más amplio (18,2 semitonos), el ritmo más pausado y graves cálidos. Kadrath se descartó por ruido de fondo (−60 dB). Hay dos tomas por segmento y se eligieron transcribiéndolas con whisper medium sin `initial_prompt` (con él se salteaba frases). Las mediciones están en `audio/ep15/audicion/` y la evaluación en `audio/ep15/takes/`.
+- `tools/proc_audio.py` (TEMPO 1,04 el largo y 1,0 el vertical) y `tools/align.py` (ahora saca las etiquetas `[pause]` y `[softly]`). `tools/timeline_ep15.py` (EP=ep15 o ep15v) abre silencios después de las frases que necesitan aire.
+- Música: seis temas telúricos originales de Eleven Music (`video/public/ep15/music`: apertura, paraguay, río, fidelidad, crimen y final). Efectos: diez nuevos, con dos tomas de cada uno (`video/public/ep15/sfx`: amanecer, río de noche, cadenas, tambores, puerta, baúl, bombo legüero, balsa, trueno y yaguareté), más efectos de episodios anteriores. Los ids de ElevenLabs están en los `ids.json` de cada carpeta.
+- `tools/mix_ep15.py` (EP=ep15 o ep15v; los efectos del vertical están en `tools/mix_ep15v_cues.py`). El pico de «apertura» cae en «el hombre de las mil caras» y el hueco de «crimen» cae en «sobrevivió». Las condenas suenan solo con un dron grave y el bombo. «Fidelidad» vuelve cuando el campo se hace parque, y «final» crece hasta «hoy es de todos». La música va unos 18 dB debajo de la voz. Las dos mezclas están a −14 LUFS.
+
+## Qué tiene de nuevo
+
+- **«Las mil caras» en 3D** (`video/src/ep15/three15.tsx`): un maniquí sin rostro calculado como campo de distancia (cráneo, mandíbula, nariz, órbitas, labios y orejas con uniones suaves) y tres identidades que se mezclan. Un shader le proyecta nombres, una huella digital o una grilla biométrica, y le pasa una línea roja de escaneo. En los cambios de identidad, la cabeza se desarma en triángulos.
+- **Vuelo sobre la imagen satelital real** (Sentinel-2, mayo de 2026, mosaico de dos escenas, `tools/sat_ep15.py`): el Bermejo, el monte intacto, el desmonte del este y el contorno del parque (OpenStreetMap) que se dibuja en 3D.
+- **Castelli al amanecer** con sombras del sol rasante, la casa revocada, el jeep tapado con arpillera, el paraíso de la vereda, el monte en siluetas y las tres siluetas que entran. También el Trasulag II de noche en el Paraná con reflejos, las cadenas y las anclas bajo el agua turbia, los tambores en la laguna con linternas y el pabellón.
+- **Mapas en canvas** (`map15.tsx`): países, provincias y ríos reales, con rutas que se dibujan, pines, un minimapa de ubicación, coordenadas y Luxemburgo a la misma escala que las 250.000 ha. El globo muestra el viaje de Roseo de Roma a la Argentina.
+- Sistema visual «policial documental» (`kit.tsx`, `kit2.tsx`): grano, placas de capítulo, sellos, expedientes, el neón del boliche, la camioneta que se aleja, la polaroid con flash, el tartamudeo, el baúl, el haz del proyector y el título que se arma desde el polvo.
+
+## Escenas (`video/src/ep15/`)
+
+- `Doc.tsx` (entrada `src/index15.tsx`, composición `Doc15`): los planos del largo atados a la locución con `L.at()`, con siete capítulos.
+- `Vert.tsx` (entrada `src/index15v.tsx`, composición `Vert15`): el vertical con subtítulos y la placa final a YouTube.
+- `shots15.tsx`: los planos 3D listos para usar, que se adaptan al formato. `test.tsx` (entrada `src/index15t.tsx`): stills de prueba del 3D.
+
+## Render: lo que se aprendió
+
+- **El lienzo 3D de Remotion solo se redibuja cuando cambia el cuadro.** Lo que carga tarde (fuentes para texturas de texto, imágenes satelitales) no llega a la captura. Por eso `useAssets15()` precarga todo en la raíz de la composición antes de montar el 3D.
+- **d3-geo con zoom grande** remuestrea cada segmento hasta 16 niveles y genera millones de puntos: `precision(0)` y `clipExtent`. Las capas fijas del mapa van en un canvas (el SVG costaba ~5 s por cuadro; el canvas, lo mismo que una foto).
+- **Satélite desde muy alto:** el plano de relleno se peleaba en profundidad con la imagen. Por eso hay un plano cercano de cámara proporcional a la altura y el relleno va 400 m más abajo.
+- **Sin antialiasing multimuestra** en el 3D y con sombras PCF de 1536: a 1440p y con grano no se nota, y el pueblo pasó de ~15 a ~10 s por cuadro con una sola pestaña.
+
+## Comandos
+
+```bash
+EP=ep15 NSEG=11 PREF=s TEMPO=1.04 PAUSAS=respirar python3 tools/proc_audio.py      # y EP=ep15v NSEG=5 PREF=v TEMPO=1.0
+EP=ep15 GUION=ep15_menocchio.json python3 tools/align.py                          # SEGKEY=vertical para el vertical
+EP=ep15 python3 tools/timeline_ep15.py && EP=ep15v python3 tools/timeline_ep15.py
+EP=ep15 python3 tools/mix_ep15.py && EP=ep15v python3 tools/mix_ep15.py            # -> audio/mix/mezcla_ep15{,v}.wav
+EP=ep15 OUT=el_hombre_de_las_mil_caras_subtitulos_es.srt python3 tools/srt.py
+EP=ep15v OUT=el_hombre_de_las_mil_caras_vertical_subtitulos_es.srt python3 tools/srt.py
+tools/cola_ep15.sh     # tramos del largo (render_ep15.sh, 1440p) y del vertical (render_ep15v.sh), los dos másters y el control
+rclone copy video/out/el_hombre_de_las_mil_caras_1440p.mp4 "gdrive:CONTEXTO/Ep15 · El hombre de las mil caras"
+python3 tools/pagina_publicacion_ep15.py ids.json previas/ kit.html                # página de publicación
+```
