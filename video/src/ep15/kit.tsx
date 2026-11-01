@@ -266,13 +266,20 @@ export const Captions: React.FC<{t: number; words: {w: string; s: number; e: num
   if (cur.length) chunks.push(cur);
   const ch = chunks.find((c, i) => t >= c[0].s - 0.05 && t < (chunks[i + 1] ? Math.min(chunks[i + 1][0].s - 0.05, c[c.length - 1].e + 0.6) : c[c.length - 1].e + 0.6));
   if (!ch) return null;
+  // contorno negro macizo (sombras en ocho direcciones) y un velo oscuro detrás: se lee igual sobre la cabeza con
+  // nombres proyectados, sobre el satélite o sobre una foto clara
+  const O = 4;
+  const outline = [[O, 0], [-O, 0], [0, O], [0, -O], [O * 0.7, O * 0.7], [-O * 0.7, O * 0.7], [O * 0.7, -O * 0.7], [-O * 0.7, -O * 0.7]].map(([x, yy]) => `${x}px ${yy}px 0 #000`).join(', ');
   return (
-    <div style={{position: 'absolute', left: 50, right: 50, top: y, textAlign: 'center', fontFamily: F.title, fontSize: 78, lineHeight: 1.08, letterSpacing: 1, textTransform: 'uppercase'}}>
-      {ch.map((w, i) => {
-        const on = t >= w.s - 0.03;
-        return <span key={i} style={{color: on ? (t < w.e + 0.05 ? K.ember : K.bone) : 'rgba(238,231,217,0.35)', textShadow: '0 4px 0 #000, 0 0 30px rgba(0,0,0,0.9)', marginRight: 18}}>{w.w.replace(/[«»"]/g, '')}</span>;
-      })}
-    </div>
+    <>
+      <div style={{position: 'absolute', left: 0, right: 0, top: y - 70, height: 240, background: 'radial-gradient(ellipse 62% 50% at 50% 50%, rgba(3,4,5,0.62) 0%, rgba(3,4,5,0.35) 45%, rgba(3,4,5,0) 100%)'}} />
+      <div style={{position: 'absolute', left: 50, right: 50, top: y, textAlign: 'center', fontFamily: F.title, fontSize: 78, lineHeight: 1.08, letterSpacing: 1, textTransform: 'uppercase'}}>
+        {ch.map((w, i) => {
+          const on = t >= w.s - 0.03;
+          return <span key={i} style={{color: on ? (t < w.e + 0.05 ? K.ember : K.bone) : 'rgba(238,231,217,0.55)', textShadow: `${outline}, 0 6px 0 #000, 0 0 30px rgba(0,0,0,0.9)`, marginRight: 18}}>{w.w.replace(/[«»"]/g, '')}</span>;
+        })}
+      </div>
+    </>
   );
 };
 /** marca del canal (logo) */
