@@ -116,7 +116,7 @@ const Overlays: React.FC<{t: number}> = ({t}) => (
     <Glitch t={t} t0={A('v01', 'cara') - 0.1} d={0.4} seed={3} />
     <Glitch t={t} t0={A('v01', 'mil') - 0.1} d={0.5} seed={9} />
     {/* v02 */}
-    <BigWord t={t} t0={A('v02', 'el gusano')} text="EL GUSANO" size={170} y={330} out={A('v02', 'alto') + 0.3} />
+    <BigWord t={t} t0={A('v02', 'el gusano')} text="EL GUSANO" size={170} y={330} out={A('v02', 'alto') - 0.45} />
     <Lines t={t} x={90} y={300} items={[{text: 'Alto', at: A('v02', 'alto'), big: true}, {text: 'Flaco', at: A('v02', 'flaco'), big: true}]} out={A('v02', 'y tartamudo') - 0.2} size={56} />
     <Stutter t={t} t0={A('v02', 'tartamudo') - 0.5} word="TARTAMUDO" y={420} size={120} out={A('v02', 'en 2004') - 0.2} />
     <Slate t={t} t0={A('v02', 'en 2004')} lines={['PARAGUAY · 2004']} x={70} y={220} size={34} out={A('v02', 'se subieron') - 0.2} />
