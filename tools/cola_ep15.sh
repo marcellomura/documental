@@ -9,7 +9,7 @@ tools/render_ep15.sh
 tools/render_ep15v.sh
 for ep in ep15 ep15v; do
   N=$(python3 -c "import json,math;t=json.load(open('video/src/data/$ep/timeline.json'));print(math.ceil(math.ceil(t['total']*t['fps'])/900))")
-  for n in $(seq -w 1 $N); do [ -s video/out/$ep/c$n.mp4 ] || { echo "falta el tramo $n de $ep"; exit 1; }; done
+  for i in $(seq 1 $N); do n=$(printf %02d $i); [ -s video/out/$ep/c$n.mp4 ] || { echo "falta el tramo $n de $ep"; exit 1; }; done
 done
 M=video/out/el_hombre_de_las_mil_caras_1440p.mp4
 if [ -s $M ] && [ -z "$(find video/out/ep15 -name 'c*.mp4' -newer $M)" ]; then echo "ya está el máster del largo"; else
