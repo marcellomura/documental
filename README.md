@@ -738,6 +738,31 @@ Primer episodio con **dos formatos pensados juntos**: el documental para YouTube
 - **d3-geo con zoom grande** remuestrea cada segmento hasta 16 niveles y genera millones de puntos: `precision(0)` y `clipExtent`. Las capas fijas del mapa van en un canvas (el SVG costaba ~5 s por cuadro; el canvas, lo mismo que una foto).
 - **Satélite desde muy alto:** el plano de relleno se peleaba en profundidad con la imagen. Por eso hay un plano cercano de cámara proporcional a la altura y el relleno va 400 m más abajo.
 - **Sin antialiasing multimuestra** en el 3D y con sombras PCF de 1536: a 1440p y con grano no se nota, y el pueblo pasó de ~15 a ~10 s por cuadro con una sola pestaña.
+- **Control tramo por tramo** (`tools/hoja_tramo.sh video/out/ep15/cNN.mp4`): una grilla con un cuadro cada 2 s y la hora del máster, apenas sale cada tramo. Así aparecieron, con tiempo para corregirlos antes de que se renderizaran (o rehaciendo solo ese tramo):
+  - una tarjeta horizontal en la copa del paraíso que se veía como una mancha oscura. Ahora la copa son 19 tarjetas con normales esféricas, ramas y borde desflecado.
+  - un jeep que era una caja. Ahora es tipo IKA, con parrilla de nueve ranuras, pintura gastada con óxido y una lona de bolsas cosidas.
+  - siluetas que parecían bolos. Ahora tienen hombros, cuello y brazos.
+  - 3 s de pantalla vacía en «Menocchio asegura que le compró el campo». Ahora va la cabeza con «Su versión».
+  - «se quemó las huellas con ácido» en rojo sobre la huella roja. Ahora hay una sombra lateral.
+  - el cierre, que se apagaba y dejaba ver el satélite otra vez. Ahora termina en negro.
+  - en el vertical: subtítulos que no se leían sobre la cabeza con nombres (ahora tienen contorno negro y velo) y «ALTO» encima de «EL GUSANO».
+- **Rehacer un tramo:** se mueve `cNN.mp4` fuera de la carpeta (a `video/out/ep15_v1/`, nunca a otro nombre dentro de `ep15/`, porque el máster junta `c*.mp4`) y `tools/cola_ep15.sh` lo vuelve a renderizar. Para rehacer uno en paralelo con la cola, conviene un bundle propio (`npx remotion bundle … --out-dir`), porque los scripts de tramos borran `/tmp/remotion-webpack-bundle-*` entre tramo y tramo.
+- **Si el contenedor se reinicia, se cortan los procesos pero los tramos quedan en disco.** Se relanza `tools/cola_ep15.sh` (saltea lo hecho). Los tiempos con 4 núcleos: entre 12 y 27 min por tramo del largo (51 min el del pueblo), unos 17 min por tramo del vertical y unos 100 min para el máster del largo en dos pasadas mientras se renderiza otra cosa.
+
+## Entrega y control (2/11/2026)
+
+| | Documental | Vertical |
+|---|---|---|
+| Archivo | `el_hombre_de_las_mil_caras_1440p.mp4` (solo en Drive) | `entrega/el_hombre_de_las_mil_caras_vertical.mp4` (en el repo y en Drive) |
+| Imagen | 2560×1440, H.264, 30 cps, 16 Mb/s | 1080×1920, H.264, 30 cps, 4,8 Mb/s |
+| Duración | 9:22,3 (16.869 cuadros) | 2:45,8 (4.973 cuadros) |
+| Sonido | AAC 48 kHz, −14,0 LUFS, pico real −1,3 dBTP, LRA 4,1 LU | AAC 48 kHz, −14,0 LUFS, pico real −1,2 dBTP, LRA 3,3 LU |
+| Tamaño | 1.139.980.263 bytes (md5 `4fe2ea06604cea295adafaecc183e674`) | 99.304.705 bytes (md5 `208cd7425eb2806024ea4bc6affe73ce`) |
+| Congelados | solo 2 s quietos en 7:03 (las dos sentencias, buscado) | ninguno |
+| Drive | `1vKHdStmsQHoE6nlamHiVcRfUEVFuoM2F` | `1r7hba8WP3Gwpkth2gWSmrWmd0X1lz-Ly` |
+
+- Carpeta de Drive: `CONTEXTO/Ep15 · El hombre de las mil caras` (`1xWJv-wtZDUdY_MO-a2cqoq_U6vLFyeT8`), con los dos videos, los dos `.srt`, la descripción, los textos del vertical, las miniaturas y el dossier. El md5 de Drive coincide con el local.
+- Página de publicación: https://claude.ai/artifact/H1PRVcw9nqy2rahDbwbw1y (`tools/pagina_publicacion_ep15.py`, con 8 cuadros del largo y 6 del vertical).
 
 ## Comandos
 
