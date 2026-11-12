@@ -1,0 +1,42 @@
+{
+  "titulo": "EL PUNTO DÉBIL",
+  "subtitulo": "La anomalía magnética que vive sobre nosotros",
+  "episodio": 16,
+  "modelo_voz": "eleven_v4",
+  "voz": {
+    "nombre": "Octavio - Calm Narrator",
+    "voice_id": "YmwwQQdY9i3i0hBWn1SD",
+    "por_que": "la misma voz del ep15 (audición del 1/11/2026); una sola toma por segmento para cuidar los créditos"
+  },
+  "nota_voz": "Grafías fonéticas para eleven_v4: Jábel (Hubble), Explórer Uno (Explorer 1), Yeims Van Alen (James Van Allen), Pétit (Pettit), Suorm (Swarm). Los números van en palabras. El mapa display devuelve la ortografía real en los subtítulos. El vertical no tiene locución propia: usa s01, s04, s06, s08 y s13 del largo, más v01 (la invitación al canal).",
+  "nota_datos": "Todo lo que se afirma sobre la posición y el valor del mínimo sale del modelo IGRF-14 (IAGA/NOAA) calculado con tools/igrf16.py y verificado contra las medias anuales del observatorio de Pilar (diferencias de decenas de nT en 120 años). Es el campo principal (el del núcleo): no incluye las anomalías locales de la corteza. La zona del mínimo es casi plana: todo el nordeste argentino y Paraguay comparten unos 22.100 nT. En pantalla va «Modelo IGRF-14». Fuentes y números en guion/ep16_investigacion.md.",
+  "display": {
+    "Jábel": "Hubble",
+    "Explórer Uno": "Explorer 1",
+    "Yeims Van Alen": "James Van Allen",
+    "Van Alen": "Van Allen",
+    "Pétit": "Pettit",
+    "Suorm": "Swarm"
+  },
+  "segmentos": [
+    {"id": "s01", "texto": "A cuatrocientos kilómetros de altura, la Estación Espacial Internacional le da una vuelta a la Tierra cada noventa minutos. Y varias veces por día atraviesa una zona que los ingenieros miran con respeto. [pause] Ahí, las computadoras se cuelgan. Los sensores se llenan de ruido. El telescopio Jábel deja de observar. Y los astronautas, con los ojos cerrados, ven destellos de luz. [pause] Le dicen el Triángulo de las Bermudas del espacio. Pero no está sobre las Bermudas. Está sobre Sudamérica. Y su punto más débil, hoy, cae en un lugar muy preciso: el monte del Chaco argentino."},
+    {"id": "s02", "texto": "Para entenderlo hay que bajar. Casi tres mil kilómetros bajo tus pies hay un océano de hierro líquido, casi tan caliente como la superficie del Sol. Ese hierro gira, sube y baja, y al moverse genera corrientes eléctricas. Las corrientes generan un campo magnético. Es un dínamo del tamaño de un planeta. [pause] Ese campo sale de la Tierra, la envuelve y llega a decenas de miles de kilómetros en el espacio. Es invisible, y es cien veces más débil que un imán de heladera. Pero alcanza para desviar el viento solar: un chorro de partículas que el Sol dispara a más de un millón de kilómetros por hora. [pause] Marte perdió su escudo hace miles de millones de años. Y con él, casi toda su atmósfera."},
+    {"id": "s03", "texto": "El escudo no solo desvía. También atrapa. En mil novecientos cincuenta y ocho, el primer satélite de Estados Unidos, el Explórer Uno, llevaba un contador de radiación. Cuanto más subía, más contaba… hasta que se saturó. El físico Yeims Van Alen había descubierto dos anillos gigantes de partículas atrapadas alrededor de la Tierra: los cinturones de Van Alen. [pause] El de adentro empieza a unos seiscientos kilómetros de altura. Lejos de casi todo. Salvo en un lugar."},
+    {"id": "s04", "texto": "El imán de la Tierra no está en el centro. Está inclinado nueve grados. Y está corrido: unos seiscientos kilómetros hacia el Pacífico. [pause] Del lado opuesto, el escudo queda más lejos… y más débil. Ese lado es el nuestro. Sobre Sudamérica y el Atlántico Sur, el cinturón de radiación baja hasta unos doscientos kilómetros de altura. Por debajo de la Estación Espacial. Por debajo del Jábel. Por debajo de miles de satélites. [pause] Es la Anomalía del Atlántico Sur."},
+    {"id": "s05", "texto": "Ahí arriba, un protón de alta energía puede atravesar un chip y cambiar un uno por un cero. Por eso muchos satélites apagan parte de sus equipos antes de entrar. El Jábel la cruza en siete a nueve de sus quince órbitas diarias, y en cada cruce deja de observar durante más de veinte minutos. Y un instrumento láser de la NASA, montado afuera de la Estación Espacial, se reinicia solo una vez por mes."},
+    {"id": "s06", "texto": "Adentro de la Estación Espacial, el astronauta Don Pétit contó que las notebooks se cuelgan. Que las cámaras pierden píxeles, como si les nevara encima. Y que, al cerrar los ojos para dormir, ve pasar destellos. Él los llamó hadas danzantes. [pause] Son partículas atravesándole la retina. Sobre esta zona, pasan de una o dos cada diez minutos… a varias por minuto."},
+    {"id": "s07", "texto": "Así se ve con datos reales. Cada punto es una medición de un satélite meteorológico europeo, a ochocientos kilómetros de altura, contando protones durante un mes. Casi todo el planeta está en calma. Y acá… esto."},
+    {"id": "s08", "texto": "¿Y abajo? En la superficie, el campo magnético se mide en nanoteslas. Cerca de los polos supera los sesenta mil. Acá, apenas pasa los veintidós mil. Un tercio. [pause] El modelo que usan los científicos de todo el mundo permite calcular dónde está el mínimo de todo el planeta. Hoy da veintiséis grados sur, sesenta oeste. Es el Chaco. A veinte kilómetros de Pampa del Indio."},
+    {"id": "s09", "texto": "No siempre estuvo ahí. En mil novecientos estaba en el océano, frente a Brasil. En los años sesenta tocó la costa. En los noventa entró por Misiones, cruzó Paraguay, pasó por Formosa… y sigue hacia el oeste, a unos veinte kilómetros por año."},
+    {"id": "s10", "texto": "Y no es solo un modelo. En Pilar, Córdoba, hay un observatorio que mide el campo magnético desde mil novecientos cinco. Entonces marcaba veintiocho mil ochocientos nanoteslas. Hoy, veintidós mil quinientos. Un veintidós por ciento menos en ciento veinte años. [pause] Y la zona débil crece. En mil novecientos cubría cuarenta y seis millones de kilómetros cuadrados. Hoy, ciento nueve. Una quinta parte del planeta. Los satélites europeos Suorm confirmaron que sigue creciendo, y que cerca de África está apareciendo un segundo mínimo. [pause] La anomalía se está partiendo en dos."},
+    {"id": "s11", "texto": "¿Por qué pasa esto? La respuesta está otra vez abajo, en el borde del núcleo. En el hemisferio sur, el campo debería salir de la Tierra. Pero debajo del Atlántico Sur hay manchas donde hace lo contrario: entra. Son parches de flujo invertido, y le restan fuerza al escudo. [pause] Una de las hipótesis los vincula con una masa gigante de roca densa y caliente, del tamaño de un continente, apoyada sobre el núcleo, debajo de África."},
+    {"id": "s12", "texto": "La pregunta incómoda es si esto es el principio de algo más grande. Porque el campo magnético de la Tierra se da vuelta: el norte pasa a ser sur. Pasó cientos de veces, y quedó grabado en las rocas del fondo del mar. La última fue hace unos setecientos ochenta mil años. Y en los últimos dos siglos, el campo global perdió casi un diez por ciento de su fuerza. [pause] Pero un estudio que reconstruyó nueve mil años de historia magnética encontró anomalías como esta en el pasado. Aparecieron… y se fueron, sin ninguna inversión. Su pronóstico: esta también va a desaparecer, en unos trescientos años."},
+    {"id": "s13", "texto": "¿Y a vos, que vivís justo abajo? Nada. La atmósfera frena lo que el campo deja pasar. La NASA lo dice sin vueltas: en la superficie, la anomalía no tiene efectos visibles en la vida diaria. Las brújulas funcionan. Tu celular también."},
+    {"id": "s14", "texto": "El problema está arriba, donde hoy vive buena parte de nuestra civilización: el pronóstico del tiempo, los mapas, las comunicaciones… y los satélites argentinos, que cruzan la anomalía todos los días."},
+    {"id": "s15", "texto": "El escudo que nos cuida no es perfecto, ni es eterno. Se mueve. Se debilita. Tiene una abolladura. [pause] Y esa abolladura tiene, por ahora, un centro: un punto en el monte chaqueño donde nadie siente nada. [pause] Mientras, cuatrocientos kilómetros más arriba, alguien pasa con los ojos cerrados… y ve luces."}
+  ],
+  "vertical": [
+    {"id": "v01", "texto": "La historia completa está en nuestro canal de YouTube. Buscá CONTEXTO."}
+  ],
+  "vertical_orden": ["s01", "s04", "s06", "s08", "s13", "v01"]
+}

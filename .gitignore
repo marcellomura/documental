@@ -24,3 +24,7 @@ raw/ep12/
 # ep15: tomas descartadas y audición de voces (los ids quedan en manifest.json, evaluacion.json y voces.json)
 audio/ep15/takes/*.mp3
 audio/ep15/audicion/*.mp3
+
+# ep16: descargas crudas (se regeneran con las herramientas)
+data/ep16/poes_src/
+data/ep16/obs_src/
