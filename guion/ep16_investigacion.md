@@ -21,6 +21,13 @@ Todo sale del **IGRF-14**, el modelo internacional de referencia del campo magn�
 | Momento dipolar | −7,6 % entre 1900 y 2025 | |
 | Mayor caída desde 1900 | −34 % al sur de África (47° S, 9° E) | |
 
+| Segundo mínimo local | aparece hacia 2006-2007 en 41° S, 1° O (24.858 nT en 2007 → 23.462 nT en 2025) | al sudoeste de África: «la anomalía se parte en dos» |
+| Borde del cinturón interior | superficie de \|B\| = 20.486 nT (el mínimo de \|B\| a 200 km): baja a 200 km en 24,5° S, 59,5° O; sobre el ecuador del lado opuesto está a 1.531 km | partículas que rebotan con más campo tocan la atmósfera en la AAS |
+| Hubble (simulación) | órbita circular de 28,47° y 525 km: 15,14 vueltas por día, 9 cruzan el contorno de 20.800 nT a esa altura | STScI informa de 7 a 9 |
+| Borde del núcleo (r = 3.485 km) | parches con Br < 0 al sur de 10° S: 8,9 % (1900) → 12,7 % (1960) → 18,0 % (2025), truncando en grado 10 | sólo para comparar años; en pantalla van los mapas, no el porcentaje |
+| Máximos | 66.952 nT en 59,5° S, 134,5° E (polo sur magnético); en el norte, 61.910 nT en 61,5° N, 101,5° E | |
+| Campo a 400 km sobre la pasada real de la Estación (22/4/2012) | de 43.568 nT sobre Idaho a 19.354 nT sobre Paraguay y Brasil | el tablero de la apertura |
+
 **Cuidados con el dato del Chaco**
 
 - Es el mínimo del **campo principal** (el que nace en el núcleo) según el modelo. No incluye las anomalías locales de la corteza ni las variaciones diarias.
@@ -58,6 +65,15 @@ Todo sale del **IGRF-14**, el modelo internacional de referencia del campo magn�
 - **Protones medidos:** detector SEM-2 del satélite meteorológico MetOp-A (EUMETSAT, instrumento de NOAA), a unos 820–850 km de altura, marzo de 2014. Archivo de NOAA/NCEI.
 - **Pilar:** medias anuales 1905–2024, World Data Centre for Geomagnetism (Edimburgo); el observatorio es del Servicio Meteorológico Nacional.
 - **Campo, líneas, cinturón y núcleo:** IGRF-14 calculado acá.
+
+## Material real del episodio
+
+- **Fotos de la Estación Espacial** (Gateway to Astronaut Photography of Earth, NASA JSC): pasadas nocturnas del 22/4/2012 (ISS030-E-260394 a 260709, de Idaho al Atlántico Sur, cruza la AAS), 23/4/2012 (ISS030-E-271717 a 271798), 29/6/2012 (ISS031-E-169858 a 170189, de la Amazonia al Atlántico Sur, relámpagos) y el amanecer del 10/3/2012 (ISS030-E-140634 a 141048). Posición y hora de cada foto en los metadatos de la base. Las tomó la tripulación de las Expediciones 30 y 31 (Pettit estaba a bordo, pero no se le atribuye cada foto).
+- **Don Pettit en la cúpula, 2012** (ISS031-E-112292, NASA). **Explorer 1** (NASA/JPL-Caltech y NASA MSFC, 1958). **Hubble eXtreme Deep Field** (NASA, ESA, Illingworth et al.).
+- **Tierra**: Blue Marble Next Generation (noviembre) y Black Marble 2016 (NASA Earth Observatory); nubes del 1/11/2025 de VIIRS en Suomi NPP, NOAA-20 y NOAA-21 (NASA GIBS), la mediana de los tres borra el reflejo del sol; Sentinel-2 cloudless 2016 de EOX (CC BY 4.0) para bajar al monte chaqueño.
+- **Marte**: Solar System Scope (CC BY 4.0). **Atardecer en el Chaco**: Er220, CC BY-SA 4.0 (del ep15).
+- **Música y efectos**: compuestos por código (tools/synth16.py, tools/mix_ep16.py); los silbidos y el coro de la magnetósfera imitan la física real (frecuencia ∝ 1/t² en los whistlers).
+- **Escala de polaridad** del fondo del mar: GTS2012 simplificada (esquema).
 
 ## Lo que quedó afuera
 

@@ -777,3 +777,59 @@ tools/cola_ep15.sh     # tramos del largo (render_ep15.sh, 1440p) y del vertical
 rclone copy video/out/el_hombre_de_las_mil_caras_1440p.mp4 "gdrive:CONTEXTO/Ep15 · El hombre de las mil caras"
 python3 tools/pagina_publicacion_ep15.py ids.json previas/ kit.html                # página de publicación
 ```
+
+---
+
+# Ep16 · EL PUNTO DÉBIL (noviembre de 2026)
+
+La Anomalía del Atlántico Sur contada con datos propios: el campo magnético calculado con el IGRF-14 y verificado contra 120 años del observatorio de Pilar, fotos reales de la Estación Espacial cruzando la anomalía, los protones medidos por el MetOp-A y la bajada desde la órbita hasta el monte chaqueño, donde cae hoy el mínimo del planeta (26,23° S, 60,02° O, a 21 km de Pampa del Indio). Dos formatos: el documental para YouTube (8:25, 2560×1440, sin subtítulos incrustados) y un vertical de 2:48 con subtítulos palabra por palabra que manda al documental.
+
+| Archivo | Qué es |
+|---|---|
+| `video/out/el_punto_debil_1440p.mp4` | El documental (2560×1440, 8:25). No va al repo: está en Drive, en `CONTEXTO/Ep16 · El punto débil` |
+| `entrega/el_punto_debil_vertical.mp4` | El vertical (1080×1920, 2:48, subtítulos incrustados); también en Drive |
+| `entrega/el_punto_debil_subtitulos_es.srt` y `..._vertical_subtitulos_es.srt` | Subtítulos en español (con cifras en vez de números deletreados) |
+| `entrega/el_punto_debil_descripcion_youtube.md` | Títulos A/B, descripción con capítulos, lo que calculamos, fuentes, créditos y etiquetas |
+| `entrega/el_punto_debil_vertical_textos.md` | Texto para Reels, TikTok y Shorts, título corto y comentario fijado |
+| `entrega/el_punto_debil_miniaturas.md` | Dos miniaturas como prompts para GPT Image 2.1 |
+
+## Investigación y datos
+
+- Dossier con los números calculados, los cuidados, las fuentes y el material real: `guion/ep16_investigacion.md`. Guion: `guion/ep16_anomalia.json` (15 segmentos; el vertical reusa s01, s04, s06, s08 y s13 y agrega v01).
+- `tools/igrf16.py`: el IGRF-14 implementado acá (armónicos esféricos hasta grado 13, WGS84). `python3 tools/igrf16.py` imprime el mínimo por año, el área débil y las ciudades.
+- `tools/datos16.py`: las capas del video (campo en superficie por año, borde del núcleo, dipolo excéntrico, líneas de campo trazadas, cinturón interior, superficie de rebote, órbita del Hubble, grillas a 400, 525 y 620 km y los mínimos locales). Escribe `video/public/ep16/data/` y `video/src/data/ep16/campo.json`.
+- **Cuidado con el dato del Chaco:** es el mínimo del campo principal según el modelo; la zona es casi plana (todo el nordeste y Paraguay rondan los 22.100 nT). En pantalla siempre dice «modelo IGRF-14».
+
+## Material real
+
+- **La Estación Espacial**: cuatro pasadas de 2012 de la base Gateway to Astronaut Photography of Earth (NASA JSC), bajadas foto por foto a 4256×2832 con su posición y hora (`tools/bajar_iss16.py`) y armadas en clips con el campo del IGRF a la altura de la nave (`tools/iss16.py`). La apertura usa la del 22/4/2012: el campo baja de 43.568 a 19.354 nT mientras la voz dice «atraviesa una zona que los ingenieros miran con respeto».
+- **La Tierra** (`tools/tex16.py`): Blue Marble de noviembre, Black Marble, nubes reales del 1/11/2025 (mediana de VIIRS en tres satélites: borra el reflejo del sol), máscara de agua y detalles anidados (Blue Marble de Sudamérica a 90 px/°, Sentinel-2 cloudless 2016 de EOX en 9°, 2° y 0,5° alrededor del mínimo).
+- **Protones**: MetOp-A SEM-2, marzo de 2014 (665.028 mediciones a 820-850 km, `video/public/ep16/data/metop_p16.bin`).
+- Fotos: Don Pettit en la cúpula (2012), Explorer 1 (1958), Hubble eXtreme Deep Field. Marte: Solar System Scope (CC BY 4.0).
+
+## Visual (`video/src/ep16/`)
+
+- `globe16.tsx`: la Tierra en un shader propio (día, luces de noche, nubes con sombra, brillo del sol en el agua, atmósfera, detalles anidados hasta 13 m por píxel), el campo del IGRF por año (texturas de medio punto flotante, isolíneas y umbral), el borde del núcleo con el campo radial, las líneas de campo como tubos que fluyen, la superficie de rebote del cinturón, partículas atrapadas que rebotan, los cinturones de Van Allen, la nube de protones del MetOp-A, el núcleo en corte, la mancha africana, el viento solar y Marte. `useAssets16()` precarga todo.
+- `lib16.ts`: la cámara orbital (`GeoCam`: blanco en lat/lon, distancia, inclinación, rumbo) que permite bajar de la órbita al monte en un solo movimiento, y `project()` para atar los rótulos 2D a puntos 3D.
+- `kit16.tsx`: rótulos con línea guía, contadores, títulos expandidos (Archivo), citas (Instrument Serif), fallas digitales, la «nieve» en el sensor, los destellos con los ojos cerrados, gráficos y mapas planos.
+- `scenesA/B/C.tsx`: las escenas s01-s15 atadas a la locución; `Doc16.tsx` (entrada `src/index16.tsx`, composición `Doc16`) y `Vert16.tsx` (entrada `src/index16v.tsx`, composición `Vert16`). `index16t.tsx`: vistas de prueba del 3D.
+- Cuadros sueltos para revisar sin renderizar tramos: `REMOTION_STILLS="12,40.5,..." npx remotion render src/index16.tsx Doc16Stills out/ep16/st --sequence ...` (el video de la Estación no se mueve en esos cuadros: es lo esperado).
+
+## Sonido
+
+- Voz: Octavio (eleven_v4), una toma por segmento. Lo único que viene de ElevenLabs.
+- **Banda sonora compuesta por código** (`tools/synth16.py`, `tools/mix_ep16.py`): temas en re menor escritos sobre la línea de tiempo (el motivo re-la-fa-mi suena en el título, al nombrar la anomalía, en el Chaco y al final), sonidos de la magnetósfera (silbidos con frecuencia ∝ 1/t², el coro del amanecer), un contador Geiger que se acelera y se satura en «se saturó», el zumbido del núcleo y destellos. La música va unos 11 dB debajo de la voz; las dos mezclas a −14 LUFS.
+
+## Comandos
+
+```bash
+python3 -I tools/tex16.py                      # texturas (descargas en raw/ep16/tex_src, ver el docstring)
+python3 -I tools/datos16.py                    # capas del IGRF-14
+python3 -I tools/bajar_iss16.py && python3 -I tools/iss16.py   # fotos de la Estación → clips (no van al repo)
+python3 tools/timeline_ep16.py                 # línea de tiempo del largo y del vertical
+EP=ep16 python3 tools/mix_ep16.py && EP=ep16v python3 tools/mix_ep16.py      # → audio/mix/mezcla_ep16{,v}.wav
+EP=ep16 OUT=el_punto_debil_subtitulos_es.srt python3 tools/srt.py
+EP=ep16v OUT=el_punto_debil_vertical_subtitulos_es.srt python3 tools/srt.py
+tools/cola_ep16.sh        # tramos del largo (1440p) y del vertical, los dos másters y el control de congelados
+python3 tools/pagina_publicacion_ep16.py ids.json previas/ kit.html          # página de publicación
+```

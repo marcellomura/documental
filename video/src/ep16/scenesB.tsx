@@ -284,24 +284,44 @@ export const S05: React.FC<SceneP> = ({t, T, w, h}) => {
     </>
   );
 };
-/** tablero de un satélite que apaga equipos antes de entrar */
+/** tablero de un satélite que apaga equipos antes de entrar, con el satélite que se mete en la zona débil */
 const SatOff: React.FC<{t: number; t0: number; tOff: number; t1: number; w: number; h: number}> = ({t, t0, tOff, t1, w, h}) => {
   const k = vis(t, t0, t1, 0.5, 0.5);
   if (k <= 0) return null;
   const sys = [['Cámara principal', 0], ['Espectrómetro', 0.25], ['Memoria de datos', 0.5], ['Control de orientación', -1], ['Transmisor', -1]] as [string, number][];
+  // el satélite recorre un arco y entra en la zona (a la derecha)
+  const cx = w * 0.74, cy = h * 0.56, R = 300;
+  const p = clamp((t - t0) / (t1 - t0));
+  // órbita vista de costado: una elipse achatada que cruza la zona por abajo
+  const ang = Math.PI * (1 - p);
+  const sx = cx + Math.cos(ang) * (R + 40), sy = cy + 60 + Math.sin(ang) * R * 0.42;
+  const inside = t > tOff;
   return (
     <AbsoluteFill style={{opacity: k, background: 'radial-gradient(ellipse at 30% 50%, #0B1424 0%, #010207 70%)'}}>
-      <div style={{position: 'absolute', left: 240, top: 250}}>
-        <Caps size={18} color={K.dim}>Satélite en órbita baja · esquema</Caps>
-        <Mono size={34} color={t > tOff ? K.hot : K.ink} style={{marginTop: 14}}>{t > tOff ? 'ENTRANDO EN LA ZONA DÉBIL' : 'FUERA DE LA ZONA'}</Mono>
-        <div style={{marginTop: 50}}>
-          {sys.map(([name, d], i) => {
+      <svg width={w} height={h} style={{position: 'absolute', left: 0, top: 0}}>
+        <defs><radialGradient id="saaz"><stop offset="0%" stopColor="rgba(255,122,31,0.55)" /><stop offset="100%" stopColor="rgba(255,122,31,0)" /></radialGradient></defs>
+        <circle cx={cx} cy={cy} r={R} fill="#06101E" stroke="rgba(141,184,255,0.35)" strokeWidth={2} />
+        <ellipse cx={cx + 40} cy={cy + 70} rx={230} ry={150} fill="url(#saaz)" />
+        <ellipse cx={cx} cy={cy + 60} rx={R + 40} ry={R * 0.42} fill="none" stroke="rgba(141,184,255,0.3)" strokeDasharray="4 10" />
+        <g transform={`translate(${sx} ${sy}) rotate(${-((Math.atan2(Math.cos(ang) * R * 0.42, -Math.sin(ang) * (R + 40)) * 180) / Math.PI)})`}>
+          <rect x={-60} y={-9} width={42} height={18} fill="#2A4E8A" stroke="#8DB8FF" strokeWidth={1.5} />
+          <rect x={18} y={-9} width={42} height={18} fill="#2A4E8A" stroke="#8DB8FF" strokeWidth={1.5} />
+          <rect x={-16} y={-16} width={32} height={32} rx={4} fill="#C9D3E2" />
+          <circle cx={0} cy={0} r={5} fill={inside ? K.warn : K.ok} />
+        </g>
+      </svg>
+      <Caps size={18} color={K.hot} style={{position: 'absolute', left: cx - 80, top: cy + 250, opacity: 0.9}}>zona débil</Caps>
+      <div style={{position: 'absolute', left: 140, top: 240}}>
+        <Caps size={20} color={K.dim}>Satélite en órbita baja · esquema</Caps>
+        <Mono size={40} color={inside ? K.hot : K.ink} style={{marginTop: 16}}>{inside ? 'ENTRANDO EN LA ZONA DÉBIL' : 'FUERA DE LA ZONA'}</Mono>
+        <div style={{marginTop: 54}}>
+          {sys.map(([name, d]) => {
             const off = d >= 0 && t > tOff + d;
             return (
-              <div key={name} style={{display: 'flex', gap: 40, alignItems: 'center', marginTop: 22}}>
-                <Mono size={30} color={K.ink} style={{width: 520}}>{name}</Mono>
-                <div style={{width: 18, height: 18, borderRadius: 9, background: off ? 'rgba(255,65,48,0.25)' : K.ok, boxShadow: off ? 'none' : `0 0 18px ${K.ok}`}} />
-                <Mono size={28} color={off ? K.warn : K.ok}>{off ? 'APAGADO' : 'ENCENDIDO'}</Mono>
+              <div key={name} style={{display: 'flex', gap: 36, alignItems: 'center', marginTop: 26}}>
+                <Mono size={34} color={K.ink} style={{width: 500}}>{name}</Mono>
+                <div style={{width: 20, height: 20, borderRadius: 10, background: off ? 'rgba(255,65,48,0.25)' : K.ok, boxShadow: off ? 'none' : `0 0 18px ${K.ok}`}} />
+                <Mono size={30} color={off ? K.warn : K.ok}>{off ? 'APAGADO' : 'ENCENDIDO'}</Mono>
               </div>
             );
           })}

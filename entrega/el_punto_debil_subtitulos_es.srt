@@ -1,0 +1,558 @@
+1
+00:00:03,200 --> 00:00:07,940
+A 400 kilómetros de altura, la Estación
+Espacial Internacional le da una vuelta
+
+2
+00:00:07,960 --> 00:00:10,150
+a la Tierra cada 90 minutos.
+
+3
+00:00:10,700 --> 00:00:15,570
+Y varias veces por día atraviesa una zona
+que los ingenieros miran con respeto.
+
+4
+00:00:16,400 --> 00:00:18,890
+Ahí, las computadoras se cuelgan.
+
+5
+00:00:19,540 --> 00:00:21,730
+Los sensores se llenan de ruido.
+
+6
+00:00:22,260 --> 00:00:24,870
+El telescopio Hubble deja de observar.
+
+7
+00:00:25,220 --> 00:00:29,990
+Y los astronautas, con los ojos
+cerrados, ven destellos de luz.
+
+8
+00:00:31,100 --> 00:00:34,310
+Le dicen el Triángulo de
+las Bermudas del espacio.
+
+9
+00:00:34,760 --> 00:00:36,970
+Pero no está sobre las Bermudas.
+
+10
+00:00:37,240 --> 00:00:38,890
+Está sobre Sudamérica.
+
+11
+00:00:39,910 --> 00:00:44,480
+Y su punto más débil, hoy,
+cae en un lugar muy preciso:
+
+12
+00:00:45,190 --> 00:00:47,120
+el monte del Chaco argentino.
+
+13
+00:00:53,527 --> 00:00:55,477
+Para entenderlo hay que bajar.
+
+14
+00:00:55,947 --> 00:01:00,537
+Casi 3.000 kilómetros bajo tus pies
+hay un océano de hierro líquido,
+
+15
+00:01:00,767 --> 00:01:03,717
+casi tan caliente como
+la superficie del Sol.
+
+16
+00:01:04,227 --> 00:01:09,877
+Ese hierro gira, sube y baja, y al moverse
+genera corrientes eléctricas.
+
+17
+00:01:10,327 --> 00:01:12,817
+Las corrientes generan un campo magnético.
+
+18
+00:01:13,427 --> 00:01:15,817
+Es un dínamo del tamaño de un planeta.
+
+19
+00:01:17,447 --> 00:01:23,127
+Ese campo sale de la Tierra, la envuelve
+y llega a decenas de miles de kilómetros
+
+20
+00:01:23,147 --> 00:01:24,037
+en el espacio.
+
+21
+00:01:24,647 --> 00:01:28,877
+Es invisible, y es 100 veces más
+débil que un imán de heladera.
+
+22
+00:01:29,367 --> 00:01:31,837
+Pero alcanza para desviar el viento solar:
+
+23
+00:01:32,347 --> 00:01:37,257
+un chorro de partículas que el Sol
+dispara a más de 1 millón de km/h.
+
+24
+00:01:38,627 --> 00:01:41,917
+Marte perdió su escudo hace
+miles de millones de años.
+
+25
+00:01:42,327 --> 00:01:44,737
+Y con él, casi toda su atmósfera.
+
+26
+00:01:46,372 --> 00:01:48,342
+El escudo no solo desvía.
+
+27
+00:01:48,832 --> 00:01:50,102
+También atrapa.
+
+28
+00:01:50,552 --> 00:01:54,722
+En 1958, el primer satélite
+de Estados Unidos,
+
+29
+00:01:54,992 --> 00:01:58,422
+el Explorer 1, llevaba un
+contador de radiación.
+
+30
+00:01:58,952 --> 00:02:03,002
+Cuanto más subía, más contaba…
+hasta que se saturó.
+
+31
+00:02:03,952 --> 00:02:09,472
+El físico James Van Allen había descubierto
+dos anillos gigantes de partículas atrapadas
+
+32
+00:02:09,492 --> 00:02:10,942
+alrededor de la Tierra:
+
+33
+00:02:11,412 --> 00:02:13,242
+los cinturones de Van Allen.
+
+34
+00:02:14,152 --> 00:02:17,742
+El de adentro empieza a unos
+600 kilómetros de altura.
+
+35
+00:02:17,912 --> 00:02:19,782
+Lejos de casi todo.
+
+36
+00:02:20,582 --> 00:02:22,192
+Salvo en un lugar.
+
+37
+00:02:24,485 --> 00:02:27,175
+El imán de la Tierra no está en el centro.
+
+38
+00:02:27,665 --> 00:02:29,895
+Está inclinado 9 grados.
+
+39
+00:02:30,265 --> 00:02:31,465
+Y está corrido:
+
+40
+00:02:31,485 --> 00:02:34,655
+unos 600 kilómetros hacia el Pacífico.
+
+41
+00:02:35,445 --> 00:02:40,055
+Del lado opuesto, el escudo
+queda más lejos… y más débil.
+
+42
+00:02:40,685 --> 00:02:42,255
+Ese lado es el nuestro.
+
+43
+00:02:43,505 --> 00:02:49,125
+Sobre Sudamérica y el Atlántico Sur, el cinturón
+de radiación baja hasta unos 200 kilómetros
+
+44
+00:02:49,145 --> 00:02:49,645
+de altura.
+
+45
+00:02:49,665 --> 00:02:52,435
+Por debajo de la Estación Espacial.
+
+46
+00:02:52,965 --> 00:02:54,195
+Por debajo del Hubble.
+
+47
+00:02:54,745 --> 00:02:56,915
+Por debajo de miles de satélites.
+
+48
+00:02:57,745 --> 00:03:00,335
+Es la Anomalía del Atlántico Sur.
+
+49
+00:03:03,056 --> 00:03:08,516
+Ahí arriba, un protón de alta energía puede
+atravesar un chip y cambiar un uno por
+
+50
+00:03:08,536 --> 00:03:13,906
+un cero. Por eso muchos satélites apagan
+parte de sus equipos antes de entrar.
+
+51
+00:03:14,596 --> 00:03:18,706
+El Hubble la cruza en 7 a 9
+de sus 15 órbitas diarias,
+
+52
+00:03:19,036 --> 00:03:23,066
+y en cada cruce deja de observar
+durante más de 20 minutos.
+
+53
+00:03:23,676 --> 00:03:27,786
+Y un instrumento láser de la NASA, montado
+afuera de la Estación Espacial,
+
+54
+00:03:28,076 --> 00:03:30,466
+se reinicia solo una vez por mes.
+
+55
+00:03:31,540 --> 00:03:36,300
+Adentro de la Estación Espacial, el astronauta
+Don Pettit contó que las notebooks
+
+56
+00:03:36,320 --> 00:03:37,390
+se cuelgan.
+
+57
+00:03:37,820 --> 00:03:41,510
+Que las cámaras pierden píxeles,
+como si les nevara encima.
+
+58
+00:03:42,100 --> 00:03:46,370
+Y que, al cerrar los ojos para
+dormir, ve pasar destellos.
+
+59
+00:03:46,900 --> 00:03:49,190
+Él los llamó hadas danzantes.
+
+60
+00:03:50,460 --> 00:03:53,090
+Son partículas atravesándole la retina.
+
+61
+00:03:53,680 --> 00:03:59,410
+Sobre esta zona, pasan de 1 o 2 cada
+10 minutos… a varias por minuto.
+
+62
+00:04:01,392 --> 00:04:03,402
+Así se ve con datos reales.
+
+63
+00:04:03,552 --> 00:04:07,612
+Cada punto es una medición de un
+satélite meteorológico europeo,
+
+64
+00:04:07,632 --> 00:04:12,222
+a 800 kilómetros de altura, contando
+protones durante un mes.
+
+65
+00:04:12,752 --> 00:04:15,102
+Casi todo el planeta está en calma.
+
+66
+00:04:16,272 --> 00:04:18,082
+Y acá… esto.
+
+67
+00:04:21,584 --> 00:04:26,494
+¿Y abajo? En la superficie, el campo
+magnético se mide en nanoteslas.
+
+68
+00:04:26,964 --> 00:04:29,674
+Cerca de los polos supera los 60.000.
+
+69
+00:04:30,344 --> 00:04:32,954
+Acá, apenas pasa los 22.000.
+
+70
+00:04:33,444 --> 00:04:34,214
+Un tercio.
+
+71
+00:04:35,924 --> 00:04:40,244
+El modelo que usan los científicos de todo
+el mundo permite calcular dónde está
+
+72
+00:04:40,264 --> 00:04:42,014
+el mínimo de todo el planeta.
+
+73
+00:04:42,564 --> 00:04:45,734
+Hoy da 26 grados sur, 60 oeste.
+
+74
+00:04:46,204 --> 00:04:46,994
+Es el Chaco.
+
+75
+00:04:47,344 --> 00:04:50,114
+A 20 kilómetros de Pampa del Indio.
+
+76
+00:04:52,487 --> 00:04:53,897
+No siempre estuvo ahí.
+
+77
+00:04:54,407 --> 00:04:57,797
+En 1900 estaba en el océano,
+frente a Brasil.
+
+78
+00:04:58,427 --> 00:05:00,737
+En los años 60 tocó la costa.
+
+79
+00:05:01,107 --> 00:05:07,087
+En los 90 entró por Misiones, cruzó Paraguay,
+pasó por Formosa… y sigue hacia el
+
+80
+00:05:07,107 --> 00:05:09,857
+oeste, a unos 20 kilómetros por año.
+
+81
+00:05:11,308 --> 00:05:12,658
+Y no es solo un modelo.
+
+82
+00:05:13,208 --> 00:05:19,138
+En Pilar, Córdoba, hay un observatorio
+que mide el campo magnético desde 1905.
+
+83
+00:05:19,688 --> 00:05:23,038
+Entonces marcaba 28.800 nanoteslas.
+
+84
+00:05:23,628 --> 00:05:25,958
+Hoy, 22.500.
+
+85
+00:05:26,548 --> 00:05:30,098
+Un 22 % menos en 120 años.
+
+86
+00:05:31,368 --> 00:05:33,358
+Y la zona débil crece.
+
+87
+00:05:33,988 --> 00:05:38,098
+En 1900 cubría 46 millones
+de kilómetros cuadrados.
+
+88
+00:05:38,628 --> 00:05:42,718
+Hoy, 109. Una quinta parte del planeta.
+
+89
+00:05:43,788 --> 00:05:47,558
+Los satélites europeos Swarm confirmaron
+que sigue creciendo,
+
+90
+00:05:47,908 --> 00:05:51,218
+y que cerca de África está apareciendo
+un segundo mínimo.
+
+91
+00:05:52,288 --> 00:05:54,558
+La anomalía se está partiendo en dos.
+
+92
+00:05:57,318 --> 00:05:58,468
+¿Por qué pasa esto?
+
+93
+00:05:58,978 --> 00:06:03,008
+La respuesta está otra vez abajo,
+en el borde del núcleo.
+
+94
+00:06:03,398 --> 00:06:06,928
+En el hemisferio sur, el campo
+debería salir de la Tierra.
+
+95
+00:06:07,378 --> 00:06:10,988
+Pero debajo del Atlántico Sur hay
+manchas donde hace lo contrario:
+
+96
+00:06:11,618 --> 00:06:17,208
+entra. Son parches de flujo invertido,
+y le restan fuerza al escudo.
+
+97
+00:06:18,158 --> 00:06:23,058
+Una de las hipótesis los vincula con una
+masa gigante de roca densa y caliente,
+
+98
+00:06:23,078 --> 00:06:26,798
+del tamaño de un continente,
+apoyada sobre el núcleo,
+
+99
+00:06:26,818 --> 00:06:27,968
+debajo de África.
+
+100
+00:06:30,039 --> 00:06:34,429
+La pregunta incómoda es si esto es
+el principio de algo más grande.
+
+101
+00:06:34,959 --> 00:06:37,849
+Porque el campo magnético
+de la Tierra se da vuelta:
+
+102
+00:06:38,439 --> 00:06:40,249
+el norte pasa a ser sur.
+
+103
+00:06:40,699 --> 00:06:44,929
+Pasó cientos de veces, y quedó grabado
+en las rocas del fondo del mar.
+
+104
+00:06:45,539 --> 00:06:49,069
+La última fue hace unos 780.000 años.
+
+105
+00:06:50,019 --> 00:06:55,329
+Y en los últimos dos siglos, el campo global
+perdió casi un 10 % de su fuerza.
+
+106
+00:06:56,379 --> 00:07:01,839
+Pero un estudio que reconstruyó 9.000 años
+de historia magnética encontró anomalías
+
+107
+00:07:01,859 --> 00:07:03,249
+como esta en el pasado.
+
+108
+00:07:04,839 --> 00:07:08,229
+Aparecieron… y se fueron,
+sin ninguna inversión.
+
+109
+00:07:08,679 --> 00:07:09,649
+Su pronóstico:
+
+110
+00:07:09,999 --> 00:07:14,129
+esta también va a desaparecer,
+en unos 300 años.
+
+111
+00:07:16,511 --> 00:07:18,461
+¿Y a vos, que vivís justo abajo?
+
+112
+00:07:19,031 --> 00:07:23,161
+Nada. La atmósfera frena lo
+que el campo deja pasar.
+
+113
+00:07:23,691 --> 00:07:25,481
+La NASA lo dice sin vueltas:
+
+114
+00:07:25,711 --> 00:07:30,021
+en la superficie, la anomalía no tiene
+efectos visibles en la vida diaria.
+
+115
+00:07:30,571 --> 00:07:31,941
+Las brújulas funcionan.
+
+116
+00:07:32,231 --> 00:07:33,301
+Tu celular también.
+
+117
+00:07:34,347 --> 00:07:38,877
+El problema está arriba, donde hoy vive
+buena parte de nuestra civilización:
+
+118
+00:07:39,267 --> 00:07:45,397
+el pronóstico del tiempo, los mapas, las comunicaciones…
+y los satélites argentinos,
+
+119
+00:07:45,447 --> 00:07:47,757
+que cruzan la anomalía todos los días.
+
+120
+00:07:49,803 --> 00:07:54,093
+El escudo que nos cuida no
+es perfecto, ni es eterno.
+
+121
+00:07:54,223 --> 00:07:56,513
+Se mueve. Se debilita.
+
+122
+00:07:57,063 --> 00:07:58,353
+Tiene una abolladura.
+
+123
+00:07:59,663 --> 00:08:02,993
+Y esa abolladura tiene,
+por ahora, un centro:
+
+124
+00:08:03,803 --> 00:08:07,333
+un punto en el monte chaqueño
+donde nadie siente nada.
+
+125
+00:08:08,783 --> 00:08:15,913
+Mientras, 400 kilómetros más arriba, alguien
+pasa con los ojos cerrados… y ve luces.
