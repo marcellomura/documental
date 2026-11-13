@@ -1,0 +1,18 @@
+{
+ "fuente": "NOAA/NCEI · MetOp-A (EUMETSAT) SEM-2 MEPED, L1b procesado, protones omnidireccionales >16 MeV (mep_omni_flux_p1)",
+ "mes": "2014-03",
+ "dias": 31,
+ "cadencia_s": 4,
+ "campos": [
+  "lon",
+  "lat",
+  "flujo",
+  "dia"
+ ],
+ "n": 665028,
+ "alt_km": [
+  821.4000244140625,
+  850.0999755859375
+ ],
+ "nota": "se descartan 37 registros con picos instrumentales (>60, el percentil 99,99 es 28)"
+}

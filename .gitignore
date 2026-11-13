@@ -28,3 +28,8 @@ audio/ep15/audicion/*.mp3
 # ep16: descargas crudas (se regeneran con las herramientas)
 data/ep16/poes_src/
 data/ep16/obs_src/
+
+# ep16: descargas grandes (texturas NASA, videos) — se regeneran con los comandos del README
+raw/ep16/
+# ep16: clips de la Estación Espacial (se regeneran con tools/bajar_iss16.py y tools/iss16.py)
+video/public/ep16/iss/

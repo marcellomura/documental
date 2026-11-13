@@ -1,0 +1,45 @@
+{
+ "insets": {
+  "sa": {
+   "bbox": [
+    -82.0,
+    -56.0,
+    -34.0,
+    0.0
+   ],
+   "src": "NASA Blue Marble Next Generation (noviembre)"
+  },
+  "s2_chaco9": {
+   "bbox": [
+    -64.5,
+    -30.5,
+    -55.5,
+    -21.5
+   ],
+   "src": "Sentinel-2 cloudless 2016 por EOX IT Services GmbH (contiene datos modificados de Copernicus Sentinel 2016), CC BY 4.0"
+  },
+  "s2_chaco2": {
+   "bbox": [
+    -61.0,
+    -27.0,
+    -59.0,
+    -25.0
+   ],
+   "src": "Sentinel-2 cloudless 2016 por EOX IT Services GmbH (contiene datos modificados de Copernicus Sentinel 2016), CC BY 4.0"
+  },
+  "s2_chaco05": {
+   "bbox": [
+    -60.27,
+    -26.48,
+    -59.77,
+    -25.98
+   ],
+   "src": "Sentinel-2 cloudless 2016 por EOX IT Services GmbH (contiene datos modificados de Copernicus Sentinel 2016), CC BY 4.0"
+  }
+ },
+ "creditos": [
+  "Blue Marble Next Generation y Black Marble 2016: NASA Earth Observatory",
+  "Nubes del 1/11/2025: VIIRS (Suomi NPP, NOAA-20, NOAA-21), NASA GIBS/Worldview",
+  "Sentinel-2 cloudless 2016 por EOX IT Services GmbH (contiene datos modificados de Copernicus Sentinel 2016), CC BY 4.0"
+ ]
+}
