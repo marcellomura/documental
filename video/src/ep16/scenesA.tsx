@@ -15,7 +15,7 @@ export const insetsFor = (cam: GeoCam): [number, number, number, number] => {
   const a = Math.hypot(...camBasis(cam).P) - 1;
   return [ss(1.6, 0.9, a), ss(0.22, 0.1, a), ss(0.05, 0.022, a), ss(0.012, 0.006, a)];
 };
-export const cloudsFor = (cam: GeoCam, base = 0.88) => base * ss(0.12, 0.9, Math.hypot(...camBasis(cam).P) - 1);
+export const cloudsFor = (cam: GeoCam, base = 0.88) => base * ss(0.35, 1.3, Math.hypot(...camBasis(cam).P) - 1);
 type IssClip = {n: number; lat: number[]; lon: number[]; alt: number[]; t: number[]; F: number[]};
 const fmtUTC = (s: number) => new Date(s * 1000).toISOString().slice(11, 19);
 const fmtDate = (s: number) => {
@@ -157,9 +157,10 @@ export const S01Globe: React.FC<SceneP & {vertical?: boolean; until: number}> = 
   const sun = sunFrom(-14, -22);
   const tri: [number, number][] = [[25.76, -80.19], [32.3, -64.78], [18.47, -66.11], [25.76, -80.19]];
   const triK = vis(t, A('Triángulo') - 0.3, tSA - 0.2, 0.6, 0.6);
-  const thr = mix(22400, 32000, easeInOut(clamp((t - tSA + 0.2) / 2.4)));
+  // la zona débil se expande sobre Sudamérica y, al bajar, se encoge hasta el punto exacto
+  const thr = mix(mix(22400, 32000, easeInOut(clamp((t - tSA + 0.2) / 2.4))), 22180, easeInOut(clamp((t - tPunto) / (tCae + 1.2 - tPunto))));
   const alt = Math.hypot(...camBasis(cam).P) - 1;
-  const fK = ss(tSA - 0.4, tSA + 0.4, t) * ss(0.05, 0.9, alt) * 0.9;
+  const fK = ss(tSA - 0.4, tSA + 0.4, t) * ss(0.45, 1.6, alt) * 0.9;
   const k0 = vis(t, t0, until + 0.6, 0.6, 0.6);
   const pmin = project(cam, xyz(MIN.lat, MIN.lon, 1), w, h);
   const ptri = project(cam, xyz(25.5, -70, 1), w, h);
@@ -167,7 +168,7 @@ export const S01Globe: React.FC<SceneP & {vertical?: boolean; until: number}> = 
   return (
     <AbsoluteFill style={{opacity: k0}}>
       <Stage16 cam={cam} w={w} h={h} stars={ss(0.5, 1.5, alt)}>
-        <Earth t={t} sun={sun} cam={cam} ins={insetsFor(cam)} clouds={cloudsFor(cam)} field={{year: 2025, k: fK, full: 0, thr, hi: 1, iso: 0.8}} spot={{lat: MIN.lat, lon: MIN.lon, r: mix(0.035, 0.00035, ss(0.5, 0.01, alt)), k: ss(tPunto, tPunto + 0.8, t) * mix(1, 0.6, ss(0.05, 0.01, alt))}} />
+        <Earth t={t} sun={sun} cam={cam} ins={insetsFor(cam)} clouds={cloudsFor(cam) * (1 - 0.6 * fK)} field={{year: 2025, k: fK * 0.8, full: 0, thr, hi: 0.8, iso: 0.9}} spot={{lat: MIN.lat, lon: MIN.lon, r: mix(0.035, 0.00035, ss(0.5, 0.01, alt)), k: ss(tPunto, tPunto + 0.8, t) * mix(1, 0.6, ss(0.05, 0.01, alt))}} />
         <Atmosphere sun={sun} cam={cam} />
         {triK > 0 ? <GlowTube id="tri" pts={surfPath(tri, 30, 24)} radius={0.006} color="#FF6A3A" k={triK * 1.4} reveal={clamp((t - A('Triángulo') + 0.3) / 1.0)} /> : null}
       </Stage16>
@@ -203,11 +204,13 @@ export const S02: React.FC<SceneP> = ({t, T, w, h}) => {
   if (t < s0 - 1.2 || t > s1 + 1.2) return null;
   const tBajar = A('bajar'), tTres = A('Casi tres'), tOce = A('océano'), tGira = A('Ese hierro gira'), tCorr = A('genera corrientes'), tCampo = A('Las corrientes generan'), tDin = A('Es un dínamo');
   const tSale = A('Ese campo sale'), tInv = A('Es invisible'), tPero = A('Pero alcanza'), tChorro = A('un chorro'), tMarte = A('Marte perdió'), tCon = A('Y con él');
-  const sun = sunFrom(8, 10);
+  const sA = sunFrom(-14, -22), sB = sunFrom(8, 10), sk = ss(s0 - 1.2, tBajar + 0.6, t);
+  const sun: V3 = [mix(sA[0], sB[0], sk), mix(sA[1], sB[1], sk), mix(sA[2], sB[2], sk)];
   // Tierra: sube del monte, se abre en cuña, muestra el núcleo, se cierra y se aleja con las líneas de campo
   const camE = camPath(t, [
     [s0 - 1.2, {lat: MIN.lat, lon: MIN.lon, r0: 1, range: 0.0135, tilt: 52, head: 34, fov: 38}],
-    [tBajar + 0.2, {lat: -10, lon: -40, range: 3.6, fov: 32}],
+    [tBajar - 0.5, {lat: -24, lon: -55, r0: 1, range: 1.3, tilt: 12, head: 10, fov: 34}],
+    [tBajar + 0.4, {lat: -10, lon: -40, range: 3.6, fov: 32}],
     [tTres + 0.6, {lat: 12, lon: -32, range: 3.6, fov: 32}],
     [tGira, {lat: 10, lon: -26, range: 3.2, fov: 32}],
     [tCampo, {lat: 12, lon: -24, range: 3.0, fov: 32}],
@@ -240,7 +243,7 @@ export const S02: React.FC<SceneP> = ({t, T, w, h}) => {
             {t > tPero - 1 ? <SolarWind t={t - tPero} sunDir={sunW} k={1.8 * ss(tPero - 0.5, tPero + 1.0, t) * (1 - ss(tMarte - 0.4, tMarte, t))} color="#FFE2B8" /> : null}
           </Stage16>
           {/* rótulos del corte */}
-          <Label x={pCore.x} y={pCore.y} dx={-300} dy={140} k={ruler} title="Borde del núcleo" value="≈ 2.900 km" unit="de profundidad" color={K.hot2} />
+          <Label x={pCore.x} y={pCore.y} dx={-220} dy={150} k={ruler} title="Borde del núcleo" value="≈ 2.900 km" unit="de profundidad" color={K.hot2} align="left" />
           <Label x={pFe.x} y={pFe.y} dx={-340} dy={-150} k={vis(t, tOce, tGira + 2.5, 0.6, 0.5)} title="Núcleo externo" value="hierro líquido" color={K.hot} size={34} />
           <Big t={t} t0={tDin - 0.1} t1={tSale - 0.4} text="GEODÍNAMO" size={64} y={880} font="mono" track={0.4} color={K.hot2} />
           <Label x={w * 0.5 + 330} y={h * 0.5 - 220} dx={170} dy={-90} k={vis(t, tSale + 2.0, tInv - 0.3, 0.6, 0.5)} title="Llega a" value="decenas de miles" unit="de km" color={K.cool} size={38} />

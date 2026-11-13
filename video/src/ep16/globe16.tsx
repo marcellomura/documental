@@ -384,7 +384,11 @@ void main(){
   float pulse = pow(0.5 + 0.5 * sin((s * 9.0 - t * flow + vSeed * 6.283) * 6.283 / 3.0), 6.0);
   float tip = smoothstep(reveal - 0.06, reveal, s) * step(reveal, 0.999);
   vec3 c = mix(colA, colB, s);
-  float a = k * core * (0.32 + 0.9 * pulse + 1.4 * tip);
+  float foot = smoothstep(0.0, 0.12, s) * (1.0 - smoothstep(0.88, 1.0, s));
+  // delante del disco de la Tierra las líneas se atenúan (se apilaban en rayas blancas sobre la cara del planeta)
+  vec3 dir = normalize(vW - camPos); float tca = dot(-camPos, dir);
+  float over = 1.0 - smoothstep(0.9, 1.04, length(camPos + dir * tca));
+  float a = k * core * (0.32 + 0.9 * pulse + 1.4 * tip) * mix(0.15, 1.0, foot) * mix(1.0, 0.3, over);
   gl_FragColor = vec4(c * a, 1.0);
   #include <colorspace_fragment>
 }`;
