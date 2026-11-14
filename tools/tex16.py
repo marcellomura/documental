@@ -64,6 +64,19 @@ for name in ("viirs_20251101_8192.jpg", "VIIRS_NOAA20_CorrectedReflectance_TrueC
 with np.errstate(all="ignore"):
     cloud = np.nan_to_num(np.nanmedian(np.stack(A), 0))
 del A
+# El mosaico diario de VIIRS junta la primera y la última órbita del día en el antimeridiano: ahí las nubes no
+# empalman. Como en el video las nubes derivan hacia el este, ese corte llega al Atlántico; se funde en ±6°
+# mezclando cada lado con su reflejo del otro (en la costura los dos valen lo mismo).
+def funde_costura(c, grados=6.0):
+    n = c.shape[1]; D = int(n * grados / 360); out = c.copy()
+    for d in range(D):
+        w = 0.25 * (1 + np.cos(np.pi * d / D))          # 0,5 en la costura, 0 a ±6°
+        e, o = c[:, d], c[:, n - 1 - d]
+        out[:, d] = (1 - w) * e + w * o; out[:, n - 1 - d] = (1 - w) * o + w * e
+    return out
+
+
+cloud = funde_costura(cloud)
 c8 = Image.fromarray((np.clip(cloud, 0, 1) ** 0.85 * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.7))
 c8.save(os.path.join(OUT, "clouds.jpg"), quality=88, optimize=True)
 print("nubes listas, cobertura media", round(float(cloud.mean()) * 100, 1), "%")

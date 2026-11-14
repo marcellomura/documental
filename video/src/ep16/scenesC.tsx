@@ -539,7 +539,7 @@ export const S15: React.FC<SceneP & {vertical?: boolean}> = ({t, T, w, h, vertic
           <Stage16 cam={cam} w={w} h={h} stars={1}>
             <Earth t={t} sun={sun} cam={cam} ins={insetsFor(cam)} clouds={cloudsFor(cam, 0.6) * (1 - fieldK * 0.5)} field={{year: yr, k: fieldK, full: 0, thr: 26000, hi: 0.35, iso: 0.6}} spot={{lat: MIN.lat, lon: MIN.lon, r: mix(0.035, 0.0004, ss(0.5, 0.012, Math.hypot(...camBasis(cam).P) - 1)), k: ss(tPunto, tPunto + 0.8, t)}} />
             <Atmosphere sun={sun} cam={cam} />
-            {t < tTiene ? <FieldLines t={t} cam={cam} k={1 - ss(tMueve - 0.6, tMueve, t)} /> : null}
+            {t < tMueve ? <FieldLines t={t} cam={cam} k={1 - ss(tMueve - 2.0, tMueve - 0.5, t)} /> : null}
             {pathK > 0 ? <GlowTube id="camino15" pts={path} radius={0.004} color="#FFC24A" k={pathK * 1.2} reveal={ss(tMueve - 0.3, tMueve + 0.8, t)} /> : null}
             {dent > 0 ? <BeltShell t={t} cam={cam} k={dent * 0.7} hot={0.25} /> : null}
           </Stage16>

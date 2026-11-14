@@ -388,7 +388,9 @@ void main(){
   // delante del disco de la Tierra las líneas se atenúan (se apilaban en rayas blancas sobre la cara del planeta)
   vec3 dir = normalize(vW - camPos); float tca = dot(-camPos, dir);
   float over = 1.0 - smoothstep(0.9, 1.04, length(camPos + dir * tca));
-  float a = k * core * (0.32 + 0.9 * pulse + 1.4 * tip) * mix(0.15, 1.0, foot) * mix(1.0, 0.3, over);
+  // un tubo que pasa pegado a la cámara se ve como una barra gruesa que cruza la pantalla: de cerca se desvanece
+  float near = smoothstep(0.5, 1.6, length(vW - camPos));
+  float a = k * core * (0.32 + 0.9 * pulse + 1.4 * tip) * mix(0.15, 1.0, foot) * mix(1.0, 0.15, over) * near;
   gl_FragColor = vec4(c * a, 1.0);
   #include <colorspace_fragment>
 }`;
