@@ -835,6 +835,17 @@ tools/subir_ep16.sh       # sube másters y textos a Drive (CONTEXTO/Ep16 · El 
 python3 tools/pagina_publicacion_ep16.py entrega/ep16_drive_ids.json previas/ kit.html   # página de publicación
 ```
 
+## Entrega (14/11/2026)
+
+| Archivo | Formato | Duración | Tamaño | md5 | Sonido | Drive |
+|---|---|---|---|---|---|---|
+| `video/out/el_punto_debil_1440p.mp4` | 2560×1440, 30 fps, H.264 16 Mb/s | 8:25,5 | 1.019.027.301 B | `f30be5b9b92739806d26b5898a266188` | −14,0 LUFS · −0,9 dBTP | `1PXwkBXlcdnz0T8U3c1m4mNm8w_4MqYmL` |
+| `entrega/el_punto_debil_vertical.mp4` | 1080×1920, 30 fps, 4,6 Mb/s | 2:47,7 | 100.569.356 B | `d9aad7ba0bd3a7176823e71b05dcabe0` | −14,1 LUFS · −1,3 dBTP | `19iX0q7FUHFxKo6gXPKnqbvmZQpCJZeyJ` |
+
+- Carpeta de Drive: `CONTEXTO/Ep16 · El punto débil` (id `12jVtf_eStS93FvLOVj8pyNIFmgL8hHlS`), con los dos videos, los dos .srt, la descripción, los textos del vertical, las miniaturas y el dossier (los .md van como .txt). Los IDs de cada archivo quedan en `entrega/ep16_drive_ids.json`; los tamaños de Drive coinciden byte a byte con los locales.
+- Página de publicación (privada hasta que se comparta): https://claude.ai/artifact/WaedJ3scU6p37mD3qhdfu2 — títulos A/B, descripción con capítulos, textos del vertical, prompts de miniaturas y 24 cuadros de muestra.
+- Control de congelados (`tools/check_congelados.py`): solo marca infografías con animación lenta (el láser GEDI que se completa en 3:23, la línea de 9.000 años en 6:58 y 7:08) y las placas finales, que son quietas a propósito. Ningún tramo quedó trabado.
+
 ## Control del render (lo que se corrigió mirando los tramos)
 
 Cada tramo se revisó con `tools/hoja_tramo.sh` apenas salía, y las escenas que faltaban se revisaron antes con cuadros sueltos (`Doc16Stills`, `Vert16Stills`) para corregir antes de que la cola llegara. Para rehacer un tramo: moverlo a `video/out/ep16_v1/` (o `ep16v_v1/`) y relanzar `tools/cola_ep16.sh`, que solo renderiza lo que falta.
