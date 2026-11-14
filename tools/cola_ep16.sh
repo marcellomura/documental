@@ -22,7 +22,9 @@ if [ -s $MV ] && [ -z "$(find video/out/ep16v -name 'c*.mp4' -newer $MV)" ] && [
   echo "== máster del vertical $(date +%H:%M)"
   mkdir -p entrega
   TRAMOS="video/out/ep16v/c*.mp4" AUD=audio/mix/mezcla_ep16v.wav OUT=$MV \
-    TITLE="EL PUNTO DÉBIL (vertical)" VBR=4600k MAXRATE=9M BUFSIZE=14M tools/final_tramos.sh
+    TITLE="EL PUNTO DÉBIL (vertical)" VBR=4600k MAXRATE=9M BUFSIZE=14M \
+    AF="aresample=192000,alimiter=limit=-2.0dB:level=false:attack=0.1:release=25,aresample=48000" tools/final_tramos.sh
+  # el AAC subía el pico verdadero del vertical a +0,4 dBFS: con el limitador sobremuestreado queda en −1,3
 fi
 echo "== control $(date +%H:%M)"
 python3 tools/check_congelados.py $M || true
