@@ -369,7 +369,8 @@ const Eye: React.FC<{t: number; t0: number; t1: number; w: number; h: number}> =
 const FlashRate: React.FC<{t: number; t0: number; tIn: number; t1: number; w: number; h: number}> = ({t, t0, tIn, t1, w, h}) => {
   const k = vis(t, t0, t1, 0.5, 0.6);
   if (k <= 0) return null;
-  const x0 = 160, x1 = w - 160, y = h * 0.56;
+  const vert = w < h; // en vertical: más ancho útil y las dos tasas en renglones distintos (se pisaban)
+  const x0 = vert ? 80 : 160, x1 = w - x0, y = h * 0.56;
   const prog = clamp((t - t0) / (t1 - t0 - 0.4));
   const ticks = [];
   // 40 minutos de pasada: 0-15 afuera (1-2 cada 10 min), 15-27 adentro (≈ 5 por minuto), 27-40 afuera
@@ -391,9 +392,9 @@ const FlashRate: React.FC<{t: number; t0: number; tIn: number; t1: number; w: nu
         {ticks}
         <line x1={mix(x0, x1, prog)} x2={mix(x0, x1, prog)} y1={y - 140} y2={y + 140} stroke="rgba(236,241,246,0.5)" strokeWidth={1.5} />
       </svg>
-      <Caps size={18} color={K.ink} style={{position: 'absolute', left: x0, top: y - 210}}>Destellos vistos con los ojos cerrados · una pasada · esquema</Caps>
+      <Caps size={18} color={K.ink} style={{position: 'absolute', left: x0, right: vert ? x0 : undefined, top: y - (vert ? 236 : 210)}}>Destellos vistos con los ojos cerrados · una pasada · esquema</Caps>
       <Mono size={26} color={K.ink} style={{position: 'absolute', left: x0, top: y + 140}}>1 o 2 cada 10 minutos</Mono>
-      <Mono size={26} color={K.hot2} style={{position: 'absolute', left: zx0 + 20, top: y + 140, opacity: ss(tIn - 0.2, tIn + 0.4, t)}}>varios por minuto</Mono>
+      <Mono size={26} color={K.hot2} style={{position: 'absolute', left: zx0 + 20, top: y + 140 + (vert ? 46 : 0), opacity: ss(tIn - 0.2, tIn + 0.4, t)}}>varios por minuto</Mono>
       <Caps size={16} color={K.hot} style={{position: 'absolute', left: zx0 + 20, top: y - 160}}>zona débil</Caps>
     </AbsoluteFill>
   );
