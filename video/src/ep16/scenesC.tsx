@@ -59,7 +59,8 @@ export const S08: React.FC<SceneP & {vertical?: boolean}> = ({t, T, w, h, vertic
     [s1 + 1.2, {lat: -26.05, lon: -60.0, r0: 1, range: 0.0068, tilt: 36, head: 10, fov: 36}],
   ]);
   const alt = Math.hypot(...camBasis(cam).P) - 1;
-  const fK = ss(tSup - 0.3, tSup + 0.8, t) * ss(0.6, 1.4, alt);
+  // el campo se apaga mientras la cámara baja hacia el mínimo (de cerca lavaba el cuadro; en vertical, antes)
+  const fK = ss(tSup - 0.3, tSup + 0.8, t) * ss(vertical ? 1.3 : 1.15, 1.8, alt);
   const pMax = project(cam, xyz(FMAX.lat, FMAX.lon, 1), w, h), pMin = project(cam, xyz(MIN.lat, MIN.lon, 1), w, h), pPd = project(cam, xyz(PD.lat, PD.lon, 1), w, h);
   const grid = ss(tModelo, tHoy, t) * ss(0.02, 0.2, alt);
   const lat0 = surfPath([[MIN.lat, -100], [MIN.lat, -60.02], [MIN.lat, -20]], 3, 40), lon0 = surfPath([[10, MIN.lon], [MIN.lat, MIN.lon], [-60, MIN.lon]], 3, 40);
