@@ -312,14 +312,18 @@ export const Captions16: React.FC<{t: number; words: {w: string; s: number; e: n
   const ch = chunks.find((c, i) => t >= c[0].s - 0.05 && t < (chunks[i + 1] ? Math.min(chunks[i + 1][0].s - 0.05, c[c.length - 1].e + 0.6) : c[c.length - 1].e + 0.6));
   if (!ch) return null;
   const O = 4;
+  const len = ch.map((w) => w.w.replace(/[«»"]/g, '')).join(' ').length;
+  const fs = Math.round(Math.max(56, Math.min(74, (74 * 17.5) / Math.max(1, len))));
   const outline = [[O, 0], [-O, 0], [0, O], [0, -O], [O * 0.7, O * 0.7], [-O * 0.7, O * 0.7], [O * 0.7, -O * 0.7], [-O * 0.7, -O * 0.7]].map(([x, yy]) => `${x}px ${yy}px 0 #000`).join(', ');
   return (
     <>
       <div style={{position: 'absolute', left: 0, right: 0, top: y - 70, height: 240, background: 'radial-gradient(ellipse 62% 50% at 50% 50%, rgba(1,2,7,0.6) 0%, rgba(1,2,7,0.3) 45%, rgba(1,2,7,0) 100%)'}} />
-      <div style={{position: 'absolute', left: 50, right: 50, top: y, textAlign: 'center', fontFamily: K.wide, fontWeight: 800, fontStretch: '108%', fontSize: 74, lineHeight: 1.1, letterSpacing: '0.01em', textTransform: 'uppercase'}}>
+      {/* cada letra mide ~0,7 em: un bloque de más de ~17 caracteres achica la letra para entrar en una línea, y si
+          aun así no entra (desde 56 px) corta entre palabras */}
+      <div style={{position: 'absolute', left: 50, right: 50, top: y, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', columnGap: Math.round(fs * 0.24), fontFamily: K.wide, fontWeight: 800, fontStretch: '108%', fontSize: fs, lineHeight: 1.1, letterSpacing: '0.01em', textTransform: 'uppercase'}}>
         {ch.map((w, i) => {
           const on = t >= w.s - 0.03;
-          return <span key={i} style={{color: on ? (t < w.e + 0.05 ? K.hot2 : K.ink) : 'rgba(236,241,246,0.5)', textShadow: `${outline}, 0 6px 0 #000, 0 0 30px rgba(0,0,0,0.9)`, marginRight: 18}}>{w.w.replace(/[«»"]/g, '')}</span>;
+          return <span key={i} style={{color: on ? (t < w.e + 0.05 ? K.hot2 : K.ink) : 'rgba(236,241,246,0.5)', textShadow: `${outline}, 0 6px 0 #000, 0 0 30px rgba(0,0,0,0.9)`}}>{w.w.replace(/[«»"]/g, '')}</span>;
         })}
       </div>
     </>

@@ -445,7 +445,7 @@ const Shield: React.FC<{t: number; t0: number; t1: number; w: number; h: number;
 };
 const OkIcons: React.FC<{t: number; tB: number; tC: number; w: number; h: number; vertical?: boolean}> = ({t, tB, tC, w, h, vertical}) => {
   const k1 = vis(t, tB, Infinity, 0.5), k2 = vis(t, tC, Infinity, 0.5);
-  const y = vertical ? 1300 : 770;
+  const y = vertical ? 940 : 770; // en el vertical, arriba de los subtítulos
   const wob = Math.sin(t * 2.1) * 4;
   return (
     <div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center', gap: vertical ? 120 : 220}}>
