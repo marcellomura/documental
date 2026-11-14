@@ -831,5 +831,17 @@ EP=ep16 python3 tools/mix_ep16.py && EP=ep16v python3 tools/mix_ep16.py      # �
 EP=ep16 OUT=el_punto_debil_subtitulos_es.srt python3 tools/srt.py
 EP=ep16v OUT=el_punto_debil_vertical_subtitulos_es.srt python3 tools/srt.py
 tools/cola_ep16.sh        # tramos del largo (1440p) y del vertical, los dos másters y el control de congelados
-python3 tools/pagina_publicacion_ep16.py ids.json previas/ kit.html          # página de publicación
+tools/subir_ep16.sh       # sube másters y textos a Drive (CONTEXTO/Ep16 · El punto débil) y deja entrega/ep16_drive_ids.json
+python3 tools/pagina_publicacion_ep16.py entrega/ep16_drive_ids.json previas/ kit.html   # página de publicación
 ```
+
+## Control del render (lo que se corrigió mirando los tramos)
+
+Cada tramo se revisó con `tools/hoja_tramo.sh` apenas salía, y las escenas que faltaban se revisaron antes con cuadros sueltos (`Doc16Stills`, `Vert16Stills`) para corregir antes de que la cola llegara. Para rehacer un tramo: moverlo a `video/out/ep16_v1/` (o `ep16v_v1/`) y relanzar `tools/cola_ep16.sh`, que solo renderiza lo que falta.
+
+- **Protones del MetOp-A (4:17):** se saturaban en una pared blanca. Ahora cada punto caliente se abre en un halo (núcleo del mismo tamaño), el tamaño se escala con el dpr (1080p y 1440p se ven igual) y los días 30 y 31 pesan la mitad: el MetOp repite su traza cada 29 días (412 órbitas) y esas órbitas brillaban el doble.
+- **Pilar (5:20):** la tabla del WDC trae F = 0 en 1957, 1958 y 1959 (se midieron H y D, no Z) y el gráfico caía a cero. Se omiten esos años. La verificación del modelo quedó con los números correctos: entre −93 y +25 nT en los 108 años con dato (nunca más del 0,33 %).
+- **Costura de las nubes:** el mosaico diario de VIIRS empalma la primera y la última órbita del día en el antimeridiano, y la deriva de las nubes (0,43° por segundo) la traía al Atlántico en el último tercio. `tools/tex16.py` la funde en ±6°.
+- **Líneas de campo:** se desvanecen cerca de la cámara (pasaban como barras gruesas en la bajada de s15) y se atenúan más delante del disco.
+- **Lavados en las bajadas (s01 en vertical, s08 y s15):** el campo superpuesto se apaga según la altura de la cámara; de cerca llenaba el cuadro de un amarillo u oliva sin forma.
+- **Vertical:** los rótulos alineados a la derecha usaban un ancho fijo de 1920 y quedaban fuera de cuadro (ahora usan el ancho de la composición); los subtítulos se achican si el bloque no entra en una línea (y si no, cortan entre palabras); la brújula y el celular de s13 subieron por encima de los subtítulos; el gráfico de destellos tenía las dos tasas encimadas.
