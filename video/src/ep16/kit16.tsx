@@ -3,7 +3,7 @@
    Archivo expandido para los títulos, Instrument Serif para las voces (citas). Todo se dibuja en SVG o DOM, atado al
    tiempo absoluto t (s). */
 import React from 'react';
-import {AbsoluteFill, Img, staticFile} from 'remotion';
+import {AbsoluteFill, Img, staticFile, useVideoConfig} from 'remotion';
 import {clamp, easeIn, easeInOut, easeOut, rnd} from '../lib/anim';
 import {fmtN} from './lib16';
 
@@ -45,6 +45,7 @@ export const Caps: React.FC<{size?: number; color?: string; children: React.Reac
 
 /** rótulo con línea guía: punto en (x, y) y texto desplazado (dx, dy) */
 export const Label: React.FC<{x: number; y: number; dx?: number; dy?: number; k: number; title?: string; value?: React.ReactNode; unit?: string; color?: string; align?: 'left' | 'right'; size?: number; dot?: boolean; sub?: string}> = ({x, y, dx = 120, dy = -80, k, title, value, unit, color = K.ink, align, size = 44, dot = true, sub}) => {
+  const {width: W} = useVideoConfig();
   if (k <= 0.001) return null;
   const right = align ? align === 'right' : dx < 0;
   const ex = x + dx, ey = y + dy;
@@ -59,7 +60,7 @@ export const Label: React.FC<{x: number; y: number; dx?: number; dy?: number; k:
         <line x1={x} y1={y} x2={x + dx * lk} y2={y + dy * lk} stroke={color} strokeWidth={1.6} opacity={0.75} strokeDasharray={`${len} ${len}`} />
         <line x1={ex} y1={ey} x2={ex + (right ? -1 : 1) * 46 * tk} y2={ey} stroke={color} strokeWidth={1.6} opacity={0.75 * tk} />
       </svg>
-      <div style={{position: 'absolute', left: right ? undefined : ex + 58, right: right ? 1920 - ex + 58 : undefined, top: ey - (value !== undefined ? size * 0.95 : 14), opacity: tk, transform: `translateY(${(1 - tk) * 10}px)`, textAlign: right ? 'right' : 'left'}}>
+      <div style={{position: 'absolute', left: right ? undefined : ex + 58, right: right ? W - ex + 58 : undefined, top: ey - (value !== undefined ? size * 0.95 : 14), opacity: tk, transform: `translateY(${(1 - tk) * 10}px)`, textAlign: right ? 'right' : 'left'}}>
         {title ? <Caps size={16} color={K.dim} style={{marginBottom: 6}}>{title}</Caps> : null}
         {value !== undefined ? (
           <div style={{fontFamily: K.mono, fontSize: size, color, fontWeight: 500, letterSpacing: '-0.01em', fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap', lineHeight: 1}}>

@@ -160,7 +160,8 @@ export const S01Globe: React.FC<SceneP & {vertical?: boolean; until: number}> = 
   // la zona débil se expande sobre Sudamérica y, al bajar, se encoge hasta el punto exacto
   const thr = mix(mix(22400, 32000, easeInOut(clamp((t - tSA + 0.2) / 2.4))), 22180, easeInOut(clamp((t - tPunto) / (tCae + 1.2 - tPunto))));
   const alt = Math.hypot(...camBasis(cam).P) - 1;
-  const fK = ss(tSA - 0.4, tSA + 0.4, t) * ss(0.45, 1.6, alt) * 0.9;
+  // en vertical la cámara ve solo el interior de la zona: el campo se apaga antes en la bajada (si no, tiñe todo de oliva)
+  const fK = ss(tSA - 0.4, tSA + 0.4, t) * ss(vertical ? 0.85 : 0.45, 1.6, alt) * 0.9;
   const k0 = vis(t, t0, until + 0.6, 0.6, 0.6);
   const pmin = project(cam, xyz(MIN.lat, MIN.lon, 1), w, h);
   const ptri = project(cam, xyz(25.5, -70, 1), w, h);
@@ -178,7 +179,7 @@ export const S01Globe: React.FC<SceneP & {vertical?: boolean; until: number}> = 
           <div style={{height: 2, width: 330 * strike, background: K.hot, marginTop: -13}} />
         </div>
       ) : null}
-      <Label x={pmin.x} y={pmin.y} dx={vertical ? -60 : 150} dy={vertical ? -260 : -170} k={vis(t, tPunto + 0.6, tMonte - 0.2, 0.8, 0.4) * pmin.vis} title="Mínimo del campo · IGRF-14 · 2025" value={<Count t={t} t0={tPunto + 0.6} d={2.2} a={25000} b={MIN.F} />} unit="nT" color={K.hot2} sub={`${fmtLat(MIN.lat)} · ${fmtLon(MIN.lon)}`} />
+      <Label x={pmin.x} y={pmin.y} dx={vertical ? 40 : 150} dy={vertical ? -260 : -170} k={vis(t, tPunto + 0.6, tMonte - 0.2, 0.8, 0.4) * pmin.vis} title="Mínimo del campo · IGRF-14 · 2025" value={<Count t={t} t0={tPunto + 0.6} d={2.2} a={25000} b={MIN.F} />} unit="nT" color={K.hot2} sub={`${fmtLat(MIN.lat)} · ${fmtLon(MIN.lon)}`} />
       <Big t={t} t0={tMonte + 0.1} t1={T.atE('s01', 'argentino') + 0.5} text="EL MONTE CHAQUEÑO" size={vertical ? 56 : 46} y={vertical ? 1520 : 900} font="mono" track={0.3} color="rgba(236,241,246,0.85)" />
       <Credit16 t={t} t0={tCae + 0.6} t1={until} text="Imagen: Sentinel-2 cloudless 2016, EOX IT Services (Copernicus Sentinel 2016), CC BY 4.0" right={!vertical} />
     </AbsoluteFill>

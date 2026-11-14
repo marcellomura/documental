@@ -73,7 +73,7 @@ export const S08: React.FC<SceneP & {vertical?: boolean}> = ({t, T, w, h, vertic
         {cross > 0 ? <GlowTube id="lon60" pts={lon0} radius={0.0022} color="#FFC24A" k={cross} /> : null}
       </Stage16>
       <FieldBar t={t} t0={tSup + 0.3} t1={tModelo} vertical={vertical} />
-      <Label x={pMax.x} y={pMax.y} dx={vertical ? -60 : 160} dy={-150} k={vis(t, tPolos + 0.6, tAca, 0.6, 0.5) * pMax.vis} title="Cerca del polo sur magnético" value={fmtN(FMAX.F)} unit="nT" color={K.cool} />
+      <Label x={pMax.x} y={pMax.y} dx={vertical ? -60 : 160} dy={vertical ? -420 : -150} k={vis(t, tPolos + 0.6, tAca, 0.6, 0.5) * pMax.vis} title="Cerca del polo sur magnético" value={fmtN(FMAX.F)} unit="nT" color={K.cool} />
       <Label x={pMin.x} y={pMin.y} dx={vertical ? -40 : 170} dy={vertical ? -280 : -150} k={vis(t, tAca + 0.4, tModelo, 0.6, 0.5) * pMin.vis} title="Mínimo · Chaco" value={fmtN(MIN.F)} unit="nT" color={K.hot2} />
       <Big t={t} t0={tTercio - 0.05} t1={tModelo - 0.3} text="⅓" size={vertical ? 200 : 180} y={vertical ? 1300 : 760} font="mono" color={K.hot2} />
       <div style={{position: 'absolute', left: vertical ? 60 : 96, top: vertical ? 160 : 84, opacity: vis(t, tModelo, tEs, 0.6, 0.5)}}>
