@@ -563,28 +563,33 @@ export const VanAllen: React.FC<{t: number; kIn?: number; kOut?: number; size?: 
 };
 
 /* ------------------------------------------------------------------ protones medidos por el MetOp-A (marzo de 2014) */
-const MP_VS = `attribute float flux; attribute float day; uniform float reveal, size, hot, calm; varying float vF; varying float vA;
+const MP_VS = `attribute float flux; attribute float day; uniform float reveal, size, hot, calm, cap; varying float vF; varying float vA; varying float vH;
 void main(){
   vF = flux;
   float on = step(day, reveal);
-  float lf = clamp(log(flux + 0.02) / log(30.0), -1.0, 1.0);
   float big = smoothstep(0.5, 12.0, flux);
-  vA = on * mix(calm, 0.8, big) * (1.0 + hot * big * 0.8);
+  vH = hot * big;
+  // el MetOp repite su traza cada 29 días (412 órbitas): los días 30 y 31 de marzo pisan las órbitas del 1 y el 2.
+  // Cada par superpuesto pesa la mitad, así esas órbitas no brillan el doble que el resto.
+  float rep = day >= 29.0 ? 0.5 : (day < 2.0 && reveal > day + 29.0 ? 0.5 : 1.0);
+  vA = on * rep * mix(calm, 0.22, big);
   vec4 mv = modelViewMatrix * vec4(position, 1.0); gl_Position = projectionMatrix * mv;
-  gl_PointSize = min(on * size * (0.7 + big * (1.2 + 2.6 * hot)) / max(-mv.z, 0.3), 26.0);
+  // al encenderse, cada punto caliente se abre (núcleo del mismo tamaño + halo ancho): la malla de órbitas se funde en una nube
+  gl_PointSize = min(on * size * (0.7 + 0.9 * big) * (1.0 + 1.4 * vH) / max(-mv.z, 0.3), cap);
 }`;
 const MP_FS = `
-varying float vF; varying float vA;
+varying float vF; varying float vA; varying float vH;
 vec3 heat(float f){
   vec3 c = vec3(0.16, 0.36, 0.85);
   c = mix(c, vec3(0.30, 0.95, 0.95), smoothstep(0.05, 0.5, f));
-  c = mix(c, vec3(1.0, 0.55, 0.12), smoothstep(0.8, 5.0, f));
-  c = mix(c, vec3(1.0, 0.95, 0.75), smoothstep(8.0, 22.0, f));
+  c = mix(c, vec3(1.0, 0.45, 0.10), smoothstep(0.8, 5.0, f));
+  c = mix(c, vec3(1.0, 0.68, 0.30), smoothstep(10.0, 26.0, f));
   return c;
 }
 void main(){
   vec2 d = gl_PointCoord - 0.5; float r = length(d) * 2.0;
-  float a = exp(-r * r * 4.0) * (1.0 - smoothstep(0.85, 1.0, r));
+  float m = 1.0 + 1.4 * vH;
+  float a = (exp(-r * r * 4.0 * m * m) + 0.4 * vH * exp(-r * r * 2.5)) * (1.0 - smoothstep(0.85, 1.0, r));
   gl_FragColor = vec4(heat(vF) * a * vA, 1.0);
   #include <colorspace_fragment>
 }`;
@@ -607,9 +612,11 @@ export const Metop: React.FC<{reveal: number; k?: number; size?: number; hot?: n
     return g;
   }, []);
   const mat = useMemo(() => new THREE.ShaderMaterial({vertexShader: MP_VS, fragmentShader: MP_FS, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-    uniforms: {reveal: {value: 0}, size: {value: 6}, hot: {value: 0}, calm: {value: 0.22}}}), []);
+    uniforms: {reveal: {value: 0}, size: {value: 6}, hot: {value: 0}, calm: {value: 0.22}, cap: {value: 30}}}), []);
+  // gl_PointSize va en píxeles del framebuffer: se escala con el dpr para que 1080p y 1440p se vean iguales
+  const dpr = useThree((st) => st.viewport.dpr);
   const u = mat.uniforms;
-  u.reveal.value = reveal; u.size.value = size * k; u.hot.value = hot; u.calm.value = calm * k;
+  u.reveal.value = reveal; u.size.value = size * k * dpr; u.hot.value = hot; u.calm.value = calm * k; u.cap.value = 30 * dpr;
   return geo ? <points geometry={geo} material={mat} frustumCulled={false} renderOrder={9} /> : null;
 };
 
