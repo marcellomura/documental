@@ -528,7 +528,9 @@ export const S15: React.FC<SceneP & {vertical?: boolean}> = ({t, T, w, h, vertic
   const dent = ss(tTiene - 0.3, tTiene + 0.6, t) * (1 - ss(tY + 0.6, tPunto, t));
   const path = surfPath(CAMINO.filter((c) => c.y <= 2025).map((c) => [c.lat, c.lon] as [number, number]), 6, 3);
   const pathK = vis(t, tMueve - 0.3, tY, 0.4, 0.6);
-  const fieldK = ss(tDeb - 0.3, tDeb + 0.4, t) * (1 - ss(tPunto - 0.4, tPunto + 0.6, t));
+  // el campo se apaga mientras la cámara baja: de cerca llenaba la pantalla de un lavado amarillo
+  const camAlt = Math.hypot(...camBasis(cam).P) - 1;
+  const fieldK = ss(tDeb - 0.3, tDeb + 0.4, t) * (1 - ss(tPunto - 0.4, tPunto + 0.6, t)) * ss(0.5, 1.3, camAlt);
   const issIn = tMientras - 0.2;
   const black = ss(tOjos - 0.1, tVe - 0.1, t);
   const endK = ss(s1 + 0.3, s1 + 1.2, t);
