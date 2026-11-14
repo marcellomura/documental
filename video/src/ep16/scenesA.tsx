@@ -240,7 +240,7 @@ export const S02: React.FC<SceneP> = ({t, T, w, h}) => {
             {cutW > 3 ? <Section t={t} lon={-28} width={cutW} conv={conv} k={mix(0.6, 1, ss(tGira, tCorr, t))} /> : null}
             <Atmosphere sun={sun} cam={camE} />
             {lines > 0 ? <FieldLines t={t} cam={camE} reveal={lines} k={mix(0.6, 1.0, ss(tSale, tInv, t))} flow={0.35} /> : null}
-            {t > tPero - 1 ? <SolarWind t={t - tPero} sunDir={sunW} k={1.8 * ss(tPero - 0.5, tPero + 1.0, t) * (1 - ss(tMarte - 0.4, tMarte, t))} color="#FFE2B8" /> : null}
+            {t > tPero - 1 ? <SolarWind t={t - tPero} sunDir={sunW} k={0.6 * ss(tPero - 0.5, tPero + 1.0, t) * (1 - ss(tMarte - 0.4, tMarte, t))} color="#FFD9A8" /> : null}
           </Stage16>
           {/* rótulos del corte */}
           <Label x={pCore.x} y={pCore.y} dx={-220} dy={150} k={ruler} title="Borde del núcleo" value="≈ 2.900 km" unit="de profundidad" color={K.hot2} align="left" />
@@ -249,14 +249,14 @@ export const S02: React.FC<SceneP> = ({t, T, w, h}) => {
           <Label x={w * 0.5 + 330} y={h * 0.5 - 220} dx={170} dy={-90} k={vis(t, tSale + 2.0, tInv - 0.3, 0.6, 0.5)} title="Llega a" value="decenas de miles" unit="de km" color={K.cool} size={38} />
           {/* imán de heladera vs. Tierra */}
           {t > tInv - 0.5 && t < tPero + 0.3 ? <Fridge t={t} t0={A('cien veces')} t1={tPero} /> : null}
-          <Label x={w * 0.5 - 420} y={h * 0.5 - 60} dx={-150} dy={-170} k={vis(t, tChorro - 0.2, tMarte - 0.4, 0.6, 0.5)} title="Viento solar · esquema, no a escala" value="+1.000.000" unit="km/h" color={K.hot2} size={44} />
+          <Label x={w * 0.5 - 520} y={h * 0.5 - 40} dx={60} dy={-230} k={vis(t, tChorro - 0.2, tMarte - 0.4, 0.6, 0.5)} title="Viento solar · esquema, no a escala" value="+1.000.000" unit="km/h" color={K.hot2} size={44} align="left" />
         </AbsoluteFill>
       ) : null}
       {marsK > 0 ? (
         <AbsoluteFill style={{opacity: marsK * vis(t, tMarte - 1, s1 + 1.0, 0.3, 0.8)}}>
           <Stage16 cam={camM} w={w} h={h}>
             <Mars sun={sunW} cam={camM} atm={mix(0.55, 0.06, ss(tCon, tCon + 1.6, t))} spin={(t - tMarte) * 0.05} />
-            <SolarWind t={t - tPero} sunDir={sunW} shield={0} k={0.9} color="#FFC48A" />
+            <SolarWind t={t - tPero} sunDir={sunW} shield={0} k={0.7} color="#FFC48A" />
           </Stage16>
           <NameTag t={t} t0={tMarte + 0.2} t1={s1 + 0.8} name="MARTE" role="sin campo magnético global" x={96} y={820} />
           <Credit16 t={t} t0={tMarte} t1={s1 + 0.8} text="Textura de Marte: Solar System Scope (CC BY 4.0), a partir de datos de la NASA" right />

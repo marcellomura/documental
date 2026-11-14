@@ -806,36 +806,45 @@ export const Blob: React.FC<{lat: number; lon: number; cam: GeoCam; k?: number; 
 };
 
 /* ------------------------------------------------------------------ viento solar */
-const SW_VS = `attribute vec3 seed; uniform float t, speed, a, x0; uniform vec3 dir; varying float vA;
-void main(){
-  // flujo axial que rodea un paraboloide (magnetopausa esquemática): ρ² = b² + ρc², con ρc² = 4a(x - x0)
+const SW_VS = `attribute vec3 seed; attribute float tail; uniform float t, speed, a, x0; uniform vec3 dir; varying float vA;
+vec3 flowPos(float tt){
+  // flujo axial que rodea un paraboloide (magnetopausa esquemática): ρ² = b² + ρc², con ρc² = 4a(x0 − x)
   float b = seed.x, th = seed.y * 6.283;
-  float x = 10.0 - mod(seed.z * 20.0 + t * speed, 20.0);
+  float x = 10.0 - mod(seed.z * 20.0 + tt * speed, 20.0);
   float rc2 = max(0.0, 4.0 * a * (x0 - x));
   float rho = sqrt(b * b + rc2);
-  vec3 q = vec3(x, rho * cos(th), rho * sin(th));
+  return vec3(x, rho * cos(th), rho * sin(th));
+}
+void main(){
+  vec3 q = flowPos(t - tail * 0.16);
+  vec3 qh = flowPos(t);
+  if (tail > 0.5 && q.x < qh.x) q = qh;      // la estela no salta cuando la partícula vuelve a empezar
   vec3 X = normalize(dir); vec3 Y = normalize(cross(abs(X.y) < 0.9 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0), X)); vec3 Z = cross(X, Y);
   vec3 p = X * q.x + Y * q.y + Z * q.z;
-  vA = (1.0 - smoothstep(7.0, 10.0, x)) * smoothstep(-10.0, -6.0, x);
-  vec4 mv = modelViewMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv; gl_PointSize = min(26.0 / max(-mv.z, 0.4), 9.0);
+  vA = (1.0 - smoothstep(7.0, 10.0, qh.x)) * smoothstep(-10.0, -6.0, qh.x) * (1.0 - tail * 0.9);
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
 }`;
 const SW_FS = `
 uniform vec3 col; uniform float k; varying float vA;
 void main(){
-  vec2 d = gl_PointCoord - 0.5; float a = smoothstep(0.5, 0.0, length(d));
-  gl_FragColor = vec4(col * a * vA * k, 1.0);
+  gl_FragColor = vec4(col * vA * k, 1.0);
   #include <colorspace_fragment>
 }`;
 let SW_GEO: THREE.BufferGeometry | null = null;
-/** viento solar (esquema, no a escala): llega desde el lado del Sol (`sunDir`) y se abre alrededor del escudo; sin escudo choca con el planeta */
+/** viento solar (esquema, no a escala): estelas que llegan desde el lado del Sol (`sunDir`) y se abren alrededor del
+ *  escudo; sin escudo (Marte) chocan con el planeta */
 export const SolarWind: React.FC<{t: number; sunDir: V3; k?: number; shield?: number; color?: string}> = ({t, sunDir, k = 1, shield = 1, color = '#FFD08A'}) => {
   const geo = useMemo(() => {
     if (SW_GEO) return SW_GEO;
-    const n = 18000, s = new Float32Array(n * 3);
-    for (let i = 0; i < n; i++) s.set([Math.sqrt(rnd(i * 1.1)) * 4.2, rnd(i * 2.9 + 1), rnd(i * 4.3 + 2)], i * 3);
+    const n = 7000, s = new Float32Array(n * 6), tl = new Float32Array(n * 2);
+    for (let i = 0; i < n; i++) {
+      const sd = [Math.sqrt(rnd(i * 1.1)) * 4.2, rnd(i * 2.9 + 1), rnd(i * 4.3 + 2)];
+      s.set(sd, i * 6); s.set(sd, i * 6 + 3); tl[i * 2] = 0; tl[i * 2 + 1] = 1;
+    }
     const g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(n * 3), 3));
+    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(n * 6), 3));
     g.setAttribute('seed', new THREE.BufferAttribute(s, 3));
+    g.setAttribute('tail', new THREE.BufferAttribute(tl, 1));
     SW_GEO = g;
     return g;
   }, []);
@@ -843,10 +852,9 @@ export const SolarWind: React.FC<{t: number; sunDir: V3; k?: number; shield?: nu
     uniforms: {t: {value: 0}, speed: {value: 3}, a: {value: 1}, x0: {value: 9}, dir: {value: new THREE.Vector3()}, col: {value: new THREE.Color()}, k: {value: 1}}}), []);
   const u = mat.uniforms;
   u.t.value = t; u.speed.value = 3.2; u.k.value = k; u.col.value.set(color);
-  // con escudo la nariz queda a ~10 radios; sin escudo (Marte) el flujo llega hasta la superficie
   u.x0.value = 1.0 + 2.6 * shield; u.a.value = 0.25 + 0.75 * shield;
   u.dir.value.set(sunDir[0], sunDir[1], sunDir[2]);
-  return <points geometry={geo} material={mat} frustumCulled={false} renderOrder={11} />;
+  return <lineSegments geometry={geo} material={mat} frustumCulled={false} renderOrder={11} />;
 };
 
 /* ------------------------------------------------------------------ Marte */
