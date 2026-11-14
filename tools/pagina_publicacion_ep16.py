@@ -68,7 +68,7 @@ page = f"""<title>El punto débil</title>
 :root {{ --bg:#F4F1EA; --panel:#FFFDF8; --ink:#141A22; --dim:#5D6878; --line:rgba(20,26,34,.14); --hot:#C2410C; --hot2:#B7791F; --cool:#0F766E; --chip:#EFE8DA; color-scheme:light }}
 @media (prefers-color-scheme: dark) {{ :root:not([data-theme="light"]) {{ --bg:#05080F; --panel:#0B111C; --ink:#E9EEF4; --dim:#8F9DB0; --line:rgba(233,238,244,.14); --hot:#FF7A1F; --hot2:#FFC24A; --cool:#48F3D2; --chip:#121B2A; color-scheme:dark }} }}
 :root[data-theme="dark"] {{ --bg:#05080F; --panel:#0B111C; --ink:#E9EEF4; --dim:#8F9DB0; --line:rgba(233,238,244,.14); --hot:#FF7A1F; --hot2:#FFC24A; --cool:#48F3D2; --chip:#121B2A; color-scheme:dark }}
-body {{ background:var(--bg); color:var(--ink); font:16px/1.6 Inter, system-ui, sans-serif }}
+body {{ background:var(--bg); color:var(--ink); font:16px/1.6 Inter, system-ui, sans-serif; overflow-wrap:anywhere }}
 .wrap {{ max-width:1080px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); padding-block:40px 80px }}
 header {{ display:grid; gap:10px; padding-bottom:28px; border-bottom:1px solid var(--line) }}
 .kicker {{ font:500 13px/1.2 'Geist Mono', ui-monospace, monospace; letter-spacing:.2em; text-transform:uppercase; color:var(--dim) }}
