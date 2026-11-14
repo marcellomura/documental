@@ -6,7 +6,7 @@ La Anomalía del Atlántico Sur (AAS): la zona donde el campo magnético de la T
 
 Todo sale del **IGRF-14**, el modelo internacional de referencia del campo magnético (IAGA, coeficientes publicados por NOAA/NCEI). Está implementado en `tools/igrf16.py` (armónicos esféricos hasta grado 13, sobre el elipsoide WGS84).
 
-**Verificación:** contra las medias anuales medidas en el observatorio de Pilar (Córdoba), 1905–2024, del World Data Centre for Geomagnetism de Edimburgo. Diferencias de entre −80 y +11 nT sobre valores de 22.000 a 29.000 nT.
+**Verificación:** contra las medias anuales medidas en el observatorio de Pilar (Córdoba), 1905–2024, del World Data Centre for Geomagnetism de Edimburgo. En los 108 años con dato, el modelo queda entre 93 nT por debajo y 25 nT por encima de lo medido (desde 1945, entre −82 y +25 nT), sobre valores de 22.000 a 29.000 nT: nunca más del 0,33 %.
 
 | Dato | Valor | Nota |
 |---|---|---|
@@ -63,7 +63,7 @@ Todo sale del **IGRF-14**, el modelo internacional de referencia del campo magn�
 ## Datos reales que se muestran
 
 - **Protones medidos:** detector SEM-2 del satélite meteorológico MetOp-A (EUMETSAT, instrumento de NOAA), a unos 820–850 km de altura, marzo de 2014. Archivo de NOAA/NCEI.
-- **Pilar:** medias anuales 1905–2024, World Data Centre for Geomagnetism (Edimburgo); el observatorio es del Servicio Meteorológico Nacional.
+- **Pilar:** medias anuales 1905–2024, World Data Centre for Geomagnetism (Edimburgo); el observatorio es del Servicio Meteorológico Nacional. En 1957, 1958 y 1959 se midieron H y D pero no Z: no hay intensidad total esos años y el gráfico los saltea (la tabla los trae con F = 0).
 - **Campo, líneas, cinturón y núcleo:** IGRF-14 calculado acá.
 
 ## Material real del episodio
